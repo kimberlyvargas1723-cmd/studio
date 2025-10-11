@@ -1,3 +1,40 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "dashboard-hero",
+      "description": "A student studying at a desk with a laptop and books.",
+      "imageUrl": "https://picsum.photos/seed/101/1200/400",
+      "imageHint": "student studying"
+    },
+    {
+      "id": "study-card",
+      "description": "A stack of colorful books.",
+      "imageUrl": "https://picsum.photos/seed/102/600/400",
+      "imageHint": "books library"
+    },
+    {
+      "id": "practice-card",
+      "description": "A dart hitting the bullseye of a target.",
+      "imageUrl": "https://picsum.photos/seed/103/600/400",
+      "imageHint": "target success"
+    },
+    {
+      "id": "schedule-card",
+      "description": "A wall calendar with dates marked.",
+      "imageUrl": "https://picsum.photos/seed/104/600/400",
+      "imageHint": "calendar schedule"
+    },
+    {
+      "id": "progress-card",
+      "description": "A line graph showing upward progress.",
+      "imageUrl": "https://picsum.photos/seed/105/600/400",
+      "imageHint": "chart graph"
+    },
+    {
+      "id": "user-avatar",
+      "description": "A placeholder avatar for a user.",
+      "imageUrl": "https://picsum.photos/seed/106/100/100",
+      "imageHint": "person portrait"
+    }
+  ]
 }
