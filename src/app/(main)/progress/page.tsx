@@ -13,7 +13,7 @@ export default function ProgressPage() {
           <CardHeader>
             <CardTitle className="font-headline">Rendimiento por Tema</CardTitle>
             <CardDescription>
-              Visualiza tus aciertos y errores en los quizzes para identificar áreas de mejora.
+              Visualiza tus aciertos y errores en los quizzes para identificar áreas de mejora en tu preparación para Psicología.
             </CardDescription>
           </CardHeader>
           <CardContent>

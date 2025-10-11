@@ -62,10 +62,10 @@ export default function DashboardPage() {
           </div>
           <div className="relative z-10 p-6 md:p-8 text-white">
             <h2 className="font-headline text-3xl md:text-5xl font-bold">
-              Bienvenido a UANL Prep AI
+              Prepárate para Psicología UANL 2025
             </h2>
             <p className="mt-2 max-w-xl text-lg text-white/90">
-              Tu asistente inteligente para conquistar el examen de admisión. Empieza a estudiar de forma más inteligente.
+              Tu asistente inteligente para conquistar el examen de admisión de Psicología. Empieza a estudiar de forma más inteligente.
             </p>
             <Button asChild className="mt-4 bg-primary text-primary-foreground hover:bg-primary/90">
               <Link href="/study">

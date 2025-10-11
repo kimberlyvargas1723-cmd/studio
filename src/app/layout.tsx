@@ -4,8 +4,8 @@ import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'UANL Prep AI',
-  description: 'Tu asistente de IA para prepararte para el examen de admisión de la UANL.',
+  title: 'UANL Prep AI - Psicología 2025',
+  description: 'Tu asistente de IA para prepararte para el examen de admisión de Psicología 2025 en la UANL.',
 };
 
 export default function RootLayout({
