@@ -12,12 +12,18 @@ export const studyResources: StudyResource[] = [
     source: 'bases-biologicas.md',
   },
   {
+    title: 'Comprensión Lectora',
+    category: 'EXANI-II General',
+    type: 'internal',
+    source: 'comprension-lectora.md',
+  },
+  {
     title: 'Condicionamiento Clásico (Lectura)',
     category: 'Procesos Psicológicos',
     type: 'internal',
     source: 'condicionamiento-clasico.md',
   },
-    {
+  {
     title: 'Pensamiento Matemático: Porcentajes',
     category: 'EXANI-II General',
     type: 'internal',
