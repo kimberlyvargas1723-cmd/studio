@@ -18,6 +18,7 @@ import {
   BarChart3,
   Atom,
   FileText,
+  CalendarDays,
 } from 'lucide-react';
 
 const menuItems = [
@@ -27,6 +28,7 @@ const menuItems = [
   { href: '/practice', label: 'Practicar', icon: Target },
   { href: '/assistant', label: 'Asistente IA', icon: Sparkles },
   { href: '/progress', label: 'Mi Progreso', icon: BarChart3 },
+  { href: '/schedule', label: 'Mi Horario', icon: CalendarDays },
 ];
 
 export function MainSidebar() {
