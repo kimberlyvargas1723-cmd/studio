@@ -36,6 +36,12 @@ export const studyResources: StudyResource[] = [
     source: 'psicometria.md',
   },
   {
+    title: 'Guía para el Examen Psicométrico UANL',
+    category: 'Examen Psicométrico',
+    type: 'internal',
+    source: 'guia-psicometrico.md',
+  },
+  {
     title: 'Comprensión Lectora',
     category: 'Habilidades del EXANI-II',
     type: 'internal',
@@ -144,8 +150,11 @@ export const initialPerformance: PerformanceData[] = [
   { topic: 'Procesos Psicológicos Básicos', correct: 0, incorrect: 0 },
   { topic: 'Psicología del Desarrollo', correct: 0, incorrect: 0 },
   { topic: 'Psicología Social', correct: 0, incorrect: 0 },
-  { topic: 'Psicometría', correct: 0, incorrect_to: 0 },
+  { topic: 'Psicometría', correct: 0, incorrect: 0 },
+  { topic: 'Examen Psicométrico', correct: 0, incorrect: 0 },
   { topic: 'Comprensión Lectora', correct: 0, incorrect: 0 },
   { topic: 'Redacción Indirecta', correct: 0, incorrect: 0 },
   { topic: 'Pensamiento Matemático', correct: 0, incorrect: 0 }
 ];
+
+    
