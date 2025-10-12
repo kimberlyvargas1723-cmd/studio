@@ -12,17 +12,15 @@ import {
 } from '@/components/ui/sidebar';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from './ui/button';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
-import type { ImagePlaceholder } from '@/lib/placeholder-images';
+import { useAuth } from '@/firebase';
 
 type HeaderProps = {
   title: string;
 };
 
 export function Header({ title }: HeaderProps) {
-  const userAvatar: ImagePlaceholder | undefined = PlaceHolderImages.find(
-    (img) => img.id === 'user-avatar'
-  );
+  const { user, signOut } = useAuth();
+
   return (
     <header className="sticky top-0 z-10 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
       <SidebarTrigger className="md:hidden" />
@@ -32,24 +30,23 @@ export function Header({ title }: HeaderProps) {
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="relative h-10 w-10 rounded-full">
               <Avatar className="h-10 w-10">
-                {userAvatar && (
-                  <AvatarImage
-                    src={userAvatar.imageUrl}
-                    alt="User avatar"
-                    data-ai-hint={userAvatar.imageHint}
-                  />
+                {user?.photoURL && (
+                    <AvatarImage
+                        src={user.photoURL}
+                        alt={user.displayName || 'User avatar'}
+                    />
                 )}
-                <AvatarFallback>U</AvatarFallback>
+                <AvatarFallback>{user?.displayName?.charAt(0) || 'U'}</AvatarFallback>
               </Avatar>
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Mi Cuenta</DropdownMenuLabel>
+            <DropdownMenuLabel>{user?.displayName || 'Mi Cuenta'}</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Configuración</DropdownMenuItem>
-            <DropdownMenuItem>Soporte</DropdownMenuItem>
+            <DropdownMenuItem disabled>Configuración</DropdownMenuItem>
+            <DropdownMenuItem disabled>Soporte</DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Cerrar Sesión</DropdownMenuItem>
+            <DropdownMenuItem onClick={signOut}>Cerrar Sesión</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

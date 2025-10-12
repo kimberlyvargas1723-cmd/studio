@@ -15,6 +15,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useToast } from '@/hooks/use-toast';
 import { saveSummary as saveSummaryToStorage } from '@/lib/services';
+import { useAuth } from '@/firebase';
 
 /**
  * Renders the study page, which allows users to select study resources from a list.
@@ -29,6 +30,7 @@ export default function StudyPage() {
   const [isSummarizing, setIsSummarizing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
+  const { user } = useAuth();
 
   /**
    * Handles the selection of a study resource.
@@ -97,7 +99,7 @@ export default function StudyPage() {
    * and shows a confirmation toast.
    */
   const handleSaveSummary = () => {
-    if (!summary || !selectedResource) return;
+    if (!summary || !selectedResource || !user) return;
 
     saveSummaryToStorage({
       id: Date.now().toString(),
@@ -105,7 +107,7 @@ export default function StudyPage() {
       content: summary,
       originalUrl: selectedResource.source,
       createdAt: new Date().toISOString(),
-    });
+    }, user.uid);
 
     toast({
       title: 'Resumen Guardado',

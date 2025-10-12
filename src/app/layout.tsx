@@ -4,6 +4,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 import { Inter, Lexend } from 'next/font/google';
+import { FirebaseProvider } from '@/firebase/provider';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const lexend = Lexend({ subsets: ['latin'], variable: '--font-lexend' });
@@ -15,8 +16,8 @@ export const metadata: Metadata = {
 
 /**
  * RootLayout is the main layout of the application. It applies global styles,
- * fonts, and essential components like the Toaster.
- * This ensures a consistent look and feel across all pages.
+ * fonts, and essential components like the Toaster and FirebaseProvider.
+ * This ensures a consistent look and feel and Firebase context across all pages.
  */
 export default function RootLayout({
   children,
@@ -26,7 +27,9 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body className={cn('font-body antialiased', inter.variable, lexend.variable)}>
-        {children}
+        <FirebaseProvider>
+          {children}
+        </FirebaseProvider>
         <Toaster />
       </body>
     </html>

@@ -28,6 +28,7 @@ import {
 import { getSavedSummaries, deleteSummary as deleteSummaryFromStorage } from '@/lib/services';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { useAuth } from '@/firebase';
 
 /**
  * Renders the page that displays all summaries saved by the user.
@@ -36,15 +37,17 @@ import remarkGfm from 'remark-gfm';
 export default function SummariesPage() {
   const [summaries, setSummaries] = useState<SavedSummary[]>([]);
   const [selectedSummary, setSelectedSummary] = useState<SavedSummary | null>(null);
+  const { user } = useAuth();
 
   useEffect(() => {
-    // Load summaries from storage when the component mounts and select the first one.
-    const savedSummaries = getSavedSummaries();
-    setSummaries(savedSummaries);
-    if (savedSummaries.length > 0) {
-      setSelectedSummary(savedSummaries[0]);
+    if (user) {
+        const savedSummaries = getSavedSummaries(user.uid);
+        setSummaries(savedSummaries);
+        if (savedSummaries.length > 0) {
+        setSelectedSummary(savedSummaries[0]);
+        }
     }
-  }, []);
+  }, [user]);
 
   /**
    * Handles the deletion of a summary from local storage.
@@ -52,7 +55,8 @@ export default function SummariesPage() {
    * @param {string} summaryId - The ID of the summary to delete.
    */
   const handleDelete = (summaryId: string) => {
-    const updatedSummaries = deleteSummaryFromStorage(summaryId);
+    if (!user) return;
+    const updatedSummaries = deleteSummaryFromStorage(summaryId, user.uid);
     setSummaries(updatedSummaries);
     
     // If the deleted summary was the selected one, select the next available summary or null.

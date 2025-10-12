@@ -12,6 +12,7 @@ import { Progress } from '@/components/ui/progress';
 import { analyzePerformanceAndAdapt } from '@/ai/flows/personalized-feedback-adaptation';
 import { updatePerformanceData, saveFeedback } from '@/lib/services';
 import { useRouter } from 'next/navigation';
+import { useAuth } from '@/firebase';
 
 
 type GeneratedQuizProps = {
@@ -36,6 +37,7 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
   const [feedback, setFeedback] = useState<Feedback | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  const { user } = useAuth();
 
 
   const currentQuestion: GeneratedQuestion = quiz.questions[currentQuestionIndex];
@@ -57,7 +59,12 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
       setScore(score + 1);
     }
     
-    updatePerformanceData(currentQuestion.topic, correct);
+    if (user) {
+      updatePerformanceData(currentQuestion.topic, correct, user.uid);
+    } else {
+      updatePerformanceData(currentQuestion.topic, correct);
+    }
+    
 
     try {
       if (!isDiagnostic) {
@@ -69,7 +76,11 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
           });
           const newFeedback: Feedback = {...result, timestamp: new Date().toISOString(), topic: currentQuestion.topic};
           setFeedback(newFeedback);
-          saveFeedback(newFeedback);
+          if (user) {
+            saveFeedback(newFeedback, user.uid);
+          } else {
+            saveFeedback(newFeedback);
+          }
       }
     } catch (error) {
       console.error("Error getting feedback:", error);
@@ -82,7 +93,11 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
             topic: currentQuestion.topic,
           }
           setFeedback(errorFeedback);
-          saveFeedback(errorFeedback);
+          if (user) {
+            saveFeedback(errorFeedback, user.uid);
+          } else {
+            saveFeedback(errorFeedback);
+          }
       }
     } finally {
       setIsLoading(false);
@@ -111,7 +126,9 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
   }
 
   const handleFinishDiagnostic = () => {
-      localStorage.setItem('onboardingComplete', 'true');
+      if (user) {
+        localStorage.setItem(`onboardingComplete_${user.uid}`, 'true');
+      }
       router.push('/dashboard');
   }
 
@@ -139,7 +156,7 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
           </p>
            <p className="text-center text-sm text-muted-foreground mt-4">
             {isDiagnostic 
-                ? 'Tus resultados se han guardado en "Mi Progreso". ¡Vamos al panel principal!'
+                ? 'Tus resultados se han guardado. Ahora te llevaremos al panel principal.'
                 : 'Puedes revisar tu retroalimentación detallada en la sección "Mi Progreso".'
             }
            </p>

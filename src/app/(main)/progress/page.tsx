@@ -10,21 +10,23 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Lightbulb, BookX } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { getFeedbackHistory, getPerformanceData } from '@/lib/services';
+import { useAuth } from '@/firebase';
 
 /**
  * Renders the progress page, which displays the user's performance on quizzes
  * through a bar chart and shows a history of feedback provided by the AI.
  */
 export default function ProgressPage() {
+    const { user } = useAuth();
     const [performance, setPerformance] = useState<PerformanceData[]>(initialPerformance);
     const [feedbackHistory, setFeedbackHistory] = useState<Feedback[]>([]);
 
     useEffect(() => {
-        // On component mount, load performance data and feedback history from localStorage
-        // to ensure the user's progress is always up-to-date.
-        setFeedbackHistory(getFeedbackHistory());
-        setPerformance(getPerformanceData());
-    }, []);
+        if (user) {
+            setFeedbackHistory(getFeedbackHistory(user.uid));
+            setPerformance(getPerformanceData(user.uid));
+        }
+    }, [user]);
 
   return (
     <div className="flex min-h-screen w-full flex-col">
