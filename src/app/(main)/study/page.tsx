@@ -1,7 +1,7 @@
 // src/app/(main)/study/page.tsx
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Header } from '@/components/header';
@@ -30,6 +30,33 @@ export default function StudyPage() {
   const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
 
+  useEffect(() => {
+    // On initial load, fetch and display the personalized study guide.
+    const fetchGuide = async () => {
+      setIsLoading(true);
+      try {
+        const response = await fetch('/GUIA_DE_ESTUDIO.md');
+        if (!response.ok) {
+          throw new Error('No se pudo cargar la guía de estudio.');
+        }
+        const content = await response.text();
+        setResourceContent(content);
+        setSelectedResource({
+          title: 'Guía de Estudio Personalizada',
+          category: 'Introducción',
+          type: 'internal',
+          source: 'GUIA_DE_ESTUDIO.md',
+        });
+      } catch (e) {
+        console.error('Failed to fetch study guide:', e);
+        setError('No se pudo cargar la guía de estudio inicial.');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchGuide();
+  }, []);
+
   /**
    * Handles the selection of a study resource.
    * For internal resources, it fetches and displays the markdown content.
@@ -42,11 +69,12 @@ export default function StudyPage() {
     setError(null);
     setResourceContent(null);
 
+    const sourceFile = resource.type === 'internal' ? `/estudio/${resource.source}` : `/${resource.source}`;
+
     if (resource.type === 'internal') {
       setIsLoading(true);
       try {
-        // Fetch the content of the internal markdown file from the public directory.
-        const response = await fetch(`/estudio/${resource.source}`);
+        const response = await fetch(sourceFile);
         if (!response.ok) {
             throw new Error(`Network response was not ok, status: ${response.status}`);
         }
@@ -60,7 +88,6 @@ export default function StudyPage() {
         setIsLoading(false);
       }
     } else {
-        // For external URLs, open in a new tab and display an informational message.
         window.open(resource.source, '_blank');
         setResourceContent(`Se está abriendo el recurso externo en una nueva pestaña. La IA no puede resumir PDFs o enlaces externos directamente, pero puedes copiar y pegar el texto si deseas un resumen.`);
         setIsLoading(false);
@@ -79,8 +106,6 @@ export default function StudyPage() {
     setSummary(null);
     
     try {
-      // Use a data URI to pass the local markdown content to the summarization flow,
-      // avoiding the need for another network request.
       const result = await summarizeContent({ url: `data:text/markdown;charset=utf-8,${encodeURIComponent(resourceContent)}` });
       setSummary(result.summary);
     } catch (e) {
@@ -128,6 +153,19 @@ export default function StudyPage() {
           <CardContent>
             <ScrollArea className="h-[60vh] lg:h-[calc(100vh-20rem)]">
               <div className="space-y-2">
+                <Button
+                    key="guia-de-estudio"
+                    variant="ghost"
+                    className="w-full justify-start text-left h-auto"
+                    onClick={() => handleResourceSelect({title: 'Guía de Estudio Personalizada', category: 'Introducción', type: 'internal', source: 'GUIA_DE_ESTUDIO.md'})}
+                    disabled={isLoading || isSummarizing}
+                  >
+                    <Book className="h-5 w-5 mr-3 text-muted-foreground" />
+                    <div className="flex flex-col">
+                      <span>Guía de Estudio</span>
+                      <span className="text-xs text-muted-foreground">Introducción</span>
+                    </div>
+                  </Button>
                 {studyResources.map((resource) => (
                   <Button
                     key={resource.source}
@@ -154,7 +192,7 @@ export default function StudyPage() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <FileText className="h-6 w-6 text-primary" />
-                <CardTitle className="font-headline">{selectedResource?.type === 'internal' ? 'Material de Lectura' : 'Recurso Externo'}</CardTitle>
+                <CardTitle className="font-headline">{selectedResource?.title.includes('Guía') ? 'Guía de Estudio' : (selectedResource?.type === 'internal' ? 'Material de Lectura' : 'Recurso Externo')}</CardTitle>
               </div>
               {summary && !isLoading && (
                 <Button variant="outline" size="sm" onClick={handleSaveSummary}>
@@ -162,7 +200,7 @@ export default function StudyPage() {
                   Guardar Resumen
                 </Button>
               )}
-               {resourceContent && selectedResource?.type === 'internal' && !summary && (
+               {resourceContent && selectedResource?.type === 'internal' && !summary && !selectedResource?.title.includes('Guía') &&(
                 <Button variant="outline" size="sm" onClick={handleSummarizeContent} disabled={isSummarizing}>
                     {isSummarizing && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                   Resumir con IA
