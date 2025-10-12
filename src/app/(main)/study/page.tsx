@@ -42,7 +42,7 @@ export default function StudyPage() {
     if (resource.type === 'internal') {
       try {
         // Fetch the content of the internal markdown file.
-        const response = await fetch(`/estudio/${resource.source}`);
+        const response = await fetch(`/${resource.source}`);
         if (!response.ok) throw new Error('Network response was not ok');
         const content = await response.text();
         setResourceContent(content);
@@ -193,7 +193,7 @@ export default function StudyPage() {
               <Alert variant="destructive">
                 <AlertTitle>Error</AlertTitle>
                 <AlertDescription>{error}</AlertDescription>
-              </Aler>
+              </Alert>
             )}
 
             {!isLoading && !isSummarizing && !error && (
@@ -205,7 +205,7 @@ export default function StudyPage() {
                 </ScrollArea>
               ) : resourceContent ? (
                    <ScrollArea className="h-[calc(100vh-20rem)]">
-                      <div className="prose prose-sm dark:prose-invert max-w-none whitespace-pre-wrap leading-relaxed" dangerouslySetInnerHTML={{ __html: resourceContent }} />
+                      <div className="prose prose-sm dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: resourceContent }} />
                   </ScrollArea>
               ) : (
                  <div className="flex h-full flex-col items-center justify-center gap-3 text-center text-muted-foreground">
