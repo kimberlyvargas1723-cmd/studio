@@ -42,6 +42,8 @@ export type GeneratedQuiz = {
   title: string;
   topic: string;
   questions: GeneratedQuestion[];
+  isPsychometric?: boolean; // Flag for psychometric quizzes
+  timeLimit?: number; // Time limit in minutes
 };
 
 export type Feedback = {

@@ -74,7 +74,7 @@ export function GenerateQuestionsTab() {
 
   // Otherwise, show the UI for selecting a topic and generating a quiz.
   return (
-    <Card className="w-full max-w-4xl">
+    <Card className="w-full max-w-4xl border-none shadow-none">
       <CardHeader>
         <CardTitle className="font-headline">
           Generador de Quiz por Tema

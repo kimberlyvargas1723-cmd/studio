@@ -1,13 +1,13 @@
 // src/components/generated-quiz.tsx
 'use client';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import type { GeneratedQuiz, GeneratedQuestion, Feedback } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Loader2, CheckCircle, XCircle, Lightbulb, ArrowLeft } from 'lucide-react';
+import { Loader2, CheckCircle, XCircle, Lightbulb, ArrowLeft, Timer } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 import { analyzePerformanceAndAdapt } from '@/ai/flows/personalized-feedback-adaptation';
 import { updatePerformanceData, saveFeedback } from '@/lib/services';
@@ -22,11 +22,10 @@ type GeneratedQuizProps = {
 };
 
 /**
- * Renders an interactive quiz. It can be a topic-specific quiz or a diagnostic quiz.
- * It manages the quiz state, including the current question, user's score,
- * and feedback process after each answer.
+ * Renders an interactive quiz, now with an optional timer for psychometric tests.
+ * Manages quiz state, scoring, feedback, and timer logic.
  *
- * @param {GeneratedQuizProps} props - The quiz data, a callback for the back button, and a flag for diagnostic mode.
+ * @param {GeneratedQuizProps} props - The quiz data, a back callback, and diagnostic flag.
  */
 export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQuizProps) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -36,19 +35,41 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
   const [score, setScore] = useState(0);
   const [feedback, setFeedback] = useState<Feedback | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [timeLeft, setTimeLeft] = useState<number | null>(quiz.timeLimit ? quiz.timeLimit * 60 : null);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
   const router = useRouter();
 
 
   const currentQuestion: GeneratedQuestion = quiz.questions[currentQuestionIndex];
   const isQuizFinished = currentQuestionIndex >= quiz.questions.length;
 
-  /**
-   * Handles the submission of an answer. It checks for correctness, updates the score,
-   * stores performance data, and fetches personalized feedback from the AI.
-   */
+  useEffect(() => {
+    if (quiz.isPsychometric && timeLeft !== null && !isQuizFinished && !isAnswered) {
+        timerRef.current = setInterval(() => {
+            setTimeLeft(prev => {
+                if (prev === null || prev <= 1) {
+                    clearInterval(timerRef.current!);
+                    // Auto-submit or move to next question when time is up
+                    handleNextQuestion();
+                    return 0;
+                }
+                return prev - 1;
+            });
+        }, 1000);
+    } else if (timerRef.current) {
+        clearInterval(timerRef.current);
+    }
+    return () => {
+        if (timerRef.current) {
+            clearInterval(timerRef.current);
+        }
+    };
+  }, [quiz.isPsychometric, currentQuestionIndex, isQuizFinished, isAnswered]);
+
   const handleAnswerSubmit = async () => {
     if (!selectedAnswer) return;
 
+    if (timerRef.current) clearInterval(timerRef.current);
     setIsLoading(true);
     setIsAnswered(true);
     const correct = selectedAnswer === currentQuestion.correctAnswer;
@@ -59,10 +80,9 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
     }
     
     updatePerformanceData(currentQuestion.topic, correct);
-    
 
     try {
-      if (!isDiagnostic) {
+      if (!isDiagnostic && !quiz.isPsychometric) {
           const result = await analyzePerformanceAndAdapt({
             question: currentQuestion.question,
             studentAnswer: selectedAnswer,
@@ -75,7 +95,7 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
       }
     } catch (error) {
       console.error("Error getting feedback:", error);
-      if (!isDiagnostic) {
+      if (!isDiagnostic && !quiz.isPsychometric) {
           const errorFeedback: Feedback = {
             feedback: "No se pudo obtener la retroalimentación. Por favor, intenta de nuevo.",
             areasForImprovement: "N/A",
@@ -91,44 +111,45 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
     }
   };
 
-  /**
-   * Moves to the next question in the quiz, resetting the state for the new question.
-   */
   const handleNextQuestion = () => {
     setCurrentQuestionIndex(currentQuestionIndex + 1);
     setSelectedAnswer(null);
     setIsAnswered(false);
     setFeedback(null);
+    if(quiz.timeLimit) setTimeLeft(quiz.timeLimit * 60);
   };
 
-  /**
-   * Resets the quiz to the beginning, clearing the score and all question states.
-   */
   const handleRestartQuiz = () => {
     setCurrentQuestionIndex(0);
     setScore(0);
     setSelectedAnswer(null);
     setIsAnswered(false);
     setFeedback(null);
+    if(quiz.timeLimit) setTimeLeft(quiz.timeLimit * 60);
   }
 
   const handleFinishDiagnostic = () => {
       localStorage.setItem('onboardingComplete', 'true');
       router.push('/dashboard');
   }
+  
+  const formatTime = (seconds: number) => {
+    const minutes = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  };
 
-  // Render the quiz completion summary if all questions have been answered.
   if (isQuizFinished) {
     return (
       <Card className="w-full max-w-2xl mt-4">
         <CardHeader>
           <CardTitle className="font-headline text-2xl">
-            {isDiagnostic ? '¡Diagnóstico Completado!' : '¡Quiz Completado!'}
+            {isDiagnostic ? '¡Diagnóstico Completado!' : '¡Práctica Completada!'}
           </CardTitle>
           <CardDescription>
             {isDiagnostic 
               ? 'Hemos evaluado tu conocimiento inicial. ¡Ya estás lista para empezar a estudiar!' 
-              : `Resultado del quiz sobre: ${quiz.title}`
+              : `Resultado de la práctica sobre: ${quiz.title}`
             }
           </CardDescription>
         </CardHeader>
@@ -155,7 +176,7 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
                 <>
                  <Button onClick={onBack} className="w-full sm:w-auto" variant="outline">
                     <ArrowLeft className="mr-2 h-4 w-4" />
-                    Elegir otro Tema
+                    Volver a Práctica
                 </Button>
                 <Button onClick={handleRestartQuiz} className="w-full sm:w-auto">
                     Volver a Intentar
@@ -167,7 +188,6 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
     );
   }
 
-  // Render the current question.
   return (
     <Card className="w-full max-w-2xl mt-4">
       <CardHeader>
@@ -182,7 +202,12 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
                 <CardTitle className="font-headline text-lg">{quiz.title}</CardTitle>
                 <CardDescription>Pregunta {currentQuestionIndex + 1} de {quiz.questions.length}</CardDescription>
             </div>
-            {!isDiagnostic && <div className="w-20"></div>}
+            {quiz.isPsychometric && timeLeft !== null ? (
+                <div className="flex items-center gap-2 text-lg font-semibold text-primary w-28 justify-end">
+                    <Timer className="h-5 w-5" />
+                    {formatTime(timeLeft)}
+                </div>
+            ) : <div className="w-28"/>}
         </div>
         <Progress value={((currentQuestionIndex + 1) / quiz.questions.length) * 100} />
         <p className="pt-6 text-lg text-center font-semibold">{currentQuestion.question}</p>
@@ -212,7 +237,6 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
           ))}
         </RadioGroup>
 
-        {/* Display feedback and explanation after an answer is submitted */}
         {isAnswered && (
           <div className="mt-6 space-y-4">
              <Alert variant={isCorrect ? 'default' : 'destructive'} className={cn(
@@ -234,13 +258,13 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
                 {currentQuestion.explanation}
               </AlertDescription>
             </Alert>
-            {isLoading && !isDiagnostic && (
+            {isLoading && !isDiagnostic && !quiz.isPsychometric && (
               <div className="flex items-center gap-2 text-muted-foreground p-4 justify-center">
                 <Loader2 className="h-4 w-4 animate-spin" />
                 Analizando tu respuesta y adaptando tu ruta...
               </div>
             )}
-            {feedback && !isLoading && !isDiagnostic && (
+            {feedback && !isLoading && !isDiagnostic && !quiz.isPsychometric && (
               <Alert className="border-primary">
                 <Lightbulb className="h-4 w-4 text-primary" />
                 <AlertTitle>Retroalimentación Personalizada de Vairyx</AlertTitle>
