@@ -12,20 +12,44 @@ export const studyResources: StudyResource[] = [
     source: 'bases-biologicas.md',
   },
   {
+    title: 'Procesos Psicológicos Básicos',
+    category: 'Fundamentos de Psicología',
+    type: 'internal',
+    source: 'procesos-psicologicos.md',
+  },
+  {
+    title: 'Psicología del Desarrollo',
+    category: 'Fundamentos de Psicología',
+    type: 'internal',
+    source: 'psicologia-desarrollo.md',
+  },
+    {
+    title: 'Psicología Social',
+    category: 'Fundamentos de Psicología',
+    type: 'internal',
+    source: 'psicologia-social.md',
+  },
+  {
+    title: 'Psicometría: Confiabilidad y Validez',
+    category: 'Metodología',
+    type: 'internal',
+    source: 'psicometria.md',
+  },
+  {
     title: 'Comprensión Lectora',
-    category: 'EXANI-II General',
+    category: 'Habilidades del EXANI-II',
     type: 'internal',
     source: 'comprension-lectora.md',
   },
   {
-    title: 'Condicionamiento Clásico (Lectura)',
-    category: 'Procesos Psicológicos',
+    title: 'Redacción Indirecta',
+    category: 'Habilidades del EXANI-II',
     type: 'internal',
-    source: 'condicionamiento-clasico.md',
+    source: 'redaccion-indirecta.md',
   },
   {
     title: 'Pensamiento Matemático: Porcentajes',
-    category: 'EXANI-II General',
+    category: 'Habilidades del EXANI-II',
     type: 'internal',
     source: 'pensamiento-matematico-porcentajes.md',
   },
@@ -76,6 +100,14 @@ export const practiceQuestions: PracticeQuestion[] = [
     correctAnswer: 'Un tipo de aprendizaje en el que un estímulo neutro llega a provocar una respuesta tras asociarse con un estímulo que la provoca naturalmente.',
     explanation: 'Este es el famoso principio descubierto por Ivan Pavlov. El ejemplo clásico es un perro que saliva al oír una campana, porque ha aprendido a asociar la campana (estímulo condicionado) con la comida (estímulo incondicionado).',
   },
+    {
+    id: 'ps-01',
+    topic: 'Psicología Social',
+    question: 'El experimento de la prisión de Stanford, de Philip Zimbardo, es un famoso estudio sobre:',
+    options: ['La obediencia a la autoridad', 'El poder de los roles sociales y las situaciones', 'La difusión de la responsabilidad', 'La formación de estereotipos'],
+    correctAnswer: 'El poder de los roles sociales y las situaciones',
+    explanation: 'El experimento demostró cómo personas comunes, al ser asignadas a roles de "prisionero" o "guardia", rápidamente internalizaron esos roles hasta extremos preocupantes, mostrando el poder que tiene la situación para influir en el comportamiento.',
+  },
   {
     id: 'pm-01',
     topic: 'Psicometría',
@@ -91,7 +123,7 @@ export const practiceQuestions: PracticeQuestion[] = [
   },
   {
     id: 'ex-01',
-    topic: 'EXANI-II',
+    topic: 'Pensamiento Matemático',
     question: 'En una tienda, una camisa de $400 tiene un descuento del 25%. ¿Cuánto se debe pagar por ella?',
     options: [
         '$100',
@@ -109,8 +141,11 @@ export const practiceQuestions: PracticeQuestion[] = [
  */
 export const initialPerformance: PerformanceData[] = [
   { topic: 'Bases Biológicas de la Conducta', correct: 0, incorrect: 0 },
-  { topic: 'Psicología del Desarrollo', correct: 0, incorrect: 0 },
   { topic: 'Procesos Psicológicos Básicos', correct: 0, incorrect: 0 },
-  { topic: 'Psicometría', correct: 0, incorrect: 0 },
-  { topic: 'EXANI-II', correct: 0, incorrect: 0 }
+  { topic: 'Psicología del Desarrollo', correct: 0, incorrect: 0 },
+  { topic: 'Psicología Social', correct: 0, incorrect: 0 },
+  { topic: 'Psicometría', correct: 0, incorrect_to: 0 },
+  { topic: 'Comprensión Lectora', correct: 0, incorrect: 0 },
+  { topic: 'Redacción Indirecta', correct: 0, incorrect: 0 },
+  { topic: 'Pensamiento Matemático', correct: 0, incorrect: 0 }
 ];
