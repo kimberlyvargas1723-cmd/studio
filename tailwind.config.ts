@@ -87,10 +87,37 @@ export default {
             height: '0',
           },
         },
+        'robot-float': {
+            '0%, 100%': { transform: 'translateY(0)' },
+            '50%': { transform: 'translateY(-8px)' },
+        },
+        'robot-antenna-blink': {
+            '0%, 100%': { opacity: '1' },
+            '50%': { opacity: '0.4' },
+        },
+        'robot-eye-move': {
+            '0%, 40%': { transform: 'translateX(0)' },
+            '50%, 70%': { transform: 'translateX(3px)' },
+            '80%, 100%': { transform: 'translateX(0)' },
+        },
+        'fade-in-up': {
+            from: {
+                opacity: '0',
+                transform: 'translateY(10px)',
+            },
+            to: {
+                opacity: '1',
+                transform: 'translateY(0)',
+            },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'robot-float': 'robot-float 4s ease-in-out infinite',
+        'robot-antenna-blink': 'robot-antenna-blink 2.5s ease-in-out infinite',
+        'robot-eye-move': 'robot-eye-move 7s ease-in-out infinite',
+        'fade-in-up': 'fade-in-up 0.5s ease-out forwards',
       },
     },
   },
