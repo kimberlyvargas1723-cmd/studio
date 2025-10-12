@@ -19,13 +19,13 @@ type Message = {
 
 /**
  * Renders the AI Assistant page, providing a full-screen chat interface
- * for students to get study guidance and resource recommendations from PsicoGuía.
+ * for students to get study guidance and resource recommendations from Vairyx.
  */
 export default function AssistantPage() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'model',
-      content: '¡Hola, Kimberly! Soy PsicoGuía, tu asistente de estudio personal. ¿En qué tema te puedo ayudar a profundizar hoy?',
+      content: '¡Hola, Kimberly! Soy Vairyx, tu asistente de estudio personal. ¿En qué tema te puedo ayudar a profundizar hoy?',
     },
   ]);
   const [input, setInput] = useState('');
@@ -75,7 +75,7 @@ export default function AssistantPage() {
           <CardHeader>
             <div className="flex items-center gap-3">
                 <Sparkles className="h-6 w-6 text-primary" />
-                <CardTitle className="font-headline">PsicoGuía</CardTitle>
+                <CardTitle className="font-headline">Vairyx</CardTitle>
             </div>
             <CardDescription>Tu compañero de estudio personal para el examen de admisión.</CardDescription>
           </CardHeader>

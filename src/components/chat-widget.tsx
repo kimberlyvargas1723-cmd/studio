@@ -22,7 +22,7 @@ type Message = {
 };
 
 /**
- * A custom SVG component for the animated robot character "PsicoGuía".
+ * A custom SVG component for the animated robot character "Vairyx".
  * This component includes CSS-driven animations for floating, blinking, and a pulsing antenna light.
  */
 const RobotIcon = () => (
@@ -30,7 +30,7 @@ const RobotIcon = () => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 100 120"
     className="h-24 w-24 robot-float"
-    aria-label="PsicoGuía, tu asistente de IA"
+    aria-label="Vairyx, tu asistente de IA"
   >
     <defs>
       <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
@@ -43,27 +43,27 @@ const RobotIcon = () => (
     </defs>
     {/* Antenna */}
     <line x1="50" y1="15" x2="50" y2="5" stroke="hsl(var(--primary) / 0.5)" strokeWidth="2" />
-    <circle cx="50" cy="5" r="3" fill="hsl(var(--primary))" className="robot-antenna-light" />
+    <circle cx="50" cy="5" r="3" fill="hsl(var(--accent))" className="robot-antenna-light" />
     
     {/* Head */}
-    <rect x="30" y="15" width="40" height="30" rx="8" fill="hsl(var(--card))" stroke="hsl(var(--border))" strokeWidth="2" />
+    <rect x="30" y="15" width="40" height="30" rx="8" fill="hsl(var(--primary))" stroke="hsl(var(--border))" strokeWidth="2" />
     
     {/* Eyes */}
     <g className="robot-eye">
-        <circle cx="43" cy="30" r="4" fill="hsl(var(--primary))" />
-        <circle cx="57" cy="30" r="4" fill="hsl(var(--primary))" />
+        <circle cx="43" cy="30" r="4" fill="hsl(var(--primary-foreground))" />
+        <circle cx="57" cy="30" r="4" fill="hsl(var(--primary-foreground))" />
     </g>
 
     {/* Body */}
-    <rect x="20" y="45" width="60" height="40" rx="10" fill="hsl(var(--card))" stroke="hsl(var(--border))" strokeWidth="2" />
+    <rect x="20" y="45" width="60" height="40" rx="10" fill="hsl(var(--primary))" stroke="hsl(var(--border))" strokeWidth="2" />
     
     {/* Arms */}
-    <rect x="10" y="50" width="10" height="25" rx="5" fill="hsl(var(--card))" stroke="hsl(var(--border))" strokeWidth="2" />
-    <rect x="80" y="50" width="10" height="25" rx="5" fill="hsl(var(--card))" stroke="hsl(var(--border))" strokeWidth="2" />
+    <rect x="10" y="50" width="10" height="25" rx="5" fill="hsl(var(--accent))" stroke="hsl(var(--border))" strokeWidth="2" />
+    <rect x="80" y="50" width="10" height="25" rx="5" fill="hsl(var(--accent))" stroke="hsl(var(--border))" strokeWidth="2" />
     
     {/* Screen on body with a sparkle */}
     <rect x="35" y="55" width="30" height="20" rx="3" fill="hsl(var(--background))" />
-    <path d="M 48 60 L 50 55 L 52 60 L 55 62 L 52 64 L 50 69 L 48 64 L 45 62 Z" fill="hsl(var(--primary))" filter="url(#glow)" />
+    <path d="M 48 60 L 50 55 L 52 60 L 55 62 L 52 64 L 50 69 L 48 64 L 45 62 Z" fill="hsl(var(--accent))" filter="url(#glow)" />
   </svg>
 );
 
@@ -87,7 +87,7 @@ export function ChatWidget() {
     {
       role: 'model',
       content:
-        '¡Hola, Kimberly! Soy PsicoGuía. Pregúntame lo que necesites sobre tus estudios.',
+        '¡Hola, Kimberly! Soy Vairyx. Pregúntame lo que necesites sobre tus estudios.',
     },
   ]);
   const [input, setInput] = useState('');
@@ -164,7 +164,7 @@ export function ChatWidget() {
       <PopoverTrigger asChild>
         <button
           className="fixed bottom-0 right-4 z-50 transition-transform duration-300 hover:scale-110"
-          aria-label="Abrir chat de PsicoGuía"
+          aria-label="Abrir chat de Vairyx"
         >
           {activeMessage && !isOpen && (
             <div className="absolute bottom-24 right-0 w-48">
@@ -195,7 +195,7 @@ export function ChatWidget() {
            <div className="p-4 border-b">
               <div className="flex items-center gap-3">
                   <Sparkles className="h-6 w-6 text-primary" />
-                  <h3 className="font-headline text-lg">PsicoGuía</h3>
+                  <h3 className="font-headline text-lg">Vairyx</h3>
               </div>
               <p className="text-sm text-muted-foreground">Tu asistente de estudio personal.</p>
            </div>
