@@ -44,10 +44,10 @@ export default function DashboardPage() {
   );
 
   return (
-    <div className="flex min-h-screen w-full flex-col">
+    <div className="flex min-h-screen w-full flex-col bg-muted/40">
        <Header title="Dashboard" />
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
-        <Card className="relative flex flex-col items-start justify-end overflow-hidden rounded-xl">
+        <Card className="relative flex flex-col items-start justify-end overflow-hidden rounded-xl border-none shadow-lg">
           <div className="absolute inset-0 z-0">
             {heroImage && (
               <Image
@@ -56,42 +56,51 @@ export default function DashboardPage() {
                 fill
                 className="object-cover"
                 data-ai-hint={heroImage.imageHint}
+                priority
               />
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
           </div>
           <div className="relative z-10 p-6 md:p-8 text-white">
-            <h2 className="font-headline text-3xl md:text-5xl font-bold">
+            <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter">
               ¡Bienvenida, futura psicóloga Kimberly!
             </h2>
-            <p className="mt-2 max-w-xl text-lg text-white/90">
+            <p className="mt-2 max-w-2xl text-lg text-white/90">
               He preparado esta guía de estudio inteligente solo para ti, para que conquistes tu examen de admisión a Psicología UANL 2025. ¡Vamos a empezar este increíble viaje juntos!
             </p>
-            <Button asChild className="mt-4 bg-primary text-primary-foreground hover:bg-primary/90">
+            <Button asChild className="mt-6">
               <Link href="/study">
                 Empezar a Estudiar <ArrowRight className="ml-2" />
               </Link>
             </Button>
           </div>
         </Card>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {featureCards.map((feature) => {
              const cardImage: ImagePlaceholder | undefined = PlaceHolderImages.find(
                 (img) => img.id === feature.imgId
               );
             return (
             <Link key={feature.title} href={feature.href} passHref>
-              <Card className="flex flex-col h-full hover:border-primary transition-colors duration-300 group">
-                <CardHeader className="flex-row items-center gap-4">
-                  <div className="p-3 bg-primary/10 rounded-lg text-primary">
+               <Card className="group relative flex h-full flex-col justify-end overflow-hidden rounded-xl border-none text-white transition-all hover:scale-[1.02] hover:shadow-2xl">
+                 {cardImage && (
+                  <Image
+                    src={cardImage.imageUrl}
+                    alt={cardImage.description}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    data-ai-hint={cardImage.imageHint}
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
+                <CardHeader className="relative z-10">
+                  <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 p-2 text-white backdrop-blur-sm">
                     <feature.icon className="h-6 w-6" />
                   </div>
-                  <div>
-                    <CardTitle className="font-headline text-xl">{feature.title}</CardTitle>
-                  </div>
+                  <CardTitle className="font-headline text-xl tracking-tight">{feature.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="flex-grow">
-                   <CardDescription>{feature.description}</CardDescription>
+                <CardContent className="relative z-10">
+                   <CardDescription className="text-white/80">{feature.description}</CardDescription>
                 </CardContent>
               </Card>
             </Link>
