@@ -89,15 +89,19 @@ export default {
         },
         'robot-float': {
             '0%, 100%': { transform: 'translateY(0)' },
-            '50%': { transform: 'translateY(-8px)' },
+            '50%': { transform: 'translateY(-10px)' },
+        },
+        'robot-shadow': {
+            '0%, 100%': { transform: 'scale(1)', opacity: '0.2' },
+            '50%': { transform: 'scale(0.85)', opacity: '0.1' },
         },
         'robot-antenna-blink': {
             '0%, 100%': { opacity: '1' },
-            '50%': { opacity: '0.4' },
+            '50%': { opacity: '0.5' },
         },
         'robot-eye-move': {
             '0%, 40%': { transform: 'translateX(0)' },
-            '50%, 70%': { transform: 'translateX(3px)' },
+            '50%, 70%': { transform: 'translateX(2.5px)' },
             '80%, 100%': { transform: 'translateX(0)' },
         },
         'fade-in-up': {
@@ -115,6 +119,7 @@ export default {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'robot-float': 'robot-float 4s ease-in-out infinite',
+        'robot-shadow': 'robot-shadow 4s ease-in-out infinite',
         'robot-antenna-blink': 'robot-antenna-blink 2.5s ease-in-out infinite',
         'robot-eye-move': 'robot-eye-move 7s ease-in-out infinite',
         'fade-in-up': 'fade-in-up 0.5s ease-out forwards',

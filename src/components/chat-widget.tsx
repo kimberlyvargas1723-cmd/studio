@@ -1,6 +1,6 @@
 // src/components/chat-widget.tsx
 'use client';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import {
   Popover,
   PopoverContent,
@@ -10,76 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Sparkles, X } from 'lucide-react';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { useRouter } from 'next/navigation';
-
-const RobotIcon = () => (
-  <div className="relative h-28 w-28">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 100 120"
-      className="h-full w-full robot-float"
-      aria-label="Vairyx, tu asistente de IA"
-    >
-      <defs>
-        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-          <feMerge>
-            <feMergeNode in="coloredBlur" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-      </defs>
-      <line
-        x1="50"
-        y1="15"
-        x2="50"
-        y2="5"
-        stroke="hsl(var(--primary) / 0.5)"
-        strokeWidth="2"
-      />
-      <circle
-        cx="50"
-        cy="5"
-        r="3"
-        fill="hsl(var(--accent))"
-        className="robot-antenna-light"
-      />
-      <rect
-        x="30"
-        y="15"
-        width="40"
-        height="30"
-        rx="8"
-        fill="hsl(var(--primary))"
-        stroke="hsl(var(--border))"
-        strokeWidth="2"
-      />
-      <g className="robot-eye" style={{ transformBox: 'fill-box', transformOrigin: 'center' }}>
-        <circle cx="43" cy="30" r="4" fill="hsl(var(--primary-foreground))" />
-        <circle cx="57" cy="30" r="4" fill="hsl(var(--primary-foreground))" />
-      </g>
-      <rect
-        x="20"
-        y="45"
-        width="60"
-        height="40"
-        rx="10"
-        fill="hsl(var(--primary))"
-        stroke="hsl(var(--border))"
-        strokeWidth="2"
-      />
-      {/* Arms */}
-      <rect x="10" y="50" width="10" height="25" rx="5" fill="hsl(var(--accent))" stroke="hsl(var(--border))" strokeWidth="2" />
-      <rect x="80" y="50" width="10" height="25" rx="5" fill="hsl(var(--accent))" stroke="hsl(var(--border))" strokeWidth="2" />
-
-      <rect x="35" y="55" width="30" height="20" rx="3" fill="hsl(var(--background))" />
-      <path
-        d="M 48 60 L 50 55 L 52 60 L 55 62 L 52 64 L 50 69 L 48 64 L 45 62 Z"
-        fill="hsl(var(--accent))"
-        filter="url(#glow)"
-      />
-    </svg>
-  </div>
-);
+import { VairyxIcon } from './VairyxIcon';
 
 /**
  * Renders an animated, interactive chat widget featuring the AI assistant, Vairyx.
@@ -97,20 +28,20 @@ export function ChatWidget() {
 
 
   return (
-    <div className="fixed bottom-0 right-4 z-50">
+    <div className="fixed bottom-4 right-4 z-50">
         <Popover open={isOpen} onOpenChange={setIsOpen}>
             <PopoverTrigger asChild>
                 <button
                     className="transition-transform duration-300 hover:scale-110"
                     aria-label="Abrir chat de Vairyx"
                 >
-                    <RobotIcon />
+                    <VairyxIcon className="h-28 w-28" />
                 </button>
             </PopoverTrigger>
             <PopoverContent
                 side="top"
                 align="end"
-                className="w-[90vw] max-w-sm flex flex-col p-0"
+                className="w-[90vw] max-w-sm flex flex-col p-0 mb-2"
                 onOpenAutoFocus={(e) => e.preventDefault()} // Prevents focus stealing
             >
                 {/* Header */}
