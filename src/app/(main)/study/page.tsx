@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -29,6 +30,7 @@ export default function StudyPage() {
   const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const contentCardRef = useRef<HTMLDivElement>(null);
 
   // On initial load, fetch and display the personalized study guide.
   useEffect(() => {
@@ -51,6 +53,13 @@ export default function StudyPage() {
   }, []);
 
   /**
+   * Scrolls the content card into view.
+   */
+  const scrollContentIntoView = () => {
+    contentCardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  /**
    * Handles the selection of a study resource from the list.
    * It fetches internal markdown content or provides instructions for external links.
    * @param {StudyResource} resource - The resource that was selected.
@@ -60,6 +69,7 @@ export default function StudyPage() {
     setSummary(null);
     setError(null);
     setResourceContent(null);
+    scrollContentIntoView();
 
     if (resource.type === 'internal') {
       setIsLoading(true);
@@ -133,6 +143,7 @@ export default function StudyPage() {
       setSummary(null);
       setResourceContent(null);
       setSelectedResource({ title: 'Apuntes Subidos', category: 'OCR', type: 'internal', source: file.name });
+      scrollContentIntoView();
 
       try {
         const result = await extractTextFromImageAction(imageUrl);
@@ -182,17 +193,19 @@ export default function StudyPage() {
           </CardContent>
         </Card>
 
-        <StudyContent
-          selectedResource={selectedResource}
-          resourceContent={resourceContent}
-          summary={summary}
-          isLoading={isLoadingAny}
-          isSummarizing={isSummarizing}
-          isExtracting={isExtracting}
-          error={error}
-          onSummarize={handleSummarizeContent}
-          onSaveSummary={handleSaveSummary}
-        />
+        <div ref={contentCardRef} className="w-full lg:w-2/3">
+            <StudyContent
+            selectedResource={selectedResource}
+            resourceContent={resourceContent}
+            summary={summary}
+            isLoading={isLoadingAny}
+            isSummarizing={isSummarizing}
+            isExtracting={isExtracting}
+            error={error}
+            onSummarize={handleSummarizeContent}
+            onSaveSummary={handleSaveSummary}
+            />
+        </div>
       </main>
     </div>
   );
