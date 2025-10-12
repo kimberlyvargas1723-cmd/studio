@@ -1,6 +1,6 @@
 'use client';
-import { useState } from 'react';
-import { practiceQuestions } from '@/lib/data';
+import { useState, useEffect } from 'react';
+import { practiceQuestions, initialPerformance } from '@/lib/data';
 import type { PracticeQuestion, PerformanceData, Feedback } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -21,11 +21,18 @@ export function PracticeQuiz() {
   const [isLoading, setIsLoading] = useState(false);
   const [score, setScore] = useState(0);
 
+  useEffect(() => {
+    // Initialize performance data in localStorage if it doesn't exist
+    if (!localStorage.getItem('performanceData')) {
+        localStorage.setItem('performanceData', JSON.stringify(initialPerformance));
+    }
+  }, []);
+
   const currentQuestion: PracticeQuestion = practiceQuestions[currentQuestionIndex];
   const isQuizFinished = currentQuestionIndex >= practiceQuestions.length;
 
   const updatePerformanceData = (topic: string, wasCorrect: boolean) => {
-    const perfData: PerformanceData[] = JSON.parse(localStorage.getItem('performanceData') || '[]');
+    const perfData: PerformanceData[] = JSON.parse(localStorage.getItem('performanceData') || JSON.stringify(initialPerformance));
     let topicPerf = perfData.find(p => p.topic === topic);
     if (!topicPerf) {
         topicPerf = { topic, correct: 0, incorrect: 0 };
@@ -41,7 +48,7 @@ export function PracticeQuiz() {
 
   const saveFeedback = (feedbackData: Feedback) => {
     const history: Feedback[] = JSON.parse(localStorage.getItem('feedbackHistory') || '[]');
-    history.unshift(feedbackData); // Add to the beginning
+    history.unshift({...feedbackData, topic: currentQuestion.topic }); // Add to the beginning
     localStorage.setItem('feedbackHistory', JSON.stringify(history.slice(0, 20))); // Keep last 20
   }
 
@@ -101,8 +108,8 @@ export function PracticeQuiz() {
     return (
       <Card className="w-full max-w-2xl">
         <CardHeader>
-          <CardTitle className="font-headline text-2xl">¡Quiz Completado!</CardTitle>
-          <CardDescription>Este es tu resultado final.</CardDescription>
+          <CardTitle className="font-headline text-2xl">¡Quiz de Diagnóstico Completado!</CardTitle>
+          <CardDescription>¡Excelente primer paso! Revisa tu sección de "Progreso" para ver un análisis detallado.</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="text-center text-4xl font-bold">
@@ -162,20 +169,18 @@ export function PracticeQuiz() {
             {isLoading && (
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Loader2 className="h-4 w-4 animate-spin" />
-                Generando retroalimentación personalizada...
+                Analizando tu respuesta y adaptando tu ruta...
               </div>
             )}
             {feedback && (
               <Alert className="border-primary">
                 <Lightbulb className="h-4 w-4 text-primary" />
-                <AlertTitle>Retroalimentación IA</AlertTitle>
+                <AlertTitle>Retroalimentación Personalizada</AlertTitle>
                 <AlertDescription>
-                  <p className="font-semibold">Feedback:</p>
+                  <p className="font-semibold mt-2">Sugerencia de la IA:</p>
                   <p>{feedback.feedback}</p>
-                  <p className="mt-2 font-semibold">Áreas de mejora:</p>
+                  <p className="mt-2 font-semibold">Área de mejora sugerida:</p>
                   <p>{feedback.areasForImprovement}</p>
-                   <p className="mt-2 font-semibold">Sugerencia de tema:</p>
-                  <p>{feedback.adaptedQuestionTopic}</p>
                 </AlertDescription>
               </Alert>
             )}
