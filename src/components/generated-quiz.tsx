@@ -17,7 +17,6 @@ import { cn } from '@/lib/utils';
 type GeneratedQuizProps = {
     quiz: GeneratedQuiz;
     onBack: () => void;
-    isDiagnostic?: boolean;
     onQuizFeedback?: (result: 'correct' | 'incorrect') => void;
     learningStyle?: string;
 };
@@ -28,7 +27,7 @@ type GeneratedQuizProps = {
  *
  * @param {GeneratedQuizProps} props - The quiz data, a back callback, and flags for diagnostic or psychometric mode.
  */
-export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false, onQuizFeedback, learningStyle }: GeneratedQuizProps) {
+export function GeneratedQuiz({ quiz, onBack, onQuizFeedback, learningStyle }: GeneratedQuizProps) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
@@ -87,7 +86,7 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false, onQuizFeedba
     updatePerformanceData(currentQuestion.topic, correct);
 
     try {
-      if (!isDiagnostic && !quiz.isPsychometric) {
+      if (!quiz.isPsychometric) {
           const result = await analyzePerformanceAndAdapt({
             question: currentQuestion.question,
             studentAnswer: selectedAnswer,
@@ -101,7 +100,7 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false, onQuizFeedba
       }
     } catch (error) {
       console.error("Error getting feedback:", error);
-      if (!isDiagnostic && !quiz.isPsychometric) {
+      if (!quiz.isPsychometric) {
           const errorFeedback: Feedback = {
             feedback: "No se pudo obtener la retroalimentación. Por favor, intenta de nuevo.",
             areasForImprovement: "N/A",
@@ -133,11 +132,6 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false, onQuizFeedba
     setFeedback(null);
     if(quiz.timeLimit) setTimeLeft(quiz.timeLimit * 60);
   }
-
-  const handleFinishDiagnostic = () => {
-      localStorage.setItem('onboardingComplete', 'true');
-      router.push('/dashboard');
-  }
   
   const formatTime = (seconds: number) => {
     const minutes = Math.floor(seconds / 60);
@@ -150,13 +144,10 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false, onQuizFeedba
       <Card className="w-full max-w-2xl mt-4">
         <CardHeader>
           <CardTitle className="font-headline text-2xl">
-            {isDiagnostic ? '¡Diagnóstico Completado!' : '¡Práctica Completada!'}
+            ¡Práctica Completada!
           </CardTitle>
           <CardDescription>
-            {isDiagnostic 
-              ? 'Hemos evaluado tu conocimiento inicial. ¡Ya estás lista para empezar a estudiar!' 
-              : `Resultado de la práctica sobre: ${quiz.title}`
-            }
+            {`Resultado de la práctica sobre: ${quiz.title}`}
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -167,28 +158,17 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false, onQuizFeedba
             Respuestas correctas
           </p>
            <p className="text-center text-sm text-muted-foreground mt-4">
-            {isDiagnostic 
-                ? 'Tus resultados se han guardado. Ahora te llevaremos al panel principal.'
-                : 'Puedes revisar tu retroalimentación detallada en la sección "Mi Progreso".'
-            }
+            Puedes revisar tu retroalimentación detallada en la sección "Mi Progreso".
            </p>
         </CardContent>
         <CardFooter className="flex-col sm:flex-row gap-2">
-            {isDiagnostic ? (
-                <Button onClick={handleFinishDiagnostic} className="w-full">
-                    Ir al Dashboard
-                </Button>
-            ) : (
-                <>
-                 <Button onClick={onBack} className="w-full sm:w-auto" variant="outline">
-                    <ArrowLeft className="mr-2 h-4 w-4" />
-                    Volver a Práctica
-                </Button>
-                <Button onClick={handleRestartQuiz} className="w-full sm:w-auto">
-                    Volver a Intentar
-                </Button>
-                </>
-            )}
+            <Button onClick={onBack} className="w-full sm:w-auto" variant="outline">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Volver a Práctica
+            </Button>
+            <Button onClick={handleRestartQuiz} className="w-full sm-w-auto">
+                Volver a Intentar
+            </Button>
         </CardFooter>
       </Card>
     );
@@ -198,12 +178,10 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false, onQuizFeedba
     <Card className="w-full max-w-2xl mt-4">
       <CardHeader>
         <div className="flex justify-between items-center mb-4">
-            {!isDiagnostic && (
-              <Button variant="ghost" size="sm" onClick={onBack} className="self-start -ml-2">
-                  <ArrowLeft className="mr-2 h-4 w-4" />
-                  Volver
-              </Button>
-            )}
+            <Button variant="ghost" size="sm" onClick={onBack} className="self-start -ml-2">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Volver
+            </Button>
             <div className="flex-1 text-center">
                 <CardTitle className="font-headline text-lg">{quiz.title}</CardTitle>
                 <CardDescription>Pregunta {currentQuestionIndex + 1} de {quiz.questions.length}</CardDescription>
@@ -263,13 +241,13 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false, onQuizFeedba
                 {currentQuestion.explanation}
               </AlertDescription>
             </Alert>
-            {isLoading && !isDiagnostic && !quiz.isPsychometric && (
+            {isLoading && !quiz.isPsychometric && (
               <div className="flex items-center gap-2 text-muted-foreground p-4 justify-center">
                 <Loader2 className="h-4 w-4 animate-spin" />
                 Analizando tu respuesta y adaptando tu ruta...
               </div>
             )}
-            {feedback && !isLoading && !isDiagnostic && !quiz.isPsychometric && (
+            {feedback && !isLoading && !quiz.isPsychometric && (
               <Alert className="border-primary">
                 <Lightbulb className="h-4 w-4 text-primary" />
                 <AlertTitle>Retroalimentación Personalizada de Vairyx</AlertTitle>
@@ -290,8 +268,8 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false, onQuizFeedba
             Siguiente Pregunta
           </Button>
         ) : (
-          <Button onClick={handleAnswerSubmit} disabled={!selectedAnswer || (isLoading && !isDiagnostic)} className="w-full">
-            {isLoading && !isDiagnostic && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+          <Button onClick={handleAnswerSubmit} disabled={!selectedAnswer || isLoading} className="w-full">
+            {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             Enviar Respuesta
           </Button>
         )}
