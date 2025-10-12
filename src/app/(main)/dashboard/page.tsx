@@ -3,10 +3,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, BookOpen, Target, CalendarDays, BarChart3, Sparkles } from 'lucide-react';
+import { ArrowRight, BookOpen, Target, BarChart3, Sparkles } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import type { ImagePlaceholder } from '@/lib/placeholder-images';
 import { Header } from '@/components/header';
+import { AdmissionChecklist } from '@/components/admission-checklist';
 
 const featureCards = [
   {
@@ -41,8 +42,8 @@ const featureCards = [
 
 /**
  * Renders the main dashboard of the application.
- * It displays a welcoming hero section and feature cards that navigate
- * to the primary sections of the app like studying, practice, and progress tracking.
+ * It displays a welcoming hero section, the new admission checklist,
+ * and feature cards that navigate to the primary sections of the app.
  */
 export default function DashboardPage() {
   const heroImage: ImagePlaceholder | undefined = PlaceHolderImages.find(
@@ -81,6 +82,10 @@ export default function DashboardPage() {
             </Button>
           </div>
         </Card>
+
+        {/* Admission Checklist */}
+        <AdmissionChecklist />
+
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {featureCards.map((feature) => {
              const cardImage: ImagePlaceholder | undefined = PlaceHolderImages.find(

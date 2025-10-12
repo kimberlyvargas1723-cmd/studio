@@ -119,3 +119,30 @@ export function saveSummaryToStorage(summaryData: SavedSummary): void {
   summaries.unshift(summaryData);
   localStorage.setItem(SAVED_SUMMARIES_KEY, JSON.stringify(summaries));
 }
+
+
+// --- Admission Checklist ---
+
+const CHECKLIST_STATE_KEY = 'admissionChecklistState';
+
+/**
+ * Retrieves the state of the admission checklist from localStorage.
+ * @returns {Record<string, boolean>} A map of task IDs to their completion status.
+ */
+export function getChecklistState(): Record<string, boolean> {
+    if (typeof window === 'undefined') return {};
+    const state = localStorage.getItem(CHECKLIST_STATE_KEY);
+    return state ? JSON.parse(state) : {};
+}
+
+/**
+ * Updates the state of a single task in the admission checklist in localStorage.
+ * @param {string} taskId The ID of the task to update.
+ * @param {boolean} isChecked The new completion status of the task.
+ */
+export function updateChecklistState(taskId: string, isChecked: boolean): void {
+    if (typeof window === 'undefined') return;
+    const state = getChecklistState();
+    state[taskId] = isChecked;
+    localStorage.setItem(CHECKLIST_STATE_KEY, JSON.stringify(state));
+}

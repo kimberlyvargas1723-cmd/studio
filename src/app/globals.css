@@ -78,4 +78,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  .line-through {
+    text-decoration: line-through;
+  }
 }
