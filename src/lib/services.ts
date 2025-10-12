@@ -111,3 +111,11 @@ export function deleteSummary(summaryId: string): SavedSummary[] {
     localStorage.setItem(SAVED_SUMMARIES_KEY, JSON.stringify(summaries));
     return summaries;
 }
+
+// This function is no longer used, but kept for potential future use.
+export function saveSummaryToStorage(summaryData: SavedSummary): void {
+  if (typeof window === 'undefined') return;
+  const summaries = getSavedSummaries();
+  summaries.unshift(summaryData);
+  localStorage.setItem(SAVED_SUMMARIES_KEY, JSON.stringify(summaries));
+}
