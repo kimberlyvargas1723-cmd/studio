@@ -4,7 +4,6 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Loader2 } from 'lucide-react';
-import { useAuth } from '@/firebase';
 
 /**
  * The main entry point of the app after a user is authenticated.
@@ -14,19 +13,16 @@ import { useAuth } from '@/firebase';
  */
 export default function InitialPage() {
   const router = useRouter();
-  const { user } = useAuth();
 
   useEffect(() => {
-    if (user) {
-      // Check for onboarding status only if the user is authenticated.
-      const onboardingComplete = localStorage.getItem(`onboardingComplete_${user.uid}`);
+      // Check for onboarding status.
+      const onboardingComplete = localStorage.getItem('onboardingComplete');
       if (onboardingComplete === 'true') {
         router.replace('/dashboard');
       } else {
         router.replace('/onboarding');
       }
-    }
-  }, [user, router]);
+  }, [router]);
 
   return (
     <div className="flex h-screen w-full items-center justify-center bg-background">

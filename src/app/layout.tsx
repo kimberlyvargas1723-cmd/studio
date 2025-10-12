@@ -4,7 +4,6 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 import { Inter, Lexend } from 'next/font/google';
-import { FirebaseProvider } from '@/firebase/provider';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const lexend = Lexend({ subsets: ['latin'], variable: '--font-lexend' });
@@ -27,9 +26,7 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body className={cn('font-body antialiased', inter.variable, lexend.variable)}>
-        <FirebaseProvider>
           {children}
-        </FirebaseProvider>
         <Toaster />
       </body>
     </html>
