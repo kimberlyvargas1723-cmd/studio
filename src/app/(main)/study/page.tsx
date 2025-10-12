@@ -29,7 +29,7 @@ export default function StudyPage() {
 
   /**
    * Fetches and displays the content of a selected study resource.
-   * If the resource is external, it triggers summarization directly.
+   * If the resource is external, it opens the link in a new tab.
    * @param resource The study resource to handle.
    */
   const handleResourceSelect = async (resource: StudyResource) => {
@@ -41,7 +41,7 @@ export default function StudyPage() {
 
     if (resource.type === 'internal') {
       try {
-        // Fetch the content of the internal markdown file from the correct path.
+        // Fetch the content of the internal markdown file.
         const response = await fetch(`/estudio/${resource.source}`);
         if (!response.ok) throw new Error('Network response was not ok');
         const content = await response.text();
@@ -54,8 +54,10 @@ export default function StudyPage() {
         setIsLoading(false);
       }
     } else {
-      // For external URLs, proceed to summarize directly.
-      handleSummarizeUrl(resource);
+        // For external URLs, open in a new tab instead of summarizing.
+        window.open(resource.source, '_blank');
+        setIsLoading(false);
+        setResourceContent(`Se está abriendo el recurso externo en una nueva pestaña. La IA no puede resumir PDFs o enlaces externos directamente, pero puedes copiar y pegar el texto si deseas un resumen.`)
     }
   };
 
@@ -63,7 +65,7 @@ export default function StudyPage() {
    * Generates a summary for the currently displayed internal content.
    */
   const handleSummarizeContent = async () => {
-    if (!resourceContent) return;
+    if (!resourceContent || selectedResource?.type !== 'internal') return;
 
     setIsSummarizing(true);
     setError(null);
@@ -71,35 +73,16 @@ export default function StudyPage() {
     
     try {
       // Use a data URI to pass the local content to the summarization flow.
-      const result = await summarizeContent({ url: `data:text/plain;charset=utf-8,${encodeURIComponent(resourceContent)}` });
+      const result = await summarizeContent({ url: `data:text/markdown;charset=utf-8,${encodeURIComponent(resourceContent)}` });
       setSummary(result.summary);
     } catch (e) {
       console.error(e);
-      setError('No se pudo generar el resumen del contenido interno.');
+      setError('No se pudo generar el resumen del contenido.');
     } finally {
       setIsSummarizing(false);
     }
   };
   
-  /**
-   * Generates a summary from an external URL.
-   * @param resource The external study resource to summarize.
-   */
-  const handleSummarizeUrl = async (resource: StudyResource) => {
-    setIsLoading(true);
-    setSummary(null);
-    setError(null);
-
-    try {
-      const result = await summarizeContent({ url: resource.source });
-      setSummary(result.summary);
-    } catch (e) {
-      console.error(e);
-      setError('No se pudo generar el resumen. El enlace podría no ser accesible o el contenido no es compatible. Intenta con otro recurso.');
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   /**
    * Saves the current summary to the browser's local storage.
@@ -129,7 +112,7 @@ export default function StudyPage() {
           <CardHeader>
             <CardTitle className="font-headline">Recursos de Estudio</CardTitle>
             <CardDescription>
-              Selecciona un tema para leer o un enlace para resumir.
+              Selecciona un tema para leer o un enlace para abrir.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -159,7 +142,7 @@ export default function StudyPage() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <FileText className="h-6 w-6 text-primary" />
-                <CardTitle className="font-headline">{selectedResource?.type === 'internal' ? 'Material de Lectura' : 'Resumen Inteligente'}</CardTitle>
+                <CardTitle className="font-headline">{selectedResource?.type === 'internal' ? 'Material de Lectura' : 'Recurso Externo'}</CardTitle>
               </div>
               {summary && !isLoading && (
                 <Button variant="outline" size="sm" onClick={handleSaveSummary}>
@@ -167,7 +150,7 @@ export default function StudyPage() {
                   Guardar Resumen
                 </Button>
               )}
-               {resourceContent && !summary && (
+               {resourceContent && selectedResource?.type === 'internal' && !summary && (
                 <Button variant="outline" size="sm" onClick={handleSummarizeContent} disabled={isSummarizing}>
                     {isSummarizing && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                   Resumir con IA
@@ -184,7 +167,7 @@ export default function StudyPage() {
             {(isLoading || isSummarizing) && (
               <div className="flex h-full flex-col items-center justify-center gap-3 text-muted-foreground">
                 <Loader2 className="h-8 w-8 animate-spin text-primary" />
-                <p>{isSummarizing ? 'Resumiendo el material...' : 'Generando resumen del enlace...'}</p>
+                <p>{isSummarizing ? 'Resumiendo el material...' : 'Cargando...'}</p>
                 <p className="text-sm">Esto puede tardar unos momentos.</p>
               </div>
             )}
@@ -205,7 +188,7 @@ export default function StudyPage() {
                 </ScrollArea>
               ) : resourceContent ? (
                    <ScrollArea className="h-[calc(100vh-20rem)]">
-                      <div className="prose prose-sm dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: resourceContent }} />
+                      <div className="prose prose-sm dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: resourceContent.replace(/\n/g, '<br />') }} />
                   </ScrollArea>
               ) : (
                  <div className="flex h-full flex-col items-center justify-center gap-3 text-center text-muted-foreground">
