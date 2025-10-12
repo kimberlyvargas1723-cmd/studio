@@ -1,51 +1,65 @@
-# Guía de Inglés como Lengua Extranjera (EXANI-II)
+# Inglés: Habilidades Clave para el EXANI-II
 
-Esta sección del EXANI-II es **diagnóstica**, lo que significa que no cuenta para tu puntaje de admisión final. Sin embargo, es una excelente oportunidad para medir tu nivel y prepararte para el inglés que necesitarás en la universidad. El examen se enfoca en la **comprensión lectora**.
-
-## Estructura de la Sección
-
-Te enfrentarás a textos de diversos temas (científicos, de opinión, literarios, etc.) y se te pedirá que respondas preguntas sobre ellos. Las habilidades clave evaluadas son:
-
-1.  **Comprensión del Sentido General del Texto:** Entender de qué trata el texto en su conjunto.
-2.  **Identificación de Información Específica:** Localizar datos, nombres, fechas o detalles concretos dentro del texto.
-3.  **Inferencia de Información:** Deducir o "leer entre líneas" lo que el autor sugiere pero no dice explícitamente.
-4.  **Vocabulario en Contexto:** Entender el significado de una palabra basándote en la oración y el párrafo donde se encuentra.
+Hello! La sección de inglés en el EXANI-II es principalmente diagnóstica, lo que significa que no tiene un peso directo en tu puntuación de admisión a la UANL. Sin embargo, es una excelente oportunidad para demostrar tus habilidades y es un requisito para la evaluación. Se enfoca en dos áreas principales: **Comprensión Lectora (Reading Comprehension)** y **Redacción Indirecta (Indirect Writing)**.
 
 ---
 
-## Estrategias Clave para el Éxito
+### **1. Comprensión Lectora (Reading Comprehension)**
 
-### Estrategia 1: Skimming y Scanning
+Esta sección evalúa tu capacidad para entender textos escritos en inglés. Te presentarán uno o más pasajes cortos (similares a un artículo de noticias, un correo electrónico o un extracto de un blog) seguidos de preguntas de opción múltiple.
 
-Antes de leer las preguntas, dale una lectura rápida al texto (**Skimming**) para captar la idea principal. ¿Es una noticia? ¿Un ensayo de opinión? ¿Un manual de instrucciones?
+**Estrategias Clave:**
 
-Luego, lee las preguntas. Ahora, vuelve al texto y busca rápidamente las palabras clave de cada pregunta (**Scanning**). Esto te ayuda a localizar la sección relevante sin tener que releer todo el texto a fondo cada vez.
+1.  **Lee las preguntas primero:** Antes de leer el texto, dale un vistazo rápido a las preguntas. Esto te dará una idea de qué información buscar y te ayudará a enfocar tu atención.
+2.  **Identifica la idea principal (Main Idea):** Mientras lees, pregúntate: "¿De qué trata principalmente este texto?". La idea principal suele estar en el primer o último párrafo.
+3.  **Busca palabras clave (Keywords):** Las preguntas a menudo contienen palabras clave que puedes localizar directamente en el texto para encontrar la respuesta.
+4.  **Infiere el significado (Making Inferences):** A veces, la respuesta no estará escrita textualmente. Tendrás que "leer entre líneas" y deducir la respuesta basándote en la información proporcionada.
+5.  **Entiende el vocabulario en contexto:** Si no conoces una palabra, no entres en pánico. Intenta entender su significado por el contexto de la oración que la rodea.
 
-**Ejemplo:**
-*   **Pregunta:** "What year did the study conclude?"
-*   **Scanning:** Buscas visualmente números de 4 dígitos o la palabra "year" en el texto.
+**Ejemplo de Práctica:**
 
-### Estrategia 2: Cuidado con los "Falsos Cognados" (False Friends)
+*Lee el siguiente pasaje y responde la pregunta.*
 
-El inglés y el español comparten muchas palabras de origen latino, pero algunas tienen significados completamente diferentes. ¡No te confíes!
+**Passage:**
+The rise of remote work has transformed the modern workplace. Companies are discovering that employees can be just as productive, if not more, from their homes. This shift offers benefits like reduced operational costs for businesses and increased flexibility for workers. However, challenges such as maintaining a strong company culture and ensuring effective communication remain significant hurdles.
 
-*   `Actually` no significa "actualmente", significa **"en realidad"** (`currently` es "actualmente").
-*   `Library` no es "librería", es **"biblioteca"** (`bookstore` es "librería").
-*   `Success` no es "suceso", es **"éxito"** (`event` es "suceso").
-*   `Embarrassed` no es "embarazada", es **"avergonzado/a"** (`pregnant` es "embarazada").
+**Question:** What is the main challenge of remote work mentioned in the text?
+a) Employees are less productive.
+b) It increases operational costs.
+c) **Maintaining company culture and communication.**
+d) It offers no flexibility.
 
-### Estrategia 3: Entiende los Conectores (Connectors)
-
-Los conectores son la clave para entender la relación entre las ideas.
-*   **Causa y Efecto:** `because`, `since`, `as a result`, `therefore`.
-*   **Contraste:** `however`, `but`, `although`, `on the other hand`.
-*   **Adición:** `furthermore`, `moreover`, `in addition`.
-*   **Ejemplificación:** `for example`, `for instance`, `such as`.
-
-Identificar estos conectores te ayudará a entender la estructura lógica del argumento del autor.
+**Explanation:** The last sentence explicitly states that "challenges such as maintaining a strong company culture and ensuring effective communication remain significant hurdles."
 
 ---
 
-## Consejo Final:
+### **2. Redacción Indirecta (Indirect Writing)**
 
-No te estreses por las palabras que no conoces. Intenta entender el significado general por el contexto. La mayoría de las veces, no necesitas saber el 100% de las palabras para responder correctamente a las preguntas. Enfócate en la idea general y en la información específica que te piden. ¡Tú puedes!
+Esta parte no te pide que escribas un ensayo, sino que demuestres tu conocimiento de la gramática y la estructura de las oraciones en inglés. Te darán frases o párrafos con errores o espacios en blanco que debes corregir o completar.
+
+**Áreas Comunes a Evaluar:**
+
+- **Tiempos Verbales (Verb Tenses):** Asegúrate de que los verbos concuerden con el tiempo de la oración (presente simple, pasado continuo, futuro perfecto, etc.).
+    - *Incorrect:* "Yesterday, I **go** to the park." -> *Correct:* "Yesterday, I **went** to the park."
+- **Concordancia Sujeto-Verbo (Subject-Verb Agreement):** El verbo debe concordar con el sujeto en número.
+    - *Incorrect:* "The dog **run** fast." -> *Correct:* "The dog **runs** fast."
+- **Preposiciones (Prepositions):** El uso correcto de `in`, `on`, `at`, `for`, `to`, etc.
+    - *Incorrect:* "I am good **in** playing soccer." -> *Correct:* "I am good **at** playing soccer."
+- **Conjunciones (Conjunctions):** Palabras que conectan ideas, como `and`, `but`, `so`, `because`, `although`.
+    - *Sentence:* "She studied hard, ___ she passed the exam." -> *Correct conjunction:* "so"
+
+**Ejemplo de Práctica:**
+
+**Question:** Choose the correct option to complete the sentence:
+"If I had known you were coming, I _________ a cake."
+
+a) would bake
+b) will bake
+c) **would have baked**
+d) baked
+
+**Explanation:** This sentence is a "Third Conditional" structure, used for hypothetical situations in the past. The correct structure is `If + past perfect, ...would have + past participle`.
+
+---
+
+**Consejo Final:** No te estreses demasiado por esta sección, pero no la ignores. Practica leyendo artículos cortos en inglés (noticias, blogs, etc.) y repasa las reglas gramaticales básicas. Un buen desempeño aquí, aunque no cuente para la admisión, refleja bien tu preparación general. Good luck!

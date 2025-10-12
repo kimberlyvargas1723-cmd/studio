@@ -1,65 +1,73 @@
-# Procesos Psicológicos Básicos: Los Ladrillos de la Mente
+# Procesos Psicológicos Básicos
 
-Estos son los procesos fundamentales que nos permiten interactuar con el mundo, aprender y pensar. Son la base sobre la cual se construyen comportamientos más complejos.
+Estos son los pilares sobre los que se construye toda nuestra experiencia mental. Son las herramientas que utiliza nuestro cerebro para interactuar con el mundo, procesar información y darle sentido a todo. ¡Vamos a desglosarlos!
 
-### 1. Sensación y Percepción: La Ventana al Mundo
+---
 
-Aunque a menudo se usan juntos, son dos procesos distintos.
+### **1. Percepción**
 
-- **Sensación:** Es el proceso **biológico** por el cual nuestros órganos sensoriales (ojos, oídos, piel, etc.) captan estímulos del entorno y los convierten en impulsos nerviosos que el cerebro puede entender. Es la simple detección de luz, sonido, presión, etc.
-  - **Ejemplo:** Las células de tu retina detectan ondas de luz de una determinada longitud de onda (el color rojo).
+La percepción no es solo ver u oír. Es el proceso mediante el cual nuestro cerebro **organiza e interpreta** la información sensorial (lo que captan nuestros sentidos) para crear una representación significativa del mundo.
 
-- **Percepción:** Es el proceso **psicológico** por el cual el cerebro **organiza e interpreta** esa información sensorial para darle un significado. Es cómo construimos nuestra realidad a partir de los datos crudos de los sentidos.
-  - **Ejemplo:** Tu cerebro interpreta esas ondas de luz como "una manzana roja".
+- **Diferencia con la Sensación:** La sensación es la simple recepción de estímulos (luz, sonido), mientras que la percepción es darles un significado. Ves colores y formas (sensación), pero percibes una "manzana roja" (percepción).
+- **Principios de la Gestalt:** Nuestro cerebro tiende a organizar la información en patrones coherentes. Principios como la **proximidad** (agrupar objetos cercanos) o la **semejanza** (agrupar objetos similares) son atajos mentales que usamos constantemente.
 
-Estrategia: Piensa en la sensación como la *recepción de datos* y en la percepción como la *interpretación de esos datos*. La sensación es objetiva (el estímulo es el mismo para todos), mientras que la percepción es subjetiva (nuestras experiencias previas influyen en cómo interpretamos).
+---
 
-### 2. Atención: El Foco de la Conciencia
+### **2. Atención**
 
-La atención es la capacidad de **concentrar nuestros recursos mentales** en un estímulo o tarea específica, mientras ignoramos otros. Es un recurso limitado.
+La atención es el proceso de **focalizar nuestra conciencia** en un conjunto limitado de estímulos, ignorando el resto. Es como un foco de luz en un escenario oscuro.
 
-- **Atención Selectiva:** La habilidad de enfocarse en una cosa a la vez, como escuchar a un amigo en una fiesta ruidosa (el "efecto de fiesta de cóctel").
-- **Atención Dividida:** La capacidad de distribuir la atención entre dos o más tareas, como conducir y escuchar música. (Spoiler: somos peores en esto de lo que creemos).
-- **Atención Sostenida:** La capacidad de mantener la concentración en una tarea durante un período prolongado.
+- **Atención Selectiva:** La capacidad de concentrarse en una sola cosa mientras se ignoran las distracciones (ej. hablar con un amigo en una fiesta ruidosa).
+- **Atención Dividida:** La capacidad de prestar atención a dos o más tareas al mismo tiempo (ej. conducir y escuchar música). Es importante saber que nuestra capacidad para esto es limitada y el rendimiento suele disminuir.
 
-### 3. Memoria: El Archivo de Nuestra Vida
+---
 
-La memoria no es un solo "cajón", sino un sistema complejo con varias etapas. El modelo más aceptado es el de Atkinson-Shiffrin:
+### **3. Memoria**
 
-1.  **Memoria Sensorial:**
-    - **Duración:** Muy breve (menos de un segundo).
-    - **Capacidad:** Alta.
-    - **Función:** Retiene una "foto" exacta de la información sensorial por un instante para que el cerebro decida si es importante. Es como el búfer de un video en streaming.
+La memoria es la capacidad de **codificar, almacenar y recuperar** información a lo largo del tiempo. No es un único "almacén", sino un sistema complejo.
 
-2.  **Memoria a Corto Plazo (o Memoria de Trabajo):**
-    - **Duración:** Limitada (unos 15-30 segundos sin repaso).
-    - **Capacidad:** Limitada (el famoso "número mágico" 7 ± 2 elementos).
-    - **Función:** Es nuestra "conciencia" actual. Es donde mantenemos y manipulamos la información con la que estamos trabajando en este momento (ej. un número de teléfono que nos acaban de dictar).
+- **Memoria Sensorial:** Retiene información sensorial por un instante.
+- **Memoria a Corto Plazo (o de Trabajo):** Retiene una cantidad limitada de información (aproximadamente 7 ± 2 elementos) por un corto período (unos 20-30 segundos) mientras la estamos usando. Es como la memoria RAM de una computadora.
+- **Memoria a Largo Plazo:** El almacenamiento casi ilimitado y duradero de información. Se divide en:
+    - **Memoria Explícita (Declarativa):** Hechos y eventos que podemos describir conscientemente.
+        - *Semántica:* Conocimientos generales (ej. "París es la capital de Francia").
+        - *Episódica:* Recuerdos de experiencias personales (ej. "Mi primer día de clases").
+    - **Memoria Implícita (No Declarativa):** Habilidades y hábitos que no podemos describir fácilmente (ej. "saber andar en bicicleta").
 
-3.  **Memoria a Largo Plazo:**
-    - **Duración:** Potencialmente toda la vida.
-    - **Capacidad:** Virtualmente ilimitada.
-    - **Función:** Es el almacén permanente de nuestro conocimiento, habilidades y experiencias. Se divide en:
-        - **Memoria Explícita (Declarativa):** Recuerdos que podemos expresar verbalmente.
-            - *Semántica:* Hechos y conocimiento general (Ej: "París es la capital de Francia").
-            - *Episódica:* Experiencias personales y eventos (Ej: "Recuerdo mi fiesta de cumpleaños de 10 años").
-        - **Memoria Implícita (No Declarativa):** Recuerdos que se expresan a través del comportamiento.
-            - *Procedimental:* Habilidades y hábitos (Ej: andar en bicicleta, escribir a máquina).
+---
 
-### 4. Aprendizaje: Cómo Cambia Nuestro Comportamiento
+### **4. Aprendizaje**
 
-El aprendizaje es un cambio relativamente permanente en el comportamiento o el conocimiento como resultado de la experiencia.
+El aprendizaje es un cambio relativamente permanente en la conducta o el conocimiento como resultado de la experiencia.
 
-- **Condicionamiento Clásico (Pavlov):** Aprender por **asociación** entre estímulos. Un estímulo que antes era neutro (una campana) adquiere el poder de provocar una respuesta (salivación) porque se ha asociado repetidamente con un estímulo que ya provocaba esa respuesta (la comida).
-  - **Palabra Clave:** Asociación, Reflejo.
+- **Condicionamiento Clásico (Pavlov):** Aprender por asociación entre estímulos. Es el responsable de muchas de nuestras reacciones emocionales automáticas.
+- **Condicionamiento Operante (Skinner):** Aprender a través de las consecuencias de nuestra conducta.
+    - **Refuerzo:** Aumenta la probabilidad de que una conducta se repita (ej. dar un premio).
+    - **Castigo:** Disminuye la probabilidad de que una conducta se repita.
 
-- **Condicionamiento Operante (Skinner):** Aprender por las **consecuencias** de nuestro comportamiento. La probabilidad de que repitamos una conducta aumenta si es seguida por un refuerzo (premio) y disminuye si es seguida por un castigo.
-  - **Refuerzo Positivo:** Dar algo bueno para aumentar una conducta (dar un premio a un perro por sentarse).
-  - **Refuerzo Negativo:** Quitar algo malo para aumentar una conducta (abrocharse el cinturón para que el coche deje de pitar).
-  - **Castigo:** Dar algo malo o quitar algo bueno para disminuir una conducta.
-  - **Palabra Clave:** Consecuencia, Recompensa, Castigo.
+---
 
-- **Aprendizaje Observacional (Bandura):** Aprender observando e imitando el comportamiento de otros (modelos). El famoso experimento del "Muñeco Bobo" demostró que los niños imitaban la conducta agresiva que veían en los adultos.
-  - **Palabra Clave:** Imitación, Modelo.
+### **5. Pensamiento y Lenguaje**
 
-Consejo Final: Crea un mapa mental que conecte estos procesos. Por ejemplo: La **sensación** de ver una pregunta en el examen lleva a la **percepción** de su significado. Usas la **atención** para enfocarte en ella, traes información de tu **memoria** a largo plazo a tu memoria de trabajo para resolverla, y todo esto es posible porque has **aprendido** el material previamente. ¡Estás usando todos estos procesos ahora mismo!
+El pensamiento se refiere a toda la actividad mental asociada con procesar, comprender, recordar y comunicar información.
+
+- **Conceptos:** Categorías mentales que usamos para agrupar objetos, eventos o ideas similares (ej. el concepto de "perro").
+- **Resolución de Problemas:** Incluye estrategias como:
+    - **Algoritmos:** Procedimientos paso a paso que garantizan una solución.
+    - **Heurísticos:** Atajos mentales más rápidos pero más propensos a errores.
+- **Sesgos Cognitivos:** Errores sistemáticos en el pensamiento que afectan nuestros juicios (ej. **sesgo de confirmación**, que es la tendencia a buscar información que confirma nuestras creencias).
+
+El **lenguaje** es nuestro sistema de símbolos y reglas para comunicar nuestros pensamientos. La relación entre pensamiento y lenguaje es profunda; el lenguaje no solo expresa el pensamiento, sino que también puede darle forma.
+
+---
+
+### **6. Emoción y Motivación**
+
+- **Emoción:** Es una respuesta compleja que involucra una experiencia subjetiva (sentimiento), una respuesta fisiológica (aceleración del corazón) y una expresión conductual (sonreír). Emociones básicas como la alegría, la tristeza, el miedo o la ira son universales.
+
+- **Motivación:** Es lo que **inicia, dirige y mantiene** nuestras conductas orientadas a un objetivo.
+    - **Motivación Intrínseca:** Hacer algo porque es inherentemente gratificante (ej. leer un libro por placer).
+    - **Motivación Extrínseca:** Hacer algo para obtener una recompensa o evitar un castigo (ej. estudiar para obtener una buena calificación).
+    - **Jerarquía de Necesidades de Maslow:** Una teoría famosa que propone que debemos satisfacer nuestras necesidades básicas (fisiológicas, de seguridad) antes de poder aspirar a necesidades superiores (estima, autorrealización).
+
+Estrategia: Para el examen, asegúrate de poder diferenciar claramente entre conceptos que suenan similares, como sensación vs. percepción, memoria a corto vs. largo plazo, y condicionamiento clásico vs. operante. Estos son puntos clásicos de preguntas de examen.

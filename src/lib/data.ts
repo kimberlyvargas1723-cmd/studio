@@ -47,6 +47,12 @@ export const studyResources: StudyResource[] = [
     type: 'internal',
     source: 'guia-psicometrico.md',
   },
+    {
+    title: 'Estrategias para el Examen',
+    category: 'Habilidades del EXANI-II',
+    type: 'internal',
+    source: 'estrategias-examen.md',
+  },
   {
     title: 'Comprensión Lectora',
     category: 'Habilidades del EXANI-II',
@@ -106,5 +112,6 @@ export const initialPerformance: PerformanceData[] = [
   { topic: 'Redacción Indirecta', correct: 0, incorrect: 0 },
   { topic: 'Pensamiento Matemático', correct: 0, incorrect: 0 },
   { topic: 'Probabilidad y Estadística', correct: 0, incorrect: 0 },
-  { topic: 'Inglés', correct: 0, incorrect: 0 }
+  { topic: 'Inglés', correct: 0, incorrect: 0 },
+  { topic: 'Estrategias para el Examen', correct: 0, incorrect: 0 },
 ];
