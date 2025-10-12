@@ -54,10 +54,16 @@ export const studyResources: StudyResource[] = [
     source: 'redaccion-indirecta.md',
   },
   {
-    title: 'Pensamiento Matemático: Porcentajes',
+    title: 'Pensamiento Matemático',
     category: 'Habilidades del EXANI-II',
     type: 'internal',
-    source: 'pensamiento-matematico-porcentajes.md',
+    source: 'pensamiento-matematico.md',
+  },
+   {
+    title: 'Inglés (Diagnóstico)',
+    category: 'Habilidades del EXANI-II',
+    type: 'internal',
+    source: 'ingles.md',
   },
   {
     title: 'Módulos específicos EXANI-II (Psicología)',
@@ -128,7 +134,23 @@ export const practiceQuestions: PracticeQuestion[] = [
     explanation: 'La confiabilidad (o fiabilidad) se refiere a la consistencia de una medida. Un test es confiable si produce resultados consistentes y estables a lo largo del tiempo y en diferentes aplicaciones.',
   },
   {
-    id: 'ex-01',
+    id: 'cl-01',
+    topic: 'Comprensión Lectora',
+    question: 'En un texto argumentativo, ¿cuál es el propósito principal del autor al presentar datos estadísticos?',
+    options: ['Entretener al lector', 'Apelar a las emociones del lector', 'Darle un respaldo objetivo a su tesis', 'Mostrar su amplio conocimiento del tema'],
+    correctAnswer: 'Darle un respaldo objetivo a su tesis',
+    explanation: 'En un texto argumentativo, los datos, estadísticas y hechos objetivos se utilizan como evidencia para fortalecer la tesis o argumento principal del autor y convencer al lector de su validez.',
+  },
+  {
+    id: 'ri-01',
+    topic: 'Redacción Indirecta',
+    question: 'Elija la opción que sustituye la palabra subrayada con el término más preciso: "El niño **hizo** un berrinche en la tienda".',
+    options: ['realizó', 'ejecutó', 'protagonizó', 'produjo'],
+    correctAnswer: 'protagonizó',
+    explanation: 'Aunque las otras opciones son verbos de acción, "protagonizó" es la palabra que mejor captura la naturaleza dramática y central del niño en la acción del berrinche, siendo la opción con mayor precisión léxica.',
+  },
+  {
+    id: 'pmat-01',
     topic: 'Pensamiento Matemático',
     question: 'En una tienda, una camisa de $400 tiene un descuento del 25%. ¿Cuánto se debe pagar por ella?',
     options: [
@@ -154,7 +176,6 @@ export const initialPerformance: PerformanceData[] = [
   { topic: 'Examen Psicométrico', correct: 0, incorrect: 0 },
   { topic: 'Comprensión Lectora', correct: 0, incorrect: 0 },
   { topic: 'Redacción Indirecta', correct: 0, incorrect: 0 },
-  { topic: 'Pensamiento Matemático', correct: 0, incorrect: 0 }
+  { topic: 'Pensamiento Matemático', correct: 0, incorrect: 0 },
+  { topic: 'Inglés (Diagnóstico)', correct: 0, incorrect: 0 }
 ];
-
-    
