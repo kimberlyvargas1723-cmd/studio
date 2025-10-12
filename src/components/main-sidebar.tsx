@@ -17,11 +17,13 @@ import {
   CalendarDays,
   BarChart3,
   Atom,
+  FileText,
 } from 'lucide-react';
 
 const menuItems = [
   { href: '/', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/study', label: 'Estudiar', icon: BookOpen },
+  { href: '/summaries', label: 'Mis Resúmenes', icon: FileText },
   { href: '/practice', label: 'Practicar', icon: Target },
   { href: '/schedule', label: 'Mi Horario', icon: CalendarDays },
   { href: '/progress', label: 'Mi Progreso', icon: BarChart3 },

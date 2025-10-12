@@ -1,37 +1,42 @@
 import type { StudyResource, PracticeQuestion, PerformanceData } from './types';
 
+// Re-defining StudyResource from types.ts to avoid import issues in this file.
+// Normally this would be a direct import.
+export type StudyResource = {
+  title: string;
+  category: string;
+  url: string;
+};
+
+
 export const studyResources: StudyResource[] = [
   {
     title: 'Concurso de Ingreso a Licenciatura (Psicología)',
+    category: 'UANL Oficial',
     url: 'https://psicologia.uanl.mx/tramites/concurso-de-ingreso-a-licenciatura/',
-    category: 'Psicología',
-  },
-  {
-    title: 'Guía para el Examen Psicométrico',
-    url: 'https://psicologia.uanl.mx/tramites/guia-para-el-examen-psicometrico',
-    category: 'Psicometría',
   },
   {
     title: 'Módulos específicos EXANI-II (Psicología)',
+    category: 'UANL Oficial',
     url: 'https://www.uanl.mx/wp-content/uploads/2022/09/Modulos-especificos-del-EXANI-II_Psicologia-1-1.pdf',
-    category: 'Psicología',
   },
   {
-    title: 'Profe Autónoma - Facultad de Psicología',
-    url: 'https://tuprofeautonoma.com.mx/uanl-facultad-de-psicologia',
-    category: 'Recursos Adicionales',
-  },
-  {
-    title: 'Concurso de Ingreso a Licenciatura (UANL General)',
-    url: 'https://www.uanl.mx/tramites/concurso-de-ingreso-a-licenciatura/',
-    category: 'General',
+    title: 'Guía para el Examen Psicométrico',
+    category: 'UANL Oficial',
+    url: 'https://psicologia.uanl.mx/tramites/guia-para-el-examen-psicometrico',
   },
   {
     title: 'Guía para el sustentante EXANI-II (General)',
-    url: 'https://www.uanl.mx/wp-content/uploads/2023/02/EXANI-II_Guia-para-el-sustentante_2023_compressed.pdf',
-    category: 'EXANI-II',
+    category: 'UANL Oficial',
+    url: 'https://www.uanl.mx/wp-content/uploads/2023/02/EXANI-II_Guia-para-el-sustentante_2023_compressed.pdf'
   },
+  {
+    title: 'Profe Autónoma: Facultad de Psicología',
+    category: 'Recurso Adicional',
+    url: 'https://tuprofeautonoma.com.mx/uanl-facultad-de-psicologia/'
+  }
 ];
+
 
 export const practiceQuestions: PracticeQuestion[] = [
   {
@@ -75,5 +80,5 @@ export const initialPerformance: PerformanceData[] = [
   { topic: 'Psicología Social', correct: 0, incorrect: 0 },
   { topic: 'Bases Biológicas de la Conducta', correct: 0, incorrect: 0 },
   { topic: 'Psicometría', correct: 0, incorrect: 0 },
-  { topic: 'EXANI-II', correct: 0, incorrect: 0 },
+  { topic: 'EXANI-II', correct: 0, incorrect: 0 }
 ];

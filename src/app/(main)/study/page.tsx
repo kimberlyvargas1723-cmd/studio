@@ -7,15 +7,17 @@ import { Button } from '@/components/ui/button';
 import { studyResources } from '@/lib/data';
 import type { StudyResource } from '@/lib/types';
 import { summarizeContent } from '@/ai/flows/content-summarization';
-import { Loader2, Link, BookCopy, FileText } from 'lucide-react';
+import { Loader2, Link, BookCopy, FileText, Save } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { useToast } from '@/hooks/use-toast';
 
 export default function StudyPage() {
   const [selectedResource, setSelectedResource] = useState<StudyResource | null>(null);
   const [summary, setSummary] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { toast } = useToast();
 
   const handleSummarize = async (resource: StudyResource) => {
     setSelectedResource(resource);
@@ -31,6 +33,27 @@ export default function StudyPage() {
     } finally {
       setIsLoading(false);
     }
+  };
+  
+  const handleSaveSummary = () => {
+    if (!summary || !selectedResource) return;
+
+    const savedSummaries = JSON.parse(localStorage.getItem('savedSummaries') || '[]');
+    const newSummary = {
+      id: Date.now().toString(),
+      title: `Resumen de: ${selectedResource.title}`,
+      content: summary,
+      originalUrl: selectedResource.url,
+      createdAt: new Date().toISOString(),
+    };
+    
+    savedSummaries.push(newSummary);
+    localStorage.setItem('savedSummaries', JSON.stringify(savedSummaries));
+
+    toast({
+      title: 'Resumen Guardado',
+      description: 'Puedes encontrar tus resúmenes en la sección "Mis Resúmenes".',
+    });
   };
 
   return (
@@ -68,9 +91,17 @@ export default function StudyPage() {
         </Card>
         <Card className="w-full lg:w-2/3">
           <CardHeader>
-            <div className="flex items-center gap-3">
-              <FileText className="h-6 w-6 text-primary" />
-              <CardTitle className="font-headline">Resumen Inteligente</CardTitle>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <FileText className="h-6 w-6 text-primary" />
+                <CardTitle className="font-headline">Resumen Inteligente</CardTitle>
+              </div>
+              {summary && !isLoading && (
+                <Button variant="outline" size="sm" onClick={handleSaveSummary}>
+                  <Save className="mr-2 h-4 w-4" />
+                  Guardar Resumen
+                </Button>
+              )}
             </div>
             <CardDescription>
               {selectedResource

@@ -1,0 +1,150 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { Header } from '@/components/header';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  CardFooter
+} from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { SavedSummary } from '@/lib/types';
+import { FileText, Trash2, BookX } from 'lucide-react';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+
+export default function SummariesPage() {
+  const [summaries, setSummaries] = useState<SavedSummary[]>([]);
+  const [selectedSummary, setSelectedSummary] = useState<SavedSummary | null>(null);
+
+  useEffect(() => {
+    const savedSummaries = JSON.parse(localStorage.getItem('savedSummaries') || '[]');
+    // Sort by most recent first
+    savedSummaries.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+    setSummaries(savedSummaries);
+    if (savedSummaries.length > 0) {
+      setSelectedSummary(savedSummaries[0]);
+    }
+  }, []);
+
+  const handleDelete = (summaryId: string) => {
+    const updatedSummaries = summaries.filter(s => s.id !== summaryId);
+    setSummaries(updatedSummaries);
+    localStorage.setItem('savedSummaries', JSON.stringify(updatedSummaries));
+    if (selectedSummary?.id === summaryId) {
+      setSelectedSummary(updatedSummaries.length > 0 ? updatedSummaries[0] : null);
+    }
+  }
+
+  return (
+    <div className="flex min-h-screen w-full flex-col">
+      <Header title="Mis Resúmenes" />
+      <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8 lg:flex-row lg:items-start">
+        <Card className="w-full lg:w-1/3 lg:sticky lg:top-24">
+          <CardHeader>
+            <CardTitle className="font-headline">Resúmenes Guardados</CardTitle>
+            <CardDescription>
+              Aquí están todos los resúmenes que has generado.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ScrollArea className="h-[60vh] lg:h-[calc(100vh-20rem)]">
+              <div className="space-y-2">
+                {summaries.length > 0 ? (
+                  summaries.map((summary) => (
+                  <Button
+                    key={summary.id}
+                    variant={selectedSummary?.id === summary.id ? "secondary" : "ghost"}
+                    className="w-full justify-start text-left h-auto"
+                    onClick={() => setSelectedSummary(summary)}
+                  >
+                    <FileText className="h-5 w-5 mr-3 text-muted-foreground" />
+                    <div className="flex flex-col flex-1 truncate">
+                      <span className="truncate">{summary.title}</span>
+                      <span className="text-xs text-muted-foreground">
+                        {new Date(summary.createdAt).toLocaleString()}
+                      </span>
+                    </div>
+                  </Button>
+                  ))
+                ) : (
+                   <div className="flex h-48 flex-col items-center justify-center gap-3 text-center text-muted-foreground">
+                    <BookX className="h-12 w-12" />
+                    <p className="font-semibold">No hay resúmenes</p>
+                    <p className="text-sm">Ve a "Estudiar" para crear tu primero.</p>
+                  </div>
+                )}
+              </div>
+            </ScrollArea>
+          </CardContent>
+        </Card>
+        <Card className="w-full lg:w-2/3">
+          {selectedSummary ? (
+            <>
+            <CardHeader>
+                <div className="flex justify-between items-start">
+                    <div>
+                        <CardTitle className="font-headline">{selectedSummary.title}</CardTitle>
+                        <CardDescription>
+                            Original: <a href={selectedSummary.originalUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">{selectedSummary.originalUrl}</a>
+                        </CardDescription>
+                    </div>
+                     <AlertDialog>
+                      <AlertDialogTrigger asChild>
+                        <Button variant="destructive" size="icon">
+                            <Trash2 className="h-4 w-4" />
+                        </Button>
+                      </AlertDialogTrigger>
+                      <AlertDialogContent>
+                        <AlertDialogHeader>
+                          <AlertDialogTitle>¿Estás seguro?</AlertDialogTitle>
+                          <AlertDialogDescription>
+                            Esta acción no se puede deshacer. Se eliminará permanentemente
+                            tu resumen guardado.
+                          </AlertDialogDescription>
+                        </AlertDialogHeader>
+                        <AlertDialogFooter>
+                          <AlertDialogCancel>Cancelar</AlertDialogCancel>
+                          <AlertDialogAction onClick={() => handleDelete(selectedSummary.id)}>
+                            Eliminar
+                          </AlertDialogAction>
+                        </AlertDialogFooter>
+                      </AlertDialogContent>
+                    </AlertDialog>
+                </div>
+            </CardHeader>
+            <CardContent className="min-h-[60vh] lg:min-h-[calc(100vh-16rem)]">
+                <ScrollArea className="h-full">
+                <div className="prose prose-sm dark:prose-invert max-w-none whitespace-pre-wrap leading-relaxed">
+                    {selectedSummary.content}
+                </div>
+                </ScrollArea>
+            </CardContent>
+            </>
+          ) : (
+            <CardContent className="min-h-[60vh] lg:min-h-[calc(100vh-16rem)] flex items-center justify-center">
+                 <div className="flex h-full flex-col items-center justify-center gap-3 text-center text-muted-foreground">
+                    <BookX className="h-12 w-12" />
+                    <p className="text-lg font-semibold">No hay ningún resumen seleccionado.</p>
+                    <p>Selecciona un resumen de la lista o crea uno nuevo en la sección de "Estudiar".</p>
+                </div>
+            </CardContent>
+          )}
+        </Card>
+      </main>
+    </div>
+  );
+}
