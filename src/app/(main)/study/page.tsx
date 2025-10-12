@@ -61,10 +61,9 @@ export default function StudyPage() {
     setError(null);
     setResourceContent(null);
 
-    const sourceFile = resource.type === 'internal' ? `/${resource.source}` : `/${resource.source}`;
-
     if (resource.type === 'internal') {
       setIsLoading(true);
+      const sourceFile = `/estudio/${resource.source}`;
       try {
         const response = await fetch(sourceFile);
         if (!response.ok) throw new Error(`Network response was not ok, status: ${response.status}`);
