@@ -25,18 +25,18 @@ const featureCards = [
     imgId: 'practice-card',
   },
   {
-    title: 'Asistente IA',
-    description: 'Habla con Vairyx para obtener ayuda y recomendaciones.',
-    href: '/assistant',
-    icon: Sparkles,
-    imgId: 'assistant-card',
-  },
-  {
     title: 'Mide tu Progreso',
     description: 'Monitorea tu desempeño y enfócate en tus áreas débiles.',
     href: '/progress',
     icon: BarChart3,
     imgId: 'progress-card',
+  },
+   {
+    title: 'Mi Horario',
+    description: 'Genera un plan de estudio semanal y personalizado con IA.',
+    href: '/schedule',
+    icon: Sparkles,
+    imgId: 'assistant-card',
   },
 ];
 

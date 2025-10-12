@@ -20,9 +20,9 @@
     },
     {
       "id": "assistant-card",
-      "description": "Una ilustración de un bot amigable con un foco, representando la ayuda de la IA.",
+      "description": "Un calendario con un plan de estudio marcado.",
       "imageUrl": "https://picsum.photos/seed/106/600/400",
-      "imageHint": "friendly AI assistant"
+      "imageHint": "study schedule"
     },
     {
       "id": "progress-card",

@@ -7,10 +7,9 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';
-import { Sparkles, X, Send, Loader2, Youtube } from 'lucide-react';
+import { X, Send, Loader2, Youtube } from 'lucide-react';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { VairyxIcon } from './VairyxIcon';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { studyAssistant } from '@/ai/flows/study-assistant';
@@ -132,7 +131,7 @@ export function ChatWidget() {
                             {messages.map((message, index) => (
                             <div
                                 key={index}
-                                className={cn('flex items-start gap-4', {
+                                className={cn('flex items-start gap-4 animate-fade-in-up', {
                                     'justify-end': message.role === 'user'
                                 })}
                             >
@@ -172,7 +171,7 @@ export function ChatWidget() {
                             </div>
                             ))}
                              {isLoading && (
-                                <div className="flex items-start gap-3">
+                                <div className="flex items-start gap-3 animate-fade-in-up">
                                         <Avatar className="h-8 w-8 border">
                                             <AvatarFallback>V</AvatarFallback>
                                         </Avatar>
