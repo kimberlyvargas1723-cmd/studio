@@ -38,6 +38,7 @@ export type GeneratedQuestion = {
 
 export type GeneratedQuiz = {
   title: string;
+  topic: string;
   questions: GeneratedQuestion[];
 };
 
@@ -46,5 +47,5 @@ export type Feedback = {
   areasForImprovement: string;
   adaptedQuestionTopic: string;
   timestamp: string;
-  topic?: string;
+  topic: string;
 };

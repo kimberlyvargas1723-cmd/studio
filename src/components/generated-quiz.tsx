@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import type { GeneratedQuiz, GeneratedQuestion } from '@/lib/types';
+import type { GeneratedQuiz, GeneratedQuestion, Feedback } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -8,6 +8,8 @@ import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Loader2, CheckCircle, XCircle, Lightbulb, ArrowLeft } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
+import { analyzePerformanceAndAdapt } from '@/ai/flows/personalized-feedback-adaptation';
+import { updatePerformanceData, saveFeedback } from '@/lib/services';
 
 type GeneratedQuizProps = {
     quiz: GeneratedQuiz;
@@ -20,6 +22,9 @@ export function GeneratedQuiz({ quiz, onBack }: GeneratedQuizProps) {
   const [isAnswered, setIsAnswered] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [score, setScore] = useState(0);
+  const [feedback, setFeedback] = useState<Feedback | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
 
   const currentQuestion: GeneratedQuestion = quiz.questions[currentQuestionIndex];
   const isQuizFinished = currentQuestionIndex >= quiz.questions.length;
@@ -27,11 +32,42 @@ export function GeneratedQuiz({ quiz, onBack }: GeneratedQuizProps) {
   const handleAnswerSubmit = async () => {
     if (!selectedAnswer) return;
 
+    setIsLoading(true);
     setIsAnswered(true);
     const correct = selectedAnswer === currentQuestion.correctAnswer;
     setIsCorrect(correct);
+    
     if (correct) {
       setScore(score + 1);
+    }
+    
+    // Update performance data in localStorage
+    updatePerformanceData(quiz.topic, correct);
+
+    try {
+      // Get personalized feedback from the AI
+      const result = await analyzePerformanceAndAdapt({
+        question: currentQuestion.question,
+        studentAnswer: selectedAnswer,
+        correctAnswer: currentQuestion.correctAnswer,
+        topic: quiz.topic,
+      });
+      const newFeedback: Feedback = {...result, timestamp: new Date().toISOString(), topic: quiz.topic};
+      setFeedback(newFeedback);
+      saveFeedback(newFeedback);
+    } catch (error) {
+      console.error("Error getting feedback:", error);
+      const errorFeedback: Feedback = {
+        feedback: "No se pudo obtener la retroalimentación. Por favor, intenta de nuevo.",
+        areasForImprovement: "N/A",
+        adaptedQuestionTopic: quiz.topic,
+        timestamp: new Date().toISOString(),
+        topic: quiz.topic,
+      }
+      setFeedback(errorFeedback);
+      saveFeedback(errorFeedback);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -39,6 +75,7 @@ export function GeneratedQuiz({ quiz, onBack }: GeneratedQuizProps) {
     setCurrentQuestionIndex(currentQuestionIndex + 1);
     setSelectedAnswer(null);
     setIsAnswered(false);
+    setFeedback(null);
   };
 
   const handleRestartQuiz = () => {
@@ -46,6 +83,7 @@ export function GeneratedQuiz({ quiz, onBack }: GeneratedQuizProps) {
     setScore(0);
     setSelectedAnswer(null);
     setIsAnswered(false);
+    setFeedback(null);
   }
 
   if (isQuizFinished) {
@@ -62,11 +100,12 @@ export function GeneratedQuiz({ quiz, onBack }: GeneratedQuizProps) {
           <p className="text-center text-muted-foreground mt-2">
             Respuestas correctas
           </p>
+           <p className="text-center text-sm text-muted-foreground mt-4">Puedes revisar tu retroalimentación detallada en la sección "Mi Progreso".</p>
         </CardContent>
         <CardFooter className="flex-col sm:flex-row gap-2">
            <Button onClick={onBack} className="w-full sm:w-auto" variant="outline">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Volver a Resúmenes
+            Elegir otro Tema
           </Button>
           <Button onClick={handleRestartQuiz} className="w-full sm:w-auto">
             Volver a Intentar
@@ -79,7 +118,13 @@ export function GeneratedQuiz({ quiz, onBack }: GeneratedQuizProps) {
   return (
     <Card className="w-full max-w-2xl mt-4">
       <CardHeader>
-        <CardTitle className="font-headline text-lg">{quiz.title}</CardTitle>
+        <div className="flex justify-between items-center">
+            <Button variant="ghost" size="sm" onClick={onBack} className="self-start">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Volver
+            </Button>
+            <CardTitle className="font-headline text-lg">{quiz.title}</CardTitle>
+        </div>
         <CardDescription>Pregunta {currentQuestionIndex + 1} de {quiz.questions.length}</CardDescription>
         <Progress value={((currentQuestionIndex + 1) / quiz.questions.length) * 100} className="mt-2" />
         <p className="pt-4 text-lg">{currentQuestion.question}</p>
@@ -87,13 +132,14 @@ export function GeneratedQuiz({ quiz, onBack }: GeneratedQuizProps) {
       <CardContent>
         <RadioGroup
           value={selectedAnswer ?? ''}
-          onValueChange={setSelectedAnswer}
+          onValuecha
+nge={setSelectedAnswer}
           disabled={isAnswered}
         >
           {currentQuestion.options.map((option, index) => (
-            <div key={index} className="flex items-center space-x-2">
+            <div key={index} className="flex items-center space-x-2 p-2 rounded-md transition-colors hover:bg-muted">
               <RadioGroupItem value={option} id={`option-gen-${index}`} />
-              <Label htmlFor={`option-gen-${index}`} className="text-base cursor-pointer">{option}</Label>
+              <Label htmlFor={`option-gen-${index}`} className="text-base cursor-pointer flex-1">{option}</Label>
             </div>
           ))}
         </RadioGroup>
@@ -108,22 +154,41 @@ export function GeneratedQuiz({ quiz, onBack }: GeneratedQuizProps) {
               </AlertDescription>
             </Alert>
             <Alert>
-              <Lightbulb className="h-4 w-4 text-accent" />
+              <Lightbulb className="h-4 w-4" />
               <AlertTitle>Explicación</AlertTitle>
               <AlertDescription>
                 {currentQuestion.explanation}
               </AlertDescription>
             </Alert>
+            {isLoading && (
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Loader2 className="h-4 w-4 animate-spin" />
+                Analizando tu respuesta y adaptando tu ruta...
+              </div>
+            )}
+            {feedback && !isLoading && (
+              <Alert className="border-primary">
+                <Lightbulb className="h-4 w-4 text-primary" />
+                <AlertTitle>Retroalimentación Personalizada</AlertTitle>
+                <AlertDescription>
+                  <p className="font-semibold mt-2">Sugerencia de la IA:</p>
+                  <p>{feedback.feedback}</p>
+                  <p className="mt-2 font-semibold">Área de mejora sugerida:</p>
+                  <p>{feedback.areasForImprovement}</p>
+                </AlertDescription>
+              </Alert>
+            )}
           </div>
         )}
       </CardContent>
       <CardFooter>
         {isAnswered ? (
-          <Button onClick={handleNextQuestion} className="w-full bg-accent hover:bg-accent/90">
+          <Button onClick={handleNextQuestion} className="w-full">
             Siguiente Pregunta
           </Button>
         ) : (
-          <Button onClick={handleAnswerSubmit} disabled={!selectedAnswer} className="w-full">
+          <Button onClick={handleAnswerSubmit} disabled={!selectedAnswer || isLoading} className="w-full">
+            {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             Enviar Respuesta
           </Button>
         )}

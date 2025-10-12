@@ -15,6 +15,7 @@ import { generatePracticeQuestions } from '@/ai/flows/practice-question-generati
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { GeneratedQuiz as GeneratedQuizComponent } from '@/components/generated-quiz';
 import { studyResources } from '@/lib/data';
+import { useToast } from '@/hooks/use-toast';
 
 /**
  * A component that allows users to generate a practice quiz based on a selected study topic.
@@ -27,6 +28,7 @@ export function GenerateQuestionsTab() {
   const [internalResources] = useState<StudyResource[]>(() =>
     studyResources.filter(r => r.type === 'internal')
   );
+  const { toast } = useToast();
 
   /**
    * Handles the quiz generation process for a given study resource.
@@ -49,12 +51,12 @@ export function GenerateQuestionsTab() {
 
       setGeneratedQuiz({
         title: `Quiz de: ${resource.title}`,
+        topic: resource.title, // Add topic here
         questions: result.questions,
       });
     } catch (e) {
       console.error(e);
-      // In a real app, you would show an error toast to the user.
-      // toast({ variant: 'destructive', title: 'Error', description: 'No se pudo generar el quiz.' });
+      toast({ variant: 'destructive', title: 'Error', description: 'No se pudo generar el quiz. Intenta de nuevo.' });
     } finally {
       setIsLoading(false);
     }
@@ -75,13 +77,13 @@ export function GenerateQuestionsTab() {
 
   // Otherwise, show the quiz generation UI.
   return (
-    <Card className="mt-4">
+    <Card className="w-full max-w-4xl">
       <CardHeader>
         <CardTitle className="font-headline">
           Generador de Quiz por Tema
         </CardTitle>
         <CardDescription>
-          Selecciona un tema de estudio para crear un quiz personalizado con IA.
+          Selecciona un tema de estudio para crear un quiz personalizado con IA. Esta es la mejor forma de diagnosticar tus áreas de oportunidad.
         </CardDescription>
       </CardHeader>
       <CardContent className="min-h-[300px]">
@@ -95,7 +97,7 @@ export function GenerateQuestionsTab() {
             </p>
           </div>
         ) : internalResources.length > 0 ? (
-          <ScrollArea className="h-[400px]">
+          <ScrollArea className="h-[50vh]">
             <div className="space-y-2">
               {internalResources.map(resource => (
                 <Card key={resource.source} className="p-4 flex justify-between items-center">
