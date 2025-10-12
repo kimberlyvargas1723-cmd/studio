@@ -1,85 +1,58 @@
-# Dominando la Redacción Indirecta para el EXANI-II
+# Guía Rápida de Redacción Indirecta para EXANI-II
 
-La sección de Redacción Indirecta no te pide escribir un ensayo, sino que evalúa tu habilidad para **mejorar textos ya escritos**. Se enfoca en la gramática, la sintaxis y la cohesión. Es como ser un "editor" de textos. Tu misión es identificar errores o áreas de mejora y seleccionar la opción que mejor los corrige.
+Redacción Indirecta no evalúa tu creatividad, sino tu conocimiento de las reglas del español para comunicar ideas de forma clara, coherente y correcta. Te pedirán que mejores, completes o corrijas frases.
 
-Las preguntas suelen ser de tres tipos:
-1.  **Completar una frase:** Elegir la palabra o conector que falta.
-2.  **Reemplazar una parte:** Sustituir una palabra o fragmento subrayado por una opción mejor.
-3.  **Identificar errores:** Señalar la parte de una oración que es gramaticalmente incorrecta.
+### 1. Concordancia: El Fundamento de Todo
 
-### 1. Cohesión y Coherencia: El Uso de Conectores
+-   **Sujeto-Verbo:** El sujeto y el verbo deben coincidir en número (singular/plural).
+    -   **Incorrecto:** *El grupo* de estudiantes *presentaron* el examen.
+    -   **Correcto:** *El grupo* de estudiantes *presentó* el examen. (El núcleo del sujeto es "grupo", no "estudiantes").
+-   **Sustantivo-Adjetivo:** Deben coincidir en género (masculino/femenino) y número.
+    -   **Incorrecto:** La casa y el coche *antiguos*.
+    -   **Correcto:** La casa y el coche *antiguos*. (Si hay mezcla de géneros, predomina el masculino plural).
+    -   **Correcto:** La casa y la silla *antiguas*.
 
-Los conectores son palabras o frases que unen ideas y le dan sentido al texto. Dominarlos es crucial.
+### 2. Uso de Conectores Lógicos
 
-- **Conectores de Adición:** Añaden información.
-  - *Ejemplos:* y, también, además, asimismo, de igual modo.
-  - *Frase:* "El estudio es importante; **además**, la práctica constante es fundamental."
+Son palabras que unen ideas y les dan sentido. Debes saber qué relación establecen.
 
-- **Conectores de Contraste u Oposición:** Expresan una idea contraria.
-  - *Ejemplos:* pero, sin embargo, no obstante, aunque, a pesar de.
-  - *Frase:* "Quería salir a correr, **sin embargo**, comenzó a llover."
+-   **Adversativos (Oposición):** *pero, sin embargo, aunque, no obstante.*
+    -   Ejemplo: "Estudié mucho, *pero* no aprobé".
+-   **Consecutivos (Causa-Efecto):** *por lo tanto, así que, en consecuencia, por eso.*
+    -   Ejemplo: "Estudié mucho, *por lo tanto*, aprobé".
+-   **Aditivos (Suma de ideas):** *además, también, asimismo, y.*
+    -   Ejemplo: "Me gusta la psicología, *además*, me interesa la neurociencia".
+-   **Concesivos (Dificultad que no impide):** *aunque, a pesar de que, si bien.*
+    -   Ejemplo: "*Aunque* estaba cansada, terminé el trabajo".
 
-- **Conectores de Causa-Efecto:** Muestran una relación de causalidad.
-  - *Causa:* porque, ya que, puesto que, debido a.
-  - *Efecto:* por lo tanto, en consecuencia, así que, por consiguiente.
-  - *Frase:* "No estudió para el examen, **por lo tanto**, reprobó."
-
-- **Conectores de Tiempo:** Indican una secuencia temporal.
-  - *Ejemplos:* después, antes, luego, mientras tanto, finalmente.
-  - *Frase:* "Primero, lee el texto; **luego**, contesta las preguntas."
-
-**Estrategia:** Lee la oración completa y pregúntate qué relación lógica existe entre las ideas. ¿Se están sumando? ¿Se oponen? ¿Una es causa de la otra? La respuesta te dirá qué tipo de conector necesitas.
-
-### 2. Concordancia Gramatical: El Equilibrio del Texto
-
-La concordancia asegura que las palabras en una oración "coincidan" en género (masculino/femenino) y número (singular/plural).
-
-- **Concordancia de Sujeto y Verbo:** El verbo debe estar en el mismo número (singular/plural) que el sujeto.
-  - **Incorrecto:** "La mayoría de los estudiantes *piensa* que el examen es difícil."
-  - **Correcto:** "La mayoría de los estudiantes *piensan* que el examen es difícil." (El sujeto es "estudiantes", que es plural).
-  
-- **Concordancia de Sustantivo y Adjetivo:** El adjetivo debe coincidir en género y número con el sustantivo que describe.
-  - **Incorrecto:** "Compré una camisa y un pantalón *nuevas*."
-  - **Correcto:** "Compré una camisa y un pantalón *nuevos*." (Al haber un elemento masculino, el adjetivo se vuelve masculino plural).
-
-### 3. Puntuación: Las Señales del Camino
-
-Los signos de puntuación guían al lector. Un error aquí puede cambiar todo el sentido de una frase.
-
-- **La Coma (,)**
-  - **Usos comunes:**
-    1.  **Para separar elementos en una lista:** "Necesito comprar leche, huevos, y pan."
-    2.  **Antes de conectores de contraste:** "Estudié mucho, **pero** estaba nervioso."
-    3.  **Para aislar aclaraciones (incisos):** "Mi hermano, **que es el mayor**, vive en otra ciudad."
-
-- **El Punto y Coma (;)**
-  - **Uso principal:** Separa dos oraciones que están estrechamente relacionadas en idea, pero que son independientes. Es una pausa más fuerte que una coma, pero más débil que un punto.
-  - *Frase:* "El equipo jugó muy bien durante el primer tiempo; en el segundo, su rendimiento decayó."
-
-- **Los Dos Puntos (:)**
-  - **Uso principal:** Anuncian algo que viene a continuación, como una lista, una cita o una explicación.
-  - *Frase:* "Los ingredientes son: harina, azúcar y mantequilla."
-
-### Ejemplo Práctico Integrado
-
-**Analiza la siguiente pregunta tipo examen:**
-
-> **Pregunta:** Seleccione la opción que sustituye de mejor manera la parte subrayada.
+**Mini Problema: Elegir el Conector**
+> **Pregunta:** El cambio climático es un problema real; \_\_\_\_\_, muchos gobiernos no toman medidas suficientes.
+> 1.  en consecuencia
+> 2.  **sin embargo**
+> 3.  además
+> 4.  es decir
 >
-> "<u>El grupo de investigadores, a pesar de sus esfuerzos, no encontró una cura; pero</u> siguieron trabajando con optimismo."
+> **Análisis:** La segunda idea se opone a la primera. Se necesita un conector adversativo.
+> **Solución: 2**
 
-> a) El grupo de investigadores, a pesar de sus esfuerzos, no encontró una cura; sin embargo,
-> b) El grupo de investigadores, a pesar de sus esfuerzos, no encontró una cura, pero
-> c) El grupo de investigadores, a pesar de sus esfuerzos, no encontró una cura pero
-> d) El grupo de investigadores, a pesar de sus esfuerzos, no encontró una cura, pero,
+### 3. Precisión Léxica (Evitar Palabras Vagas)
 
-**Análisis:**
-- El fragmento usa un punto y coma (;) seguido de "pero". Esto es redundante. El punto y coma ya indica una pausa y una relación entre las frases. "Pero" es un conector de contraste que se usa típicamente después de una coma.
-- La opción **a)** ("...cura; sin embargo,") es la más correcta. "Sin embargo" es un conector de contraste más formal y adecuado para seguir a un punto y coma, y la coma que le sigue es gramaticalmente correcta.
-- La opción **b)** ("...cura, pero") es gramaticalmente aceptable, pero la **a)** tiene un estilo más pulcro y académico.
-- La opción **c)** omite la coma antes de "pero", lo cual es incorrecto.
-- La opción **d)** añade una coma innecesaria después de "pero".
+El examen a menudo te pedirá que sustituyas palabras como "cosa", "algo", "hacer" o "tener" por términos más precisos.
 
-**Solución Correcta: a)**
+**Mini Problema: Precisión**
+> **Pregunta:** El psicólogo tiene que *hacer* un diagnóstico. ¿Qué palabra es más precisa que "hacer"?
+> 1.  realizar
+> 2.  **emitir**
+> 3.  construir
+> 4.  crear
+>
+> **Análisis:** En el contexto profesional de la salud, los diagnósticos se "emiten" o se "establecen". "Emitir" es el término técnico más adecuado.
+> **Solución: 2**
 
-**Consejo Final:** Lee mucho y fíjate en cómo están construidas las oraciones en textos bien escritos (artículos de periódico, ensayos, etc.). Esto desarrollará tu intuición gramatical y te ayudará a identificar errores de manera más natural.
+### 4. Puntuación y Acentuación
+
+-   **Coma (,)**: Úsala para separar elementos en una lista, antes de conectores como *pero* o *aunque*, y para aclaraciones (incisos).
+-   **Punto y Coma (;)**: Úsalo para separar ideas que están relacionadas pero que son más largas que una simple lista. A menudo va antes de conectores como *sin embargo* o *por lo tanto*.
+-   **Tilde Diacrítica**: Diferencia palabras que se escriben igual pero significan cosas distintas (ej. *tú* (pronombre) vs. *tu* (posesivo), *él* (pronombre) vs. *el* (artículo), *más* (cantidad) vs. *mas* (pero)).
+
+**Consejo Final:** En Redacción Indirecta, lee todas las opciones. A veces, varias parecen correctas, pero solo una es la más precisa, formal y adecuada al contexto académico del examen.

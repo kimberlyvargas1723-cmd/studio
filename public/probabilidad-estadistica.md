@@ -1,91 +1,59 @@
-# Dominando Probabilidad y Estadística para el EXANI-II
+# Guía Esencial de Probabilidad y Estadística para Psicología (EXANI-II)
 
-Aunque "Pensamiento Matemático" es la sección principal, dentro de ella, las preguntas de probabilidad y estadística son muy comunes y tienen sus propias reglas. ¡No te preocupes! Los conceptos que necesitas son más sencillos de lo que parecen.
+Este módulo evalúa tu capacidad para interpretar datos y entender la probabilidad, habilidades cruciales en psicología para analizar resultados de estudios y experimentos.
 
-### 1. Conceptos Fundamentales de Probabilidad
+### 1. Conceptos Básicos de Estadística
 
-La probabilidad mide la posibilidad de que ocurra un evento. La fórmula básica es:
+La estadística descriptiva se usa para resumir y describir datos.
 
-`P(evento) = (Número de casos favorables) / (Número total de casos posibles)`
-
-La probabilidad siempre es un número entre 0 (imposible) y 1 (seguro).
-
-**Mini Problema 1: Lanzar un dado**
-> **Pregunta:** ¿Cuál es la probabilidad de obtener un número mayor que 4 al lanzar un dado de 6 caras?
-> **Análisis:**
-> - **Casos favorables:** Obtener un 5 o un 6. Son **2** casos.
-> - **Casos totales:** Los números del 1 al 6. Son **6** casos.
-> **Cálculo:** P(>4) = 2 / 6 = 1/3
-> **Solución:** La probabilidad es de 1/3.
-
-**Mini Problema 2: Sacar una canica**
-> **Pregunta:** En una bolsa hay 5 canicas rojas, 3 azules y 2 verdes. ¿Cuál es la probabilidad de sacar una canica que NO sea azul?
-> **Análisis:**
-> - **Casos favorables (no azul):** 5 rojas + 2 verdes = **7** casos.
-> - **Casos totales:** 5 + 3 + 2 = **10** casos.
-> **Cálculo:** P(no azul) = 7 / 10
-> **Solución:** La probabilidad es de 7/10.
-
----
+-   **Población vs. Muestra:** La **población** es el grupo completo que se estudia (ej. "todos los estudiantes de psicología de la UANL"). La **muestra** es un subconjunto representativo de esa población (ej. "100 estudiantes de psicología de la UANL seleccionados al azar").
+-   **Variable Cualitativa vs. Cuantitativa:**
+    -   **Cualitativa:** Describe una cualidad o categoría (ej. color de ojos, estado civil, tipo de terapia).
+    -   **Cuantitativa:** Se mide con números (ej. edad, altura, puntuación en un test de ansiedad).
 
 ### 2. Medidas de Tendencia Central
 
-Estas medidas te dan una idea del "centro" de un conjunto de datos. Las tres más importantes son la media, la mediana y la moda.
+Resumen un conjunto de datos en un solo valor.
 
-**Conjunto de datos de ejemplo:** `5, 8, 3, 5, 7`
+-   **Media (Promedio):** La suma de todos los datos dividida por el número de datos. Es sensible a valores extremos.
+    -   **Ejemplo:** Datos: 2, 3, 4, 7, 9 -> Media = (2+3+4+7+9) / 5 = 5
+-   **Mediana:** El valor que se encuentra justo en el medio cuando los datos están ordenados. Si hay un número par de datos, es el promedio de los dos del centro.
+    -   **Ejemplo:** Datos ordenados: 2, 3, **4**, 7, 9 -> Mediana = 4
+    -   **Ejemplo (par):** Datos ordenados: 2, 3, **4, 6**, 7, 9 -> Mediana = (4+6) / 2 = 5
+-   **Moda:** El valor que aparece con más frecuencia en el conjunto de datos. Puede no haber moda o haber más de una.
+    -   **Ejemplo:** Datos: 2, 3, 5, 5, 6, 7, 5 -> Moda = 5
 
-#### a) Media (Promedio)
-Es la suma de todos los datos dividida entre el número total de datos.
+### 3. Nociones de Probabilidad
 
-**Estrategia:** Suma todo y divide.
-> **Cálculo:** (5 + 8 + 3 + 5 + 7) / 5 = 28 / 5 = 5.6
-> **Media = 5.6**
+La probabilidad mide la certeza de que ocurra un evento. Se expresa como un número entre 0 (imposible) y 1 (seguro).
 
-#### b) Mediana
-Es el valor que se encuentra justo en el medio del conjunto de datos, **una vez que los datos están ordenados**.
+**Fórmula Clásica:**
+`Probabilidad (P) = (Número de casos favorables) / (Número total de casos posibles)`
 
-**Estrategia:** Ordena los datos primero.
-> **Datos ordenados:** `3, 5, 5, 7, 8`
-> El número del medio es 5.
-> **Mediana = 5**
-
-*¿Y si hay un número par de datos?*
-Para el conjunto `2, 4, 6, 8`, los dos del medio son 4 y 6. La mediana es el promedio de esos dos: (4 + 6) / 2 = 5.
-
-#### c) Moda
-Es el número que más se repite en el conjunto de datos.
-
-**Estrategia:** Busca el número más frecuente.
-> **Datos:** `3, 5, 5, 7, 8`
-> El número 5 aparece dos veces, más que cualquier otro.
-> **Moda = 5**
-
-Puede haber más de una moda (bimodal) o ninguna si todos los números aparecen la misma cantidad de veces.
-
----
-
-### 3. Gráficas y Tablas: Interpretación de Datos
-
-Es muy probable que te presenten una gráfica (de barras, circular, de líneas) o una tabla y te hagan preguntas sobre la información que contiene.
-
-**Estrategia Clave:**
-1.  **Lee los Títulos y los Ejes:** Antes de ver los datos, entiende qué estás mirando. ¿Qué representa el eje X? ¿Y el eje Y? ¿Cuál es el título de la gráfica?
-2.  **Identifica la Pregunta Específica:** No te pierdas en la información. Localiza exactamente qué te están preguntando. ¿Te piden un total? ¿Una diferencia? ¿Un porcentaje?
-3.  **Localiza los Datos Relevantes:** Encuentra la barra, la porción del círculo o el punto en la línea que corresponde a la pregunta y extrae el valor.
-
-**Mini Problema 3: Gráfica de Barras**
-
-Imagina una gráfica de barras que muestra las ventas de libros por género en una semana:
-- Ficción: 50 libros
-- No Ficción: 30 libros
-- Infantil: 20 libros
-
-> **Pregunta:** ¿Qué porcentaje del total de libros vendidos corresponde al género de Ficción?
+**Mini Problema: Probabilidad Simple**
+> **Pregunta:** En una caja hay 5 bolas rojas, 3 azules y 2 verdes. ¿Cuál es la probabilidad de sacar una bola azul al azar?
 > **Análisis:**
-> 1. **Total de libros:** 50 + 30 + 20 = 100 libros.
-> 2. **Libros de Ficción:** 50.
-> 3. **Cálculo del porcentaje:** (Parte / Total) * 100
->    (50 / 100) * 100 = 0.5 * 100 = 50%
-> **Solución:** El 50% de los libros vendidos fueron de Ficción.
+> -   **Casos favorables (azules):** 3
+> -   **Casos totales (todas las bolas):** 5 + 3 + 2 = 10
+> **Cálculo:** P(Azul) = 3 / 10 = 0.3
+> **Solución:** 3/10 o 30%
 
-**Consejo Final:** En estadística y probabilidad, la clave es leer con mucho cuidado. Asegúrate de entender exactamente qué datos tienes y qué te están pidiendo calcular. ¡La mayoría de los errores vienen de una mala interpretación de la pregunta, no de un cálculo difícil!
+### 4. Tablas y Gráficos
+
+Debes ser capaz de interpretar información presentada visualmente.
+
+-   **Tabla de Frecuencias:** Muestra cuántas veces aparece cada valor o categoría.
+-   **Gráfica de Barras:** Compara cantidades entre diferentes categorías.
+-   **Gráfica Circular (Pastel):** Muestra cómo se distribuye un total en diferentes partes (porcentajes).
+
+**Mini Problema: Interpretación de Gráfica**
+> **Análisis:** Una gráfica de barras muestra los resultados de una encuesta sobre la fobia preferida de 100 estudiantes: 40 eligieron "Arañas", 30 "Alturas", 20 "Espacios cerrados" y 10 "Otros".
+>
+> **Pregunta:** ¿Qué porcentaje de estudiantes no eligió "Arañas"?
+> **Análisis:**
+> 1.  Estudiantes que eligieron Arañas: 40
+> 2.  Estudiantes que NO eligieron Arañas: 100 - 40 = 60
+> 3.  Porcentaje: (60 / 100) * 100 = 60%
+> **Solución:** 60%
+
+**Consejo Final:** La clave en esta sección es leer cuidadosamente las preguntas y las etiquetas de los gráficos. A menudo, la información que necesitas está justo ahí, pero la pregunta puede estar formulada de una manera que requiere un paso extra, como calcular un porcentaje o una diferencia en lugar de solo leer un valor.

@@ -1,65 +1,42 @@
-# Dominando la Comprensión Lectora para el EXANI-II
+# Claves para Comprensión Lectora en EXANI-II
 
-La sección de Comprensión Lectora del EXANI-II no solo mide si entiendes las palabras, sino si puedes analizar, interpretar y evaluar un texto de manera crítica. ¡Vamos a desglosar las habilidades clave que necesitas!
+La sección de Comprensión Lectora evalúa tu habilidad para analizar y sintetizar información de textos de diversos tipos. No se trata de memorizar, sino de entender.
 
-### 1. Identificar la Idea Principal y las Ideas Secundarias
+### 1. Tipos de Texto que Encontrarás
 
-Todo texto tiene un mensaje central. Tu primera misión es encontrarlo.
+-   **Argumentativo:** El autor presenta una opinión (tesis) y la defiende con argumentos. Tu objetivo es identificar la tesis y los argumentos principales.
+-   **Expositivo:** El autor presenta información objetiva sobre un tema. Tu objetivo es comprender los datos, definiciones y conceptos clave.
+-   **Narrativo:** El autor cuenta una historia o suceso. Tu objetivo es seguir la secuencia de eventos e identificar a los personajes principales.
 
-- **Idea Principal:** Es la tesis o el punto más importante que el autor quiere comunicar. Pregúntate: *¿De qué trata fundamentalmente este texto? ¿Cuál es el mensaje que se quedaría si borro los detalles?*
-- **Ideas Secundarias:** Son las oraciones que explican, ejemplifican o argumentan la idea principal. Apoyan el mensaje central, pero no son el mensaje en sí.
+### 2. Habilidades Clave a Desarrollar
 
-**Estrategia:** Después de leer un párrafo, intenta resumirlo en una sola oración. Esa oración probablemente contenga la idea principal del párrafo. La idea principal del texto completo será la que englobe todas esas ideas de los párrafos.
+-   **Identificar la Idea Principal:** ¿Cuál es el mensaje central que el autor quiere comunicar? Generalmente se encuentra en la introducción o en la conclusión. Pregúntate: "¿De qué trata principalmente este texto?".
 
-### 2. Reconocer el Propósito del Texto y la Intención del Autor
+-   **Diferenciar Ideas Principales de Secundarias:** Las ideas secundarias son ejemplos, datos o explicaciones que apoyan a la idea principal. No son el núcleo del mensaje.
 
-¿Por qué el autor escribió esto? ¿Qué busca lograr?
+-   **Hacer Inferencias:** Es leer entre líneas. El texto te da pistas (premisas) para que llegues a una conclusión que no está escrita explícitamente. Si el texto dice "El suelo está mojado y la gente lleva paraguas", puedes inferir que llovió.
 
-- **Informar:** Presenta hechos, datos y explicaciones de manera objetiva (ej. una noticia, un texto científico).
-- **Persuadir:** Intenta convencer al lector de una opinión o punto de vista (ej. un artículo de opinión, una crítica).
-- **Narrar:** Cuenta una historia o una secuencia de eventos (ej. un cuento, una crónica).
-- **Instruir:** Da indicaciones o pasos a seguir (ej. un manual, una receta).
+-   **Identificar el Propósito del Texto:** ¿Para qué escribió esto el autor?
+    -   **Persuadir:** Si es argumentativo.
+    -   **Informar:** Si es expositivo.
+    -   **Entretener:** Si es narrativo o literario.
 
-**Estrategia:** Fíjate en el lenguaje. Un texto persuasivo usará adjetivos y un tono más personal. Un texto informativo se centrará en datos y será más neutral.
+### 3. Estrategias Prácticas durante el Examen
 
-### 3. Inferir Información Implícita
+**Estrategia: Lectura Activa en Dos Pasos**
+1.  **Primera Lectura (Rápida):** Lee el texto una vez para tener una idea general. No te detengas en los detalles. Identifica el tipo de texto y su tema general.
+2.  **Segunda Lectura (Enfocada):** Lee las preguntas primero. Luego, vuelve a leer el texto, pero esta vez buscando específicamente las respuestas a esas preguntas. Subraya (mentalmente) las partes que te parezcan más relevantes para cada pregunta.
 
-No todo está escrito. A veces, tienes que "leer entre líneas" para entender el mensaje completo. Inferir es deducir algo que no está dicho explícitamente, basándote en las pistas que el texto sí te da.
+**Mini Problema: Identificar Propósito**
+> **Texto:** "El uso excesivo de plásticos de un solo uso está causando un daño irreparable a nuestros océanos. Cada año, toneladas de este material terminan en el mar, afectando a la vida marina. Es imperativo que los gobiernos implementen políticas más estrictas y que los consumidores opten por alternativas reutilizables."
+>
+> **Pregunta:** ¿Cuál es el propósito principal del autor?
+> 1.  Narrar la historia de una tortuga marina.
+> 2.  Describir los diferentes tipos de plástico.
+> 3.  **Convencer al lector sobre la necesidad de reducir el uso de plásticos.**
+> 4.  Informar sobre la composición química del plástico.
+>
+> **Análisis:** El autor no solo informa, sino que usa un lenguaje fuerte ("daño irreparable", "es imperativo") para llamar a la acción. Su objetivo es persuadir.
+> **Solución: 3**
 
-**Ejemplo de Inferencia:**
-- **Texto:** "Juan miraba el cielo nublado y guardó el paraguas en su mochila antes de salir de casa."
-- **Inferencia:** Juan probablemente piensa que va a llover. (El texto no lo dice, pero lo sugiere).
-
-**Estrategia:** Conecta las ideas que presenta el texto y pregúntate: *¿Qué conclusión lógica puedo sacar de esta información?*
-
-### Ejemplo Práctico
-
-**Lee el siguiente texto:**
-
-> La procrastinación es a menudo malinterpretada como simple pereza, pero sus raíces son mucho más profundas y complejas. Frecuentemente, surge del miedo al fracaso o, paradójicamente, del miedo al éxito. Cuando una tarea se percibe como abrumadora o el resultado es incierto, el cerebro busca una gratificación inmediata en actividades más sencillas, como revisar redes sociales, posponiendo así la fuente de ansiedad. Este comportamiento, aunque proporciona un alivio temporal, a largo plazo incrementa el estrés y la culpa, creando un ciclo vicioso difícil de romper. Entender la procrastinación como un mecanismo de regulación emocional, y no como un defecto de carácter, es el primer paso para abordarla eficazmente.
-
-**Preguntas Tipo Examen:**
-
-1.  **¿Cuál es la idea principal del texto?**
-    a) Las redes sociales son la principal causa de la procrastinación.
-    b) La procrastinación es un problema de gestión del tiempo.
-    c) La procrastinación es un mecanismo emocional complejo, no simple pereza.
-    d) La única forma de evitar la procrastinación es eliminando el miedo.
-
-    *Respuesta Correcta: c). El texto se centra en redefinir la procrastinación como un fenómeno psicológico complejo ligado a las emociones.*
-
-2.  **Según el texto, se puede inferir que una estrategia para combatir la procrastinación sería:**
-    a) Forzarse a trabajar más horas para compensar el tiempo perdido.
-    b) Gestionar la ansiedad asociada a una tarea, en lugar de solo evitarla.
-    c) Eliminar todas las distracciones como las redes sociales.
-    d) Aceptar que es un defecto de carácter y tratar de ser más disciplinado.
-
-    *Respuesta Correcta: b). Si la raíz es emocional (miedo, ansiedad), la inferencia lógica es que la solución pasa por manejar esas emociones.*
-
-3.  **¿Cuál es el propósito principal del autor?**
-    a) Narrar la historia de alguien que procrastina.
-    b) Instruir sobre cómo crear un horario de estudio.
-    c) Informar sobre las estadísticas de la procrastinación.
-    d) Persuadir al lector para que cambie su percepción sobre la procrastinación.
-
-    *Respuesta Correcta: d). El autor usa un lenguaje que busca cambiar la perspectiva del lector ("malinterpretada", "raíces más profundas"), argumentando un punto de vista específico.*
+**Consejo Final:** No te quedes atascado en palabras que no conoces. Intenta entender su significado por el contexto de la frase. La mayoría de las veces, la respuesta está directamente en el texto, solo necesitas saber cómo encontrarla.
