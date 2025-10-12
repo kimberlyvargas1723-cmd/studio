@@ -26,6 +26,7 @@ const GeneratedQuestionSchema = z.object({
     options: z.array(z.string()).describe('An array of 4 multiple-choice options.'),
     correctAnswer: z.string().describe('The correct answer from the options.'),
     explanation: z.string().describe('A brief explanation for why the answer is correct.'),
+    topic: z.string().describe('The specific topic of the question (e.g., "Psicología del Desarrollo").'),
 });
 
 const PracticeQuestionGenerationOutputSchema = z.object({
@@ -56,7 +57,7 @@ const prompt = ai.definePrompt({
 
   Based on the following summarized content about "{{topic}}", generate a list of 5 multiple-choice practice questions. Each question must have 4 plausible options. The questions should help students test their knowledge and identify areas where they need more study. Make sure the questions are relevant to the content and are of appropriate difficulty for a university entrance exam.
 
-  For each question, provide the question text, 4 options, the correct answer, and a brief explanation.
+  For each question, provide the question text, 4 options, the correct answer, a brief explanation, and ensure the 'topic' field is correctly set to "{{topic}}".
 
   Summarized Content:
   "{{summarizedContent}}"

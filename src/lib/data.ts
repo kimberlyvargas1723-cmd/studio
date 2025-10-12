@@ -1,5 +1,5 @@
 // src/lib/data.ts
-import type { StudyResource, PracticeQuestion, PerformanceData } from './types';
+import type { StudyResource, PerformanceData } from './types';
 
 /**
  * A list of available study resources, including internal content and external links.
@@ -30,13 +30,13 @@ export const studyResources: StudyResource[] = [
     source: 'psicologia-social.md',
   },
   {
-    title: 'Psicometría: Confiabilidad y Validez',
+    title: 'Psicometría',
     category: 'Metodología',
     type: 'internal',
     source: 'psicometria.md',
   },
   {
-    title: 'Guía para el Examen Psicométrico UANL',
+    title: 'Guía para el Examen Psicométrico',
     category: 'Examen Psicométrico',
     type: 'internal',
     source: 'guia-psicometrico.md',
@@ -60,7 +60,7 @@ export const studyResources: StudyResource[] = [
     source: 'pensamiento-matematico.md',
   },
    {
-    title: 'Inglés (Diagnóstico)',
+    title: 'Inglés',
     category: 'Habilidades del EXANI-II',
     type: 'internal',
     source: 'ingles.md',
@@ -92,5 +92,5 @@ export const initialPerformance: PerformanceData[] = [
   { topic: 'Comprensión Lectora', correct: 0, incorrect: 0 },
   { topic: 'Redacción Indirecta', correct: 0, incorrect: 0 },
   { topic: 'Pensamiento Matemático', correct: 0, incorrect: 0 },
-  { topic: 'Inglés (Diagnóstico)', correct: 0, incorrect: 0 }
+  { topic: 'Inglés', correct: 0, incorrect: 0 }
 ];

@@ -1,3 +1,4 @@
+// src/lib/types.ts
 
 export type StudyResource = {
   title: string;
@@ -34,6 +35,7 @@ export type GeneratedQuestion = {
   options: string[];
   correctAnswer: string;
   explanation: string;
+  topic: string;
 };
 
 export type GeneratedQuiz = {
