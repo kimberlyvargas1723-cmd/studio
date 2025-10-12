@@ -1,22 +1,23 @@
+// src/app/(main)/study/page.tsx
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Header } from '@/components/header';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { studyResources } from '@/lib/data';
 import type { StudyResource } from '@/lib/types';
 import { summarizeContent } from '@/ai/flows/content-summarization';
-import { Loader2, Link, BookCopy, FileText, Save, Book, ExternalLink } from 'lucide-react';
+import { Loader2, BookCopy, FileText, Save, Book, ExternalLink } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useToast } from '@/hooks/use-toast';
-import { readFileSync } from 'fs';
+import { saveSummary as saveSummaryToStorage } from '@/lib/services';
 
-// This is a mock for client-side. In a real scenario, you'd fetch this.
-const internalContentCache: Record<string, string> = {};
-
-
+/**
+ * Renders the study page, allowing users to select study resources,
+ * view their content, and generate AI-powered summaries.
+ */
 export default function StudyPage() {
   const [selectedResource, setSelectedResource] = useState<StudyResource | null>(null);
   const [resourceContent, setResourceContent] = useState<string | null>(null);
@@ -26,38 +27,51 @@ export default function StudyPage() {
   const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
 
+  /**
+   * Fetches and displays the content of a selected study resource.
+   * If the resource is external, it triggers summarization directly.
+   * @param resource The study resource to handle.
+   */
   const handleResourceSelect = async (resource: StudyResource) => {
     setSelectedResource(resource);
     setSummary(null);
     setError(null);
     setResourceContent(null);
-    
+    setIsLoading(true);
+
     if (resource.type === 'internal') {
-        // In a real app, you'd fetch the markdown file content.
-        // We'll simulate it by having a pre-filled cache or a client-side fetch.
-        // This is a placeholder for that logic. For this environment, we can't use fs.
-        // A real implementation would be:
-        // const response = await fetch(`/content/${resource.source}`);
-        // const content = await response.text();
-        // For now, let's use a placeholder.
-        const content = `Contenido para ${resource.title} no se pudo cargar en este entorno de demostración, pero en la aplicación real, el contenido del archivo ${resource.source} aparecería aquí.`;
+      try {
+        // Fetch the content of the internal markdown file.
+        const response = await fetch(`/estudio/${resource.source}`);
+        if (!response.ok) throw new Error('Network response was not ok');
+        const content = await response.text();
         setResourceContent(content);
-    } else {
+      } catch (e) {
+        console.error('Failed to fetch internal resource:', e);
+        setError('No se pudo cargar el contenido del recurso.');
         setResourceContent(null);
-        handleSummarizeUrl(resource);
+      } finally {
+        setIsLoading(false);
+      }
+    } else {
+      // For external URLs, proceed to summarize directly.
+      handleSummarizeUrl(resource);
     }
   };
 
+  /**
+   * Generates a summary for the currently displayed internal content.
+   */
   const handleSummarizeContent = async () => {
     if (!resourceContent) return;
+
     setIsSummarizing(true);
     setError(null);
     setSummary(null);
-     try {
-      // We'll use the summarizeContent flow, but it expects a URL.
-      // We will adapt by passing a data URI placeholder or modifying the flow.
-      // For now, we'll just show the concept.
-      const result = await summarizeContent({ url: `data:text/plain,${encodeURIComponent(resourceContent)}` });
+    
+    try {
+      // Use a data URI to pass the local content to the summarization flow.
+      const result = await summarizeContent({ url: `data:text/plain;charset=utf-8,${encodeURIComponent(resourceContent)}` });
       setSummary(result.summary);
     } catch (e) {
       console.error(e);
@@ -65,12 +79,17 @@ export default function StudyPage() {
     } finally {
       setIsSummarizing(false);
     }
-  }
+  };
   
+  /**
+   * Generates a summary from an external URL.
+   * @param resource The external study resource to summarize.
+   */
   const handleSummarizeUrl = async (resource: StudyResource) => {
     setIsLoading(true);
     setSummary(null);
     setError(null);
+
     try {
       const result = await summarizeContent({ url: resource.source });
       setSummary(result.summary);
@@ -80,22 +99,21 @@ export default function StudyPage() {
     } finally {
       setIsLoading(false);
     }
-  }
+  };
 
+  /**
+   * Saves the current summary to the browser's local storage.
+   */
   const handleSaveSummary = () => {
     if (!summary || !selectedResource) return;
 
-    const savedSummaries = JSON.parse(localStorage.getItem('savedSummaries') || '[]');
-    const newSummary = {
+    saveSummaryToStorage({
       id: Date.now().toString(),
       title: `Resumen de: ${selectedResource.title}`,
       content: summary,
       originalUrl: selectedResource.source,
       createdAt: new Date().toISOString(),
-    };
-    
-    savedSummaries.push(newSummary);
-    localStorage.setItem('savedSummaries', JSON.stringify(savedSummaries));
+    });
 
     toast({
       title: 'Resumen Guardado',
@@ -123,7 +141,7 @@ export default function StudyPage() {
                     variant="ghost"
                     className="w-full justify-start text-left h-auto"
                     onClick={() => handleResourceSelect(resource)}
-                    disabled={isLoading}
+                    disabled={isLoading || isSummarizing}
                   >
                     {resource.type === 'internal' ? <Book className="h-5 w-5 mr-3 text-muted-foreground" /> : <ExternalLink className="h-5 w-5 mr-3 text-muted-foreground" />}
                     <div className="flex flex-col">
@@ -163,48 +181,39 @@ export default function StudyPage() {
             </CardDescription>
           </CardHeader>
           <CardContent className="min-h-[60vh] lg:min-h-[calc(100vh-16rem)]">
-            {isLoading && (
+            {(isLoading || isSummarizing) && (
               <div className="flex h-full flex-col items-center justify-center gap-3 text-muted-foreground">
                 <Loader2 className="h-8 w-8 animate-spin text-primary" />
-                <p>Generando resumen del enlace...</p>
+                <p>{isSummarizing ? 'Resumiendo el material...' : 'Generando resumen del enlace...'}</p>
                 <p className="text-sm">Esto puede tardar unos momentos.</p>
               </div>
             )}
-             {isSummarizing && !summary && (
-              <div className="flex h-full flex-col items-center justify-center gap-3 text-muted-foreground">
-                <Loader2 className="h-8 w-8 animate-spin text-primary" />
-                <p>Resumiendo el material de lectura...</p>
-              </div>
-            )}
-            {error && (
+            
+            {error && !isLoading && !isSummarizing && (
               <Alert variant="destructive">
                 <AlertTitle>Error</AlertTitle>
                 <AlertDescription>{error}</AlertDescription>
-              </Alert>
+              </Aler>
             )}
-            {summary ? (
-              <ScrollArea className="h-full">
-                <div className="prose prose-sm dark:prose-invert max-w-none whitespace-pre-wrap leading-relaxed">
-                  {summary}
-                </div>
-              </ScrollArea>
-            ) : resourceContent ? (
-                 <ScrollArea className="h-full">
-                    <div className="prose prose-sm dark:prose-invert max-w-none whitespace-pre-wrap leading-relaxed">
-                       {/* This is a placeholder. Real content would be fetched from the md file. */}
-                        En un entorno de producción, el contenido del archivo Markdown se mostraría aquí. 
-                        Por ahora, este es un texto de ejemplo para mostrar cómo se vería la interfaz. 
-                        El archivo seleccionado es <strong>{selectedResource?.source}</strong>.
-                        <br/><br/>
-                        Puedes hacer clic en <strong>"Resumir con IA"</strong> para generar un resumen de este texto.
-                    </div>
+
+            {!isLoading && !isSummarizing && !error && (
+              summary ? (
+                <ScrollArea className="h-[calc(100vh-20rem)]">
+                  <div className="prose prose-sm dark:prose-invert max-w-none whitespace-pre-wrap leading-relaxed">
+                    {summary}
+                  </div>
                 </ScrollArea>
-            ) : !isLoading && !error && (
-               <div className="flex h-full flex-col items-center justify-center gap-3 text-center text-muted-foreground">
-                <BookCopy className="h-12 w-12" />
-                <p className="text-lg font-semibold">Tu conocimiento, simplificado.</p>
-                <p>Selecciona un recurso de la izquierda para comenzar.</p>
-              </div>
+              ) : resourceContent ? (
+                   <ScrollArea className="h-[calc(100vh-20rem)]">
+                      <div className="prose prose-sm dark:prose-invert max-w-none whitespace-pre-wrap leading-relaxed" dangerouslySetInnerHTML={{ __html: resourceContent }} />
+                  </ScrollArea>
+              ) : (
+                 <div className="flex h-full flex-col items-center justify-center gap-3 text-center text-muted-foreground">
+                  <BookCopy className="h-12 w-12" />
+                  <p className="text-lg font-semibold">Tu conocimiento, simplificado.</p>
+                  <p>Selecciona un recurso de la izquierda para comenzar.</p>
+                </div>
+              )
             )}
           </CardContent>
         </Card>

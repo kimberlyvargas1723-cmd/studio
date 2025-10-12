@@ -1,7 +1,8 @@
+// src/components/practice-quiz.tsx
 'use client';
 import { useState, useEffect } from 'react';
-import { practiceQuestions, initialPerformance } from '@/lib/data';
-import type { PracticeQuestion, PerformanceData, Feedback } from '@/lib/types';
+import { practiceQuestions } from '@/lib/data';
+import type { PracticeQuestion, Feedback } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -10,8 +11,12 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { analyzePerformanceAndAdapt } from '@/ai/flows/personalized-feedback-adaptation';
 import { Loader2, CheckCircle, XCircle, Lightbulb } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
+import { updatePerformanceData, saveFeedback } from '@/lib/services';
 
-
+/**
+ * A component that provides a practice quiz experience. It presents questions,
+ * checks answers, provides AI-driven feedback, and tracks performance.
+ */
 export function PracticeQuiz() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
@@ -21,37 +26,13 @@ export function PracticeQuiz() {
   const [isLoading, setIsLoading] = useState(false);
   const [score, setScore] = useState(0);
 
-  useEffect(() => {
-    // Initialize performance data in localStorage if it doesn't exist
-    if (!localStorage.getItem('performanceData')) {
-        localStorage.setItem('performanceData', JSON.stringify(initialPerformance));
-    }
-  }, []);
-
   const currentQuestion: PracticeQuestion = practiceQuestions[currentQuestionIndex];
   const isQuizFinished = currentQuestionIndex >= practiceQuestions.length;
 
-  const updatePerformanceData = (topic: string, wasCorrect: boolean) => {
-    const perfData: PerformanceData[] = JSON.parse(localStorage.getItem('performanceData') || JSON.stringify(initialPerformance));
-    let topicPerf = perfData.find(p => p.topic === topic);
-    if (!topicPerf) {
-        topicPerf = { topic, correct: 0, incorrect: 0 };
-        perfData.push(topicPerf);
-    }
-    if(wasCorrect) {
-        topicPerf.correct += 1;
-    } else {
-        topicPerf.incorrect += 1;
-    }
-    localStorage.setItem('performanceData', JSON.stringify(perfData));
-  }
-
-  const saveFeedback = (feedbackData: Feedback) => {
-    const history: Feedback[] = JSON.parse(localStorage.getItem('feedbackHistory') || '[]');
-    history.unshift({...feedbackData, topic: currentQuestion.topic }); // Add to the beginning
-    localStorage.setItem('feedbackHistory', JSON.stringify(history.slice(0, 20))); // Keep last 20
-  }
-
+  /**
+   * Handles the submission of an answer. It checks for correctness, updates performance data,
+   * and fetches personalized feedback from the AI.
+   */
   const handleAnswerSubmit = async () => {
     if (!selectedAnswer) return;
 
@@ -65,13 +46,14 @@ export function PracticeQuiz() {
     updatePerformanceData(currentQuestion.topic, correct);
     
     try {
+      // Get personalized feedback from the AI based on the user's answer.
       const result = await analyzePerformanceAndAdapt({
         question: currentQuestion.question,
         studentAnswer: selectedAnswer,
         correctAnswer: currentQuestion.correctAnswer,
         topic: currentQuestion.topic,
       });
-      const newFeedback: Feedback = {...result, timestamp: new Date().toISOString()};
+      const newFeedback: Feedback = {...result, timestamp: new Date().toISOString(), topic: currentQuestion.topic};
       setFeedback(newFeedback);
       saveFeedback(newFeedback);
     } catch (error) {
@@ -81,6 +63,7 @@ export function PracticeQuiz() {
         areasForImprovement: "N/A",
         adaptedQuestionTopic: currentQuestion.topic,
         timestamp: new Date().toISOString(),
+        topic: currentQuestion.topic,
       }
       setFeedback(errorFeedback);
       saveFeedback(errorFeedback);
@@ -89,6 +72,9 @@ export function PracticeQuiz() {
     }
   };
 
+  /**
+   * Moves to the next question in the quiz.
+   */
   const handleNextQuestion = () => {
     setCurrentQuestionIndex(currentQuestionIndex + 1);
     setSelectedAnswer(null);
@@ -96,6 +82,9 @@ export function PracticeQuiz() {
     setFeedback(null);
   };
 
+  /**
+   * Restarts the quiz from the beginning.
+   */
   const handleRestartQuiz = () => {
     setCurrentQuestionIndex(0);
     setScore(0);
@@ -104,6 +93,7 @@ export function PracticeQuiz() {
     setFeedback(null);
   }
 
+  // Render the quiz completion screen.
   if (isQuizFinished) {
     return (
       <Card className="w-full max-w-2xl">
@@ -128,6 +118,7 @@ export function PracticeQuiz() {
     );
   }
 
+  // Render the current quiz question.
   return (
     <Card className="w-full max-w-2xl">
       <CardHeader>

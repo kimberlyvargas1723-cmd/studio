@@ -1,23 +1,27 @@
+// src/lib/data.ts
 import type { StudyResource, PracticeQuestion, PerformanceData } from './types';
 
+/**
+ * A list of available study resources, including internal content and external links.
+ */
 export const studyResources: StudyResource[] = [
   {
     title: 'Bases Biológicas de la Conducta',
     category: 'Fundamentos de Psicología',
     type: 'internal',
-    source: 'src/lib/estudio/bases-biologicas.md',
+    source: 'bases-biologicas.md',
   },
   {
     title: 'Condicionamiento Clásico (Lectura)',
     category: 'Procesos Psicológicos',
     type: 'internal',
-    source: 'src/lib/lecturas/condicionamiento-clasico.md',
+    source: 'condicionamiento-clasico.md',
   },
     {
     title: 'Pensamiento Matemático: Porcentajes',
     category: 'EXANI-II General',
     type: 'internal',
-    source: 'src/lib/estudio/pensamiento-matematico-porcentajes.md',
+    source: 'pensamiento-matematico-porcentajes.md',
   },
   {
     title: 'Módulos específicos EXANI-II (Psicología)',
@@ -33,7 +37,9 @@ export const studyResources: StudyResource[] = [
   },
 ];
 
-
+/**
+ * A set of practice questions for the initial diagnostic quiz.
+ */
 export const practiceQuestions: PracticeQuestion[] = [
   {
     id: 'bb-01',
@@ -92,6 +98,9 @@ export const practiceQuestions: PracticeQuestion[] = [
   }
 ];
 
+/**
+ * The initial state for user performance data, with all scores set to zero.
+ */
 export const initialPerformance: PerformanceData[] = [
   { topic: 'Bases Biológicas de la Conducta', correct: 0, incorrect: 0 },
   { topic: 'Psicología del Desarrollo', correct: 0, incorrect: 0 },

@@ -1,3 +1,4 @@
+// src/app/(main)/progress/page.tsx
 'use client';
 import { useState, useEffect } from 'react';
 import { Header } from '@/components/header';
@@ -8,18 +9,21 @@ import type { PerformanceData, Feedback } from '@/lib/types';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Lightbulb, BookX } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { getFeedbackHistory, getPerformanceData } from '@/lib/services';
 
+/**
+ * Renders the progress page, which displays the user's performance on quizzes
+ * and the feedback history provided by the AI.
+ */
 export default function ProgressPage() {
     const [performance, setPerformance] = useState<PerformanceData[]>(initialPerformance);
     const [feedbackHistory, setFeedbackHistory] = useState<Feedback[]>([]);
 
     useEffect(() => {
-        const history = JSON.parse(localStorage.getItem('feedbackHistory') || '[]');
-        const perfData = JSON.parse(localStorage.getItem('performanceData') || JSON.stringify(initialPerformance));
-        setFeedbackHistory(history);
-        setPerformance(perfData);
+        // Load performance data and feedback history from localStorage on component mount.
+        setFeedbackHistory(getFeedbackHistory());
+        setPerformance(getPerformanceData());
     }, []);
-
 
   return (
     <div className="flex min-h-screen w-full flex-col">

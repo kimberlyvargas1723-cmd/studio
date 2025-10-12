@@ -1,3 +1,4 @@
+// src/app/(main)/summaries/page.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -8,7 +9,6 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-  CardFooter
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -25,25 +25,34 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
+import { getSavedSummaries, deleteSummary as deleteSummaryFromStorage } from '@/lib/services';
 
+/**
+ * Renders the page that displays all summaries saved by the user.
+ * It allows viewing and deleting saved summaries.
+ */
 export default function SummariesPage() {
   const [summaries, setSummaries] = useState<SavedSummary[]>([]);
   const [selectedSummary, setSelectedSummary] = useState<SavedSummary | null>(null);
 
   useEffect(() => {
-    const savedSummaries = JSON.parse(localStorage.getItem('savedSummaries') || '[]');
-    // Sort by most recent first
-    savedSummaries.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+    // Load summaries from storage when the component mounts.
+    const savedSummaries = getSavedSummaries();
     setSummaries(savedSummaries);
     if (savedSummaries.length > 0) {
       setSelectedSummary(savedSummaries[0]);
     }
   }, []);
 
+  /**
+   * Handles the deletion of a summary.
+   * @param summaryId The ID of the summary to delete.
+   */
   const handleDelete = (summaryId: string) => {
-    const updatedSummaries = summaries.filter(s => s.id !== summaryId);
+    const updatedSummaries = deleteSummaryFromStorage(summaryId);
     setSummaries(updatedSummaries);
-    localStorage.setItem('savedSummaries', JSON.stringify(updatedSummaries));
+    
+    // If the deleted summary was the selected one, select the first available summary or null.
     if (selectedSummary?.id === summaryId) {
       setSelectedSummary(updatedSummaries.length > 0 ? updatedSummaries[0] : null);
     }
