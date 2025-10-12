@@ -1,61 +1,44 @@
-# Guía Definitiva: Comprensión Lectora para el EXANI-II
+# Guía de Estudio: Comprensión Lectora (EXANI-II)
 
-La sección de Comprensión Lectora es una de las más importantes del EXANI-II. No se trata solo de leer, sino de analizar, interpretar y evaluar textos de diferentes tipos. La prueba divide los textos en tres grandes áreas. ¡Vamos a dominarlas!
-
----
-
-### Habilidades Clave que te Evaluarán
-
-Independientemente del tipo de texto, el examen siempre medirá estas tres habilidades:
-
-1.  **Identificación de Información:** Es la habilidad más directa. Consiste en **localizar datos explícitos** en el texto.
-    - *Ejemplos:* Fechas, nombres, lugares, definiciones textuales, la idea principal de un párrafo.
-    - *Tip para el examen:* Cuando una pregunta te pida información específica ("Según el texto...", "El autor afirma que..."), regresa al texto y busca la respuesta casi palabra por palabra. No infieras, ¡localiza!
-
-2.  **Interpretación:** Aquí subimos un nivel. Se trata de **comprender el significado implícito** de lo que lees. Es deducir ideas que no están escritas directamente.
-    - *Ejemplos:* Entender la idea principal de todo el texto, inferir la intención del autor, reconocer el tono (irónico, serio, crítico), deducir la conclusión a partir de las premisas.
-    - *Tip para el examen:* Pregúntate: ¿Qué me quiso decir el autor con esto? ¿Cuál es el mensaje central más allá de las palabras exactas?
-
-3.  **Evaluación de la Forma y el Contenido:** Este es el nivel más alto de análisis. Implica **juzgar la calidad, validez y estructura** del texto.
-    - *Ejemplos:* Evaluar si los argumentos del autor son sólidos, identificar la estructura del texto (causa-efecto, comparativo), opinar sobre la relevancia de la información, determinar si el lenguaje es adecuado para el propósito.
-    - *Tip para el examen:* Ponte en el papel de un crítico. Pregúntate: ¿Este argumento es convincente? ¿Por qué? ¿Cómo organizó el autor sus ideas para lograr este efecto?
-
----
+La Comprensión Lectora es una de las habilidades más importantes para tu vida universitaria y una sección clave del EXANI-II. No se trata solo de leer, sino de entender, analizar y evaluar lo que lees. La prueba se divide en tres ámbitos.
 
 ### 1. Ámbito de Estudio
 
-Estos son textos académicos, como artículos de divulgación científica, ensayos o fragmentos de libros de texto. El lenguaje es formal y el objetivo es informar o explicar un tema.
+Son textos académicos, como fragmentos de artículos científicos o ensayos. El lenguaje es formal y denso en información.
 
--   **Identificación de Información:** Localizar la hipótesis, la definición de un concepto clave, los pasos de un experimento.
--   **Interpretación:** Entender la idea principal del estudio, inferir las implicaciones de los resultados, relacionar una gráfica con el texto.
--   **Evaluación del Contenido:** Determinar si la metodología del estudio es adecuada, si las conclusiones están bien respaldadas por los datos.
+-   **Habilidad 1: Identificar información.** Tu objetivo es encontrar datos específicos y explícitos en el texto. ¿Quién dijo qué? ¿En qué fecha ocurrió algo? ¿Cuál es la definición de un concepto?
+    -   **Estrategia:** Escanea el texto buscando palabras clave de la pregunta. No sobre-interpretes; la respuesta está escrita directamente en el texto.
 
-**Ejemplo de Pregunta:** "A partir de los datos presentados en la tabla, se puede inferir que..." (Interpretación).
+-   **Habilidad 2: Interpretar.** Aquí debes deducir la idea principal, el propósito del autor, las relaciones causa-efecto y las conclusiones.
+    -   **Estrategia:** Pregúntate: "¿De qué se trata principalmente este texto?" o "¿Qué me quiere decir el autor con esto?". Busca el hilo conductor que une todos los párrafos.
 
----
+-   **Habilidad 3: Evaluar la forma y el contenido.** Tienes que juzgar la calidad del texto. ¿Los argumentos son sólidos? ¿La información es objetiva o subjetiva? ¿Es una opinión o un hecho?
+    -   **Estrategia:** Conviértete en un crítico. Busca la tesis del autor y evalúa si las pruebas que presenta la respaldan.
 
 ### 2. Ámbito Literario
 
-Aquí encontrarás fragmentos de cuentos, novelas, poemas o ensayos literarios. El objetivo es estético y expresivo.
+Son textos de ficción, como cuentos, poemas o fragmentos de novelas. Aquí, el lenguaje figurado y las emociones son importantes.
 
--   **Identificación de Información:** Reconocer quién es el narrador, describir el lugar donde ocurren los hechos.
--   **Interpretación:** Inferir los sentimientos de un personaje, entender el significado de una metáfora, identificar el tema central del poema (el amor, la soledad, etc.).
--   **Evaluación de la Forma:** Analizar el uso de figuras retóricas (metáfora, hipérbole), evaluar cómo la estructura del cuento contribuye al suspenso, opinar sobre el estilo del autor.
+-   **Habilidad 1: Identificar información.** Se enfoca en reconocer los elementos de la historia: ¿Quiénes son los personajes? ¿Dónde y cuándo ocurre la acción (escenario)? ¿Cuál es el conflicto principal?
+    -   **Estrategia:** Mientras lees, crea un mapa mental de los personajes y la trama.
 
-**Ejemplo de Pregunta:** "El uso de la metáfora 'sus ojos eran dos luceros' sugiere que el personaje sentía..." (Interpretación).
+-   **Habilidad 2: Interpretar.** Debes entender el significado simbólico, el tono del narrador, las metáforas y el tema subyacente de la obra.
+    -   **Estrategia:** Pregúntate: "¿Qué representa este personaje o este objeto?" o "¿Qué sentimiento me transmite el poema?".
 
----
+-   **Habilidad 3: Evaluar la forma y el contenido.** Analiza el estilo del autor y los recursos literarios que utiliza (metáforas, símiles, etc.). ¿Cómo logra el autor crear una atmósfera de misterio o alegría?
+    -   **Estrategia:** Presta atención al lenguaje. ¿Por qué el autor eligió *esa* palabra y no otra?
 
 ### 3. Ámbito de Participación Social
 
-Estos son textos de la vida cotidiana y pública: noticias, artículos de opinión, convocatorias, manuales, reglamentos, etc. Su propósito es informar, persuadir o instruir.
+Son textos de la vida cotidiana: noticias, artículos de opinión, convocatorias, anuncios publicitarios.
 
--   **Identificación de Información:** Encontrar la fecha límite en una convocatoria, localizar los requisitos para un trámite.
--   **Interpretación:** Deducir a quién va dirigido el texto, entender la postura del autor en un artículo de opinión.
--   **Evaluación de la Forma y el Contenido:** Determinar si el lenguaje de un manual es claro, evaluar la objetividad de una noticia, juzgar si una publicidad es engañosa.
+-   **Habilidad 1: Identificar información.** Tu tarea es localizar el propósito principal y la información clave. ¿A quién va dirigido el anuncio? ¿Cuál es la fecha límite de la convocatoria?
+    -   **Estrategia:** Estos textos están diseñados para ser eficientes. Ve directo a la información que necesitas (fechas, lugares, requisitos).
 
-**Ejemplo de Pregunta:** "¿Cuál es la intención principal del autor al escribir este artículo de opinión?" (Interpretación / Evaluación).
+-   **Habilidad 2: Interpretar.** Debes inferir la intención del autor. ¿Quiere persuadirte, informarte o advertirte?
+    -   **Estrategia:** Fíjate en el tono y las palabras utilizadas. Un anuncio usará un lenguaje persuasivo; una noticia, uno más objetivo.
 
----
+-   **Habilidad 3: Evaluar la forma y el contenido.** Evalúa la efectividad y la confiabilidad del mensaje. ¿La fuente de la noticia es fiable? ¿El anuncio es engañoso?
+    -   **Estrategia:** Activa tu "detector de sesgos". Pregúntate si la información está completa o si se está omitiendo algo importante para influir en tu opinión.
 
-**¡Kimberly, la clave es practicar!** Con cada texto que leas, intenta analizarlo usando estas tres habilidades. Primero busca lo obvio, luego deduce lo oculto y finalmente, juzga lo que lees. ¡Conquistarás esta sección!
+**Consejo Final:** La mejor forma de mejorar es practicando. Lee diferentes tipos de textos todos los días y trata de aplicar estas estrategias. ¡Conquistarás esta sección del examen!

@@ -188,7 +188,7 @@ export default function StudyPage() {
                 </ScrollArea>
               ) : resourceContent ? (
                    <ScrollArea className="h-[calc(100vh-20rem)]">
-                      <div className="prose prose-sm dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: resourceContent.replace(/\n/g, '<br />') }} />
+                      <div className="prose prose-sm dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: resourceContent.replace(/\\n/g, '<br />') }} />
                   </ScrollArea>
               ) : (
                  <div className="flex h-full flex-col items-center justify-center gap-3 text-center text-muted-foreground">

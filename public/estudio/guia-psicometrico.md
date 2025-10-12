@@ -38,5 +38,3 @@ Evalúa tu capacidad para resolver problemas cuantitativos básicos de forma rá
 Algunas pruebas psicométricas incluyen secciones para medir rasgos de personalidad (extroversión, responsabilidad, apertura a la experiencia, etc.). Aquí no hay respuestas "correctas" o "incorrectas". **El mejor consejo es ser honesto y responder de manera consistente.** No intentes adivinar lo que "quieren" oír, ya que estas pruebas suelen tener escalas de validez para detectar inconsistencias.
 
 **Estrategia General:** La clave en el psicométrico es la **velocidad y la precisión**. Practica con ejercicios de cronómetro para acostumbrarte a pensar bajo presión.
-
-    
