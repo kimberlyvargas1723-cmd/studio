@@ -164,10 +164,10 @@ export function ChatWidget() {
             </div>
           )}
           {isOpen ? (
-            <div className="h-28 w-28 flex items-center justify-center">
-              <Button variant="default" className="h-14 w-14 rounded-full shadow-lg">
-                <X className="h-6 w-6" />
-              </Button>
+             <div className="h-28 w-28 flex items-center justify-center">
+                <div className="h-14 w-14 rounded-full shadow-lg bg-primary text-primary-foreground flex items-center justify-center">
+                    <X className="h-6 w-6" />
+                </div>
             </div>
           ) : (
             <RobotIcon />
