@@ -1,73 +1,74 @@
-# Probabilidad y Estadística: Entendiendo la Incertidumbre y los Datos
+# Fundamentos de Probabilidad y Estadística para el EXANI-II
 
-Esta área del pensamiento matemático es crucial para la psicología y la vida diaria. Se trata de tomar decisiones informadas cuando las cosas no son 100% seguras y de interpretar conjuntos de datos para encontrar patrones significativos.
+Esta sección del examen de Pensamiento Matemático evalúa tu capacidad para interpretar datos y entender la probabilidad. No necesitas ser un experto, pero sí dominar los conceptos básicos.
 
-### 1. Estadística Descriptiva: Resumiendo los Datos
+### Medidas de Tendencia Central
 
-La estadística descriptiva se usa para organizar y resumir un conjunto de datos. Las medidas más importantes son las de tendencia central.
+Son valores que intentan describir el "centro" de un conjunto de datos.
 
-#### Medidas de Tendencia Central
-Buscan el "centro" o el valor más típico de un conjunto de datos.
+#### 1. **Media (Promedio)**
+Es la suma de todos los datos dividida entre el número total de datos.
+- **Ejemplo:** Las calificaciones de un alumno son 8, 9, 7, 9, 10.
+- **Cálculo:** (8 + 9 + 7 + 9 + 10) / 5 = 43 / 5 = 8.6
+- **La media es 8.6**
 
-- **Media (Promedio):** La suma de todos los valores dividida por el número total de valores.
-  - **Ejemplo:** Datos: `[2, 3, 5, 8, 12]`
-    - `Suma = 2 + 3 + 5 + 8 + 12 = 30`
-    - `Número de datos = 5`
-    - `Media = 30 / 5 = 6`
-  - **Sensibilidad:** La media es muy sensible a valores extremos (outliers). Si tuviéramos `[2, 3, 5, 8, 100]`, la media sería `23.6`, que no representa bien al grupo.
+#### 2. **Mediana**
+Es el valor que se encuentra justo en el centro de un conjunto de datos **ordenados**.
+- **Ejemplo (impar):** Datos: 2, 5, **7**, 8, 11.
+- **La mediana es 7.**
+- **Ejemplo (par):** Datos: 2, 5, **7, 8**, 11, 12.
+- **Cálculo:** Se promedian los dos valores centrales: (7 + 8) / 2 = 7.5
+- **La mediana es 7.5**
 
-- **Mediana:** El valor que se encuentra **exactamente en el medio** de un conjunto de datos **ordenado**.
-  - **Estrategia:**
-    1.  Ordena los datos de menor a mayor.
-    2.  Si el número de datos es **impar**, la mediana es el número del centro.
-        - Ejemplo: `[2, 3, **5**, 8, 12]`. La mediana es 5.
-    3.  Si el número de datos es **par**, la mediana es el promedio de los dos números del centro.
-        - Ejemplo: `[2, 3, **5, 8**, 12, 14]`. La mediana es `(5 + 8) / 2 = 6.5`.
-  - **Sensibilidad:** La mediana es mucho menos sensible a valores extremos que la media. Es una mejor medida del "centro" cuando hay outliers.
+Estrategia: ¡Siempre ordena los datos de menor a mayor antes de buscar la mediana!
 
-- **Moda:** El valor que **más se repite** en un conjunto de datos.
-  - **Ejemplo:** `[2, 5, 8, 5, 12, 5, 3]`. La moda es 5.
-  - Un conjunto de datos puede tener más de una moda (bimodal, trimodal...) o ninguna moda si ningún valor se repite.
+#### 3. **Moda**
+Es el valor que aparece con mayor frecuencia en el conjunto de datos.
+- **Ejemplo:** Datos: 6, 7, 8, **9, 9**, 10.
+- **La moda es 9.**
+- Un conjunto puede no tener moda (si todos los valores aparecen una vez) o tener más de una moda (bimodal, trimodal, etc.).
 
-### 2. Probabilidad: Midiendo la Incertidumbre
+---
 
-La probabilidad es un número entre 0 y 1 (o 0% y 100%) que mide la posibilidad de que ocurra un evento.
-- **Probabilidad = 0:** El evento es imposible.
-- **Probabilidad = 1:** El evento es seguro.
+### Conceptos Básicos de Probabilidad
 
-#### Fórmula Básica de Probabilidad
-`P(A) = (Número de Casos Favorables) / (Número Total de Casos Posibles)`
+La probabilidad mide la posibilidad de que ocurra un evento. Se expresa como un número entre 0 y 1 (o como porcentaje entre 0% y 100%).
 
-**Ejemplos Clásicos:**
+- **Fórmula Básica:**
+  `P(Evento) = (Número de Casos Favorables) / (Número Total de Casos Posibles)`
 
-- **Lanzar un dado de 6 caras:**
-  - ¿Cuál es la probabilidad de sacar un 4?
-    - `Casos Favorables = 1` (solo hay una cara con un 4)
-    - `Casos Totales = 6`
-    - `P(sacar un 4) = 1/6`
-  - ¿Cuál es la probabilidad de sacar un número par?
-    - `Casos Favorables = 3` (las caras 2, 4, 6)
-    - `Casos Totales = 6`
-    - `P(sacar par) = 3/6 = 1/2 = 50%`
+#### **Ejemplo 1: Lanzar un dado de 6 caras**
+- **¿Cuál es la probabilidad de sacar un 4?**
+  - Casos favorables: 1 (solo hay una cara con el 4).
+  - Casos totales: 6 (hay 6 caras en total).
+  - Probabilidad: P(sacar 4) = 1/6.
 
-- **Una baraja de 52 cartas:**
-  - ¿Cuál es la probabilidad de sacar un As?
-    - `Casos Favorables = 4` (hay 4 Ases)
-    - `Casos Totales = 52`
-    - `P(sacar As) = 4/52 = 1/13`
+- **¿Cuál es la probabilidad de sacar un número par?**
+  - Casos favorables: 3 (las caras 2, 4, 6).
+  - Casos totales: 6.
+  - Probabilidad: P(número par) = 3/6 = 1/2 = 50%.
 
-#### Reglas de Probabilidad
+#### **Ejemplo 2: Una bolsa con canicas**
+Una bolsa contiene 5 canicas rojas, 3 azules y 2 verdes.
+- **Total de canicas:** 5 + 3 + 2 = 10.
+- **¿Cuál es la probabilidad de sacar una canica azul?**
+  - Casos favorables: 3 (hay 3 canicas azules).
+  - Casos totales: 10.
+  - Probabilidad: P(azul) = 3/10 = 30%.
 
-- **Regla de la Suma (Eventos Mutuamente Excluyentes):** Se usa para encontrar la probabilidad de que ocurra **uno u otro** evento (se usa la palabra "o").
-  - Si los eventos no pueden ocurrir al mismo tiempo.
-  - `P(A o B) = P(A) + P(B)`
-  - **Ejemplo:** ¿Probabilidad de sacar un 3 o un 5 en un dado?
-    - `P(3 o 5) = P(3) + P(5) = 1/6 + 1/6 = 2/6 = 1/3`
+---
 
-- **Regla del Producto (Eventos Independientes):** Se usa para encontrar la probabilidad de que ocurran **ambos** eventos (se usa la palabra "y").
-  - Si el resultado de un evento no afecta al otro.
-  - `P(A y B) = P(A) * P(B)`
-  - **Ejemplo:** ¿Probabilidad de lanzar una moneda y que salga cara (1/2) **y** lanzar un dado y que salga un 6 (1/6)?
-    - `P(cara y 6) = P(cara) * P(6) = 1/2 * 1/6 = 1/12`
+### Interpretación de Gráficas y Tablas
 
-Consejo Final: Para problemas de probabilidad, el primer paso es siempre el más importante: identificar claramente cuáles son TODOS los resultados posibles y cuáles son los resultados que cumplen la condición que te piden (casos favorables). Si puedes listar eso, el resto es solo una simple división.
+En el examen, a menudo te presentarán datos en forma de gráficas de barras, circulares o tablas. Tu tarea es extraer información de ellas.
+
+#### **Estrategia para Abordar Gráficas:**
+
+1.  **Lee el Título:** ¿De qué trata la gráfica? (Ej: "Ventas Mensuales de la Tienda X").
+2.  **Examina los Ejes:** ¿Qué representa el eje X (horizontal)? ¿Qué representa el eje Y (vertical)? (Ej: X = Meses del año, Y = Ventas en pesos).
+3.  **Analiza la Pregunta:** ¿Qué información específica te están pidiendo?
+    - "¿En qué mes hubo las mayores ventas?" -> Busca la barra más alta.
+    - "¿Cuál fue el total de ventas del primer trimestre?" -> Suma los valores de las barras de Enero, Febrero y Marzo.
+    - "¿Qué porcentaje de las ventas totales ocurrió en Diciembre?" -> Calcula (Ventas de Diciembre / Ventas Totales) * 100.
+
+**Consejo Final:** La mayoría de los errores en esta sección no son por cálculos difíciles, sino por una mala lectura de la pregunta o de la gráfica. Tómate un segundo extra para asegurarte de que entiendes exactamente qué te están pidiendo antes de empezar a calcular.

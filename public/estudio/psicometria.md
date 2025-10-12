@@ -1,49 +1,54 @@
-# Guía de Estudio: Psicometría
+# Introducción a la Psicometría
 
-La psicometría es la rama de la psicología que se encarga de la medición. Suena técnico, ¡pero es la base que permite que la psicología sea una ciencia! Para el examen, necesitas entender dos conceptos fundamentales: Confiabilidad y Validez.
+La psicometría es la rama de la psicología que se encarga de la medición de las características psicológicas. Es la ciencia detrás de los tests y pruebas que miden desde la inteligencia y la personalidad hasta las aptitudes y las actitudes. Para tu examen, es crucial entender sus conceptos fundamentales.
 
-Imagina que tienes una báscula para medir el peso.
+### Conceptos Clave
 
-### 1. Confiabilidad (Fiabilidad)
+#### 1. **Medición en Psicología**
+A diferencia de las ciencias físicas, en psicología medimos **constructos**: variables que no son directamente observables, como la ansiedad, la inteligencia o la extroversión. La psicometría desarrolla instrumentos para "operacionalizar" y cuantificar estos constructos.
 
-**¿Qué es?** Es la **consistencia** o **estabilidad** de una medida.
+#### 2. **Test Psicométrico**
+Es un procedimiento estandarizado diseñado para medir una muestra de la conducta de una persona y describirla con la ayuda de categorías o puntuaciones. Características de un buen test:
+- **Objetividad:** La puntuación no debe ser afectada por el juicio del evaluador.
+- **Estandarización:** Debe administrarse y puntuarse de la misma manera para todos.
+- **Validez:** Debe medir lo que realmente pretende medir.
+- **Confiabilidad (o Fiabilidad):** Debe producir resultados consistentes y estables.
 
--   Una báscula confiable te dará el mismo peso (o uno muy similar) si te pesas tres veces seguidas.
--   Un test de inteligencia confiable debería darte una puntuación similar si lo haces hoy y de nuevo en dos semanas (suponiendo que no has aprendido nada nuevo).
+### Tipos de Medidas
 
-**En resumen: ¿El instrumento mide de forma consistente?**
-
-**Tipos de Confiabilidad (para que te suenen):**
--   **Test-Retest:** Se aplica el mismo test en dos momentos diferentes. Si los resultados son similares, es confiable.
--   **Consistencia Interna:** Se evalúa si los diferentes ítems (preguntas) de un mismo test miden lo mismo. (Ej. Todas las preguntas de un test de ansiedad deberían apuntar a medir ansiedad).
-
-**Analogía:** Una flecha que siempre da en el mismo punto del blanco, aunque no sea el centro. Es consistente.
-
----
-
-### 2. Validez
-
-**¿Qué es?** Es el grado en que un test **mide lo que dice que mide**.
-
--   Una báscula puede ser muy confiable (siempre te da el mismo número), pero si está mal calibrada y siempre te dice que pesas 5 kg menos, **no es válida**. No está midiendo tu peso real.
--   Un test puede afirmar que mide "creatividad", pero si sus preguntas solo evalúan vocabulario, el test no es válido para medir creatividad.
-
-**En resumen: ¿El instrumento mide realmente el constructo que pretende medir?**
-
-**Tipos de Validez (los más importantes):**
--   **Validez de Contenido:** ¿El test cubre todos los aspectos importantes del constructo? (Ej. Un examen de historia de México no puede tener solo preguntas sobre la Revolución; debe cubrir otras épocas).
--   **Validez de Constructo:** ¿El test realmente mide el concepto teórico (constructo) que dice medir? Es la forma de validez más fundamental.
--   **Validez Predictiva:** ¿El test puede predecir un resultado futuro? (Ej. ¿Las puntuaciones del examen de admisión predicen el éxito académico en la universidad?).
-
-**Analogía:** Una flecha que da en el centro del blanco. Está midiendo lo que debe.
+- **Pruebas de Aptitud:** Miden el potencial de una persona para aprender una nueva habilidad (Ej: Razonamiento verbal, numérico, abstracto).
+- **Pruebas de Rendimiento:** Miden el conocimiento o habilidad actual de una persona (Ej: Un examen escolar).
+- **Inventarios de Personalidad:** Miden rasgos, estilos de comportamiento y características emocionales (Ej: El modelo de los "Cinco Grandes").
 
 ---
 
-### La Relación Clave
+### Confiabilidad (Fiabilidad)
 
--   Un test **puede ser confiable pero no válido**. (La báscula que siempre se equivoca por 5 kg es consistente, pero no mide el peso real).
--   Un test **no puede ser válido si no es confiable**. (Si la báscula te da un peso diferente cada segundo, es imposible que mida tu peso real de forma válida. ¡Sus mediciones no son de fiar!).
+La confiabilidad se refiere a la consistencia de las puntuaciones de un test. Si una persona realiza el mismo test en dos momentos diferentes, ¿obtendrá una puntuación similar?
 
-**Tip para el Examen:** La pregunta clásica es sobre la diferencia entre ambos. Recuerda siempre:
--   **Confiabilidad = Consistencia.**
--   **Validez = Precisión (mide lo que debe medir).**
+- **Test-Retest:** Se administra el mismo test a las mismas personas en dos ocasiones diferentes y se correlacionan las puntuaciones.
+- **Formas Paralelas:** Se crean dos versiones equivalentes del test y se administran al mismo grupo.
+- **Consistencia Interna:** Mide qué tan bien los ítems de un test se correlacionan entre sí. El método más común es el **Alfa de Cronbach**. Un Alfa alto (generalmente > 0.70) indica que los ítems del test miden el mismo constructo de manera consistente.
+
+Estrategia: Para el examen, recuerda que **Confiabilidad = Consistencia**. Si un test es confiable, sus resultados son repetibles.
+
+### Validez
+
+La validez es el aspecto más importante de un test. Se pregunta: ¿el test realmente mide lo que dice medir?
+
+- **Validez de Contenido:** ¿Los ítems del test representan adecuadamente todo el dominio del constructo que se quiere medir? (Ej: Un examen de historia de México debe incluir preguntas de todas las épocas relevantes).
+- **Validez de Constructo:** ¿El test mide el constructo teórico que pretende medir? (Ej: Un test de ansiedad debería correlacionarse positivamente con otros tests de ansiedad y negativamente con tests de tranquilidad).
+- **Validez de Criterio:** ¿Las puntuaciones del test se correlacionan con un resultado externo (criterio)?
+  - **Predictiva:** ¿El test puede predecir un rendimiento futuro? (Ej: ¿Las puntuaciones del EXANI-II predicen el éxito en la universidad?).
+  - **Concurrente:** ¿El test se correlaciona con una medida de criterio tomada al mismo tiempo? (Ej: ¿Un nuevo test de depresión se correlaciona con un diagnóstico clínico actual?).
+
+Estrategia: Para el examen, recuerda que **Validez = Precisión**. Si un test es válido, mide correctamente el objetivo.
+
+### Escalas de Medición
+
+- **Nominal:** Categorías sin orden (Ej: Género, estado civil).
+- **Ordinal:** Categorías con un orden lógico, pero con intervalos desiguales (Ej: Nivel socioeconómico: bajo, medio, alto).
+- **De Intervalo:** Unidades iguales y ordenadas, pero el cero es arbitrario (Ej: Temperatura en Celsius, puntuación de CI).
+- **De Razón:** Unidades iguales, ordenadas y con un cero absoluto (Ej: Altura, peso, tiempo de reacción).
+
+Consejo Final: Entender la diferencia entre confiabilidad y validez es crucial. Una balanza que siempre muestra 5 kg de más es **confiable** (consistente) pero no **válida** (precisa). Un buen test psicométrico debe ser ambas cosas.

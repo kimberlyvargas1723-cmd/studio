@@ -1,72 +1,71 @@
-# Guía para el Examen Psicométrico: Más Allá del Conocimiento
+# Guía Práctica para el Examen Psicométrico UANL
 
-El examen psicométrico no mide cuánto sabes de psicología, sino *cómo piensas*. Evalúa tus aptitudes y tu forma de razonar. No hay respuestas "buenas" o "malas" en el sentido tradicional, pero sí hay maneras de mostrar tu mejor potencial.
+El examen psicométrico de la Facultad de Psicología de la UANL es una parte crucial del proceso de admisión. A diferencia del examen de conocimientos (EXANI-II), este no mide lo que has aprendido, sino tus **aptitudes** y tu **potencial** para pensar de manera lógica, abstracta y rápida. El objetivo es identificar si tienes las habilidades cognitivas necesarias para la carrera.
 
-El objetivo de estas pruebas es predecir tu desempeño académico y tu adecuación a la carrera de psicología. ¡No te asustes! Son como puzzles que revelan tus fortalezas.
+Este examen es de **tiempo limitado**, por lo que la velocidad y la precisión son clave. ¡La práctica es tu mejor aliada!
 
----
-
-### 1. Tipos de Pruebas Comunes
-
-Generalmente, el examen psicométrico se divide en varias áreas:
-
-#### a) Series Numéricas y Razonamiento Matemático
-
-Evalúa tu habilidad para identificar patrones y relaciones entre números.
-
-**Ejemplo:** ¿Qué número sigue en la serie: 2, 4, 8, 16, \_\_?
--   **Patrón:** Cada número es el doble del anterior.
--   **Respuesta:** 32.
-
-**Estrategia:**
--   Busca operaciones simples: suma, resta, multiplicación, división.
--   ¿El patrón salta entre números? (Ej: +2, -1, +2, -1).
--   ¿Es una combinación de operaciones? (Ej: x2, +1, x2, +1).
--   No te estanques. Si no ves el patrón en 20 segundos, márcala y sigue. A veces, al volver, la respuesta es obvia.
-
-#### b) Series de Figuras (Razonamiento Abstracto)
-
-Mide tu capacidad para identificar patrones lógicos en formas y figuras.
-
-**Ejemplo:** Te muestran una secuencia de figuras: un cuadrado con un punto en la esquina superior izquierda, luego en la superior derecha, luego en la inferior derecha. ¿Qué figura sigue?
--   **Patrón:** El punto se mueve en el sentido de las agujas del reloj.
--   **Respuesta:** Un cuadrado con el punto en la esquina inferior izquierda.
-
-**Estrategia:**
--   Analiza un cambio a la vez: rotación, cambio de tamaño, cambio de color, adición/eliminación de elementos.
--   Verbaliza el patrón: "El círculo se hace grande, luego pequeño. La flecha gira 90 grados a la derecha".
--   Usa el proceso de eliminación. Descarta las opciones que claramente no siguen el patrón.
-
-#### c) Analogías Verbales
-
-Evalúa tu habilidad para entender la relación entre dos palabras y encontrar una relación similar en otro par.
-
-**Ejemplo:** "Médico es a Hospital como..."
-a)  Maestro es a Escuela
-b)  Coche es a Calle
-c)  Libro es a Biblioteca
-d)  Comida es a Restaurante
-
--   **Relación:** Un médico (persona) trabaja en un hospital (lugar de trabajo).
--   **Respuesta:** a) Maestro es a Escuela. Es la única opción que mantiene la relación exacta de [profesional] es a [su lugar de trabajo principal].
-
-**Estrategia:**
--   Define la relación exacta entre el primer par de palabras. ¿Es de causa-efecto? ¿Parte-todo? ¿Sinónimo/antónimo? ¿Objeto-función?
--   Formula una oración que describa la relación: "Un MÉDICO trabaja en un HOSPITAL".
--   Prueba esa misma oración con las opciones: "¿Un MAESTRO trabaja en una ESCUELA?". Sí, encaja perfectamente.
-
-#### d) Comprensión de Lectura (Suele ser parte del EXANI-II pero a veces se incluye en el psicométrico)
-
-Evalúa tu capacidad para leer un texto y responder preguntas sobre él. Consulta la guía específica de "Comprensión Lectora" para estrategias detalladas.
+A continuación, se desglosan los tipos de preguntas más comunes que encontrarás y estrategias para abordarlas.
 
 ---
 
-### 2. Consejos Generales para el Día del Examen
+### 1. Series Numéricas
 
-1.  **Administra tu Tiempo:** El psicométrico suele tener un tiempo límite estricto. Si una pregunta te resulta muy difícil, no pierdas minutos valiosos. Márcala, continúa con las que sí sabes y vuelve a ella si te sobra tiempo al final.
-2.  **Lee las Instrucciones con Cuidado:** No asumas que sabes lo que te piden. Cada sección puede tener instrucciones ligeramente diferentes.
-3.  **No Hay Penalización por Adivinar (Generalmente):** En la mayoría de los psicométricos, las respuestas incorrectas no restan puntos. Si no estás seguro, ¡es mejor arriesgarte y elegir la que te parezca más lógica que dejarla en blanco!
-4.  **Descansa Bien:** Tu cerebro es un músculo. Llegar descansado y tranquilo es tan importante como practicar. Una buena noche de sueño mejora la velocidad de procesamiento y la claridad mental.
-5.  **Mantén la Calma:** Es normal sentir nervios. Si te sientes abrumado, cierra los ojos por 10 segundos, respira hondo y recuerda que solo estás resolviendo puzzles.
+Consisten en encontrar el patrón en una secuencia de números y determinar cuál es el siguiente.
 
-**Consejo Final:** La mejor preparación para el psicométrico es la práctica. Busca en línea "ejercicios de series numéricas", "razonamiento abstracto" o "analogías verbales". Cuantos más patrones
+- **Ejemplo:** 2, 4, 8, 16, 32, ___
+- **Análisis:** Cada número es el doble del anterior.
+- **Respuesta:** 64 (32 * 2).
+
+- **Ejemplo 2:** 44, 43, 41, 38, 34, ___
+- **Análisis:** Se resta secuencialmente 1, luego 2, luego 3, luego 4. El siguiente paso es restar 5.
+- **Respuesta:** 29 (34 - 5).
+
+- **Estrategia:** Primero, busca operaciones simples (suma, resta, multiplicación, división). Si no es obvio, busca patrones alternados (ej. una operación para los números en posición par y otra para los impares) o secuencias de operaciones (ej. +2, +4, +6...).
+
+---
+
+### 2. Series de Figuras (Razonamiento Abstracto)
+
+Se te presenta una secuencia de figuras que cambian siguiendo una o varias reglas. Debes elegir la figura que continúa la secuencia.
+
+- **Estrategia:** Analiza los cambios de una figura a la siguiente de manera sistemática. Pregúntate:
+    - **¿Qué elementos cambian?** (Formas, colores, tamaños).
+    - **¿Hay rotación?** (¿Las figuras giran en sentido horario o antihorario? ¿Cuántos grados?).
+    - **¿Hay cambio de posición?** (¿Un elemento se mueve a una esquina diferente en cada paso?).
+    - **¿Aumenta o disminuye algo?** (¿El número de lados, el número de puntos?).
+    - **¿Hay un patrón de superposición o eliminación de formas?**
+
+**Consejo:** Concéntrate en un solo elemento a la vez. Por ejemplo, sigue solo el movimiento del círculo negro a través de la secuencia antes de analizar el cuadrado blanco.
+
+---
+
+### 3. Analogías Verbales
+
+Se presenta una pareja de palabras que tienen una cierta relación, y debes encontrar otra pareja que comparta la misma relación.
+
+- **Ejemplo:** `ALA : PÁJARO :: PIERNA : ___`
+    - **Análisis:** La relación es "parte de un todo". Un ala es parte de un pájaro.
+    - **Respuesta:** `HUMANO` (o animal, dependiendo de las opciones). Una pierna es parte de un humano.
+
+- **Ejemplo 2:** `CALIENTE : FRÍO :: LUZ : ___`
+    - **Análisis:** La relación es de antonimia (opuestos).
+    - **Respuesta:** `OSCURIDAD`.
+
+- **Estrategia:** Formula una oración que describa la relación entre las primeras dos palabras. Luego, aplica esa misma oración a la tercera palabra para encontrar la cuarta. Por ejemplo: "Un pájaro usa su ala para volar, un pez usa su ___ para nadar".
+
+---
+
+### 4. Razonamiento Lógico y Problemas Verbales
+
+Estos problemas evalúan tu capacidad para sacar conclusiones lógicas a partir de un texto corto.
+
+- **Ejemplo:** "Si todos los psicólogos son universitarios y todos los universitarios son lectores, entonces ¿qué se puede concluir con certeza?"
+    - **Opciones:** a) Todos los lectores son psicólogos. b) Ningún psicólogo es no-lector. c) Algunos universitarios no son psicólogos.
+    - **Análisis:** Es un silogismo. Si A -> B y B -> C, entonces A -> C. (Psicólogo -> Universitario -> Lector). Por lo tanto, todos los psicólogos son lectores. La opción "b" es una forma de decir lo mismo.
+    - **Respuesta:** b) Ningún psicólogo es no-lector.
+
+- **Estrategia:** Lee atentamente y no asumas nada que no esté explícitamente dicho en el enunciado. A veces, dibujar un diagrama de Venn simple puede ayudar a visualizar las relaciones entre los grupos.
+
+---
+
+Consejo Final: La clave para el examen psicométrico no es el conocimiento profundo, sino la agilidad mental. Realiza muchos ejercicios de práctica cronometrados. Con el tiempo, empezarás a reconocer los patrones más rápidamente y tu cerebro se "calibrará" para este tipo de pensamiento. ¡Mucha suerte!
