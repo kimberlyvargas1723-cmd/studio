@@ -4,7 +4,8 @@ import { summarizeContent } from '@/ai/flows/content-summarization';
 import { generatePracticeQuestions } from '@/ai/flows/practice-question-generation';
 import { extractTextFromImage } from '@/ai/flows/image-text-extraction';
 import { generateStudyPlan } from '@/ai/flows/generate-study-plan';
-import type { StudyResource, GeneratedQuestion } from '@/lib/types';
+import { generateProgressSummary } from '@/ai/flows/generate-progress-summary';
+import type { StudyResource, GeneratedQuestion, PerformanceData } from '@/lib/types';
 import type { StudyPlanInput, StudyPlanOutput } from '@/ai/flows/generate-study-plan';
 import fs from 'fs/promises';
 import path from 'path';
@@ -78,5 +79,20 @@ export async function generateStudyPlanAction(input: StudyPlanInput): Promise<{ 
   } catch (e: any) {
     console.error('Error in generateStudyPlanAction:', e);
     return { error: e.message || 'No se pudo generar el plan de estudio.' };
+  }
+}
+
+/**
+ * Server Action to generate an intelligent summary of the user's progress.
+ * @param {PerformanceData[]} performanceData - The user's performance data.
+ * @returns {Promise<{summary: string; suggestion: string} | {error: string}>} - The generated summary and suggestion, or an error.
+ */
+export async function generateProgressSummaryAction(performanceData: PerformanceData[]) {
+  try {
+    const result = await generateProgressSummary({ performanceData });
+    return { summary: result.summary, suggestion: result.suggestion };
+  } catch (e: any) {
+    console.error('Error in generateProgressSummaryAction:', e);
+    return { error: e.message || 'No se pudo generar el resumen de progreso.' };
   }
 }

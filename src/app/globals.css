@@ -111,6 +111,10 @@
             transform: translateY(0);
         }
     }
+     @keyframes feedback-flash {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.5); opacity: 0.75; }
+    }
 
     .animate-robot-float {
         animation: robot-float 4s ease-in-out infinite;
@@ -126,5 +130,8 @@
     }
     .animate-fade-in-up {
         animation: fade-in-up 0.5s ease-out forwards;
+    }
+    .animate-feedback-flash {
+        animation: feedback-flash 0.5s ease-out;
     }
 }

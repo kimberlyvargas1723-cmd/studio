@@ -16,12 +16,16 @@ import { GeneratedQuiz as GeneratedQuizComponent } from '@/components/generated-
 import { studyResources } from '@/lib/data';
 import { useToast } from '@/hooks/use-toast';
 
+type GenerateQuestionsTabProps = {
+  onQuizFeedback?: (result: 'correct' | 'incorrect') => void;
+};
+
 /**
  * A component that allows users to generate a practice quiz based on a selected study topic.
  * It uses a Server Action to create questions, keeping the client-side lean.
  * It displays study resources as cards to initiate quiz generation.
  */
-export function GenerateQuestionsTab() {
+export function GenerateQuestionsTab({ onQuizFeedback }: GenerateQuestionsTabProps) {
   const [selectedResource, setSelectedResource] = useState<StudyResource | null>(null);
   const [generatedQuiz, setGeneratedQuiz] = useState<GeneratedQuiz | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -69,6 +73,7 @@ export function GenerateQuestionsTab() {
           setGeneratedQuiz(null);
           setSelectedResource(null);
         }}
+        onQuizFeedback={onQuizFeedback}
       />
     );
   }

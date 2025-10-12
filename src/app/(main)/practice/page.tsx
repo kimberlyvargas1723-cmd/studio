@@ -11,8 +11,10 @@ import { BrainCircuit, BookCheck, ClipboardCheck } from 'lucide-react';
  * Renders the practice center page, which uses tabs to allow users to
  * either generate AI-powered quizzes by topic, engage in a timed
  * psychometric practice session, or run a full exam simulation.
+ * @param {object} props - The component props.
+ * @param {(result: 'correct' | 'incorrect') => void} props.onQuizFeedback - Callback to notify the layout of quiz results.
  */
-export default function PracticePage() {
+export default function PracticePage({ onQuizFeedback }: { onQuizFeedback?: (result: 'correct' | 'incorrect') => void }) {
   return (
     <div className="flex min-h-screen w-full flex-col">
       <Header title="Centro de Práctica" />
@@ -33,13 +35,13 @@ export default function PracticePage() {
             </TabsTrigger>
           </TabsList>
           <TabsContent value="topic-quiz">
-            <GenerateQuestionsTab />
+            <GenerateQuestionsTab onQuizFeedback={onQuizFeedback} />
           </TabsContent>
           <TabsContent value="psychometric-practice">
-            <PsychometricPracticeTab />
+            <PsychometricPracticeTab onQuizFeedback={onQuizFeedback} />
           </TabsContent>
            <TabsContent value="exam-simulation">
-            <ExamSimulationTab />
+            <ExamSimulationTab onQuizFeedback={onQuizFeedback} />
           </TabsContent>
         </Tabs>
       </main>

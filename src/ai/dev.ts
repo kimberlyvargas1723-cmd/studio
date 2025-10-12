@@ -7,3 +7,4 @@ import '@/ai/flows/practice-question-generation.ts';
 import '@/ai/flows/study-assistant.ts';
 import '@/ai/flows/image-text-extraction.ts';
 import '@/ai/flows/generate-study-plan.ts';
+import '@/ai/flows/generate-progress-summary.ts';

@@ -1,15 +1,21 @@
 // src/components/VairyxIcon.tsx
 import { cn } from "@/lib/utils";
 
+type VairyxIconProps = React.SVGProps<SVGSVGElement> & {
+    feedback?: 'correct' | 'incorrect' | null;
+};
+
+
 /**
  * A reusable, animated SVG component for the AI assistant, Vairyx.
  * This component includes the visual design and animations for the robot,
  * featuring a professional, Ironman-inspired aesthetic with 3D-like shading and highlights.
  * This final version pushes for hyperrealism through advanced gradient usage and layered paths
  * to simulate realistic lighting, shadows, and metallic reflections.
- * @param {React.SVGProps<SVGSVGElement>} props - Standard SVG props.
+ * It now also supports a 'feedback' prop to change its core color.
+ * @param {VairyxIconProps} props - Standard SVG props plus feedback state.
  */
-export const VairyxIcon = (props: React.SVGProps<SVGSVGElement>) => (
+export const VairyxIcon = ({ feedback, ...props }: VairyxIconProps) => (
   <div className={cn("relative", props.className)}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -26,10 +32,20 @@ export const VairyxIcon = (props: React.SVGProps<SVGSVGElement>) => (
           <stop offset="0%" stopColor="hsl(var(--accent) / 1.2)" />
           <stop offset="100%" stopColor="hsl(var(--accent) / 0.8)" />
         </linearGradient>
-        <radialGradient id="arc-reactor-glow">
+        <radialGradient id="arc-reactor-glow-default">
           <stop offset="0%" stopColor="hsl(var(--accent))" stopOpacity="1" />
           <stop offset="70%" stopColor="hsl(var(--accent))" stopOpacity="0.8" />
           <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0" />
+        </radialGradient>
+         <radialGradient id="arc-reactor-glow-correct">
+          <stop offset="0%" stopColor="#4ade80" stopOpacity="1" />
+          <stop offset="70%" stopColor="#4ade80" stopOpacity="0.8" />
+          <stop offset="100%" stopColor="#4ade80" stopOpacity="0" />
+        </radialGradient>
+        <radialGradient id="arc-reactor-glow-incorrect">
+          <stop offset="0%" stopColor="#f87171" stopOpacity="1" />
+          <stop offset="70%" stopColor="#f87171" stopOpacity="0.8" />
+          <stop offset="100%" stopColor="#f87171" stopOpacity="0" />
         </radialGradient>
         <filter id="vairyx-glow">
           <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
@@ -66,15 +82,36 @@ export const VairyxIcon = (props: React.SVGProps<SVGSVGElement>) => (
       {/* Visor */}
       <g className="animate-robot-eye-move">
         <rect x="38" y="40" width="24" height="6" rx="2" fill="hsl(var(--background))" />
-        <rect x="38" y="40" width="24" height="6" rx="2" fill="url(#arc-reactor-glow)" filter="url(#vairyx-glow)" />
+        <rect x="38" y="40" width="24" height="6" rx="2" 
+            fill={
+                feedback === 'correct' ? 'url(#arc-reactor-glow-correct)' :
+                feedback === 'incorrect' ? 'url(#arc-reactor-glow-incorrect)' :
+                'url(#arc-reactor-glow-default)'
+            }
+            className={cn(feedback && 'animate-feedback-flash')}
+            filter="url(#vairyx-glow)" />
       </g>
 
       {/* --- Arc Reactor --- */}
       <circle cx="50" cy="75" r="14" fill="hsl(var(--primary) / 0.8)" stroke="hsl(var(--border) / 0.5)" strokeWidth="0.5" />
       <circle cx="50" cy="75" r="11" fill="hsl(var(--background) / 0.8)" />
       <g className="animate-robot-antenna-blink">
-        <circle cx="50" cy="75" r="12" fill="url(#arc-reactor-glow)" filter="url(#vairyx-glow)" />
-        <circle cx="50" cy="75" r="5" fill="hsl(var(--accent))" stroke="hsl(var(--background) / 0.5)" strokeWidth="1.5" />
+        <circle cx="50" cy="75" r="12" 
+            fill={
+                feedback === 'correct' ? 'url(#arc-reactor-glow-correct)' :
+                feedback === 'incorrect' ? 'url(#arc-reactor-glow-incorrect)' :
+                'url(#arc-reactor-glow-default)'
+            }
+            className={cn(feedback && 'animate-feedback-flash')}
+            filter="url(#vairyx-glow)" />
+        <circle cx="50" cy="75" r="5" 
+            fill={
+                feedback === 'correct' ? '#4ade80' :
+                feedback === 'incorrect' ? '#f87171' :
+                'hsl(var(--accent))'
+            }
+            className={cn(feedback && 'animate-feedback-flash')}
+            stroke="hsl(var(--background) / 0.5)" strokeWidth="1.5" />
       </g>
       <path d="M50 65 L48 73 L50 74 L52 73Z" fill="hsl(var(--background) / 0.2)" />
     </svg>

@@ -25,11 +25,15 @@ function shuffleArray<T>(array: T[]): T[] {
     return array;
 }
 
+type ExamSimulationTabProps = {
+  onQuizFeedback?: (result: 'correct' | 'incorrect') => void;
+};
+
 /**
  * Renders the tab for a full admission exam simulation (EXANI-II style).
  * It presents a timed, multi-topic quiz to simulate the real exam experience.
  */
-export function ExamSimulationTab() {
+export function ExamSimulationTab({ onQuizFeedback }: ExamSimulationTabProps) {
   const [simulationQuiz, setSimulationQuiz] = useState<GeneratedQuiz | null>(null);
 
   const handleStartSimulation = () => {
@@ -50,6 +54,7 @@ export function ExamSimulationTab() {
       <GeneratedQuizComponent
         quiz={simulationQuiz}
         onBack={() => setSimulationQuiz(null)}
+        onQuizFeedback={onQuizFeedback}
       />
     );
   }

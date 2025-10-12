@@ -25,12 +25,16 @@ function shuffleArray<T>(array: T[]): T[] {
     return array;
 }
 
+type PsychometricPracticeTabProps = {
+  onQuizFeedback?: (result: 'correct' | 'incorrect') => void;
+};
+
 /**
  * Renders the tab for psychometric practice. It allows users to start a timed
  * practice session by drawing a random set of questions from a predefined pool,
  * simulating the pressure of the real exam.
  */
-export function PsychometricPracticeTab() {
+export function PsychometricPracticeTab({ onQuizFeedback }: PsychometricPracticeTabProps) {
   const [practiceQuiz, setPracticeQuiz] = useState<GeneratedQuiz | null>(null);
 
   const handleStartPractice = () => {
@@ -51,6 +55,7 @@ export function PsychometricPracticeTab() {
       <GeneratedQuizComponent
         quiz={practiceQuiz}
         onBack={() => setPracticeQuiz(null)}
+        onQuizFeedback={onQuizFeedback}
       />
     );
   }

@@ -22,12 +22,17 @@ type Message = {
   youtubeQuery?: string;
 };
 
+type ChatWidgetProps = {
+    feedback?: 'correct' | 'incorrect' | null;
+};
+
 /**
  * Renders an animated, interactive chat widget featuring the AI assistant, Vairyx.
  * This component acts as a floating action button that opens a popover containing
  * a full-featured chat interface, making Vairyx accessible from anywhere in the app.
+ * It now accepts a 'feedback' prop to trigger visual feedback on the icon.
  */
-export function ChatWidget() {
+export function ChatWidget({ feedback }: ChatWidgetProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -100,7 +105,7 @@ export function ChatWidget() {
                     className="transition-transform duration-300 hover:scale-110"
                     aria-label="Abrir chat de Vairyx"
                 >
-                    <VairyxIcon className="h-28 w-28" />
+                    <VairyxIcon className="h-28 w-28" feedback={feedback} />
                 </button>
             </PopoverTrigger>
             <PopoverContent
