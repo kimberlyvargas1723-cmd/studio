@@ -41,8 +41,8 @@ export default function StudyPage() {
 
     if (resource.type === 'internal') {
       try {
-        // Fetch the content of the internal markdown file.
-        const response = await fetch(`/${resource.source}`);
+        // Fetch the content of the internal markdown file from the correct path.
+        const response = await fetch(`/estudio/${resource.source}`);
         if (!response.ok) throw new Error('Network response was not ok');
         const content = await response.text();
         setResourceContent(content);

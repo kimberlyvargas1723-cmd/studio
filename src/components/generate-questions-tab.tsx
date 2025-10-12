@@ -38,7 +38,7 @@ export function GenerateQuestionsTab() {
     setGeneratedQuiz(null);
     
     try {
-      // Fetch the content of the internal markdown file.
+      // Fetch the content of the internal markdown file from the correct path.
       const resourceContent = await fetch(`/estudio/${resource.source}`).then(res => res.text());
 
       // Call the AI flow to generate practice questions.
