@@ -14,7 +14,7 @@ import {
   LayoutDashboard,
   BookOpen,
   Target,
-  CalendarDays,
+  Sparkles,
   BarChart3,
   Atom,
   FileText,
@@ -25,7 +25,7 @@ const menuItems = [
   { href: '/study', label: 'Temas de Estudio', icon: BookOpen },
   { href: '/summaries', label: 'Mis Resúmenes', icon: FileText },
   { href: '/practice', label: 'Practicar', icon: Target },
-  { href: '/schedule', label: 'Mi Horario', icon: CalendarDays },
+  { href: '/assistant', label: 'Asistente IA', icon: Sparkles },
   { href: '/progress', label: 'Mi Progreso', icon: BarChart3 },
 ];
 

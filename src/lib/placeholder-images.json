@@ -19,10 +19,10 @@
       "imageHint": "brain puzzle"
     },
     {
-      "id": "schedule-card",
-      "description": "Un calendario de estudio enfocado en temas de psicología.",
-      "imageUrl": "https://picsum.photos/seed/104/600/400",
-      "imageHint": "study schedule"
+      "id": "assistant-card",
+      "description": "Una ilustración de un bot amigable con un foco, representando la ayuda de la IA.",
+      "imageUrl": "https://picsum.photos/seed/106/600/400",
+      "imageHint": "friendly AI assistant"
     },
     {
       "id": "progress-card",
