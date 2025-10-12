@@ -1,3 +1,4 @@
+// src/components/chat-widget.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -174,15 +175,7 @@ export function ChatWidget() {
               </div>
             </div>
           )}
-          {isOpen ? (
-             <div className="h-28 w-28 flex items-center justify-center">
-                <div className="h-14 w-14 rounded-full shadow-lg bg-primary text-primary-foreground flex items-center justify-center">
-                    <X className="h-6 w-6" />
-                </div>
-            </div>
-          ) : (
-            <RobotIcon />
-          )}
+          <RobotIcon />
         </button>
       </PopoverTrigger>
       <PopoverContent
@@ -192,12 +185,17 @@ export function ChatWidget() {
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
         <div className="flex h-[600px] w-full flex-col bg-card">
-           <div className="p-4 border-b">
+           <div className="p-4 border-b flex justify-between items-center">
               <div className="flex items-center gap-3">
                   <Sparkles className="h-6 w-6 text-primary" />
-                  <h3 className="font-headline text-lg">Vairyx</h3>
+                  <div>
+                    <h3 className="font-headline text-lg">Vairyx</h3>
+                    <p className="text-sm text-muted-foreground">Tu asistente de estudio personal.</p>
+                  </div>
               </div>
-              <p className="text-sm text-muted-foreground">Tu asistente de estudio personal.</p>
+              <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="h-8 w-8">
+                <X className="h-4 w-4" />
+              </Button>
            </div>
           <ScrollArea className="flex-1 p-4">
             <div className="space-y-6 pr-2">
