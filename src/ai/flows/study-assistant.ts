@@ -4,7 +4,7 @@
 /**
  * @fileOverview An AI study assistant that provides guidance and recommendations.
  *
- * - studyAssistant - A function that acts as a study assistant.
+ * - studyAssistant - a function that acts as a study assistant.
  * - StudyAssistantInput - The input type for the studyAssistant function.
  * - StudyAssistantOutput - The return type for the studyAssistant function.
  */
