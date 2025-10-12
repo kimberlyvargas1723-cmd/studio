@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Header } from '@/components/header';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -61,7 +61,7 @@ export default function StudyPage() {
     setError(null);
     setResourceContent(null);
 
-    const sourceFile = resource.type === 'internal' ? `/estudio/${resource.source}` : `/${resource.source}`;
+    const sourceFile = resource.type === 'internal' ? `/${resource.source}` : `/${resource.source}`;
 
     if (resource.type === 'internal') {
       setIsLoading(true);
