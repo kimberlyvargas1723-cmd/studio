@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Popover,
   PopoverContent,
@@ -23,7 +23,7 @@ type Message = {
 
 // A custom SVG component for the animated robot character.
 const RobotIcon = () => (
-  <svg
+    <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 100 120"
     className="h-24 w-24 robot-float"
@@ -54,16 +54,29 @@ const RobotIcon = () => (
     {/* Body */}
     <rect x="20" y="45" width="60" height="40" rx="10" fill="hsl(var(--card))" stroke="hsl(var(--border))" strokeWidth="2" />
     
+    {/* Arms */}
+    <rect x="10" y="50" width="10" height="25" rx="5" fill="hsl(var(--card))" stroke="hsl(var(--border))" strokeWidth="2" />
+    <rect x="80" y="50" width="10" height="25" rx="5" fill="hsl(var(--card))" stroke="hsl(var(--border))" strokeWidth="2" />
+    
     {/* Screen on body with a sparkle */}
     <rect x="35" y="55" width="30" height="20" rx="3" fill="hsl(var(--background))" />
     <path d="M 48 60 L 50 55 L 52 60 L 55 62 L 52 64 L 50 69 L 48 64 L 45 62 Z" fill="hsl(var(--primary))" filter="url(#glow)" />
   </svg>
 );
 
+const encouragingMessages = [
+    '¡Vas muy bien, Kimberly!',
+    '¡Tu esfuerzo dará frutos!',
+    'No te rindas, ¡estás más cerca de tu meta!',
+    'Pocas personas logran lo que tú estás haciendo.',
+    'Cada día de estudio es un paso más hacia tu sueño.',
+    '¡Confío en ti!'
+];
 
 /**
  * Renders a floating chat widget that provides AI assistance.
  * It's accessible from a button in the bottom-right corner of the screen.
+ * The widget also displays encouraging messages periodically.
  */
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -76,6 +89,29 @@ export function ChatWidget() {
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [activeMessage, setActiveMessage] = useState<string | null>(null);
+
+  // Effect to cycle through encouraging messages when the chat is closed
+  useEffect(() => {
+    if (isOpen) {
+      setActiveMessage(null);
+      return;
+    };
+
+    const intervalId = setInterval(() => {
+      const randomIndex = Math.floor(Math.random() * encouragingMessages.length);
+      setActiveMessage(encouragingMessages[randomIndex]);
+      
+      // The message will be visible for the duration of the CSS animation (5s)
+      // Then we clear it to allow a new message to be shown after the interval
+      setTimeout(() => {
+        setActiveMessage(null);
+      }, 5000);
+
+    }, 15000); // Show a new message every 15 seconds
+
+    return () => clearInterval(intervalId);
+  }, [isOpen]);
 
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -119,6 +155,14 @@ export function ChatWidget() {
           className="fixed bottom-0 right-4 z-50 transition-transform duration-300 hover:scale-110"
           aria-label="Abrir chat de PsicoGuía"
         >
+          {activeMessage && !isOpen && (
+            <div className="absolute bottom-24 right-0 w-48">
+              <div className="speech-bubble relative rounded-lg bg-primary text-primary-foreground p-3 text-sm shadow-lg">
+                {activeMessage}
+                <div className="absolute bottom-[-8px] right-6 h-0 w-0 border-x-8 border-x-transparent border-t-8 border-t-primary"></div>
+              </div>
+            </div>
+          )}
           {isOpen ? (
             <div className="h-28 w-28 flex items-center justify-center">
               <Button variant="default" className="h-14 w-14 rounded-full shadow-lg">
