@@ -232,7 +232,7 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
               <AlertTitle>Explicación</AlertTitle>
               <AlertDescription>
                 {currentQuestion.explanation}
-              </Aler_Description>
+              </AlertDescription>
             </Alert>
             {isLoading && !isDiagnostic && (
               <div className="flex items-center gap-2 text-muted-foreground p-4 justify-center">
