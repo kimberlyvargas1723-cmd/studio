@@ -30,6 +30,12 @@ export const studyResources: StudyResource[] = [
     source: 'psicologia-social.md',
   },
   {
+    title: 'Personalidad',
+    category: 'Fundamentos de Psicología',
+    type: 'internal',
+    source: 'personalidad.md',
+  },
+  {
     title: 'Psicometría',
     category: 'Metodología',
     type: 'internal',
@@ -93,6 +99,7 @@ export const initialPerformance: PerformanceData[] = [
   { topic: 'Procesos Psicológicos Básicos', correct: 0, incorrect: 0 },
   { topic: 'Psicología del Desarrollo', correct: 0, incorrect: 0 },
   { topic: 'Psicología Social', correct: 0, incorrect: 0 },
+  { topic: 'Personalidad', correct: 0, incorrect: 0 },
   { topic: 'Psicometría', correct: 0, incorrect: 0 },
   { topic: 'Examen Psicométrico', correct: 0, incorrect: 0 },
   { topic: 'Comprensión Lectora', correct: 0, incorrect: 0 },

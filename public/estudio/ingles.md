@@ -1,86 +1,51 @@
-# Inglés (Comprensión Lectora) en el EXANI-II
+# Guía de Inglés como Lengua Extranjera (EXANI-II)
 
-La sección de inglés en el EXANI-II se enfoca principalmente en la **comprensión lectora**. No evalúa tu habilidad para hablar o escribir, sino tu capacidad para entender textos escritos en inglés. La clave es no asustarse y aplicar las mismas estrategias de comprensión lectora que usas en español.
+Esta sección del EXANI-II es **diagnóstica**, lo que significa que no cuenta para tu puntaje de admisión final. Sin embargo, es una excelente oportunidad para medir tu nivel y prepararte para el inglés que necesitarás en la universidad. El examen se enfoca en la **comprensión lectora**.
 
----
+## Estructura de la Sección
 
-### 1. Vocabulary in Context (Vocabulario en Contexto)
+Te enfrentarás a textos de diversos temas (científicos, de opinión, literarios, etc.) y se te pedirá que respondas preguntas sobre ellos. Las habilidades clave evaluadas son:
 
-Este es el tipo de pregunta más común. Te pedirán el significado de una palabra o frase tal como se usa en el texto.
-
-**Example Text:**
-> "The company decided to **augment** its workforce by hiring 50 new employees to meet the growing demand."
-
-**Question:** The word "augment" is closest in meaning to...
-a)  decrease
-b)  increase
-c)  evaluate
-d)  train
-
-**Strategy:**
-1.  **Read the sentence:** "The company decided to \_\_\_\_\_ its workforce... to meet the growing demand."
-2.  **Analyze the context:** "Growing demand" (demanda creciente) significa que la empresa necesita más capacidad. ¿Qué harías con tu fuerza laboral para satisfacer una mayor demanda? La aumentarías.
-3.  **Substitute the options:**
-    -   "decrease its workforce" (disminuir) - No tiene sentido.
-    -   "increase its workforce" (aumentar) - ¡Encaja perfectamente!
-    -   "evaluate its workforce" (evaluar) - Podría ser, pero no es la acción principal para satisfacer la demanda.
-    -   "train its workforce" (entrenar) - También es posible, pero primero necesitas a los trabajadores.
-4.  **Conclusion:** The most logical answer is **b) increase**.
-
-**Consejo:** No te preocupes si no conoces la palabra. El contexto casi siempre te dará la pista que necesitas.
+1.  **Comprensión del Sentido General del Texto:** Entender de qué trata el texto en su conjunto.
+2.  **Identificación de Información Específica:** Localizar datos, nombres, fechas o detalles concretos dentro del texto.
+3.  **Inferencia de Información:** Deducir o "leer entre líneas" lo que el autor sugiere pero no dice explícitamente.
+4.  **Vocabulario en Contexto:** Entender el significado de una palabra basándote en la oración y el párrafo donde se encuentra.
 
 ---
 
-### 2. Main Idea (Idea Principal)
+## Estrategias Clave para el Éxito
 
-Te pedirán identificar el punto central del pasaje.
+### Estrategia 1: Skimming y Scanning
 
-**Strategy:**
--   Lee el primer y último párrafo. A menudo, la idea principal se presenta al principio y se resume al final.
--   Pregúntate: "¿Qué es lo que el autor realmente quiere que yo sepa después de leer esto?".
--   Busca frases repetidas o ideas que conecten todos los párrafos.
+Antes de leer las preguntas, dale una lectura rápida al texto (**Skimming**) para captar la idea principal. ¿Es una noticia? ¿Un ensayo de opinión? ¿Un manual de instrucciones?
 
----
+Luego, lee las preguntas. Ahora, vuelve al texto y busca rápidamente las palabras clave de cada pregunta (**Scanning**). Esto te ayuda a localizar la sección relevante sin tener que releer todo el texto a fondo cada vez.
 
-### 3. Specific Information (Información Específica)
+**Ejemplo:**
+*   **Pregunta:** "What year did the study conclude?"
+*   **Scanning:** Buscas visualmente números de 4 dígitos o la palabra "year" en el texto.
 
-Son preguntas sobre detalles concretos mencionados en el texto (nombres, fechas, lugares, estadísticas).
+### Estrategia 2: Cuidado con los "Falsos Cognados" (False Friends)
 
-**Strategy:**
--   Lee la pregunta primero para saber qué detalle estás buscando.
--   Escanea el texto rápidamente buscando palabras clave de la pregunta (por ejemplo, si la pregunta es sobre "Dr. Evans", busca ese nombre en el texto).
--   Una vez que encuentres la oración relevante, léela con cuidado para asegurarte de que responde a la pregunta.
+El inglés y el español comparten muchas palabras de origen latino, pero algunas tienen significados completamente diferentes. ¡No te confíes!
 
----
+*   `Actually` no significa "actualmente", significa **"en realidad"** (`currently` es "actualmente").
+*   `Library` no es "librería", es **"biblioteca"** (`bookstore` es "librería").
+*   `Success` no es "suceso", es **"éxito"** (`event` es "suceso").
+*   `Embarrassed` no es "embarazada", es **"avergonzado/a"** (`pregnant` es "embarazada").
 
-### 4. Inference (Inferencia)
+### Estrategia 3: Entiende los Conectores (Connectors)
 
-Estas son las preguntas de "leer entre líneas". La respuesta no estará escrita directamente, pero estará fuertemente sugerida.
+Los conectores son la clave para entender la relación entre las ideas.
+*   **Causa y Efecto:** `because`, `since`, `as a result`, `therefore`.
+*   **Contraste:** `however`, `but`, `although`, `on the other hand`.
+*   **Adición:** `furthermore`, `moreover`, `in addition`.
+*   **Ejemplificación:** `for example`, `for instance`, `such as`.
 
-**Example Text:**
-> "Although the café was famous for its coffee, on that rainy afternoon, every single customer was holding a cup of hot chocolate."
-
-**Question:** What can be inferred from the passage?
-a)  The café ran out of coffee.
-b)  People prefer hot chocolate on rainy days.
-c)  The café does not sell tea.
-d)  The customers were all children.
-
-**Analysis:**
--   a) The text doesn't say they ran out. It's a possibility, but not a direct inference.
--   b) This is a strong inference. The author contrasts the café's fame (coffee) with what everyone is *actually* drinking on a *rainy day* (hot chocolate). This suggests a connection between the weather and the drink choice.
--   c) The text doesn't mention tea at all. We can't infer anything about it.
--   d) There is no information about the customers' age.
-
-**Conclusion:** The most logical inference is **b)**.
+Identificar estos conectores te ayudará a entender la estructura lógica del argumento del autor.
 
 ---
 
-### Consejos Generales para la Sección de Inglés
+## Consejo Final:
 
--   **No traduzcas palabra por palabra:** Intenta captar el significado general de las oraciones y los párrafos. Traducir todo te hará perder mucho tiempo.
--   **Identifica Cognados:** Busca palabras que se parezcan al español (e.g., *information* -> información, *different* -> diferente, *conclusion* -> conclusión). ¡Son pistas gratuitas!
--   **Cuidado con los Falsos Cognados:** Algunos te pueden engañar. Por ejemplo, *actually* no significa "actualmente", sino "en realidad". *Library* no es "librería", sino "biblioteca".
--   **No te estanques:** Si un texto o una pregunta te parece muy difícil, sigue adelante. Es mejor asegurar las preguntas fáciles y luego volver a las difíciles si te queda tiempo.
-
-**Consejo Final:** La mejor manera de mejorar es exponerte al idioma. Intenta leer noticias cortas, artículos de blog o incluso ver series en inglés con subtítulos en inglés. Esto te familiarizará con la estructura de
+No te estreses por las palabras que no conoces. Intenta entender el significado general por el contexto. La mayoría de las veces, no necesitas saber el 100% de las palabras para responder correctamente a las preguntas. Enfócate en la idea general y en la información específica que te piden. ¡Tú puedes!
