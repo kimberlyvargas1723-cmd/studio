@@ -8,7 +8,6 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Loader2, CheckCircle, XCircle, Lightbulb, ArrowLeft, Timer } from 'lucide-react';
-import { Progress } from '@/components/ui/progress';
 import { analyzePerformanceAndAdapt } from '@/ai/flows/personalized-feedback-adaptation';
 import { updatePerformanceData, saveFeedback } from '@/lib/services';
 import { useRouter } from 'next/navigation';
@@ -209,7 +208,6 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
                 </div>
             ) : <div className="w-28"/>}
         </div>
-        <Progress value={((currentQuestionIndex + 1) / quiz.questions.length) * 100} />
         <p className="pt-6 text-lg text-center font-semibold">{currentQuestion.question}</p>
       </CardHeader>
       <CardContent>
@@ -248,7 +246,7 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
                 <AlertTitle>{isCorrect ? '¡Correcto!' : 'Incorrecto'}</AlertTitle>
                 <AlertDescription className="text-current">
                   {isCorrect ? '¡Excelente trabajo!' : `La respuesta correcta es: ${currentQuestion.correctAnswer}`}
-                </AlertDescription>
+                </Aler-tDescription>
               </div>
             </Alert>
             <Alert>
