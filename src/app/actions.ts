@@ -3,7 +3,9 @@
 import { summarizeContent } from '@/ai/flows/content-summarization';
 import { generatePracticeQuestions } from '@/ai/flows/practice-question-generation';
 import { extractTextFromImage } from '@/ai/flows/image-text-extraction';
+import { generateStudyPlan } from '@/ai/flows/generate-study-plan';
 import type { StudyResource, GeneratedQuestion } from '@/lib/types';
+import type { StudyPlanInput, StudyPlanOutput } from '@/ai/flows/generate-study-plan';
 import fs from 'fs/promises';
 import path from 'path';
 
@@ -59,4 +61,22 @@ export async function extractTextFromImageAction(imageUrl: string) {
     return { textContent: result.textContent };
   } catch (e) {
     console.error('Error in extractTextFromImageAction:', e);
-    return
+    return { error: 'No se pudo extraer texto de la imagen.' };
+  }
+}
+
+
+/**
+ * Server Action to trigger AI study plan generation.
+ * @param {StudyPlanInput} input - The student's performance data and days until the exam.
+ * @returns {Promise<{plan: StudyPlanOutput} | {error: string}>} - The generated plan or an error.
+ */
+export async function generateStudyPlanAction(input: StudyPlanInput): Promise<{ plan?: StudyPlanOutput; error?: string }> {
+  try {
+    const result = await generateStudyPlan(input);
+    return { plan: result };
+  } catch (e: any) {
+    console.error('Error in generateStudyPlanAction:', e);
+    return { error: e.message || 'No se pudo generar el plan de estudio.' };
+  }
+}
