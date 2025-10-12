@@ -9,7 +9,8 @@ import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { studyAssistant } from '@/ai/flows/study-assistant';
 import { Loader2, Send, Sparkles, Youtube } from 'lucide-react';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { cn } from '@/lib/utils';
 
 type Message = {
   role: 'user' | 'model';
@@ -74,30 +75,38 @@ export default function AssistantPage() {
         <Card className="flex h-full w-full flex-col">
           <CardHeader>
             <div className="flex items-center gap-3">
-                <Sparkles className="h-6 w-6 text-primary" />
-                <CardTitle className="font-headline">Vairyx</CardTitle>
+                <Avatar className="h-10 w-10 border-2 border-primary">
+                    <AvatarFallback>V</AvatarFallback>
+                </Avatar>
+                <div>
+                    <CardTitle className="font-headline text-xl">Vairyx</CardTitle>
+                    <CardDescription>Tu compañero de estudio personal para el examen de admisión.</CardDescription>
+                </div>
             </div>
-            <CardDescription>Tu compañero de estudio personal para el examen de admisión.</CardDescription>
           </CardHeader>
-          <CardContent className="flex-1 overflow-hidden">
-            <ScrollArea className="h-full pr-4">
+          <CardContent className="flex flex-1 flex-col overflow-hidden">
+            <ScrollArea className="flex-1 pr-4">
               <div className="space-y-6">
                 {messages.map((message, index) => (
                   <div
                     key={index}
-                    className={`flex items-start gap-3 ${message.role === 'user' ? 'justify-end' : ''}`}
+                    className={cn('flex items-start gap-4', {
+                        'justify-end': message.role === 'user'
+                    })}
                   >
                     {message.role === 'model' && (
                       <Avatar className="h-8 w-8 border">
-                        <AvatarFallback>IA</AvatarFallback>
+                        <AvatarFallback>V</AvatarFallback>
                       </Avatar>
                     )}
                     <div
-                      className={`max-w-lg rounded-xl px-4 py-3 ${
-                        message.role === 'user'
-                          ? 'rounded-br-none bg-primary text-primary-foreground'
-                          : 'rounded-bl-none bg-muted'
-                      }`}
+                      className={cn(
+                        'max-w-xl rounded-xl px-4 py-3',
+                        {
+                          'rounded-br-none bg-primary text-primary-foreground': message.role === 'user',
+                          'rounded-bl-none bg-muted': message.role === 'model',
+                        }
+                      )}
                     >
                       <p className="whitespace-pre-wrap text-sm">{message.content}</p>
                       {message.youtubeQuery && (
@@ -123,7 +132,7 @@ export default function AssistantPage() {
                 {isLoading && (
                    <div className="flex items-start gap-3">
                         <Avatar className="h-8 w-8 border">
-                            <AvatarFallback>IA</AvatarFallback>
+                            <AvatarFallback>V</AvatarFallback>
                         </Avatar>
                         <div className="max-w-lg rounded-xl px-4 py-3 rounded-bl-none bg-muted">
                             <div className="flex items-center gap-2 text-muted-foreground text-sm">
@@ -136,16 +145,17 @@ export default function AssistantPage() {
               </div>
             </ScrollArea>
           </CardContent>
-          <div className="border-t p-4">
-            <form onSubmit={handleSendMessage} className="flex items-center gap-2">
+          <div className="border-t p-4 bg-background/95 backdrop-blur-sm">
+            <form onSubmit={handleSendMessage} className="relative">
               <Input
                 value={input}
                 onChange={e => setInput(e.target.value)}
-                placeholder="Pregúntame sobre un tema o pide una recomendación..."
+                placeholder="Habla con Vairyx sobre un tema, pide un quiz, o solicita una explicación..."
                 disabled={isLoading}
                 autoComplete="off"
+                className="pr-12"
               />
-              <Button type="submit" disabled={isLoading || !input.trim()} size="icon">
+              <Button type="submit" disabled={isLoading || !input.trim()} size="icon" className="absolute right-1 top-1/2 -translate-y-1/2 h-8 w-8">
                 <Send className="h-4 w-4" />
               </Button>
             </form>

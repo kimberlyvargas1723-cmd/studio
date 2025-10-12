@@ -169,42 +169,61 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
   return (
     <Card className="w-full max-w-2xl mt-4">
       <CardHeader>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center mb-4">
             {!isDiagnostic && (
-              <Button variant="ghost" size="sm" onClick={onBack} className="self-start">
+              <Button variant="ghost" size="sm" onClick={onBack} className="self-start -ml-2">
                   <ArrowLeft className="mr-2 h-4 w-4" />
                   Volver
               </Button>
             )}
-            <CardTitle className="font-headline text-lg flex-1 text-center">{quiz.title}</CardTitle>
+            <div className="flex-1 text-center">
+                <CardTitle className="font-headline text-lg">{quiz.title}</CardTitle>
+                <CardDescription>Pregunta {currentQuestionIndex + 1} de {quiz.questions.length}</CardDescription>
+            </div>
+            {!isDiagnostic && <div className="w-20"></div>}
         </div>
-        <CardDescription className="text-center">Pregunta {currentQuestionIndex + 1} de {quiz.questions.length}</CardDescription>
-        <Progress value={((currentQuestionIndex + 1) / quiz.questions.length) * 100} className="mt-2" />
-        <p className="pt-4 text-lg text-center">{currentQuestion.question}</p>
+        <Progress value={((currentQuestionIndex + 1) / quiz.questions.length) * 100} />
+        <p className="pt-6 text-lg text-center font-semibold">{currentQuestion.question}</p>
       </CardHeader>
       <CardContent>
         <RadioGroup
           value={selectedAnswer ?? ''}
           onValueChange={setSelectedAnswer}
           disabled={isAnswered}
+          className="space-y-3"
         >
           {currentQuestion.options.map((option, index) => (
-            <div key={index} className="flex items-center space-x-2 p-2 rounded-md transition-colors hover:bg-muted">
-              <RadioGroupItem value={option} id={`option-gen-${index}`} />
-              <Label htmlFor={`option-gen-${index}`} className="text-base cursor-pointer flex-1">{option}</Label>
-            </div>
+            <Label 
+                key={index}
+                htmlFor={`option-gen-${index}`}
+                className={cn(
+                    "flex items-center space-x-3 p-4 rounded-md border transition-colors cursor-pointer",
+                    "hover:bg-accent",
+                    selectedAnswer === option && "bg-accent border-primary",
+                    isAnswered && option === currentQuestion.correctAnswer && "border-green-500 bg-green-50 dark:bg-green-900/20",
+                    isAnswered && selectedAnswer === option && option !== currentQuestion.correctAnswer && "border-destructive bg-red-50 dark:bg-red-900/20",
+                )}
+            >
+              <RadioGroupItem value={option} id={`option-gen-${index}`} className="h-5 w-5" />
+              <span className="text-base font-normal">{option}</span>
+            </Label>
           ))}
         </RadioGroup>
 
         {/* Display feedback and explanation after an answer is submitted */}
         {isAnswered && (
           <div className="mt-6 space-y-4">
-             <Alert variant={isCorrect ? 'default' : 'destructive'} className={isCorrect ? 'border-green-500 bg-green-50 dark:bg-green-900/20' : ''}>
-              {isCorrect ? <CheckCircle className="h-4 w-4 text-green-500" /> : <XCircle className="h-4 w-4" />}
-              <AlertTitle>{isCorrect ? '¡Correcto!' : 'Incorrecto'}</AlertTitle>
-              <AlertDescription>
-                {isCorrect ? '¡Buen trabajo!' : `La respuesta correcta es: ${currentQuestion.correctAnswer}`}
-              </AlertDescription>
+             <Alert variant={isCorrect ? 'default' : 'destructive'} className={cn(
+                 "flex items-center",
+                 isCorrect ? 'border-green-500 bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-200' : 'border-destructive bg-red-50 dark:bg-red-900/20 text-destructive'
+              )}>
+              {isCorrect ? <CheckCircle className="h-5 w-5 mr-2 text-green-500" /> : <XCircle className="h-5 w-5 mr-2" />}
+              <div>
+                <AlertTitle>{isCorrect ? '¡Correcto!' : 'Incorrecto'}</AlertTitle>
+                <AlertDescription className="text-current">
+                  {isCorrect ? '¡Excelente trabajo!' : `La respuesta correcta es: ${currentQuestion.correctAnswer}`}
+                </AlertDescription>
+              </div>
             </Alert>
             <Alert>
               <Lightbulb className="h-4 w-4" />
@@ -214,7 +233,7 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
               </AlertDescription>
             </Alert>
             {isLoading && !isDiagnostic && (
-              <div className="flex items-center gap-2 text-muted-foreground">
+              <div className="flex items-center gap-2 text-muted-foreground p-4 justify-center">
                 <Loader2 className="h-4 w-4 animate-spin" />
                 Analizando tu respuesta y adaptando tu ruta...
               </div>
@@ -222,9 +241,9 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
             {feedback && !isLoading && !isDiagnostic && (
               <Alert className="border-primary">
                 <Lightbulb className="h-4 w-4 text-primary" />
-                <AlertTitle>Retroalimentación Personalizada</AlertTitle>
+                <AlertTitle>Retroalimentación Personalizada de Vairyx</AlertTitle>
                 <AlertDescription>
-                  <p className="font-semibold mt-2">Sugerencia de la IA:</p>
+                  <p className="font-semibold mt-2">Sugerencia:</p>
                   <p>{feedback.feedback}</p>
                   <p className="mt-2 font-semibold">Área de mejora sugerida:</p>
                   <p>{feedback.areasForImprovement}</p>
@@ -233,7 +252,7 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
             )}
           </div>
         )}
-      </CardContent>_
+      </CardContent>
       <CardFooter>
         {isAnswered ? (
           <Button onClick={handleNextQuestion} className="w-full">
