@@ -8,6 +8,8 @@ import { Calendar } from '@/components/ui/calendar';
 import { studyResources } from '@/lib/data';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { Skeleton } from '@/components/ui/skeleton';
+
 
 type StudyDay = {
   date: Date;
@@ -18,18 +20,16 @@ type StudyDay = {
 export default function SchedulePage() {
   const [examDate, setExamDate] = useState<Date | undefined>(undefined);
   const [studyPlan, setStudyPlan] = useState<StudyDay[]>([]);
-  const [today, setToday] = useState<Date | null>(null);
+  const [isClient, setIsClient] = useState(false);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
 
   useEffect(() => {
-    // Set 'today' only on the client-side to prevent hydration mismatch
-    const now = new Date();
-    now.setHours(0,0,0,0);
-    setToday(now);
+    // This ensures the component only renders on the client, preventing hydration mismatch.
+    setIsClient(true);
   }, []);
 
   const generateStudyPlan = (date: Date) => {
-    if (!today) return;
-
     const daysUntilExam = differenceInDays(date, today);
 
     if (daysUntilExam < 1) {
@@ -81,14 +81,18 @@ export default function SchedulePage() {
             </CardDescription>
           </CardHeader>
           <CardContent className="flex justify-center">
-            <Calendar
-              mode="single"
-              selected={examDate}
-              onSelect={handleDateSelect}
-              disabled={(date) => today ? date < today : true}
-              locale={es}
-              className="rounded-md border"
-            />
+            {isClient ? (
+                <Calendar
+                  mode="single"
+                  selected={examDate}
+                  onSelect={handleDateSelect}
+                  disabled={(date) => date < today}
+                  locale={es}
+                  className="rounded-md border"
+                />
+            ) : (
+                <Skeleton className="w-[280px] h-[330px] rounded-md" />
+            )}
           </CardContent>
         </Card>
         <Card className="w-full lg:w-2/3">
