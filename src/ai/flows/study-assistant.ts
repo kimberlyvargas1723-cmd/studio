@@ -34,12 +34,18 @@ export type StudyAssistantOutput = z.infer<typeof StudyAssistantOutputSchema>;
  * @returns {Promise<StudyAssistantOutput>} A promise that resolves to the AI's response and an optional YouTube search query.
  */
 export async function studyAssistant(input: StudyAssistantInput): Promise<StudyAssistantOutput> {
-  return studyAssistantFlow(input);
+  // To handle the conditional logic in the prompt, we'll augment the history data.
+  const historyForPrompt = input.history?.map(message => ({
+    ...message,
+    isUser: message.role === 'user',
+  }));
+  
+  return studyAssistantFlow({ ...input, history: historyForPrompt });
 }
 
 const studyAssistantPrompt = ai.definePrompt({
   name: 'studyAssistantPrompt',
-  input: {schema: StudyAssistantInputSchema},
+  input: {schema: z.any()}, // Use z.any() because we augmented the history object.
   output: {schema: StudyAssistantOutputSchema},
   prompt: `You are an expert, friendly, and encouraging AI study assistant for Kimberly, a student preparing for her UANL Psychology entrance exam. Your name is 'Vairyx'.
 
@@ -56,7 +62,7 @@ Your tasks are:
 Conversation History:
 {{#if history}}
 {{#each history}}
-{{#if (eq this.role 'user')}}
+{{#if this.isUser}}
 Kimberly: {{{this.content}}}
 {{else}}
 Vairyx: {{{this.content}}}
@@ -72,7 +78,7 @@ Provide your response and a YouTube search query if applicable.`,
 const studyAssistantFlow = ai.defineFlow(
   {
     name: 'studyAssistantFlow',
-    inputSchema: StudyAssistantInputSchema,
+    inputSchema: z.any(),
     outputSchema: StudyAssistantOutputSchema,
   },
   async input => {
