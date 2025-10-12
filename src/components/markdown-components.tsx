@@ -1,14 +1,15 @@
 'use client';
-
+import React from 'react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Lightbulb, Target } from 'lucide-react';
 
 /**
  * A custom component to render paragraphs that start with "Estrategia:"
  * as a visually distinct "Strategy Block".
+ * @param {{ children?: React.ReactNode }} props - The children passed by ReactMarkdown.
+ * @returns A custom Alert component or a standard paragraph.
  */
 export const StrategyBlock = ({ children }: { children?: React.ReactNode }) => {
-  // We need to check if the children are in the expected format.
   const childArray = React.Children.toArray(children);
   if (childArray.length > 0 && typeof childArray[0] === 'object' && 'props' in childArray[0]) {
     const textContent = childArray[0].props.children;
@@ -25,13 +26,14 @@ export const StrategyBlock = ({ children }: { children?: React.ReactNode }) => {
       );
     }
   }
-  // Render as a normal paragraph if it doesn't match the criteria.
   return <p>{children}</p>;
 };
 
 /**
  * A custom component to render paragraphs that start with "Consejo Final:"
  * as a visually distinct "Final Tip Block".
+ * @param {{ children?: React.ReactNode }} props - The children passed by ReactMarkdown.
+ * @returns A custom Alert component or a standard paragraph.
  */
 export const FinalTipBlock = ({ children }: { children?: React.ReactNode }) => {
   const childArray = React.Children.toArray(children);
@@ -53,3 +55,29 @@ export const FinalTipBlock = ({ children }: { children?: React.ReactNode }) => {
   return <p>{children}</p>;
 };
 
+
+/**
+ * A combined component resolver for ReactMarkdown.
+ * It inspects the content of a paragraph and decides whether to render
+ * it as a special component (like StrategyBlock or FinalTipBlock) or as a
+ * standard paragraph.
+ */
+export const CombinedMarkdownComponents = {
+    p: ({ children }: { children?: React.ReactNode }) => {
+        const childArray = React.Children.toArray(children);
+        // Check if the first child has text content we can analyze
+        if (childArray.length > 0 && typeof childArray[0] === 'object' && 'props' in childArray[0]) {
+            const textContent = childArray[0].props.children;
+            if (typeof textContent === 'string') {
+                if (textContent.startsWith('Estrategia:')) {
+                    return <StrategyBlock>{children}</StrategyBlock>;
+                }
+                if (textContent.startsWith('Consejo Final:')) {
+                    return <FinalTipBlock>{children}</FinalTipBlock>;
+                }
+            }
+        }
+        // If no special condition is met, render a default paragraph
+        return <p>{children}</p>;
+    },
+};

@@ -1,47 +1,24 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
+import { useState, useEffect, useRef } from 'react';
 import { Header } from '@/components/header';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { studyResources } from '@/lib/data';
 import type { StudyResource } from '@/lib/types';
-import { Loader2, BookCopy, FileText, Save, Book, ExternalLink, Upload } from 'lucide-react';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { ScrollArea } from '@/components/ui/scroll-area';
+import { Book, ExternalLink, Upload } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { saveSummary as saveSummaryToStorage } from '@/lib/services';
 import { summarizeContentAction, extractTextFromImageAction } from '@/app/actions';
-import { StrategyBlock, FinalTipBlock } from '@/components/markdown-components';
+import { StudyContent } from '@/components/study-content';
 
-// Custom components mapping for ReactMarkdown
-const markdownComponents = {
-  p: StrategyBlock, // We will check inside StrategyBlock if it applies
-  // To add more, we can chain them or create a resolver component.
-  // For now, this is simple. Let's check for FinalTipBlock inside StrategyBlock
-};
-
-const CombinedMarkdownComponents = {
-    p: ({ children }: { children?: React.ReactNode }) => {
-        const childArray = React.Children.toArray(children);
-        if (childArray.length > 0 && typeof childArray[0] === 'object' && 'props' in childArray[0]) {
-            const textContent = childArray[0].props.children;
-            if (typeof textContent === 'string') {
-                if (textContent.startsWith('Estrategia:')) {
-                    return <StrategyBlock>{children}</StrategyBlock>;
-                }
-                if (textContent.startsWith('Consejo Final:')) {
-                    return <FinalTipBlock>{children}</FinalTipBlock>;
-                }
-            }
-        }
-        return <p>{children}</p>;
-    },
-};
-
-
+/**
+ * The main container component for the Study page.
+ * It manages the state for the entire study experience, including resource selection,
+ * content fetching, summarization, and image text extraction.
+ * It delegates the rendering of content to the `StudyContent` component.
+ */
 export default function StudyPage() {
   const [selectedResource, setSelectedResource] = useState<StudyResource | null>(null);
   const [resourceContent, setResourceContent] = useState<string | null>(null);
@@ -53,6 +30,7 @@ export default function StudyPage() {
   const { toast } = useToast();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // On initial load, fetch and display the personalized study guide.
   useEffect(() => {
     const fetchGuide = async () => {
       setIsLoading(true);
@@ -72,6 +50,11 @@ export default function StudyPage() {
     fetchGuide();
   }, []);
 
+  /**
+   * Handles the selection of a study resource from the list.
+   * It fetches internal markdown content or provides instructions for external links.
+   * @param {StudyResource} resource - The resource that was selected.
+   */
   const handleResourceSelect = async (resource: StudyResource) => {
     setSelectedResource(resource);
     setSummary(null);
@@ -101,6 +84,10 @@ export default function StudyPage() {
     }
   };
 
+  /**
+   * Triggers the AI summarization process for the currently displayed content
+   * by calling a server action.
+   */
   const handleSummarizeContent = async () => {
     if (!resourceContent) return;
 
@@ -120,12 +107,20 @@ export default function StudyPage() {
     }
   };
 
+  /**
+   * Saves the generated summary to the user's local storage and shows a confirmation toast.
+   */
   const handleSaveSummary = () => {
     if (!summary || !selectedResource) return;
     saveSummaryToStorage({ id: Date.now().toString(), title: `Resumen de: ${selectedResource.title}`, content: summary, originalUrl: selectedResource.source, createdAt: new Date().toISOString() });
     toast({ title: 'Resumen Guardado', description: 'Puedes encontrar tus resúmenes en la sección "Mis Resúmenes".' });
   };
 
+  /**
+   * Handles the image upload event, reads the image as a data URL,
+   * and calls the server action to extract text from it.
+   * @param {React.ChangeEvent<HTMLInputElement>} e - The file input change event.
+   */
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -189,48 +184,17 @@ export default function StudyPage() {
           </CardContent>
         </Card>
 
-        <Card className="w-full lg:w-2/3">
-          <CardHeader>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <FileText className="h-6 w-6 text-primary" />
-                <CardTitle className="font-headline">{selectedResource?.title || 'Contenido'}</CardTitle>
-              </div>
-              {summary && !isLoadingAny && (
-                <Button variant="outline" size="sm" onClick={handleSaveSummary}><Save className="mr-2 h-4 w-4" />Guardar Resumen</Button>
-              )}
-              {resourceContent && !summary && !selectedResource?.title.includes('Guía') && (
-                <Button variant="outline" size="sm" onClick={handleSummarizeContent} disabled={isSummarizing || isExtracting}>
-                  {(isSummarizing || isExtracting) && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}Resumir con IA
-                </Button>
-              )}
-            </div>
-            <CardDescription>{selectedResource ? `Recurso: ${selectedResource.title}` : 'Aquí aparecerá el contenido del recurso que elijas.'}</CardDescription>
-          </CardHeader>
-          <CardContent className="min-h-[60vh] lg:min-h-[calc(100vh-16rem)]">
-            {isLoadingAny && (
-              <div className="flex h-full flex-col items-center justify-center gap-3 text-muted-foreground">
-                <Loader2 className="h-8 w-8 animate-spin text-primary" />
-                <p>{isExtracting ? 'Extrayendo texto de la imagen...' : isSummarizing ? 'Resumiendo el material...' : 'Cargando...'}</p>
-                <p className="text-sm">Esto puede tardar unos momentos.</p>
-              </div>
-            )}
-            
-            {error && !isLoadingAny && (
-              <Alert variant="destructive"><AlertTitle>Error</AlertTitle><AlertDescription>{error}</AlertDescription></Alert>
-            )}
-
-            {!isLoadingAny && !error && (
-              summary ? (
-                <ScrollArea className="h-[calc(100vh-20rem)]"><div className="prose prose-sm dark:prose-invert max-w-none whitespace-pre-wrap leading-relaxed"><ReactMarkdown remarkPlugins={[remarkGfm]} components={CombinedMarkdownComponents}>{summary}</ReactMarkdown></div></ScrollArea>
-              ) : resourceContent ? (
-                <ScrollArea className="h-[calc(100vh-20rem)]"><article className="prose prose-sm dark:prose-invert max-w-none"><ReactMarkdown remarkPlugins={[remarkGfm]} components={CombinedMarkdownComponents}>{resourceContent}</ReactMarkdown></article></ScrollArea>
-              ) : (
-                <div className="flex h-full flex-col items-center justify-center gap-3 text-center text-muted-foreground"><BookCopy className="h-12 w-12" /><p className="text-lg font-semibold">Tu conocimiento, simplificado.</p><p>Selecciona un recurso o sube una imagen para comenzar.</p></div>
-              )
-            )}
-          </CardContent>
-        </Card>
+        <StudyContent
+          selectedResource={selectedResource}
+          resourceContent={resourceContent}
+          summary={summary}
+          isLoading={isLoadingAny}
+          isSummarizing={isSummarizing}
+          isExtracting={isExtracting}
+          error={error}
+          onSummarize={handleSummarizeContent}
+          onSaveSummary={handleSaveSummary}
+        />
       </main>
     </div>
   );
