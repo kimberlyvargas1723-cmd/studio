@@ -8,6 +8,13 @@ import { Button } from '@/components/ui/button';
 import { getChecklistState, updateChecklistState } from '@/lib/services';
 import { cn } from '@/lib/utils';
 import { ExternalLink, ClipboardCheck } from 'lucide-react';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
 
 const admissionTasks = [
   {
@@ -76,7 +83,7 @@ const admissionTasks = [
 ];
 
 /**
- * Renders an interactive checklist for the university admission process.
+ * Renders an interactive, collapsible checklist for the university admission process.
  * It allows users to track their progress, see important dates, and access
  * official links for each step. State is persisted to localStorage.
  */
@@ -97,16 +104,18 @@ export function AdmissionChecklist() {
 
   return (
     <Card className="w-full">
-        <CardHeader>
-            <div className="flex items-center gap-3">
-                <ClipboardCheck className="h-8 w-8 text-primary" />
-                <div>
-                    <CardTitle className="font-headline text-xl">Misión Admisión 2025</CardTitle>
-                    <CardDescription>Tu checklist para no perderte ningún paso del concurso de ingreso.</CardDescription>
-                </div>
-            </div>
-        </CardHeader>
-        <CardContent>
+      <Accordion type="single" collapsible>
+        <AccordionItem value="item-1" className="border-b-0">
+          <AccordionTrigger className="p-6 hover:no-underline">
+              <div className="flex items-center gap-3 text-left">
+                  <ClipboardCheck className="h-8 w-8 text-primary" />
+                  <div>
+                      <CardTitle className="font-headline text-xl">Misión Admisión 2025</CardTitle>
+                      <CardDescription>Tu checklist para no perderte ningún paso del concurso de ingreso.</CardDescription>
+                  </div>
+              </div>
+          </AccordionTrigger>
+          <AccordionContent className="px-6 pb-6">
             {allTasksCompleted && (
                 <div className="mb-4 p-4 text-center bg-green-100 dark:bg-green-900/30 rounded-lg">
                     <p className="font-bold text-green-700 dark:text-green-300">¡Felicidades! Has completado todos los pasos administrativos. ¡Ahora a enfocarte 100% en el estudio!</p>
@@ -154,7 +163,9 @@ export function AdmissionChecklist() {
                 </div>
             ))}
             </div>
-        </CardContent>
+        </AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </Card>
   );
 }
