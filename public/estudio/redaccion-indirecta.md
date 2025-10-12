@@ -1,66 +1,72 @@
-# Guía de Estudio: Redacción Indirecta (EXANI-II)
+# Redacción Indirecta: El Arte de la Precisión
 
-Esta sección del EXANI-II no evalúa tu creatividad, sino tu habilidad para reconocer la forma **correcta, clara y eficiente** de comunicar una idea. En lugar de escribir, eliges la mejor opción entre varias. Se enfoca en la función y la estructura de la lengua.
+La sección de Redacción Indirecta evalúa tu habilidad para identificar la forma más clara, concisa y gramaticalmente correcta de expresar una idea. No se te pide escribir, sino elegir la mejor opción entre varias. Es una prueba de tu dominio de las reglas y convenciones del español.
 
-Las preguntas suelen tener este formato: "Seleccione la opción que sustituye la parte subrayada para dar coherencia al texto" o "Elija la redacción que mantiene el sentido original de manera más clara".
+### 1. Pilares Fundamentales de la Buena Redacción
 
-### 1. Coherencia y Cohesión
+Toda pregunta en esta sección se puede analizar bajo estos tres principios:
 
-Son los pilares de un buen texto.
+#### a) Claridad
+La oración debe ser fácil de entender. No debe haber ambigüedad.
+- **Error común: Ambigüedad.** "Vi a Juan corriendo por el parque. ¿Quién corría, yo o Juan?"
+  - **Forma correcta:** "Mientras corría por el parque, vi a Juan." O "Vi a Juan, que estaba corriendo por el parque."
 
-- **Coherencia:** El texto debe tener sentido lógico. Las ideas deben estar relacionadas entre sí y seguir un orden claro (introducción, desarrollo, conclusión).
-  - **Error común:** Ideas desordenadas o contradictorias.
-- **Cohesión:** Las partes del texto deben estar bien conectadas gramaticalmente. Esto se logra con:
-  - **Conectores:** Palabras o frases que unen ideas (ej. "sin embargo", "por lo tanto", "además", "en primer lugar").
-  - **Puntuación:** Comas, puntos, y punto y coma que guían al lector.
-  - **Pronombres:** Usar "él", "ella", "lo", "la" para evitar repetir nombres.
+#### b) Concisión
+Usa solo las palabras necesarias. Evita la redundancia y el palabrerío.
+- **Error común: Redundancia (Pleonasmo).** "Subir para arriba", "nexo de unión", "accidente fortuito".
+  - **Forma correcta:** "Subir", "nexo", "accidente".
+- **Error común: Verbosidad.** "El motivo por el cual no vino fue porque estaba enfermo."
+  - **Forma correcta:** "No vino porque estaba enfermo."
 
-**Pregunta de Práctica (Estilo EXANI):**
-> *Texto:* El cambio climático es un problema global. La temperatura del planeta aumenta cada año, se derriten los polos.
->
-> *Pregunta:* ¿Qué conector mejora la cohesión de la oración?
->
-> a) a pesar de que
-> b) como consecuencia,
-> c) por otro lado,
->
-> **Respuesta: b) como consecuencia,** (La oración "La temperatura del planeta aumenta cada año" es la causa, y el derretimiento de los polos es la consecuencia).
+#### c) Corrección Gramatical
+La oración debe seguir las reglas de la gramática española.
 
-### 2. Concordancia Gramatical
+- **Concordancia:** El sujeto y el verbo, así como los sustantivos y adjetivos, deben concordar en número (singular/plural) y género (masculino/femenino).
+  - **Incorrecto:** "La gente *piensan* que es fácil." (Sujeto "gente" es singular).
+  - **Correcto:** "La gente *piensa* que es fácil."
+  - **Incorrecto:** "La problema es *complejo*." (Sustantivo "problema" es masculino).
+  - **Correcto:** "El problema es *complejo*."
 
-- **Género y Número:** Los sustantivos, adjetivos y artículos deben coincidir.
-  - *Incorrecto:* "Las problema principal es..."
-  - *Correcto:* "El problema principal es..." o "Los problemas principales son..."
-- **Sujeto y Verbo:** El verbo debe conjugarse según el sujeto.
-  - *Incorrecto:* "El grupo de estudiantes llegaron tarde." (El sujeto es "El grupo", singular).
-  - *Correcto:* "El grupo de estudiantes llegó tarde."
+- **Uso de Preposiciones:** Ciertas palabras requieren preposiciones específicas.
+  - **Incorrecto:** "Me di cuenta *que* era tarde."
+  - **Correcto:** "Me di cuenta **de que** era tarde." (Dequeísmo/Queísmo)
+  - **Incorrecto:** "Bajo mi punto de vista..."
+  - **Correcto:** "**Desde** mi punto de vista..."
 
-### 3. Precisión Léxica (Uso Correcto de las Palabras)
+- **Puntuación:** El uso correcto de comas, puntos y comas, y puntos es vital para la claridad.
+  - **La coma criminal:** Nunca separes el sujeto del verbo con una sola coma.
+    - **Incorrecto:** "El estudiante de psicología, *aprobó* el examen."
+    - **Correcto:** "El estudiante de psicología *aprobó* el examen."
 
-Debes elegir la palabra que exprese la idea de forma más exacta, evitando la ambigüedad y las palabras "baúl" (cosa, algo, hacer).
+### 2. Tipos de Preguntas Comunes en EXANI-II
 
-**Pregunta de Práctica (Estilo EXANI):**
-> *Frase:* El psicólogo le dijo que tenía que **hacer** un nuevo plan de vida.
->
-> *Pregunta:* ¿Qué palabra sustituye a "hacer" para darle más precisión a la frase?
->
-> a) realizar
-> b) elaborar
-> c) fabricar
->
-> **Respuesta: b) elaborar** ("Elaborar un plan" es la expresión más precisa y adecuada en este contexto).
+#### a) Completar la Oración
+Te darán una oración con uno o más espacios en blanco y deberás elegir las palabras que mejor encajen lógica y gramaticalmente.
 
-### 4. Evitar Vicios del Lenguaje
+**Estrategia:** Lee la oración completa con cada una de las opciones. La que suene más natural y coherente suele ser la correcta. Presta atención a los conectores lógicos.
 
-- **Redundancia (Pleonasmo):** Repetir una idea innecesariamente.
-  - *Ejemplo:* "Subir para arriba", "Salir afuera", "Un breve lapso de tiempo".
-- **Ambigüedad (Anfibología):** Cuando una frase puede interpretarse de más de una manera.
-  - *Ejemplo:* "Vi a un hombre con un telescopio." (¿Quién tenía el telescopio? ¿Yo o el hombre?).
-  - *Corrección:* "Vi a un hombre que llevaba un telescopio" o "Usando un telescopio, vi a un hombre".
+**Ejemplo:** "_______ su gran esfuerzo, no logró la meta; _______, no se dará por vencido."
+- Opciones: a) Debido a - sin embargo, b) A pesar de - por lo tanto, c) **A pesar de - sin embargo**
+- **Análisis:** "A pesar de" indica una oposición (esfuerzo vs. no lograrlo). "Sin embargo" introduce otra oposición (no lograrlo vs. no rendirse).
 
-### Estrategia para el Examen
+#### b) Elegir la Oración Mejor Redactada
+Te presentarán la misma idea escrita de 3 o 4 formas diferentes. Tu trabajo es elegir la versión más clara, concisa y correcta.
 
-1.  **Lee la oración original con atención:** Identifica cuál es la idea principal que se quiere comunicar.
-2.  **Analiza las opciones:** Descarta las que tengan errores obvios de concordancia, puntuación o que cambien completamente el sentido.
-3.  **Busca la más clara y concisa:** A menudo, la mejor opción es la más directa y simple, sin rodeos ni palabras innecesarias.
-4.  **Léela en voz alta (en tu mente):** La opción correcta suele "sonar" mejor porque fluye de manera más natural.
+**Estrategia:** Proceso de eliminación.
+1.  **Descarta las gramaticalmente incorrectas:** Busca errores de concordancia, preposiciones, etc.
+2.  **Descarta las redundantes o ambiguas:** Compara las opciones restantes. ¿Alguna usa más palabras de las necesarias? ¿Alguna se puede malinterpretar?
+3.  **Elige la más directa y elegante:** La respuesta correcta suele ser la más fluida y fácil de leer.
+
+**Ejemplo:**
+a) Es necesario que los estudiantes *tengan que estudiar* para el examen. (Redundante)
+b) El estudio del examen es algo que los estudiantes deben de hacer. (Verboso)
+c) **Los estudiantes deben estudiar para el examen.** (Clara, concisa y correcta).
+
+#### c) Identificar el Error
+Se te presentará una oración y tendrás que identificar qué tipo de error contiene (concordancia, puntuación, uso de vocabulario, etc.).
+
+**Estrategia:** Lee la oración cuidadosamente, buscando los errores más comunes primero. Si no ves nada obvio, revisa las reglas de puntuación y el significado preciso de las palabras.
+
+Estrategia: Una de las herramientas más potentes es el oído. Lee las opciones en tu mente. La opción que suena "rara" o "forzada" a menudo contiene un error, mientras que la correcta fluye con naturalidad. Confía en tu instinto de hablante nativo, pero siempre verifícalo con las reglas gramaticales que conoces.
+
+Consejo Final: La mejor manera de prepararse para esta sección es leyendo. Lee artículos de calidad, ensayos y buena literatura. Exponerte constantemente a una escritura correcta entrena a tu cerebro para reconocer patrones gramaticales y detectar errores de forma intuitiva.

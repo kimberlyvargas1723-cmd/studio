@@ -1,80 +1,65 @@
 # Procesos Psicológicos Básicos: Los Ladrillos de la Mente
 
-Estos son los procesos que nos permiten interactuar con el mundo y construir nuestra realidad interna. Son la base de todo comportamiento complejo. ¡Dominarlos es fundamental!
+Estos son los procesos fundamentales que nos permiten interactuar con el mundo, aprender y pensar. Son la base sobre la cual se construyen comportamientos más complejos.
 
----
+### 1. Sensación y Percepción: La Ventana al Mundo
 
-### 1. Sensación y Percepción: ¿Ver es Creer?
+Aunque a menudo se usan juntos, son dos procesos distintos.
 
-No son lo mismo, y esta distinción es crucial.
+- **Sensación:** Es el proceso **biológico** por el cual nuestros órganos sensoriales (ojos, oídos, piel, etc.) captan estímulos del entorno y los convierten en impulsos nerviosos que el cerebro puede entender. Es la simple detección de luz, sonido, presión, etc.
+  - **Ejemplo:** Las células de tu retina detectan ondas de luz de una determinada longitud de onda (el color rojo).
 
--   **Sensación:** Es el proceso **fisiológico**. Nuestros sentidos (vista, oído, tacto, etc.) captan energía del entorno (luz, sonido) y la convierten en señales nerviosas. Es un proceso "de abajo hacia arriba" (bottom-up): los datos brutos entran.
-    -   *Ejemplo:* Las ondas de luz de una flor roja golpean tu retina.
+- **Percepción:** Es el proceso **psicológico** por el cual el cerebro **organiza e interpreta** esa información sensorial para darle un significado. Es cómo construimos nuestra realidad a partir de los datos crudos de los sentidos.
+  - **Ejemplo:** Tu cerebro interpreta esas ondas de luz como "una manzana roja".
 
--   **Percepción:** Es el proceso **psicológico**. Nuestro cerebro organiza e interpreta esas señales sensoriales para darles un significado. Es un proceso "de arriba hacia abajo" (top-down), influenciado por nuestras expectativas, experiencias y cultura.
-    -   *Ejemplo:* Tu cerebro interpreta esas señales y "ves" una rosa, asociándola con el amor o el Día de la Madre.
+Estrategia: Piensa en la sensación como la *recepción de datos* y en la percepción como la *interpretación de esos datos*. La sensación es objetiva (el estímulo es el mismo para todos), mientras que la percepción es subjetiva (nuestras experiencias previas influyen en cómo interpretamos).
 
-**Concepto Clave: Umbrales Sensoriales**
--   **Umbral Absoluto:** La mínima cantidad de estímulo necesaria para ser detectada el 50% de las veces. (Ej: ¿cuán bajo puede ser un sonido para que apenas lo oigas?).
--   **Umbral Diferencial:** La mínima diferencia que se puede detectar entre dos estímulos. (Ej: ¿cuánto más pesado tiene que ser un objeto para que notes la diferencia?).
+### 2. Atención: El Foco de la Conciencia
 
----
+La atención es la capacidad de **concentrar nuestros recursos mentales** en un estímulo o tarea específica, mientras ignoramos otros. Es un recurso limitado.
 
-### 2. Aprendizaje: Cómo Cambiamos con la Experiencia
-
-El aprendizaje es un cambio relativamente permanente en el comportamiento como resultado de la experiencia.
-
-#### a) Condicionamiento Clásico (Pavlov)
-
-Es el aprendizaje por **asociación**. Un estímulo que no significaba nada (neutro) empieza a provocar una respuesta automática porque se ha asociado con otro estímulo que sí la provoca.
-
--   **Componentes:**
-    -   **Estímulo Incondicionado (EI):** Provoca una respuesta natural (comida).
-    -   **Respuesta Incondicionada (RI):** Respuesta natural (salivar por la comida).
-    -   **Estímulo Neutro (EN):** Al principio no provoca nada (sonido de campana).
-    -   **Estímulo Condicionado (EC):** El estímulo neutro después de la asociación (sonido de campana).
-    -   **Respuesta Condicionada (RC):** Respuesta aprendida al EC (salivar por la campana).
-
--   **Ejemplo Cotidiano:** El sonido del taladro del dentista (EC) te produce ansiedad (RC) porque lo asocias con el dolor (EI).
-
-#### b) Condicionamiento Operante (Skinner)
-
-Es el aprendizaje por **consecuencias**. La probabilidad de que una conducta se repita aumenta o disminuye según si es seguida por un refuerzo o un castigo.
-
--   **Refuerzo:** **Aumenta** la probabilidad de una conducta.
-    -   **Positivo (+):** Dar algo bueno (un premio, un elogio). *Ej: Un niño recibe un dulce por hacer su tarea.*
-    -   **Negativo (-):** Quitar algo malo (el sonido molesto del cinturón de seguridad del coche cuando te lo abrochas). *Ej: Tomas una pastilla para que se te quite el dolor de cabeza.*
-
--   **Castigo:** **Disminuye** la probabilidad de una conducta.
-    -   **Positivo (+):** Dar algo malo (un regaño, una multa). *Ej: Te ponen una multa por exceso de velocidad.*
-    -   **Negativo (-):** Quitar algo bueno (quitar el celular, prohibir salir). *Ej: A un adolescente se le prohíbe usar el coche por llegar tarde.*
-
-**Estrategia:** Para diferenciar refuerzo y castigo, pregúntate: ¿la conducta aumenta o disminuye? Si aumenta, es refuerzo. Si disminuye, es castigo. Para diferenciar positivo y negativo, pregúntate: ¿se da algo (+) o se quita algo (-)?
-
----
+- **Atención Selectiva:** La habilidad de enfocarse en una cosa a la vez, como escuchar a un amigo en una fiesta ruidosa (el "efecto de fiesta de cóctel").
+- **Atención Dividida:** La capacidad de distribuir la atención entre dos o más tareas, como conducir y escuchar música. (Spoiler: somos peores en esto de lo que creemos).
+- **Atención Sostenida:** La capacidad de mantener la concentración en una tarea durante un período prolongado.
 
 ### 3. Memoria: El Archivo de Nuestra Vida
 
-La memoria es el proceso de codificar, almacenar y recuperar información.
+La memoria no es un solo "cajón", sino un sistema complejo con varias etapas. El modelo más aceptado es el de Atkinson-Shiffrin:
 
-**El Modelo de Atkinson-Shiffrin (Modelo Modal):**
-1.  **Memoria Sensorial:** Retiene información sensorial por un instante (visual: icónica; auditiva: ecoica). La mayoría se pierde.
-2.  **Memoria a Corto Plazo (MCP) o Memoria de Trabajo:** Es nuestra "conciencia" actual. Tiene una capacidad limitada (aproximadamente 7 ± 2 elementos) y una duración breve (unos 20-30 segundos) si no se repasa. Aquí es donde "trabajamos" con la información.
-3.  **Memoria a Largo Plazo (MLP):** El almacén de capacidad virtualmente ilimitada y duración indefinida.
-    -   **Memoria Explícita (Declarativa):** Cosas que podemos contar.
-        -   *Semántica:* Hechos y conocimiento general (Ej: "París es la capital de Francia").
-        -   *Episódica:* Experiencias personales (Ej: "Recuerdo mi primer día de escuela").
-    -   **Memoria Implícita (No Declarativa):** Cosas que hacemos sin pensar.
-        -   *Procedimental:* Habilidades motoras (Ej: andar en bicicleta, escribir a máquina).
+1.  **Memoria Sensorial:**
+    - **Duración:** Muy breve (menos de un segundo).
+    - **Capacidad:** Alta.
+    - **Función:** Retiene una "foto" exacta de la información sensorial por un instante para que el cerebro decida si es importante. Es como el búfer de un video en streaming.
 
-**Concepto Clave: Efecto de Posición Serial**
--   Cuando intentas memorizar una lista, tiendes a recordar mejor los **primeros** elementos (**efecto de primacía**, ya están en la MLP) y los **últimos** (**efecto de recencia**, aún están en la MCP).
+2.  **Memoria a Corto Plazo (o Memoria de Trabajo):**
+    - **Duración:** Limitada (unos 15-30 segundos sin repaso).
+    - **Capacidad:** Limitada (el famoso "número mágico" 7 ± 2 elementos).
+    - **Función:** Es nuestra "conciencia" actual. Es donde mantenemos y manipulamos la información con la que estamos trabajando en este momento (ej. un número de teléfono que nos acaban de dictar).
 
----
+3.  **Memoria a Largo Plazo:**
+    - **Duración:** Potencialmente toda la vida.
+    - **Capacidad:** Virtualmente ilimitada.
+    - **Función:** Es el almacén permanente de nuestro conocimiento, habilidades y experiencias. Se divide en:
+        - **Memoria Explícita (Declarativa):** Recuerdos que podemos expresar verbalmente.
+            - *Semántica:* Hechos y conocimiento general (Ej: "París es la capital de Francia").
+            - *Episódica:* Experiencias personales y eventos (Ej: "Recuerdo mi fiesta de cumpleaños de 10 años").
+        - **Memoria Implícita (No Declarativa):** Recuerdos que se expresan a través del comportamiento.
+            - *Procedimental:* Habilidades y hábitos (Ej: andar en bicicleta, escribir a máquina).
 
-### 4. Pensamiento y Lenguaje
+### 4. Aprendizaje: Cómo Cambia Nuestro Comportamiento
 
--   **Pensamiento:** Manipulación mental de la información (formar conceptos, resolver problemas, tomar decisiones).
--   **Lenguaje:** Sistema de símbolos que usamos para comunicar nuestros pensamientos.
+El aprendizaje es un cambio relativamente permanente en el comportamiento o el conocimiento como resultado de la experiencia.
 
-**Hipótesis de Sapir-Whorf (Relatividad Lingüística):** Sugiere que el lenguaje que hablamos influye en la forma en que pensamos. Por ejemplo, una cultura con muchas palabras para diferentes tonos de azul podría percibir esos colores de manera diferente a una cultura que solo tiene una palabra.
+- **Condicionamiento Clásico (Pavlov):** Aprender por **asociación** entre estímulos. Un estímulo que antes era neutro (una campana) adquiere el poder de provocar una respuesta (salivación) porque se ha asociado repetidamente con un estímulo que ya provocaba esa respuesta (la comida).
+  - **Palabra Clave:** Asociación, Reflejo.
+
+- **Condicionamiento Operante (Skinner):** Aprender por las **consecuencias** de nuestro comportamiento. La probabilidad de que repitamos una conducta aumenta si es seguida por un refuerzo (premio) y disminuye si es seguida por un castigo.
+  - **Refuerzo Positivo:** Dar algo bueno para aumentar una conducta (dar un premio a un perro por sentarse).
+  - **Refuerzo Negativo:** Quitar algo malo para aumentar una conducta (abrocharse el cinturón para que el coche deje de pitar).
+  - **Castigo:** Dar algo malo o quitar algo bueno para disminuir una conducta.
+  - **Palabra Clave:** Consecuencia, Recompensa, Castigo.
+
+- **Aprendizaje Observacional (Bandura):** Aprender observando e imitando el comportamiento de otros (modelos). El famoso experimento del "Muñeco Bobo" demostró que los niños imitaban la conducta agresiva que veían en los adultos.
+  - **Palabra Clave:** Imitación, Modelo.
+
+Consejo Final: Crea un mapa mental que conecte estos procesos. Por ejemplo: La **sensación** de ver una pregunta en el examen lleva a la **percepción** de su significado. Usas la **atención** para enfocarte en ella, traes información de tu **memoria** a largo plazo a tu memoria de trabajo para resolverla, y todo esto es posible porque has **aprendido** el material previamente. ¡Estás usando todos estos procesos ahora mismo!

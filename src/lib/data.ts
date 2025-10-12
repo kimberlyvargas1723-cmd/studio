@@ -59,6 +59,12 @@ export const studyResources: StudyResource[] = [
     type: 'internal',
     source: 'pensamiento-matematico.md',
   },
+  {
+    title: 'Probabilidad y Estadística',
+    category: 'Habilidades del EXANI-II',
+    type: 'internal',
+    source: 'probabilidad-estadistica.md',
+  },
    {
     title: 'Inglés',
     category: 'Habilidades del EXANI-II',
@@ -92,5 +98,6 @@ export const initialPerformance: PerformanceData[] = [
   { topic: 'Comprensión Lectora', correct: 0, incorrect: 0 },
   { topic: 'Redacción Indirecta', correct: 0, incorrect: 0 },
   { topic: 'Pensamiento Matemático', correct: 0, incorrect: 0 },
+  { topic: 'Probabilidad y Estadística', correct: 0, incorrect: 0 },
   { topic: 'Inglés', correct: 0, incorrect: 0 }
 ];
