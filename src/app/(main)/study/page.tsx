@@ -56,6 +56,7 @@ export default function StudyPage() {
    * Scrolls the content card into view.
    */
   const scrollContentIntoView = () => {
+    // Scrolls to the top of the main content area, useful on mobile.
     contentCardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
