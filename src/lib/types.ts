@@ -1,9 +1,9 @@
-export type StudyMaterial = {
+
+export type StudyResource = {
   title: string;
   category: string;
-  type: 'internal' | 'video' | 'url';
-  source: string; // Path to markdown file or YouTube video ID
-  url: string;
+  type: 'internal' | 'url';
+  source: string; // Path to markdown file or external URL
 };
 
 export type PracticeQuestion = {

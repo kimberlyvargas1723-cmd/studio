@@ -13,7 +13,7 @@ import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
 const ContentSummarizationInputSchema = z.object({
-  url: z.string().url().describe('The URL of the content to summarize.'),
+  url: z.string().describe('The URL or data URI of the content to summarize.'),
 });
 export type ContentSummarizationInput = z.infer<typeof ContentSummarizationInputSchema>;
 
@@ -30,7 +30,10 @@ const summarizeContentPrompt = ai.definePrompt({
   name: 'summarizeContentPrompt',
   input: {schema: ContentSummarizationInputSchema},
   output: {schema: ContentSummarizationOutputSchema},
-  prompt: `You are an expert summarizer.  Summarize the content of the following URL: {{{url}}}.  Focus on the key points and relevant information for efficient studying.  Return a concise and accurate summary.`,
+  prompt: `You are an expert summarizer for a student preparing for their psychology entrance exam. 
+  Summarize the content provided from the following source: {{{url}}}. 
+  Focus on the key points, definitions, and concepts relevant for efficient studying. 
+  Return a concise and accurate summary written in Spanish.`,
 });
 
 const summarizeContentFlow = ai.defineFlow(

@@ -66,4 +66,4 @@ Recuerda el problema de la clase de psicología:
 3.  **Calcula los que NO tienen experiencia (el resto):**
     - Total de estudiantes - Total con experiencia = `40 - 14 = 26`
 
-¡La clave es leer con calma, identificar el "todo" y la "parte" y convertir los porcentajes a decimales para operar! 
+¡La clave es leer con calma, identificar el "todo" y la "parte" y convertir los porcentajes a decimales para operar!

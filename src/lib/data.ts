@@ -1,40 +1,36 @@
 import type { StudyResource, PracticeQuestion, PerformanceData } from './types';
 
-// Re-defining StudyResource from types.ts to avoid import issues in this file.
-// Normally this would be a direct import.
-export type StudyResource = {
-  title: string;
-  category: string;
-  url: string;
-};
-
-
 export const studyResources: StudyResource[] = [
   {
-    title: 'Concurso de Ingreso a Licenciatura (Psicología)',
-    category: 'UANL Oficial',
-    url: 'https://psicologia.uanl.mx/tramites/concurso-de-ingreso-a-licenciatura/',
+    title: 'Bases Biológicas de la Conducta',
+    category: 'Fundamentos de Psicología',
+    type: 'internal',
+    source: 'src/lib/estudio/bases-biologicas.md',
+  },
+  {
+    title: 'Condicionamiento Clásico (Lectura)',
+    category: 'Procesos Psicológicos',
+    type: 'internal',
+    source: 'src/lib/lecturas/condicionamiento-clasico.md',
+  },
+    {
+    title: 'Pensamiento Matemático: Porcentajes',
+    category: 'EXANI-II General',
+    type: 'internal',
+    source: 'src/lib/estudio/pensamiento-matematico-porcentajes.md',
   },
   {
     title: 'Módulos específicos EXANI-II (Psicología)',
-    category: 'UANL Oficial',
-    url: 'https://www.uanl.mx/wp-content/uploads/2022/09/Modulos-especificos-del-EXANI-II_Psicologia-1-1.pdf',
-  },
-  {
-    title: 'Guía para el Examen Psicométrico',
-    category: 'UANL Oficial',
-    url: 'https://psicologia.uanl.mx/tramites/guia-para-el-examen-psicometrico',
+    category: 'UANL Oficial (PDF)',
+    type: 'url',
+    source: 'https://www.uanl.mx/wp-content/uploads/2022/09/Modulos-especificos-del-EXANI-II_Psicologia-1-1.pdf',
   },
   {
     title: 'Guía para el sustentante EXANI-II (General)',
-    category: 'UANL Oficial',
-    url: 'https://www.uanl.mx/wp-content/uploads/2023/02/EXANI-II_Guia-para-el-sustentante_2023_compressed.pdf'
+    category: 'UANL Oficial (PDF)',
+    type: 'url',
+    source: 'https://www.uanl.mx/wp-content/uploads/2023/02/EXANI-II_Guia-para-el-sustentante_2023_compressed.pdf'
   },
-  {
-    title: 'Profe Autónoma: Facultad de Psicología',
-    category: 'Recurso Adicional',
-    url: 'https://tuprofeautonoma.com.mx/uanl-facultad-de-psicologia/'
-  }
 ];
 
 

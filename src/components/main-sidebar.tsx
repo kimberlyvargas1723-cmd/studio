@@ -22,7 +22,7 @@ import {
 
 const menuItems = [
   { href: '/', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/study', label: 'Estudiar', icon: BookOpen },
+  { href: '/study', label: 'Temas de Estudio', icon: BookOpen },
   { href: '/summaries', label: 'Mis Resúmenes', icon: FileText },
   { href: '/practice', label: 'Practicar', icon: Target },
   { href: '/schedule', label: 'Mi Horario', icon: CalendarDays },
