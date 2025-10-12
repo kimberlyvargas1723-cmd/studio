@@ -42,6 +42,13 @@ export const psychometricQuizPool: GeneratedQuestion[] = [
     explanation: 'Se suma consecutivamente 1, 2, 3, 4, 5, y luego 6. (20 + 6 = 26).',
     topic: 'Examen Psicométrico',
   },
+  {
+    question: '¿Qué par de números continúa la serie: 4, 8, 6, 12, 10, 20, ___ , ___?',
+    options: ['18, 36', '18, 16', '20, 40', '16, 32'],
+    correctAnswer: '18, 36',
+    explanation: 'Es una serie dual. El primer patrón es `x2` y el segundo es `-2`. (4*2=8, 8-2=6, 6*2=12, 12-2=10, 10*2=20, 20-2=18, 18*2=36).',
+    topic: 'Examen Psicométrico',
+  },
 
   // --- Verbal Analogies ---
   {
@@ -79,20 +86,27 @@ export const psychometricQuizPool: GeneratedQuestion[] = [
     explanation: 'La relación es entre una expresión física y la emoción que típicamente la provoca.',
     topic: 'Examen Psicométrico',
   },
+  {
+    question: 'Abogado es a Ley como Médico es a ___',
+    options: ['Hospital', 'Medicina', 'Paciente', 'Bisturí'],
+    correctAnswer: 'Medicina',
+    explanation: 'La relación es entre un profesional y su campo de conocimiento o ciencia que aplica.',
+    topic: 'Examen Psicométrico',
+  },
 
   // --- Abstract Reasoning (described in text) ---
   {
     question: 'Un cuadrado se divide en 4 cuadrados más pequeños. En cada turno, uno de los cuadrados pequeños se rota 90 grados en sentido horario. Si empezamos con una flecha apuntando hacia arriba en el cuadrado superior izquierdo, ¿hacia dónde apuntará después de 3 turnos si la rotación sigue el orden: superior izquierdo, superior derecho, inferior derecho?',
     options: ['Derecha', 'Abajo', 'Izquierda', 'Arriba'],
-    correctAnswer: 'Abajo',
-    explanation: 'Turno 1 (sup-izq): flecha a la derecha. Turno 2 (sup-der): sin cambios. Turno 3 (inf-der): sin cambios. El problema describe mal la rotación, pero si se aplica al mismo cuadrado, 3 rotaciones (270°) lo dejarían apuntando hacia abajo.',
+    correctAnswer: 'Derecha',
+    explanation: 'Turno 1 (sup-izq): La flecha rota 90° y ahora apunta a la DERECHA. Turno 2 (sup-der): Rota el cuadrado superior derecho, la flecha original no se ve afectada. Turno 3 (inf-der): Rota el cuadrado inferior derecho, la flecha original no se ve afectada. Por lo tanto, la flecha sigue apuntando a la derecha.',
     topic: 'Examen Psicométrico',
   },
   {
     question: 'Un círculo, un cuadrado y un triángulo entran en una caja en ese orden. Si se sacan uno por uno al azar, ¿cuál es la probabilidad de que salgan en el orden inverso (triángulo, cuadrado, círculo)?',
     options: ['1/3', '1/6', '1/9', '1/2'],
     correctAnswer: '1/6',
-    explanation: 'Hay 3! (3 factorial) maneras de ordenar las 3 figuras: 3 * 2 * 1 = 6. Solo una de esas combinaciones es el orden inverso.',
+    explanation: 'Hay 3! (3 factorial) maneras de ordenar las 3 figuras: 3 * 2 * 1 = 6. Solo una de esas 6 combinaciones posibles es el orden inverso exacto.',
     topic: 'Examen Psicométrico',
   },
   {
@@ -114,6 +128,13 @@ export const psychometricQuizPool: GeneratedQuestion[] = [
     options: ['1', '2', '4', '8'],
     correctAnswer: '4',
     explanation: 'Cada pliegue duplica el número de capas de papel. Doblar dos veces crea 4 capas. Un agujero a través de las 4 capas resulta en 4 agujeros al desdoblar.',
+    topic: 'Examen Psicométrico',
+  },
+  {
+    question: 'Una secuencia de figuras muestra un reloj. La primera marca las 3:00. La segunda marca las 3:45. La tercera marca las 4:30. ¿Qué hora marcará la cuarta figura?',
+    options: ['5:00', '5:15', '5:30', '6:00'],
+    correctAnswer: '5:15',
+    explanation: 'La secuencia avanza en intervalos de 45 minutos. (3:00 + 45min = 3:45; 3:45 + 45min = 4:30; 4:30 + 45min = 5:15).',
     topic: 'Examen Psicométrico',
   },
 ];

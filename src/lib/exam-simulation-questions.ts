@@ -95,6 +95,13 @@ export const examQuestionPool: GeneratedQuestion[] = [
     explanation: 'Los participantes negaban la evidencia de sus propios ojos para conformarse con las respuestas incorrectas dadas por los cómplices del experimentador.',
     topic: 'Psicología Social',
   },
+  {
+    question: 'El "efecto espectador" (bystander effect) sugiere que la probabilidad de que alguien ayude a una persona en apuros...',
+    options: ['Aumenta con el número de personas presentes', 'Disminuye con el número de personas presentes', 'No se ve afectada por el número de personas', 'Depende únicamente de la personalidad del individuo'],
+    correctAnswer: 'Disminuye con el número de personas presentes',
+    explanation: 'El efecto espectador ocurre porque la responsabilidad de ayudar se difumina entre todos los presentes, haciendo que cada individuo se sienta menos responsable de actuar.',
+    topic: 'Psicología Social',
+  },
 
   // --- Habilidades EXANI-II (Comprensión Lectora, Redacción Indirecta) (6) ---
   {
@@ -166,7 +173,7 @@ export const examQuestionPool: GeneratedQuestion[] = [
     question: 'En un grupo de 60 estudiantes, 35 tocan la guitarra y 25 tocan el piano. Si 10 estudiantes tocan ambos instrumentos, ¿cuántos no tocan ninguno?',
     options: ['10', '5', '0', '15'],
     correctAnswer: '10',
-    explanation: 'Total que toca al menos uno = (Guitarra) + (Piano) - (Ambos) = 35 + 25 - 10 = 50. Los que no tocan ninguno son 60 - 50 = 10.',
+    explanation: 'Total que toca al menos uno = (Solo Guitarra) + (Solo Piano) + (Ambos) = (35-10) + (25-10) + 10 = 25 + 15 + 10 = 50. Los que no tocan ninguno son 60 - 50 = 10.',
     topic: 'Probabilidad y Estadística',
   },
   {

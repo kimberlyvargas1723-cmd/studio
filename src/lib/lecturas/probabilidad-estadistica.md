@@ -6,24 +6,26 @@ Esta sección evalúa tu capacidad para interpretar datos, no para realizar cál
 
 Son valores que intentan describir el "centro" de un conjunto de datos.
 
--   **Media (Promedio):** Es la suma de todos los datos dividida entre el número total de datos.
-    -   **Ejemplo:** Datos: `2, 3, 5, 8, 12`.
-    -   **Suma:** `2 + 3 + 5 + 8 + 12 = 30`
-    -   **Cálculo:** `30 / 5 = 6`. **La media es 6.**
+-   **Media (Promedio):** Es la suma de todos los datos dividida entre el número total de datos. Es sensible a valores extremos (muy altos o muy bajos).
+    -   **Ejemplo:** Calificaciones de un alumno: `8, 9, 7, 10, 6`.
+    -   **Suma:** `8 + 9 + 7 + 10 + 6 = 40`
+    -   **Cálculo:** `40 / 5 = 8`. **La media es 8.**
 
--   **Mediana:** Es el valor que se encuentra justo en el medio de un conjunto de datos **ordenado**.
-    -   **Ejemplo (impar):** Datos ordenados: `2, 3, **5**, 8, 12`. **La mediana es 5.**
-    -   **Ejemplo (par):** Datos ordenados: `2, 3, **5, 8**, 12, 15`. Se toman los dos valores centrales (5 y 8), se suman y se dividen entre 2. `(5 + 8) / 2 = 6.5`. **La mediana es 6.5.**
+-   **Mediana:** Es el valor que se encuentra justo en el medio de un conjunto de datos **ordenado de menor a mayor**. No es sensible a valores extremos.
+    -   **Ejemplo (cantidad impar de datos):** Datos ordenados: `6, 7, **8**, 9, 10`. **La mediana es 8.**
+    -   **Ejemplo (cantidad par de datos):** Datos ordenados: `6, 7, **8, 9**, 10, 10`. Se toman los dos valores centrales (8 y 9), se suman y se dividen entre 2. `(8 + 9) / 2 = 8.5`. **La mediana es 8.5.**
 
 -   **Moda:** Es el valor que aparece con mayor frecuencia en el conjunto de datos.
-    -   **Ejemplo:** Datos: `1, 4, 5, 4, 8, 9, 4`. **La moda es 4.**
-    -   Un conjunto puede tener más de una moda (bimodal, trimodal) o ninguna.
+    -   **Ejemplo:** Edades en un grupo: `18, 19, 18, 20, 18, 21`. **La moda es 18.**
+    -   Un conjunto puede tener más de una moda (bimodal, trimodal) o ninguna si todos los datos aparecen la misma cantidad de veces.
 
 ### 2. Probabilidad Básica
 
 La probabilidad mide la posibilidad de que ocurra un evento. La fórmula fundamental es:
 
 `Probabilidad = (Número de Casos Favorables) / (Número Total de Casos Posibles)`
+
+El resultado siempre es un número entre 0 (imposible) y 1 (seguro).
 
 **Mini Problema: Canicas**
 > **Pregunta:** En una caja hay 5 canicas rojas, 3 azules y 2 verdes. ¿Cuál es la probabilidad de sacar una canica azul?
@@ -45,15 +47,16 @@ La probabilidad mide la posibilidad de que ocurra un evento. La fórmula fundame
 
 Esta es una de las habilidades más importantes. No necesitas ser un experto en estadística, sino un buen lector de datos.
 
--   **Gráficos de Barras:** Comparan cantidades entre diferentes categorías.
--   **Gráficos Circulares (Pastel):** Muestran la proporción (porcentaje) de cada categoría sobre un total.
--   **Gráficos de Líneas:** Muestran la evolución de una variable a lo largo del tiempo.
--   **Tablas:** Presentan datos exactos de forma organizada en filas y columnas.
+-   **Gráficos de Barras:** Comparan cantidades entre diferentes categorías. Ideal para ver "cuál es más grande" o "cuál es más pequeño".
+-   **Gráficos Circulares (Pastel):** Muestran la proporción (porcentaje) de cada categoría sobre un total del 100%. Son perfectos para ver la distribución.
+-   **Gráficos de Líneas:** Muestran la evolución o tendencia de una variable a lo largo del tiempo (días, meses, años).
+-   **Tablas:** Presentan datos exactos de forma organizada en filas y columnas. Útiles para encontrar valores específicos rápidamente.
 
-**Estrategia:** Cuando te enfrentes a un gráfico o tabla, haz lo siguiente:
-1.  **Lee el Título:** ¿De qué se tratan los datos?
-2.  **Examina los Ejes (en gráficos):** ¿Qué mide el eje X (horizontal) y qué mide el eje Y (vertical)? ¿Cuáles son las unidades?
+**Estrategia para Enfrentar Gráficos:**
+1.  **Lee el Título:** ¿De qué se tratan los datos? (Ej: "Ventas mensuales de 2023").
+2.  **Examina los Ejes (en gráficos):** ¿Qué mide el eje X (horizontal)? ¿Qué mide el eje Y (vertical)? ¿Cuáles son las unidades (miles, millones, porcentajes)?
 3.  **Lee las Etiquetas y la Leyenda:** ¿Qué representa cada color, barra o sección?
-4.  **Encuentra el Dato Específico:** Localiza la información que la pregunta te pide antes de hacer cualquier cálculo.
+4.  **Analiza la Pregunta:** ¿Te piden un valor exacto, una comparación, una tendencia o un porcentaje?
+5.  **Localiza el Dato:** Con la pregunta en mente, encuentra la información específica en el gráfico antes de hacer cualquier cálculo.
 
-**Consejo Final:** La clave en esta sección es la **atención al detalle**. Los errores no suelen venir de cálculos complejos, sino de una mala interpretación de la pregunta o una lectura incorrecta del gráfico. ¡Lee con calma y asegúrate de entender qué te están pidiendo!
+**Consejo Final:** La clave en esta sección es la **atención al detalle**. Los errores no suelen venir de cálculos complejos, sino de una mala interpretación de la pregunta o una lectura incorrecta del gráfico. ¡Lee con calma y asegúrate de entender qué te están pidiendo! A menudo, la respuesta está directamente en el gráfico, solo hay que saber encontrarla.
