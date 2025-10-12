@@ -1,24 +1,54 @@
-# Introducción a la Psicología Social
+# Psicología Social: El Individuo en el Grupo
 
-La Psicología Social es la rama que estudia cómo los pensamientos, sentimientos y comportamientos de las personas son influenciados por la presencia real, imaginada o implícita de otras personas. En esencia, se pregunta: ¿Por qué nos comportamos de manera diferente cuando estamos en grupo que cuando estamos solos?
+La psicología social es la rama fascinante que estudia cómo nuestros pensamientos, sentimientos y comportamientos son influenciados por la presencia, real o imaginada, de otras personas. No somos seres aislados; estamos constantemente interactuando e influenciándonos mutuamente.
 
-### Temas Fundamentales
+---
 
-1.  **Conformidad y Obediencia:**
-    *   **Conformidad:** Cambiar nuestro comportamiento o creencias para encajar con las normas de un grupo. El famoso **experimento de Solomon Asch** demostró que las personas a menudo niegan la evidencia de sus propios ojos para no contradecir al grupo.
-    *   **Obediencia:** Seguir órdenes de una figura de autoridad. El controversial **experimento de Stanley Milgram** reveló que personas comunes eran capaces de administrar descargas eléctricas dolorosas a otros simplemente porque una figura de autoridad se lo ordenaba.
+### **1. Conformidad: El Poder del Grupo**
 
-2.  **Roles Sociales y Normas:**
-    *   **Roles:** Son las "partes" que actuamos en diferentes situaciones sociales (ej: rol de estudiante, de hijo, de amigo). Estos roles vienen con un guion esperado de comportamiento.
-    *   El **Experimento de la Prisión de Stanford** de Philip Zimbardo es el ejemplo más extremo de cómo las personas pueden internalizar rápidamente los roles que se les asignan (guardias vs. prisioneros), llegando a comportarse de maneras inesperadas y, a menudo, crueles.
+¿Alguna vez has estado en desacuerdo con un grupo pero has terminado aceptando su opinión para no ser el "raro"? Eso es la conformidad.
 
-3.  **Disonancia Cognitiva:**
-    *   Es la incomodidad mental que sentimos cuando tenemos dos creencias contradictorias, o cuando nuestro comportamiento no coincide con nuestras creencias.
-    *   **Ejemplo:** Si crees que fumar es malo para la salud, pero fumas de todos modos, sientes disonancia. Para reducirla, podrías intentar dejar de fumar (cambiar el comportamiento), o podrías convencerte de que "no es tan malo" o que "de algo hay que morir" (cambiar la creencia).
+El famoso **experimento de Solomon Asch** lo demostró claramente. Se pidió a los participantes que dijeran cuál de las tres líneas de comparación era igual a una línea estándar. La tarea era fácil. Sin embargo, todos los demás en el grupo (que eran actores) daban deliberadamente la respuesta incorrecta.
 
-4.  **Atribución Social:**
-    *   Es el proceso de inferir las causas del comportamiento de los demás (y del nuestro).
-    *   **Error Fundamental de Atribución:** Es nuestra tendencia a sobrestimar las causas internas (la personalidad de alguien) y subestimar las causas externas (la situación) al explicar el comportamiento de los demás.
-    *   **Ejemplo:** Si alguien te cierra el paso en el tráfico, es más probable que pienses "es un conductor egoísta" (atribución interna) en lugar de "quizás tiene una emergencia" (atribución externa).
+**Resultado:** Una sorprendente mayoría de los participantes se conformó con la respuesta incorrecta del grupo al menos una vez, a pesar de que sabían que estaban equivocados.
 
-Estrategia: Para el examen, no solo memorices los nombres de los experimentos. Entiende **qué demostró** cada uno y cómo se relaciona con los conceptos clave como conformidad, obediencia y roles sociales. Piensa en ejemplos de tu propia vida donde hayas visto estos principios en acción.
+**Estrategia:** En el examen, si ves una pregunta sobre "influencia grupal" o "experimento de las líneas", es muy probable que se refieran a la conformidad de Asch.
+
+---
+
+### **2. Obediencia a la Autoridad: El Experimento de Milgram**
+
+Este es uno de los estudios más impactantes y éticamente controvertidos de la psicología. Stanley Milgram quería entender cómo personas ordinarias podían llegar a cometer actos terribles simplemente porque una figura de autoridad se lo ordenaba.
+
+En su experimento, se le pedía a un participante ("el maestro") que administrara descargas eléctricas cada vez más fuertes a otra persona ("el aprendiz", que era un actor) cada vez que este cometía un error en una tarea de memoria. El "aprendiz" fingía un dolor intenso. Si el "maestro" dudaba, una figura de autoridad con bata de laboratorio le instaba a continuar.
+
+**Resultado:** Una alarmante proporción de los participantes (alrededor del 65%) obedeció hasta el final, administrando la descarga máxima de 450 voltios, simplemente porque una figura de autoridad se lo ordenaba.
+
+**Estrategia:** Milgram está directamente asociado con la "obediencia a la autoridad". Es un concepto clave para tu examen.
+
+---
+
+### **3. Roles Sociales: El Experimento de la Prisión de Stanford**
+
+Dirigido por Philip Zimbardo, este experimento demostró cómo los roles que se nos asignan pueden transformar nuestro comportamiento. Se asignó aleatoriamente a estudiantes universitarios sanos los roles de "prisioneros" y "guardias" en una prisión simulada.
+
+**Resultado:** El experimento tuvo que ser cancelado después de solo 6 días (estaba planeado para 2 semanas) porque los "guardias" se volvieron sádicos y los "prisioneros" mostraron signos de depresión y estrés extremo. Los participantes internalizaron sus roles tan profundamente que perdieron su identidad personal.
+
+**Estrategia:** Cuando pienses en roles sociales y cómo una situación puede anular la personalidad individual, piensa en el experimento de la prisión de Stanford.
+
+---
+
+### **4. Disonancia Cognitiva**
+
+Propuesta por Leon Festinger, esta teoría describe la incomodidad mental que sentimos cuando tenemos dos creencias contradictorias, o cuando nuestro comportamiento no coincide con nuestras creencias.
+
+**Ejemplo Práctico:** Sabes que fumar es malo para la salud (creencia 1), pero fumas de todos modos (comportamiento). Esta contradicción genera disonancia. Para reducirla, puedes:
+-   **Cambiar el comportamiento:** Dejar de fumar.
+-   **Cambiar la creencia:** "En realidad, no es tan malo, mi abuelo fumó toda su vida y vivió hasta los 90".
+-   **Añadir una nueva creencia:** "Fumar me ayuda a relajarme, así que el beneficio supera el riesgo".
+
+**Estrategia:** La disonancia cognitiva se trata de buscar consistencia y reducir la incomodidad mental. Es un concepto fundamental en la toma de decisiones y el cambio de actitudes.
+
+---
+
+**Consejo Final:** La psicología social nos enseña que el contexto y la situación son increíblemente poderosos. A menudo, no es tanto "quién eres", sino "dónde estás" lo que determina cómo actúas. Ten esto en mente para las preguntas del examen que involucren escenarios sociales.
