@@ -1,62 +1,81 @@
 # Guía Definitiva de Redacción Indirecta para el EXANI-II
 
-La sección de **Redacción Indirecta** del EXANI-II no evalúa tu creatividad literaria, sino tu habilidad para funcionar como un editor de textos. Mide tu capacidad para reconocer y seleccionar la mejor manera de expresar una idea de forma clara, precisa y gramaticalmente correcta.
+La sección de Redacción Indirecta del EXANI-II no evalúa tu creatividad, sino tu **habilidad para mejorar y corregir textos**. Se centra en la gramática, la sintaxis, la cohesión y la coherencia. Dominar esta área es clave para obtener un buen puntaje.
 
-No te pedirán que escribas un ensayo, sino que identifiques la opción que mejoraría una frase, que sustituya una palabra o que una dos ideas de la forma más lógica.
+---
 
-### Competencias Clave que se Evalúan
+### **1. Cohesión y Coherencia: El Pegamento del Texto**
 
-#### 1. Cohesión y Coherencia Textual
-Esto se refiere a cómo las ideas se conectan lógicamente dentro de un texto. Las preguntas se centrarán en el uso de **conectores lógicos**.
+Un texto bien escrito fluye de una idea a la siguiente de manera lógica. Esto se logra principalmente con los conectores.
 
-- **Tipos de Conectores y su Función:**
-  - **Adversativos (oposición):** *pero, sin embargo, no obstante, aunque, a pesar de.*
-    - Ejemplo: "Estudió mucho, **pero** no aprobó."
-  - **Causales (causa):** *porque, ya que, puesto que, debido a.*
-    - Ejemplo: "No salió **porque** estaba lloviendo."
-  - **Consecutivos (consecuencia):** *por lo tanto, así que, en consecuencia, por consiguiente.*
-    - Ejemplo: "Estaba lloviendo, **así que** no salió."
-  - **Aditivos (suma de ideas):** *y, además, también, asimismo.*
-    - Ejemplo: "Es inteligente y, **además**, muy trabajador."
-  - **Concesivos (dificultad que no impide):** *aunque, a pesar de que, si bien.*
-    - Ejemplo: "**Aunque** estaba cansado, terminó el trabajo."
+#### **Tipos de Conectores y su Uso**
 
-Estrategia: Al enfrentarte a una pregunta de conectores, lee la oración completa e identifica la relación lógica entre las partes. ¿Una idea causa la otra? ¿Se oponen? ¿Una añade información a la otra?
+*   **Adición:** Y, también, además, asimismo. (Suman ideas).
+    *   *Ejemplo:* "Estudió toda la noche; **además**, preparó un resumen".
+*   **Contraste u Oposición:** Pero, sin embargo, no obstante, aunque, a pesar de. (Oponen ideas).
+    *   *Ejemplo:* "Quería salir, **pero** tenía que estudiar".
+*   **Causa:** Porque, ya que, puesto que, debido a. (Indican el origen de algo).
+    *   *Ejemplo:* "No fue a la fiesta **debido a** que estaba enfermo".
+*   **Consecuencia:** Por lo tanto, así que, en consecuencia, por consiguiente. (Indican un resultado).
+    *   *Ejemplo:* "No estudió, **por lo tanto**, reprobó el examen".
+*   **Concesión:** Aunque, si bien, a pesar de que. (Indican una dificultad que no impide la acción).
+    *   *Ejemplo:* "**Aunque** llovía, el partido se jugó".
 
-#### 2. Concordancia Gramatical
-Esto asegura que las palabras en una oración "concuerden" entre sí.
+**Problema de Práctica 1:** Selecciona el conector que mejor completa la frase: "La psicología es una ciencia fascinante, __________, requiere de un estudio riguroso y metódico".
 
-- **Concordancia de Género y Número:** El sustantivo, el adjetivo y el artículo deben coincidir.
-  - Incorrecto: "La *niño* *altas*."
-  - Correcto: "El *niño* *alto*." / "Las *niñas* *altas*."
-- **Concordancia Sujeto-Verbo:** El verbo debe conjugarse en la misma persona y número que el sujeto.
-  - Incorrecto: "Los *estudiantes* *sabe* la respuesta."
-  - Correcto: "Los *estudiantes* *saben* la respuesta."
+a) por lo tanto
+b) sin embargo
+c) además
+d) es decir
 
-Estrategia: Identifica el sujeto principal de la oración y luego verifica que el verbo esté conjugado para ese sujeto (singular o plural). Luego, revisa que los adjetivos y artículos coincidan en género y número con los sustantivos que modifican.
+*   **Análisis:** La primera parte de la oración es una idea positiva ("fascinante"). La segunda parte introduce un requisito o una condición que contrasta con la simple fascinación ("requiere estudio riguroso"). El conector que mejor expresa esta relación de contraste es "sin embargo".
+*   **Respuesta Correcta:** b) sin embargo
 
-#### 3. Precisión Léxica y Propiedad del Lenguaje
-Se trata de usar la palabra exacta para la idea que se quiere expresar, evitando ambigüedades, redundancias o un lenguaje demasiado coloquial.
+---
 
-- **Evitar Redundancias (Pleonasmos):**
-  - Incorrecto: "Subir *para arriba*." / "Salir *afuera*."
-  - Correcto: "Subir." / "Salir."
-- **Elegir la Palabra Correcta:**
-  - Pregunta típica: "Seleccione la palabra que mejor complete la oración."
-  - Ejemplo: "La ______ del volcán fue espectacular."
-    - Opciones: a) erupción, b) eyección, c) emisión.
-    - Respuesta: a) erupción. (Es el término específico y correcto).
+### **2. Concordancia: El Arte de que Todo Encaje**
 
-Estrategia: Lee con atención el contexto de la frase. Piensa en el significado exacto de cada opción. A menudo, las opciones incorrectas son sinónimos cercanos pero no precisos para el contexto dado.
+La concordancia asegura que las palabras en una oración coincidan en género (masculino/femenino) y número (singular/plural).
 
-#### 4. Puntuación
-Uso correcto de comas, puntos, punto y coma, etc.
+#### **Concordancia Nominal (Sustantivo y Adjetivo)**
 
-- **Uso de la Coma:**
-  - **Enumeraciones:** "Compró peras, manzanas, plátanos y uvas."
-  - **Aclaraciones (incisos):** "Mi hermano, *el que vive en Monterrey*, vendrá a visitarme."
-  - **Antes de conectores adversativos:** "Quería ir, *pero* no pude."
-- **Punto y Coma (;):** Se usa para separar ideas que están relacionadas pero que son más independientes que si se usara una coma. A menudo se usa antes de conectores como "sin embargo", "por lo tanto", cuando separan oraciones completas.
-  - Ejemplo: "El equipo local jugó muy bien; sin embargo, el visitante se llevó la victoria."
+El adjetivo siempre debe concordar en género y número con el sustantivo al que modifica.
 
-Consejo Final: La mejor manera de entrenar para esta sección es leyendo activamente. Cuando leas noticias, artículos o libros, presta atención a cómo se usan los conectores, cómo se estructuran las oraciones y por qué el autor eligió ciertas palabras. Esto desarrollará tu intuición como "editor".
+*   Incorrecto: "La casa y el coche **antiguo**."
+*   Correcto: "La casa y el coche **antiguos**." (Si hay masculino y femenino, prevalece el masculino plural).
+*   Correcto: "Las sillas **rojas**."
+
+#### **Concordancia Verbal (Sujeto y Verbo)**
+
+El verbo debe concordar en número y persona con el sujeto.
+
+*   Incorrecto: "El grupo de estudiantes **llegaron** tarde." (El sujeto es "El grupo", que es singular).
+*   Correcto: "El grupo de estudiantes **llegó** tarde."
+*   Incorrecto: "La mayoría de la gente **piensa** así."
+*   Correcto: "La mayoría de la gente **piensa** así." (Aunque "gente" son muchas personas, la palabra es singular).
+
+**Problema de Práctica 2:** ¿Qué opción presenta un error de concordancia?
+
+a) La manada de lobos corría por el bosque.
+b) El calor y la humedad eran insoportables.
+c) Un conjunto de libros y plumas fueron encontrados.
+d) Ni tú ni yo sabemos la respuesta.
+
+*   **Análisis:** En la opción (c), el sujeto es "Un conjunto", que es singular. Por lo tanto, el verbo debería estar en singular.
+*   **Respuesta Correcta:** c) (Debería ser: "Un conjunto de libros y plumas **fue** encontrado").
+
+---
+
+### **3. Puntuación: Las Señales del Camino**
+
+El uso correcto de comas, puntos y punto y coma es fundamental para la claridad de un texto.
+
+*   **Uso de la Coma (,):**
+    *   Para separar elementos en una lista: "Compré manzanas, peras y plátanos".
+    *   Para encerrar aclaraciones: "Freud, el padre del psicoanálisis, nació en Austria".
+    *   Antes de conectores como *pero, aunque, sino, así que*: "Estudié, pero no fue suficiente".
+*   **Uso del Punto y Coma (;):**
+    *   Para separar oraciones que están relacionadas semánticamente pero son independientes: "La mañana era soleada; la tarde, en cambio, se nubló".
+    *   Para separar elementos de una lista que ya contienen comas: "Asistieron: María, la psicóloga; Juan, el ingeniero; y Ana, la abogada".
+
+**Consejo Final:** En la sección de Redacción Indirecta, tu trabajo es ser un "editor". Lee las frases con atención, busca errores de concordancia, identifica la relación lógica entre las ideas para elegir el conector correcto y verifica la puntuación.

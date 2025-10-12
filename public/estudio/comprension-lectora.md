@@ -1,64 +1,73 @@
 # Guía Definitiva de Comprensión Lectora para el EXANI-II
 
-La sección de Comprensión Lectora no solo mide si entiendes las palabras, sino si puedes analizar, interpretar y evaluar un texto de manera crítica. ¡Vamos a dominarla!
-
-### Habilidades Clave que Debes Demostrar
-
-1.  **Identificar la Idea Principal y las Secundarias:** ¿De qué trata realmente el texto? ¿Qué puntos apoyan esa idea central?
-2.  **Inferir Información:** ¿Qué te está diciendo el autor "entre líneas"? Es la habilidad de deducir lo que no está explícitamente escrito.
-3.  **Interpretar el Tono y la Intención:** ¿El autor está siendo objetivo, irónico, crítico, persuasivo? ¿Cuál es su propósito al escribir el texto?
-4.  **Reconocer la Estructura del Texto:** ¿Es una narración, una argumentación, una descripción? ¿Cómo está organizado? (Causa-efecto, problema-solución, etc.).
-5.  **Comprender Vocabulario en Contexto:** Entender qué significa una palabra específica dentro de la frase en la que se encuentra.
+La sección de Comprensión Lectora del EXANI-II evalúa tu habilidad para analizar y entender textos, no solo para leerlos. A continuación, te presentamos las estrategias clave y un ejercicio práctico para que domines esta área.
 
 ---
 
-### Estrategia de Lectura Activa en 3 Pasos
+### **Estrategias Fundamentales**
 
-No te limites a leer pasivamente. Ataca el texto con esta estrategia:
+#### **1. Estrategia: Identificar la Idea Principal**
 
-1.  **Primera Lectura (Rápida):** Lee el texto una vez para captar el tema general. No te detengas en los detalles. Pregúntate: "¿De qué va esto?".
-2.  **Segunda Lectura (Analítica):** Vuelve a leer, pero esta vez subraya o anota:
-    *   La oración que crees que contiene la **idea principal** (la tesis).
-    *   Palabras clave o ideas que se repiten.
-    *   Conectores que indiquen relaciones (ej: "sin embargo", "por lo tanto", "además").
-    *   Frases que revelen la opinión o el **tono** del autor.
-3.  **Abordar las Preguntas:** Con el texto ya "procesado", lee cada pregunta cuidadosamente. Vuelve a las partes específicas del texto que anotaste para confirmar tu respuesta. **Nunca respondas de memoria.**
+La idea principal es la tesis o el mensaje central que el autor quiere comunicar. Es la columna vertebral del texto.
+
+*   **¿Cómo encontrarla?** Pregúntate: ¿De qué trata fundamentalmente este texto? ¿Qué punto clave quiere demostrar el autor? A menudo, la encuentras en el primer o último párrafo, pero no siempre.
+
+#### **2. Estrategia: Diferenciar entre Hechos y Opiniones**
+
+*   **Hecho:** Una declaración que puede ser verificada y probada como verdadera o falsa (Ej: "La Tierra gira alrededor del Sol").
+*   **Opinión:** Un juicio personal, creencia o sentimiento que no puede ser probado (Ej: "El cine de los 80 es el mejor").
+
+#### **3. Estrategia: Realizar Inferencias**
+
+Inferir es "leer entre líneas". Es deducir información que no está explícitamente escrita, basándote en las pistas que el texto te da.
+
+*   **¿Cómo inferir?** Si el texto dice: "Juan salió de casa con un paraguas y el cielo estaba lleno de nubes oscuras", puedes inferir que probablemente iba a llover.
+
+#### **4. Estrategia: Interpretar el Tono del Autor**
+
+El tono es la actitud del autor hacia el tema del que escribe. Puede ser objetivo, crítico, optimista, sarcástico, pesimista, etc.
+
+*   **¿Cómo identificarlo?** Fíjate en la elección de palabras. ¿Usa adjetivos positivos, negativos o neutros? ¿Es formal o informal?
 
 ---
 
-### Ejemplo Práctico
+### **Ejercicio Práctico Completo**
 
-**Texto de Ejemplo:**
+Lee el siguiente texto y responde a las preguntas.
 
-*El minimalismo, más que una simple tendencia estética de espacios vacíos y colores neutros, se ha consolidado como una filosofía de vida que responde al consumismo exacerbado de la sociedad moderna. Sus defensores argumentan que al poseer menos objetos, las personas pueden liberarse de las ataduras materiales y enfocar su tiempo y energía en experiencias significativas, como viajar, aprender o fortalecer relaciones interpersonales. Sin embargo, no todos ven este movimiento con buenos ojos. Algunos críticos señalan que el minimalismo puede convertirse en una nueva forma de consumismo elitista, donde el valor no reside en la cantidad, sino en la exclusividad y el alto costo de unos pocos objetos de "diseñador". Además, advierten sobre el riesgo de que esta filosofía, llevada al extremo, pueda generar ansiedad por el desapego o una falsa sensación de superioridad moral.*
+**Texto:**
 
-**Preguntas Tipo Examen:**
+El minimalismo, como filosofía de vida, ha ganado una notable popularidad en la última década. No se trata simplemente de poseer menos cosas, sino de una búsqueda intencionada de la libertad. Esta libertad se manifiesta de varias formas: libertad del miedo a la deuda, libertad de la abrumadora tarea de mantener un hogar lleno de objetos y, lo más importante, libertad para dedicar tiempo y energía a lo que uno verdaderamente valora. Los críticos argumentan que el minimalismo es una tendencia elitista, accesible solo para aquellos que ya tienen la seguridad financiera para renunciar a sus posesiones. Sin embargo, muchos de sus defensores provienen de orígenes humildes y sostienen que, al contrario, es una herramienta poderosa para escapar del ciclo de consumismo y deuda que atrapa a tantas personas. Es, en esencia, un acto de rebelión contra la cultura del "más es más".
+
+---
+
+**Preguntas de Práctica:**
 
 **1. ¿Cuál es la idea principal del texto?**
-    a) El minimalismo es una moda pasajera de decoración.
-    b) El minimalismo es una filosofía compleja con beneficios y críticas.
-    c) El minimalismo es la única solución al consumismo.
-    d) El minimalismo es una práctica elitista y costosa.
+    a) El minimalismo es una tendencia de moda.
+    b) El minimalismo es una filosofía que busca la libertad a través de la intencionalidad, a pesar de las críticas.
+    c) El minimalismo es solo para personas ricas.
+    d) El consumismo es un ciclo del que es imposible escapar.
 
-    **Respuesta Correcta: b)**
-    **Análisis:** La opción 'a' es muy superficial. La 'c' es una afirmación extrema que el texto no hace. La 'd' es solo una de las críticas, no la idea central. La 'b' captura la dualidad que presenta el autor: los argumentos a favor (liberación) y en contra (elitismo, ansiedad).
+*   **Análisis:** La opción (a) es muy simple. La (c) es una crítica que el texto menciona pero refuta. La (d) es una idea que el texto contradice. La opción (b) captura la esencia del texto: define el minimalismo como una búsqueda de libertad y aborda la principal crítica en su contra.
+*   **Respuesta Correcta:** b)
 
-**2. Según el texto, ¿qué se puede inferir sobre los críticos del minimalismo?**
-    a) Creen que acumular objetos es positivo.
-    b) Piensan que el minimalismo puede tener consecuencias negativas no intencionadas.
-    c) Son personas que no entienden de diseño de interiores.
-    d) Rechazan por completo la idea de vivir con menos.
+**2. Según el texto, ¿qué se puede inferir sobre los defensores del minimalismo?**
+    a) Todos son personas adineradas.
+    b) Creen que tener muchas posesiones es una carga.
+    c) No les importa el dinero.
+    d) Viven en casas completamente vacías.
 
-    **Respuesta Correcta: b)**
-    **Análisis:** El texto no dice que los críticos amen acumular objetos (a) o que no entiendan de diseño (c). Tampoco dice que rechacen *por completo* la idea (d). Lo que sí hacen es "advertir sobre el riesgo" y señalar que puede generar "ansiedad" o ser "elitista", es decir, ven posibles consecuencias negativas. Esto es una inferencia.
+*   **Análisis:** El texto dice que el minimalismo busca la "libertad de la abrumadora tarea de mantener un hogar lleno de objetos". A partir de esto, podemos inferir que sus defensores ven la acumulación de posesiones como una carga. Las otras opciones son exageraciones o contradicciones directas del texto.
+*   **Respuesta Correcta:** b)
 
-**3. El tono del autor al presentar el tema es:**
-    a) Totalmente en contra del minimalismo.
-    b) Entusiasta y promotor del minimalismo.
-    c) Equilibrado y expositivo.
-    d) Sarcástico e indiferente.
+**3. ¿Cuál es el tono del autor al presentar el minimalismo?**
+    a) Sarcástico y burlón.
+    b) Estrictamente académico y complejo.
+    c) Informativo y mayormente favorable.
+    d) Pesimista y crítico.
 
-    **Respuesta Correcta: c)**
-    **Análisis:** El autor presenta ambas caras de la moneda. Menciona a los "defensores" y sus argumentos, y luego introduce a los "críticos" con un "Sin embargo...". No toma un partido claro, sino que expone diferentes puntos de vista para informar al lector.
+*   **Análisis:** El autor presenta la definición, los beneficios y también las críticas, pero da más peso a los argumentos de los defensores. Usa un lenguaje como "búsqueda intencionada de la libertad" y "herramienta poderosa". El tono no es burlón ni pesimista. Es informativo, pero se inclina a favor del concepto.
+*   **Respuesta Correcta:** c)
 
-Estrategia: Aplica esta misma técnica a todos los textos que practiques. Desglosa el texto, entiende sus partes y luego enfrenta las preguntas con evidencia, no con suposiciones.
+**Consejo Final:** No te apresures. Lee el texto una vez para tener una idea general. Luego, lee cada pregunta y vuelve al texto para encontrar la evidencia que respalde tu respuesta. La respuesta casi siempre está en el texto, ya sea de forma explícita o implícita.

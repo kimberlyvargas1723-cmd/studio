@@ -1,101 +1,95 @@
-# Guía de Pensamiento Matemático para el EXANI-II
+# Guía Definitiva de Pensamiento Matemático para el EXANI-II
 
-El pensamiento matemático no se trata de memorizar fórmulas, sino de razonar y resolver problemas. Esta guía te dará las herramientas y la práctica que necesitas.
-
-### Áreas Clave a Dominar
-
-1.  **Sentido Numérico y Porcentajes:** Operaciones básicas, regla de tres, cálculo de porcentajes, descuentos e incrementos.
-2.  **Álgebra Básica:** Lenguaje algebraico, ecuaciones de primer grado, sistemas de ecuaciones simples.
-3.  **Geometría:** Áreas y perímetros de figuras básicas (cuadrados, rectángulos, triángulos, círculos).
-4.  **Resolución de Problemas:** La habilidad más importante. Entender un problema, plantearlo y resolverlo.
+El Pensamiento Matemático es una de las áreas transversales más importantes del EXANI-II. Evalúa tu capacidad para comprender y resolver problemas utilizando conceptos matemáticos fundamentales. Esta guía te llevará a través de los temas clave con ejemplos prácticos.
 
 ---
 
-### Estrategias y Problemas Resueltos
+### **1. Sentido Numérico: El Fundamento de Todo**
 
-La mejor forma de aprender es viendo cómo se hace. ¡Vamos a ello!
+Esta área se enfoca en tu habilidad para comprender y manipular números en diversas formas.
 
-#### 1. Porcentajes y Regla de Tres
+#### **Jerarquía de Operaciones**
 
-**Estrategia:** La regla de tres simple es tu mejor amiga para los porcentajes. Recuerda que el total siempre es el 100%.
+Recuerda el acrónimo **PEMDAS**:
+1.  **P**aréntesis
+2.  **E**xponentes
+3.  **M**ultiplicación y **D**ivisión (de izquierda a derecha)
+4.  **A**dición (Suma) y **S**ubstracción (Resta) (de izquierda a derecha)
 
-**Problema Ejemplo:**
-*En una tienda, una camisa de $450 tiene un 25% de descuento. ¿Cuánto pagas por la camisa?*
+**Problema de Práctica 1:** Resuelve la siguiente operación: `5 + (3 * (10 - 4)^2) / 2`
 
-**Solución Paso a Paso:**
-
-1.  **Identifica los datos:**
-    *   Precio original: $450 (esto es tu 100%)
-    *   Descuento: 25%
-
-2.  **Calcula el monto del descuento (usando regla de tres):**
-    *   Si $450 es el 100%
-    *   ¿Cuánto (X) es el 25%?
-    *   X = (450 * 25) / 100
-    *   X = 11250 / 100 = $112.5
-
-3.  **Resta el descuento al precio original:**
-    *   Precio final = $450 - $112.5 = $337.50
-
-    **Respuesta:** Pagas **$337.50** por la camisa.
-
-**Consejo Final:** También puedes calcularlo directamente. Si te descuentan el 25%, significa que pagas el 75% del precio. Entonces: $450 * 0.75 = $337.50. ¡Más rápido!
+*   **Paso 1 (Paréntesis):** Primero, resuelve el paréntesis más interno: `10 - 4 = 6`. La operación ahora es: `5 + (3 * 6^2) / 2`.
+*   **Paso 2 (Exponente):** Luego, el exponente: `6^2 = 36`. La operación es: `5 + (3 * 36) / 2`.
+*   **Paso 3 (Multiplicación):** Ahora, la multiplicación dentro del paréntesis: `3 * 36 = 108`. La operación es: `5 + 108 / 2`.
+*   **Paso 4 (División):** Sigue la división: `108 / 2 = 54`.
+*   **Paso 5 (Suma):** Finalmente, la suma: `5 + 54 = 59`.
+*   **Respuesta Correcta:** 59
 
 ---
 
-#### 2. Álgebra y Ecuaciones
+#### **Porcentajes (%)**
 
-**Estrategia:** Traduce el problema a lenguaje matemático. Usa "x" para representar el valor que no conoces y luego despeja la incógnita.
+Un porcentaje es una forma de expresar un número como una fracción de 100. Para calcular el porcentaje de un número, convierte el porcentaje a decimal y multiplícalo.
 
-**Problema Ejemplo:**
-*El doble de la edad de Juan más 8 años es igual a 42 años. ¿Qué edad tiene Juan?*
+**Problema de Práctica 2:** Una tienda ofrece un 30% de descuento en un artículo que cuesta $700. ¿Cuál es el precio final?
 
-**Solución Paso a Paso:**
-
-1.  **Traduce la frase a una ecuación:**
-    *   "El doble de la edad de Juan" -> `2x`
-    *   "más 8 años" -> `+ 8`
-    *   "es igual a 42" -> `= 42`
-    *   **Ecuación completa: `2x + 8 = 42`**
-
-2.  **Despeja la 'x' (la edad de Juan):**
-    *   Pasa el 8 al otro lado (si está sumando, pasa restando):
-        `2x = 42 - 8`
-        `2x = 34`
-    *   Pasa el 2 al otro lado (si está multiplicando, pasa dividiendo):
-        `x = 34 / 2`
-        `x = 17`
-
-    **Respuesta:** Juan tiene **17 años**.
+*   **Paso 1 (Calcular el descuento):** Convierte el porcentaje a decimal: `30% = 0.30`. Multiplica por el precio original: `700 * 0.30 = $210`. Este es el monto del descuento.
+*   **Paso 2 (Calcular el precio final):** Resta el descuento al precio original: `700 - 210 = $490`.
+*   **Respuesta Correcta:** $490
 
 ---
 
-#### 3. Geometría (Áreas)
+### **2. Pensamiento Algebraico: Usando Letras y Números**
 
-**Estrategia:** Memoriza las fórmulas de área de las figuras básicas y asegúrate de entender qué es el radio y qué es el diámetro en un círculo.
+El álgebra utiliza símbolos (generalmente letras) para representar números y expresar relaciones matemáticas.
 
-*   Área del cuadrado: `Lado * Lado`
-*   Área del rectángulo: `Base * Altura`
-*   Área del círculo: `π * radio²`
+#### **Ecuaciones de Primer Grado**
 
-**Problema Ejemplo:**
-*Se quiere poner pasto en un jardín circular que tiene un diámetro de 20 metros. ¿Cuántos metros cuadrados de pasto se necesitan? (Usa π ≈ 3.14)*
+El objetivo es despejar la incógnita (la letra, comúnmente `x`).
 
-**Solución Paso a Paso:**
+**Problema de Práctica 3:** Resuelve la ecuación: `4x - 7 = 13`
 
-1.  **Identifica los datos:**
-    *   Figura: Círculo
-    *   Diámetro: 20 metros
+*   **Paso 1 (Agrupar términos):** Mueve el `-7` al otro lado de la ecuación. Como está restando, pasa sumando: `4x = 13 + 7`.
+*   **Paso 2 (Simplificar):** `4x = 20`.
+*   **Paso 3 (Despejar x):** El `4` está multiplicando a `x`, así que pasa dividiendo: `x = 20 / 4`.
+*   **Paso 4 (Resolver):** `x = 5`.
+*   **Respuesta Correcta:** 5
 
-2.  **Encuentra el radio:** ¡Cuidado! La fórmula usa el radio, no el diámetro. El radio es la mitad del diámetro.
-    *   Radio = 20 / 2 = 10 metros
+---
 
-3.  **Aplica la fórmula del área del círculo:**
-    *   Área = π * radio²
-    *   Área = 3.14 * (10)²
-    *   Área = 3.14 * 100
-    *   Área = 314 m²
+### **3. Geometría: Formas y Espacio**
 
-    **Respuesta:** Se necesitan **314 metros cuadrados** de pasto.
+Esta área evalúa tu conocimiento de las propiedades de las figuras geométricas.
 
-Estrategia: ¡Practica, practica y practica! La velocidad y la confianza en matemáticas vienen de resolver muchos problemas diferentes. Usa estos ejemplos como base y busca más ejercicios.
+#### **Áreas y Perímetros**
+
+*   **Perímetro:** La distancia alrededor de una figura (la suma de sus lados).
+*   **Área:** El espacio dentro de una figura.
+
+**Problema de Práctica 4:** Un jardín rectangular mide 15 metros de largo y 10 metros de ancho. ¿Cuál es su área y su perímetro?
+
+*   **Perímetro:** La fórmula es `2 * (largo + ancho)`.
+    *   `2 * (15 + 10) = 2 * 25 = 50 metros`.
+*   **Área:** La fórmula es `largo * ancho`.
+    *   `15 * 10 = 150 metros cuadrados`.
+*   **Respuesta Correcta:** Perímetro = 50 m, Área = 150 m².
+
+---
+
+### **4. Series Numéricas y Razonamiento**
+
+Estas preguntas, comunes en el examen psicométrico, miden tu capacidad para identificar patrones.
+
+**Problema de Práctica 5:** ¿Qué número sigue en la serie: `2, 5, 11, 23, ___`?
+
+*   **Paso 1 (Analizar el patrón):**
+    *   De 2 a 5, hay una diferencia de 3. (`2 * 2 + 1 = 5`)
+    *   De 5 a 11, hay una diferencia de 6. (`5 * 2 + 1 = 11`)
+    *   De 11 a 23, hay una diferencia de 12. (`11 * 2 + 1 = 23`)
+*   **Paso 2 (Aplicar el patrón):** El patrón es "multiplicar por 2 y sumar 1".
+    *   `23 * 2 + 1 = 46 + 1 = 47`.
+*   **Respuesta Correcta:** 47
+
+**Estrategia:** Si no ves un patrón de suma o resta simple, prueba con multiplicación, división o una combinación de operaciones.
+
+**Consejo Final:** La clave en pensamiento matemático no es memorizar fórmulas complejas, sino entender los conceptos fundamentales y practicar mucho. ¡Realiza tantos problemas de práctica como puedas!
