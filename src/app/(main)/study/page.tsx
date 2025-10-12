@@ -1,4 +1,4 @@
-
+// src/app/(main)/study/page.tsx
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -18,7 +18,7 @@ import { StudyContent } from '@/components/study-content';
  * The main container component for the Study page.
  * It manages the state for the entire study experience, including resource selection,
  * content fetching, summarization, and image text extraction.
- * It now loads the Psychometric Guide by default.
+ * It now loads the Psychometric Guide by default and uses a two-column layout on desktop.
  */
 export default function StudyPage() {
   const [selectedResource, setSelectedResource] = useState<StudyResource | null>(null);
@@ -45,10 +45,9 @@ export default function StudyPage() {
   }, []);
 
   /**
-   * Scrolls the content card into view.
+   * Scrolls the content card into view, useful on mobile.
    */
   const scrollContentIntoView = () => {
-    // Scrolls to the top of the main content area, useful on mobile.
     contentCardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
@@ -172,7 +171,7 @@ export default function StudyPage() {
                   <div className="flex flex-col"><span>Subir Apuntes (Imagen)</span><span className="text-xs text-muted-foreground">Extraer texto con IA</span></div>
                 </Button>
                 {studyResources.map((resource) => (
-                  <Button key={resource.source} variant="ghost" className="w-full justify-start text-left h-auto" onClick={() => handleResourceSelect(resource)} disabled={isLoadingAny}>
+                  <Button key={resource.source} variant={selectedResource?.source === resource.source ? "secondary" : "ghost"} className="w-full justify-start text-left h-auto" onClick={() => handleResourceSelect(resource)} disabled={isLoadingAny}>
                     {resource.type === 'internal' ? <Book className="h-5 w-5 mr-3 text-muted-foreground" /> : <ExternalLink className="h-5 w-5 mr-3 text-muted-foreground" />}
                     <div className="flex flex-col"><span>{resource.title}</span><span className="text-xs text-muted-foreground">{resource.category}</span></div>
                   </Button>

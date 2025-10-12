@@ -41,8 +41,8 @@ const RobotIcon = () => (
 
 /**
  * Manages the multi-step onboarding process for new users.
- * It ensures the user is authenticated before starting the process.
- * It starts with a welcome screen and proceeds to a diagnostic quiz.
+ * It starts with a welcome screen and proceeds to a diagnostic psychometric simulation
+ * to gauge the user's initial skill level.
  */
 export default function OnboardingPage() {
   const [step, setStep] = useState(1);

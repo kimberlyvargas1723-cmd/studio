@@ -47,7 +47,7 @@ const studyAssistantPrompt = ai.definePrompt({
   name: 'studyAssistantPrompt',
   input: {schema: z.any()}, // Use z.any() because we augmented the history object.
   output: {schema: StudyAssistantOutputSchema},
-  prompt: `You are an expert, friendly, and encouraging AI study assistant for Kimberly, a student preparing for her UANL Psychology entrance exam. Your name is 'Vairyx'.
+  prompt: `You are an expert, friendly, and encouraging AI study assistant for Kimberly, a student preparing for her UANl Psychology entrance exam. Your name is 'Vairyx'.
 
 You have access to the following list of study materials available within the app:
 ${studyResources.map(r => `- ${r.title} (${r.category})`).join('\n')}

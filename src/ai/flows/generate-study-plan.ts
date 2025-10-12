@@ -44,7 +44,11 @@ const StudyPlanOutputSchema = z.object({
 });
 export type StudyPlanOutput = z.infer<typeof StudyPlanOutputSchema>;
 
-
+/**
+ * Generates a personalized study plan based on student performance data.
+ * @param {StudyPlanInput} input - The student's performance data and days until exam.
+ * @returns {Promise<StudyPlanOutput>} A promise that resolves to the generated study plan.
+ */
 export async function generateStudyPlan(input: StudyPlanInput): Promise<StudyPlanOutput> {
   return generateStudyPlanFlow(input);
 }

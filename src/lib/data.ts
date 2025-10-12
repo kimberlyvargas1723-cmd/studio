@@ -3,6 +3,7 @@ import type { StudyResource, PerformanceData } from './types';
 
 /**
  * A list of available study resources, including internal content and external links.
+ * These are the core materials for the student to study from.
  */
 export const studyResources: StudyResource[] = [
   {
@@ -99,6 +100,7 @@ export const studyResources: StudyResource[] = [
 
 /**
  * The initial state for user performance data, with all scores set to zero.
+ * This is used if no data is found in localStorage.
  */
 export const initialPerformance: PerformanceData[] = [
   { topic: 'Bases Biológicas de la Conducta', correct: 0, incorrect: 0 },

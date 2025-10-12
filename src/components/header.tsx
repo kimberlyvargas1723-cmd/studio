@@ -1,3 +1,4 @@
+// src/components/header.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -15,7 +16,9 @@ const motivationalQuotes = [
 
 /**
  * A personalized and dynamic header component.
- * It greets the user by name, adapts to the time of day, and displays a motivational quote.
+ * It displays a title for the current page and a motivational quote.
+ * It also includes the sidebar trigger for mobile view.
+ * @param {{title: string}} props - The title of the page.
  */
 export function Header({title}: {title: string}) {
   const [greeting, setGreeting] = useState('');

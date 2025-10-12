@@ -18,7 +18,8 @@ import { useToast } from '@/hooks/use-toast';
 
 /**
  * A component that allows users to generate a practice quiz based on a selected study topic.
- * It now uses a Server Action to create questions, keeping the client-side lean.
+ * It uses a Server Action to create questions, keeping the client-side lean.
+ * It displays study resources as cards to initiate quiz generation.
  */
 export function GenerateQuestionsTab() {
   const [selectedResource, setSelectedResource] = useState<StudyResource | null>(null);

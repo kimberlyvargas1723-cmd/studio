@@ -6,7 +6,7 @@ import type { PerformanceData, Feedback, SavedSummary } from './types';
  * This file provides a service layer for interacting with the browser's localStorage.
  * It abstracts the direct use of `localStorage`, handles JSON parsing and stringification,
  * and provides a clear API for managing performance data, feedback history, 
- * and saved summaries.
+ * saved summaries, and checklist state.
  */
 
 // --- Performance Data ---
@@ -64,6 +64,7 @@ export function getFeedbackHistory(): Feedback[] {
 
 /**
  * Saves new feedback to the feedback history in localStorage.
+ * It keeps a maximum of 20 most recent feedback items.
  * @param {Feedback} feedbackData The new feedback data object to save.
  */
 export function saveFeedback(feedbackData: Feedback): void {
@@ -78,7 +79,7 @@ export function saveFeedback(feedbackData: Feedback): void {
 const SAVED_SUMMARIES_KEY = 'savedSummaries';
 
 /**
- * Retrieves all saved summaries from localStorage.
+ * Retrieves all saved summaries from localStorage, sorted by creation date.
  * @returns {SavedSummary[]} An array of saved summary objects.
  */
 export function getSavedSummaries(): SavedSummary[] {
@@ -104,7 +105,7 @@ export function saveSummary(summaryData: SavedSummary): void {
  * @param {string} summaryId The ID of the summary to delete.
  * @returns {SavedSummary[]} The updated array of summaries after deletion.
  */
-export function deleteSummary(summaryId: string): SavedSummary[] {
+export function deleteSummaryFromStorage(summaryId: string): SavedSummary[] {
     if (typeof window === 'undefined') return [];
     let summaries = getSavedSummaries();
     summaries = summaries.filter(s => s.id !== summaryId);

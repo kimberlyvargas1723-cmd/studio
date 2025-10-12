@@ -1,4 +1,4 @@
-
+// src/components/study-content.tsx
 'use client';
 
 import React from 'react';

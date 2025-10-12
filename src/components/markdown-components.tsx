@@ -33,6 +33,7 @@ export const StrategyBlock = ({ children }: { children?: React.ReactNode }) => {
  * A custom component to render paragraphs that start with "Consejo Final:"
  * as a visually distinct "Final Tip Block".
  * @param {{ children?: React.ReactNode }} props - The children passed by ReactMarkdown.
+ * @param {{ children?: React.ReactNode }} props - The children passed by ReactMarkdown.
  * @returns A custom Alert component or a standard paragraph.
  */
 export const FinalTipBlock = ({ children }: { children?: React.ReactNode }) => {

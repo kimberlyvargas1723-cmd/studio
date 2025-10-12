@@ -3,7 +3,7 @@ import type { GeneratedQuiz } from './types';
 
 /**
  * Predefined diagnostic quiz to assess the user's initial knowledge
- * across key areas of the entrance exam.
+ * across key areas of the entrance exam. This is the first step of the onboarding.
  */
 export const diagnosticQuiz: GeneratedQuiz = {
   title: 'Quiz de Diagnóstico Inicial',

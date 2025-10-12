@@ -8,7 +8,7 @@ import { ExamSimulationTab } from '@/components/exam-simulation-tab';
 import { BrainCircuit, BookCheck, ClipboardCheck } from 'lucide-react';
 
 /**
- * Renders the practice page, which now uses tabs to allow users to
+ * Renders the practice center page, which uses tabs to allow users to
  * either generate AI-powered quizzes by topic, engage in a timed
  * psychometric practice session, or run a full exam simulation.
  */

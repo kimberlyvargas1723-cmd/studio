@@ -7,6 +7,7 @@ import { GeneratedQuiz } from './generated-quiz';
  * A wrapper component specifically for the diagnostic quiz.
  * It fetches the predefined diagnostic quiz data and passes it to the
  * generic `GeneratedQuiz` component, marking it as a diagnostic test.
+ * This is the first step in the user's onboarding journey.
  */
 export function DiagnosticQuiz() {
 

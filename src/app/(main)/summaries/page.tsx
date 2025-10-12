@@ -25,7 +25,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import { getSavedSummaries, deleteSummary as deleteSummaryFromStorage } from '@/lib/services';
+import { getSavedSummaries, deleteSummaryFromStorage } from '@/lib/services';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 

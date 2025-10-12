@@ -1,18 +1,14 @@
 // src/components/chat-widget.tsx
 'use client';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { studyAssistant } from '@/ai/flows/study-assistant';
-import { Loader2, Send, Youtube, Sparkles, X } from 'lucide-react';
+import { Sparkles, X } from 'lucide-react';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 
 const RobotIcon = () => (
@@ -85,59 +81,15 @@ const RobotIcon = () => (
   </div>
 );
 
-type Message = {
-  role: 'user' | 'model';
-  content: string;
-  youtubeQuery?: string;
-};
-
-const motivationalMessages = [
-    "¡Sigue así, Kimberly! Tu esfuerzo dará frutos.",
-    "¡Vas muy bien! Cada paso te acerca a tu meta.",
-    "No te rindas. Pocas personas logran lo que tú estás haciendo.",
-    "¡Confío en ti! Tienes todo para triunfar.",
-    "Recuerda por qué empezaste. ¡Adelante!",
-];
-
 /**
  * Renders an animated, interactive chat widget featuring the AI assistant, Vairyx.
- * This component acts as a floating action button that opens a popover chat window.
- * It manages the conversation state, calls the AI flow, and displays motivational messages periodically.
+ * This component acts as a floating action button that opens a popover.
+ * The popover serves as a direct link to the main AI Assistant page.
  */
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      role: 'model',
-      content:
-        '¡Hola, Kimberly! Soy Vairyx. Hazme una pregunta o haz clic aquí para ir a la página del asistente.',
-    },
-  ]);
-  const [input, setInput] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [activeMotivation, setActiveMotivation] = useState<string | null>(null);
-  const motivationTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const router = useRouter();
 
-
-  /**
-   * Shows a random motivational message in a speech bubble next to the robot.
-   * The message disappears after a few seconds.
-   */
-  const showMotivation = () => {
-    // This logic is now handled by the assistant page, but kept for potential future use
-    const randomIndex = Math.floor(Math.random() * motivationalMessages.length);
-    setActiveMotivation(motivationalMessages[randomIndex]);
-
-    if (motivationTimeoutRef.current) {
-        clearTimeout(motivationTimeoutRef.current);
-    }
-
-    motivationTimeoutRef.current = setTimeout(() => {
-        setActiveMotivation(null);
-    }, 5000); // Message stays for 5 seconds
-  };
-  
   const handleOpenAssistantPage = () => {
       router.push('/assistant');
       setIsOpen(false);
@@ -145,8 +97,6 @@ export function ChatWidget() {
 
 
   return (
-    <>
-    {/* Robot Trigger and Motivation Bubble */}
     <div className="fixed bottom-0 right-4 z-50">
         <Popover open={isOpen} onOpenChange={setIsOpen}>
             <PopoverTrigger asChild>
@@ -191,6 +141,5 @@ export function ChatWidget() {
             </PopoverContent>
         </Popover>
     </div>
-    </>
   );
 }

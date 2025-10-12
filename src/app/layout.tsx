@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 
 /**
  * RootLayout is the main layout of the application. It applies global styles,
- * fonts, and essential components like the Toaster and FirebaseProvider.
- * This ensures a consistent look and feel and Firebase context across all pages.
+ * fonts, and essential components like the Toaster.
+ * This ensures a consistent look and feel across all pages.
  */
 export default function RootLayout({
   children,

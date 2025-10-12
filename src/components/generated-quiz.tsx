@@ -22,9 +22,9 @@ type GeneratedQuizProps = {
 
 /**
  * Renders an interactive quiz, now with an optional timer for psychometric tests.
- * Manages quiz state, scoring, feedback, and timer logic.
+ * Manages quiz state, scoring, feedback generation, and timer logic.
  *
- * @param {GeneratedQuizProps} props - The quiz data, a back callback, and diagnostic flag.
+ * @param {GeneratedQuizProps} props - The quiz data, a back callback, and flags for diagnostic or psychometric mode.
  */
 export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQuizProps) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -63,6 +63,7 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
             clearInterval(timerRef.current);
         }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quiz.isPsychometric, currentQuestionIndex, isQuizFinished, isAnswered]);
 
   const handleAnswerSubmit = async () => {
@@ -239,12 +240,12 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
           <div className="mt-6 space-y-4">
              <Alert variant={isCorrect ? 'default' : 'destructive'} className={cn(
                  "flex items-center",
-                 isCorrect ? 'border-green-500 bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-200' : 'border-destructive bg-red-50 dark:bg-red-900/20 text-destructive'
+                 isCorrect ? 'border-green-500 bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-200' : 'border-destructive bg-red-50 dark:bg-red-900/20'
               )}>
-              {isCorrect ? <CheckCircle className="h-5 w-5 mr-2 text-green-500" /> : <XCircle className="h-5 w-5 mr-2" />}
+              {isCorrect ? <CheckCircle className="h-5 w-5 mr-2 text-green-500" /> : <XCircle className="h-5 w-5 mr-2 text-destructive" />}
               <div>
                 <AlertTitle>{isCorrect ? '¡Correcto!' : 'Incorrecto'}</AlertTitle>
-                <AlertDescription className="text-current">
+                <AlertDescription className={cn(isCorrect ? 'text-green-700 dark:text-green-300' : 'text-destructive-foreground')}>
                   La respuesta correcta es: {currentQuestion.correctAnswer}
                 </AlertDescription>
               </div>
