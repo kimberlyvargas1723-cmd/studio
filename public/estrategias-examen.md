@@ -1,37 +1,51 @@
-# Estrategias Clave para Conquistar el EXANI-II
+# Estrategias Clave para Conquistar tu Examen (EXANI-II y Psicométrico)
 
-El EXANI-II no solo mide tus conocimientos, sino también tu habilidad para manejar el tiempo y la presión. Un buen desempeño depende tanto de lo que sabes como de *cómo* aplicas ese conocimiento el día del examen. Aquí tienes las estrategias fundamentales.
+El éxito en un examen de admisión no solo depende de cuánto sabes, sino de **cómo aplicas ese conocimiento bajo presión**. Aquí tienes las estrategias fundamentales que marcan la diferencia.
 
-### 1. Administración del Tiempo: Tu Recurso Más Valioso
+### 1. El Arte de la Gestión del Tiempo
 
-El examen es una carrera contra el reloj. No puedes darte el lujo de perder tiempo.
+El tiempo es tu recurso más valioso. No puedes permitirte quedarte sin él.
 
-- **Conoce la Estructura:** Antes del día del examen, debes saber cuántas preguntas tiene cada sección y cuánto tiempo total tienes. Esto te permite asignar un tiempo promedio por pregunta (generalmente, alrededor de 1 minuto).
-- **No te Atasques:** Si una pregunta te parece muy difícil o no tienes idea de cómo resolverla después de un minuto, ¡déjala! Haz una marca en tu cuadernillo y sigue adelante. Es mejor asegurar 5 preguntas fáciles que perder 5 minutos en una sola pregunta difícil. Al final, si te sobra tiempo, puedes regresar a las que marcaste.
-- **Usa un Reloj (si está permitido):** Lleva un reloj simple (sin calculadora ni funciones inteligentes) para monitorear tu propio ritmo. No dependas únicamente de los avisos del aplicador.
+**Estrategia: El Método de las Tres Vueltas.**
+No intentes responder todo en orden. Divide tu examen en tres pasadas:
+*   **Primera Vuelta (La Cosecha):** Recorre todo el examen y responde solo las preguntas que sabes de inmediato, las que son "regaladas" para ti. Si una pregunta te hace dudar más de 10 segundos, márcala y sigue adelante. No te detengas. El objetivo es asegurar todos los puntos fáciles rápidamente.
+*   **Segunda Vuelta (El Desafío):** Vuelve a las preguntas que marcaste. Ahora tienes más tiempo y menos presión para dedicarte a los problemas que requieren más cálculo o razonamiento. Aplica tus conocimientos y técnicas de descarte.
+*   **Tercera Vuelta (La Batalla Final):** Dedica los últimos minutos a las preguntas más difíciles, las que dejaste en blanco en la segunda vuelta. En este punto, si no estás seguro, es el momento de hacer una suposición informada. Nunca dejes una pregunta sin responder (a menos que el examen penalice respuestas incorrectas, lo cual no es común en EXANI-II).
 
-### 2. La Técnica del Descarte: Tu Mejor Aliada
+### 2. La Técnica del Descarte Inteligente
 
-En un examen de opción múltiple, la respuesta correcta está frente a ti. Tu trabajo es encontrarla, y a veces es más fácil hacerlo eliminando las incorrectas.
+A menudo, es más fácil encontrar la respuesta incorrecta que la correcta.
 
-- **Identifica los Distractores Obvios:** En casi todas las preguntas, habrá una o dos opciones que son claramente incorrectas. Pueden tener errores de concepto, ser ilógicas o no tener relación con la pregunta. ¡Elimínalas de inmediato!
-- **Reduce tus Opciones:** Al descartar una o dos opciones, tus probabilidades de acertar aumentan drásticamente. Si te quedas entre dos opciones, tu probabilidad sube al 50%.
-- **Confía en tu Instinto (con cautela):** Si después de descartar te debates entre dos opciones, a menudo tu primera inclinación es la correcta. Haz una elección y sigue adelante.
+**Estrategia: Elimina lo Imposible.**
+Por cada opción que puedas eliminar con certeza, tus probabilidades de acertar aumentan drásticamente. En una pregunta de 4 opciones, eliminar solo una te da un 33% de probabilidad. Eliminar dos te da un 50%.
+*   **Busca Distractores:** Los examinadores incluyen opciones que parecen correctas pero tienen un pequeño error. Busca palabras absolutas como "siempre", "nunca", "todos", que a menudo hacen que una opción sea falsa.
+*   **Identifica Opciones Opuestas:** Si dos opciones son diametralmente opuestas, es muy probable que una de ellas sea la correcta.
 
-### 3. Manejo de la Hoja de Respuestas (¡CRÍTICO!)
+### 3. Comprensión Lectora: No Leas, Ataca el Texto
 
-Un error aquí puede invalidar todo tu esfuerzo.
+Leer el texto completo y luego las preguntas es ineficiente.
 
-- **Rellena los Óvalos Correctamente:** Usa un lápiz del No. 2 o 2.5. Rellena el óvalo por completo, de forma firme y oscura. No te salgas de la línea.
-- **Verifica la Numeración Constantemente:** Es un error muy común. Después de cada 5 o 10 preguntas, verifica que el número de la pregunta en tu cuadernillo coincida con el número de la pregunta que estás respondiendo en la hoja de respuestas.
-- **No Dejes Respuestas en Blanco:** El EXANI-II generalmente no penaliza las respuestas incorrectas. Por lo tanto, si se te acaba el tiempo o no sabes una respuesta, ¡adivina! Es mejor tener una probabilidad de acertar que un cero seguro.
+**Estrategia: Pregunta-Texto-Respuesta (PTR).**
+1.  **Lee la pregunta primero:** Antes de leer el pasaje, lee la primera pregunta (¡no las opciones de respuesta!). Tu cerebro ahora tiene una misión específica.
+2.  **Escanea el texto en busca de la respuesta:** Barre el texto buscando palabras clave o conceptos relacionados con la pregunta. Cuando encuentres la sección relevante, léela con atención.
+3.  **Formula tu propia respuesta:** Antes de mirar las opciones, intenta responder la pregunta con tus propias palabras basándote en lo que leíste.
+4.  **Encuentra la opción que coincida:** Ahora sí, mira las opciones y elige la que más se parezca a la respuesta que formulaste. Esto te protege de las opciones distractoras.
 
-### 4. Controla la Ansiedad y el Estrés
+### 4. Pensamiento Matemático: No te Ahogues en Cálculos
 
-Tu estado mental es tan importante como tu conocimiento.
+Muchos problemas parecen más difíciles de lo que son.
 
-- **Respira:** Si sientes que la ansiedad te supera, detente un momento. Cierra los ojos, inhala profundamente por la nariz durante 4 segundos, sostén el aire 4 segundos y exhala lentamente por la boca durante 6 segundos. Repítelo 3 veces. Esto calma tu sistema nervioso.
-- **Piensa en Positivo:** Reemplaza pensamientos como "no voy a pasar" por "estoy preparado/a para esto, daré mi mejor esfuerzo". La mentalidad con la que enfrentas el examen puede hacer una gran diferencia.
-- **Día Previo al Examen:** No intentes estudiar intensamente. Repasa ligeramente tus notas si lo necesitas, pero tu prioridad es descansar. Prepara todo lo que necesitas (identificación, pase de ingreso, lápices, etc.) y duerme bien.
+**Estrategia: Trabaja Hacia Atrás (Backsolving).**
+Si un problema de álgebra te pide encontrar el valor de 'x', a veces es más rápido probar las opciones de respuesta en la ecuación en lugar de resolverla algebraicamente.
+> **Ejemplo:** "Si 2x + 5 = 19, ¿cuál es el valor de x?" Opciones: a) 5, b) 6, c) 7, d) 8.
+> **Prueba con c) 7:** 2(7) + 5 = 14 + 5 = 19. ¡Correcto! Es mucho más rápido que despejar 'x'.
 
-**Consejo Final:** El examen es una maratón, no un sprint. Administra tu energía física y mental. Si te sientes cansado, tómate 30 segundos para estirarte en tu asiento y reenfocarte. ¡Confía en tu preparación y demuestra todo lo que has aprendido!
+### 5. Examen Psicométrico: Velocidad y Precisión
+
+Aquí, el objetivo es responder la mayor cantidad de preguntas correctamente en el menor tiempo posible.
+
+**Estrategia: Identifica el Patrón y No Dudes.**
+*   **Series Numéricas/Figuras:** El patrón suele ser simple (suma, resta, multiplicación, rotación, adición de un elemento). No busques patrones excesivamente complejos. Encuentra la regla y aplícala. Si no la ves en 15 segundos, márcala y sigue.
+*   **Analogías Verbales:** Convierte la analogía en una oración simple. Para "Médico es a Hospital...", la oración es "Un médico trabaja en un hospital". Luego aplica esa misma oración a las opciones: "Un maestro trabaja en una escuela". Simple y efectivo.
+
+**Consejo Final:** La noche antes del examen no estudies. Descansa. Duerme bien. Tu cerebro necesita estar fresco para rendir al máximo. La preparación ya la hiciste. El día del examen, tu trabajo es ejecutar tu estrategia con confianza. ¡Tienes todo para lograrlo!
