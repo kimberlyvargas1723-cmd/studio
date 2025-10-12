@@ -3,14 +3,14 @@
 import { Header } from '@/components/header';
 import { GenerateQuestionsTab } from '@/components/generate-questions-tab';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { PsychometricPracticeTab } from '@/components/psychometric-practice-tab';
+import { LearningStyleQuizTab } from '@/components/learning-style-quiz-tab';
 import { ExamSimulationTab } from '@/components/exam-simulation-tab';
 import { BrainCircuit, BookCheck, ClipboardCheck } from 'lucide-react';
 
 /**
  * Renders the practice center page, which uses tabs to allow users to
- * either generate AI-powered quizzes by topic, engage in a timed
- * psychometric practice session, or run a full exam simulation.
+ * generate AI-powered quizzes by topic, discover their learning style, 
+ * or run a full exam simulation.
  * @param {object} props - The component props.
  * @param {(result: 'correct' | 'incorrect') => void} props.onQuizFeedback - Callback to notify the layout of quiz results.
  */
@@ -25,9 +25,9 @@ export default function PracticePage({ onQuizFeedback }: { onQuizFeedback?: (res
               <BookCheck className="mr-2" />
               Quiz por Tema
             </TabsTrigger>
-            <TabsTrigger value="psychometric-practice">
+            <TabsTrigger value="learning-style">
                 <BrainCircuit className="mr-2" />
-              Práctica Psicométrica
+              Mi Estilo de Aprendizaje
             </TabsTrigger>
             <TabsTrigger value="exam-simulation">
                 <ClipboardCheck className="mr-2" />
@@ -37,8 +37,8 @@ export default function PracticePage({ onQuizFeedback }: { onQuizFeedback?: (res
           <TabsContent value="topic-quiz">
             <GenerateQuestionsTab onQuizFeedback={onQuizFeedback} />
           </TabsContent>
-          <TabsContent value="psychometric-practice">
-            <PsychometricPracticeTab onQuizFeedback={onQuizFeedback} />
+          <TabsContent value="learning-style">
+            <LearningStyleQuizTab />
           </TabsContent>
            <TabsContent value="exam-simulation">
             <ExamSimulationTab onQuizFeedback={onQuizFeedback} />

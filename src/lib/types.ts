@@ -66,3 +66,23 @@ export type Feedback = {
   timestamp: string;
   topic: string;
 };
+
+/**
+ * Defines the structure for the learning style quiz questions.
+ */
+export type LearningStyleQuestion = {
+  id: string;
+  question: string;
+  options: {
+    style: 'V' | 'A' | 'R' | 'K';
+    text: string;
+  }[];
+};
+
+/**
+ * Defines the structure for the saved learning strategy.
+ */
+export type LearningStrategy = {
+  style: string;
+  strategy: string;
+};

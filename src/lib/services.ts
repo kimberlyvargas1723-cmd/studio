@@ -1,6 +1,6 @@
 // src/lib/services.ts
 import { initialPerformance } from './data';
-import type { PerformanceData, Feedback, SavedSummary } from './types';
+import type { PerformanceData, Feedback, SavedSummary, LearningStrategy } from './types';
 
 /**
  * This file provides a service layer for interacting with the browser's localStorage.
@@ -138,4 +138,28 @@ export function updateChecklistState(taskId: string, isChecked: boolean): void {
     const state = getChecklistState();
     state[taskId] = isChecked;
     localStorage.setItem(CHECKLIST_STATE_KEY, JSON.stringify(state));
+}
+
+
+// --- Learning Strategy ---
+
+const LEARNING_STRATEGY_KEY = 'learningStrategy';
+
+/**
+ * Retrieves the saved learning strategy from localStorage.
+ * @returns {LearningStrategy | null} The saved strategy object or null if not found.
+ */
+export function getLearningStrategy(): LearningStrategy | null {
+    if (typeof window === 'undefined') return null;
+    const strategy = localStorage.getItem(LEARNING_STRATEGY_KEY);
+    return strategy ? JSON.parse(strategy) : null;
+}
+
+/**
+ * Saves the generated learning strategy to localStorage.
+ * @param {LearningStrategy} strategyData The strategy object to save.
+ */
+export function saveLearningStrategy(strategyData: LearningStrategy): void {
+    if (typeof window === 'undefined') return;
+    localStorage.setItem(LEARNING_STRATEGY_KEY, JSON.stringify(strategyData));
 }

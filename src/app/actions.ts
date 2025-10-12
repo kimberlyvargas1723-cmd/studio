@@ -1,3 +1,4 @@
+// src/app/actions.ts
 'use server';
 
 import { summarizeContent } from '@/ai/flows/content-summarization';
@@ -5,6 +6,7 @@ import { generatePracticeQuestions } from '@/ai/flows/practice-question-generati
 import { extractTextFromImage } from '@/ai/flows/image-text-extraction';
 import { generateStudyPlan } from '@/ai/flows/generate-study-plan';
 import { generateProgressSummary } from '@/ai/flows/generate-progress-summary';
+import { generateLearningStrategy } from '@/ai/flows/generate-learning-strategy';
 import type { StudyResource, GeneratedQuestion, PerformanceData } from '@/lib/types';
 import type { StudyPlanInput, StudyPlanOutput } from '@/ai/flows/generate-study-plan';
 import fs from 'fs/promises';
@@ -94,5 +96,20 @@ export async function generateProgressSummaryAction(performanceData: Performance
   } catch (e: any) {
     console.error('Error in generateProgressSummaryAction:', e);
     return { error: e.message || 'No se pudo generar el resumen de progreso.' };
+  }
+}
+
+/**
+ * Server Action to generate a personalized learning strategy based on a learning style.
+ * @param {string} learningStyle - The user's dominant learning style (V, A, R, or K).
+ * @returns {Promise<{style: string; strategy: string} | {error: string}>} - The style and generated strategy, or an error.
+ */
+export async function generateLearningStrategyAction(learningStyle: string) {
+  try {
+    const result = await generateLearningStrategy({ learningStyle });
+    return { style: result.style, strategy: result.strategy };
+  } catch (e: any) {
+    console.error('Error in generateLearningStrategyAction:', e);
+    return { error: e.message || 'No se pudo generar la estrategia de aprendizaje.' };
   }
 }
