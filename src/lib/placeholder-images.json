@@ -2,7 +2,7 @@
   "placeholderImages": [
     {
       "id": "dashboard-hero",
-      "description": "Un estudiante de psicología concentrado en sus estudios, con diagramas del cerebro y libros de texto.",
+      "description": "Una estudiante de psicología concentrada en sus estudios, con diagramas del cerebro y libros de texto.",
       "imageUrl": "https://picsum.photos/seed/101/1200/400",
       "imageHint": "student psychology"
     },
@@ -32,9 +32,9 @@
     },
     {
       "id": "user-avatar",
-      "description": "Un avatar de perfil para un estudiante.",
-      "imageUrl": "https://picsum.photos/seed/106/100/100",
-      "imageHint": "student portrait"
+      "description": "Un avatar de perfil para una estudiante de psicología.",
+      "imageUrl": "https://picsum.photos/seed/107/100/100",
+      "imageHint": "female student portrait"
     }
   ]
 }
