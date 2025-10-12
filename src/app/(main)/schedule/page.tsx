@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { addDays, format, differenceInDays } from 'date-fns';
 import { es } from 'date-fns/locale';
 import { Header } from '@/components/header';
@@ -18,10 +18,18 @@ type StudyDay = {
 export default function SchedulePage() {
   const [examDate, setExamDate] = useState<Date | undefined>(undefined);
   const [studyPlan, setStudyPlan] = useState<StudyDay[]>([]);
+  const [today, setToday] = useState<Date | null>(null);
+
+  useEffect(() => {
+    // Set 'today' only on the client-side to prevent hydration mismatch
+    const now = new Date();
+    now.setHours(0,0,0,0);
+    setToday(now);
+  }, []);
 
   const generateStudyPlan = (date: Date) => {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    if (!today) return;
+
     const daysUntilExam = differenceInDays(date, today);
 
     if (daysUntilExam < 1) {
@@ -77,7 +85,7 @@ export default function SchedulePage() {
               mode="single"
               selected={examDate}
               onSelect={handleDateSelect}
-              disabled={(date) => date < new Date()}
+              disabled={(date) => today ? date < today : true}
               locale={es}
               className="rounded-md border"
             />
