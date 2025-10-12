@@ -18,7 +18,7 @@ import { StudyContent } from '@/components/study-content';
  * The main container component for the Study page.
  * It manages the state for the entire study experience, including resource selection,
  * content fetching, summarization, and image text extraction.
- * It delegates the rendering of content to the `StudyContent` component.
+ * It now loads the Psychometric Guide by default.
  */
 export default function StudyPage() {
   const [selectedResource, setSelectedResource] = useState<StudyResource | null>(null);
@@ -32,24 +32,16 @@ export default function StudyPage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const contentCardRef = useRef<HTMLDivElement>(null);
 
-  // On initial load, fetch and display the personalized study guide.
+  // On initial load, fetch and display the psychometric study guide.
   useEffect(() => {
-    const fetchGuide = async () => {
-      setIsLoading(true);
-      try {
-        const response = await fetch('/GUIA_DE_ESTUDIO.md');
-        if (!response.ok) throw new Error('No se pudo cargar la guía de estudio.');
-        const content = await response.text();
-        setResourceContent(content);
-        setSelectedResource({ title: 'Guía de Estudio Personalizada', category: 'Introducción', type: 'internal', source: 'GUIA_DE_ESTUDIO.md' });
-      } catch (e) {
-        console.error('Failed to fetch study guide:', e);
-        setError('No se pudo cargar la guía de estudio inicial.');
-      } finally {
-        setIsLoading(false);
+    const fetchPsychometricGuide = async () => {
+      const psychometricResource = studyResources.find(r => r.source === 'guia-psicometrico.md');
+      if (psychometricResource) {
+        handleResourceSelect(psychometricResource);
       }
     };
-    fetchGuide();
+    fetchPsychometricGuide();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   /**
@@ -178,10 +170,6 @@ export default function StudyPage() {
                 <Button variant="outline" className="w-full justify-start text-left h-auto" onClick={() => fileInputRef.current?.click()} disabled={isLoadingAny}>
                   <Upload className="h-5 w-5 mr-3 text-muted-foreground" />
                   <div className="flex flex-col"><span>Subir Apuntes (Imagen)</span><span className="text-xs text-muted-foreground">Extraer texto con IA</span></div>
-                </Button>
-                <Button key="guia-de-estudio" variant="ghost" className="w-full justify-start text-left h-auto" onClick={() => handleResourceSelect({title: 'Guía de Estudio Personalizada', category: 'Introducción', type: 'internal', source: 'GUIA_DE_ESTUDIO.md'})} disabled={isLoadingAny}>
-                  <Book className="h-5 w-5 mr-3 text-muted-foreground" />
-                  <div className="flex flex-col"><span>Guía de Estudio</span><span className="text-xs text-muted-foreground">Introducción</span></div>
                 </Button>
                 {studyResources.map((resource) => (
                   <Button key={resource.source} variant="ghost" className="w-full justify-start text-left h-auto" onClick={() => handleResourceSelect(resource)} disabled={isLoadingAny}>

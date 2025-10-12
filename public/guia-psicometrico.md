@@ -1,99 +1,78 @@
-# Guía de Estudio para el Examen Psicométrico
+# Guía Definitiva para el Examen Psicométrico
 
-El examen psicométrico es el primer filtro y uno de los más importantes en el proceso de admisión de la Facultad de Psicología. No mide conocimientos teóricos, sino tus **habilidades de razonamiento** y tu **agilidad mental**. El objetivo es resolver problemas de lógica bajo presión de tiempo. ¡Prepárate para entrenar tu cerebro!
-
-### ¿Qué Mide el Examen Psicométrico?
-
-Evalúa tu capacidad para:
-1.  **Identificar patrones y relaciones.**
-2.  **Pensar de manera lógica y sistemática.**
-3.  **Resolver problemas abstractos rápidamente.**
-
-Se divide principalmente en tres áreas:
+El examen psicométrico es tu primer gran filtro. No mide conocimientos, sino **habilidades de razonamiento** bajo presión. Tu objetivo es ser rápido y preciso. Esta guía te enseñará *cómo* pensar para resolver cada tipo de problema.
 
 ---
 
-### 1. Series Numéricas y Alfanuméricas
+### 1. Series Numéricas: El Arte de Encontrar Patrones
 
-Consisten en encontrar el patrón en una secuencia de números o letras para determinar cuál es el siguiente elemento.
+Estos problemas te presentan una secuencia de números y te piden encontrar el que sigue. El truco es identificar la **relación matemática** entre ellos.
 
-**Estrategia Clave:** Identifica la operación matemática que conecta un número con el siguiente. ¿Es una suma, resta, multiplicación, división o una combinación?
+#### Estrategias Clave:
+- **Busca la Diferencia:** Resta números consecutivos. ¿La diferencia es constante? ¿Aumenta o disminuye siguiendo un patrón?
+- **Busca Multiplicaciones o Divisiones:** ¿El siguiente número se obtiene multiplicando o dividiendo por un valor constante?
+- **Combina Operaciones:** A menudo, el patrón es una combinación, como "multiplicar por 2 y sumar 1" (`*2 + 1`).
+- **Busca Series Alternas:** A veces, hay dos patrones intercalados. Fíjate en los números en posiciones impares (1º, 3º, 5º) y luego en los pares (2º, 4º, 6º).
 
-**Mini Problema 1: Serie Simple**
-> **Secuencia:** 3, 7, 11, 15, 19, ___
-> **Análisis:**
-> - De 3 a 7 hay +4
-> - De 7 a 11 hay +4
-> - De 11 a 15 hay +4
-> **Patrón:** Se suma 4 a cada número.
-> **Solución:** 19 + 4 = **23**
+**Estrategia:** Siempre haz la resta entre números consecutivos primero. Es el método más rápido para descubrir los patrones más comunes. `8, 11, 14, 17...` -> `+3, +3, +3...` ¡Patrón encontrado!
 
-**Mini Problema 2: Serie Compuesta**
-> **Secuencia:** 2, 5, 11, 23, 47, ___
-> **Análisis:**
-> - De 2 a 5: (2 * 2) + 1 = 5
-> - De 5 a 11: (5 * 2) + 1 = 11
-> - De 11 a 23: (11 * 2) + 1 = 23
-> **Patrón:** Se multiplica por 2 y se suma 1.
-> **Solución:** 47 * 2 + 1 = **95**
-
-**Mini Problema 3: Serie Alternada**
-> **Secuencia:** 10, 30, 15, 45, 20, ___
-> **Análisis:** Aquí hay dos patrones intercalados.
-> - Secuencia 1: 10, 15, 20 (suma 5 cada vez)
-> - Secuencia 2: 30, 45, ___ (suma 15 cada vez)
-> **Patrón:** La segunda secuencia es la que debemos completar.
-> **Solución:** 45 + 15 = **60**
+#### Mini Problema Resuelto
+> **Serie:** `2, 6, 12, 20, 30, ___`
+>
+> 1.  **Analiza la diferencia:**
+>     - `6 - 2 = 4`
+>     - `12 - 6 = 6`
+>     - `20 - 12 = 8`
+>     - `30 - 20 = 10`
+> 2.  **Identifica el patrón de la diferencia:** La diferencia está aumentando en `+2` cada vez (4, 6, 8, 10...).
+> 3.  **Aplica el siguiente paso:** La siguiente diferencia debe ser `10 + 2 = 12`.
+> 4.  **Calcula el resultado:** `30 + 12 = 42`.
+>
+> **Solución: 42**
 
 ---
 
-### 2. Analogías Verbales
+### 2. Analogías Verbales: Conectando Ideas
 
-Miden tu capacidad para identificar la relación lógica entre dos palabras y encontrar un par que comparta la misma relación.
+Te dan un par de palabras con una relación específica y debes encontrar otro par que comparta la **misma relación lógica**.
 
-**Estrategia Clave:** Define la relación entre el primer par de palabras con una oración simple. Luego, aplica esa misma oración al segundo par.
+#### Estrategias Clave:
+- **Crea una Oración:** Formula una oración simple que conecte el primer par. Luego, aplica esa misma oración a las opciones.
+- **Identifica el Tipo de Relación:** ¿Es una relación de *causa-efecto* (sol -> calor), *parte-todo* (dedo -> mano), *sinónimos* (feliz -> alegre), *antónimos* (frío -> caliente), *objeto-función* (lápiz -> escribir)?
 
-**Mini Problema 1: Relación de Causa-Efecto**
-> **Pregunta:** Lágrima es a Tristeza como **Risa** es a ________.
-> **Análisis:** La **tristeza** (causa) produce **lágrimas** (efecto).
-> **Aplicación:** La **alegría** (causa) produce **risa** (efecto).
-> **Solución:** Alegría.
+**Estrategia:** La técnica de la oración es la más poderosa. Para "Médico es a Hospital", la oración es "Un médico trabaja en un hospital". Ahora pruébala: "¿Un maestro trabaja en un libro? No. ¿Un maestro trabaja en una escuela? Sí".
 
-**Mini Problema 2: Relación de Objeto-Función**
-> **Pregunta:** Volante es a Coche como **Timón** es a ________.
-> **Análisis:** El **volante** sirve para dirigir el **coche**.
-> **Aplicación:** El **timón** sirve para dirigir el **barco**.
-> **Solución:** Barco.
-
-**Mini Problema 3: Relación de Parte-Todo**
-> **Pregunta:** Dedo es a Mano como **Pétalo** es a ________.
-> **Análisis:** Un **dedo** es una parte de la **mano**.
-> **Aplicación:** Un **pétalo** es una parte de la **flor**.
-> **Solución:** Flor.
+#### Mini Problema Resuelto
+> **Analogía:** `Hambre es a Comida como ___`
+>
+> 1.  **Crea la oración:** "El hambre se satisface con comida".
+> 2.  **Aplica la oración a las opciones:**
+>     - ¿La `sed` se satisface con `agua`? Sí, esta encaja perfectamente.
+>     - ¿La `garganta` se satisface con `vaso`? No, es ilógico.
+>
+> **Solución: Sed es a Agua**
 
 ---
 
-### 3. Razonamiento Abstracto (Figuras)
+### 3. Razonamiento Abstracto: La Lógica de las Figuras
 
-Esta es la sección más temida por muchos. Se te presenta una secuencia de figuras y debes elegir la que continúa la serie. Mide tu razonamiento no verbal.
+Estas preguntas usan secuencias de figuras y formas. Debes encontrar la figura que continúa la serie o la que no pertenece al grupo.
 
-**Estrategia Clave:** Descompón el problema. Analiza CADA elemento de la figura por separado. Observa los cambios en:
-- **Rotación:** ¿Las figuras giran en sentido horario o antihorario? ¿Cuántos grados (45°, 90°, 180°)?
-- **Traslación:** ¿La figura o sus partes se mueven de una posición a otra (de una esquina a otra, del centro al borde)?
-- **Adición/Sustracción:** ¿Aparecen o desaparecen elementos (puntos, líneas, figuras) en cada paso?
-- **Cambio de Tamaño o Forma:** ¿Las figuras se hacen más grandes o pequeñas? ¿Cambian de forma (de círculo a cuadrado)?
+#### Estrategias Clave para Secuencias:
+- **Rotación:** ¿La figura o uno de sus componentes está girando en sentido horario o antihorario? ¿Cuántos grados?
+- **Adición/Sustracción:** ¿Se añaden o quitan elementos (puntos, líneas, formas) en cada paso?
+- **Movimiento:** ¿Un elemento se está moviendo a una posición diferente dentro de la figura?
+- **Cambio de Tamaño o Forma:** ¿La figura crece, se encoge o se transforma en otra?
 
-**Mini Problema 1: Rotación**
-> **Secuencia:** Una flecha apuntando hacia arriba (↑), luego a la derecha (→), luego hacia abajo (↓).
-> **Análisis:** La flecha está rotando 90 grados en sentido horario en cada paso.
-> **Solución:** La siguiente figura será una flecha apuntando a la **izquierda (←)**.
+**Estrategia:** Enfócate en **un solo cambio a la vez**. No intentes analizar la rotación, el movimiento y el cambio de color todo junto. Elige un elemento (ej: el punto negro) y sigue solo ese elemento a través de la secuencia.
 
-**Mini Problema 2: Adición de Elementos**
-> **Secuencia:**
-> 1. Un cuadrado vacío.
-> 2. Un cuadrado con un punto en la esquina superior izquierda.
-> 3. Un cuadrado con puntos en la esquina superior izquierda y superior derecha.
-> **Análisis:** En cada paso, se añade un punto en la siguiente esquina en sentido horario.
-> **Solución:** La siguiente figura será un cuadrado con puntos en la esquina superior izquierda, superior derecha e **inferior derecha**.
+#### Mini Problema Resuelto
+> **Problema:** Imagina una secuencia. 1) Un cuadrado con un círculo en la esquina superior izquierda. 2) El mismo cuadrado, pero el círculo está en la esquina superior derecha. 3) El mismo cuadrado, con el círculo en la esquina inferior derecha. ¿Cuál es la siguiente figura?
+>
+> 1.  **Analiza el movimiento:** El círculo se está moviendo.
+> 2.  **Identifica el patrón de movimiento:** Se mueve en el sentido de las agujas del reloj por las esquinas del cuadrado.
+> 3.  **Predice el siguiente paso:** Después de la esquina inferior derecha, el siguiente movimiento lógico es a la esquina inferior izquierda.
+>
+> **Solución: Un cuadrado con el círculo en la esquina inferior izquierda.**
 
-**Consejo Final:** La clave del examen psicométrico no es ser un genio, sino ser **sistemático y rápido**. Practica estos tres tipos de problemas una y otra vez. Acostumbra a tu cerebro a buscar patrones. Cuando te enfrentes al examen real, tu mente ya sabrá qué hacer. ¡El entrenamiento lo es todo!
+**Consejo Final:** En el examen real, el tiempo es tu enemigo. No te estanques en un problema. Si no puedes identificar el patrón en 15-20 segundos, márcalo, adivina si es necesario, y sigue adelante. Es mejor asegurar 5 respuestas fáciles que perder 3 minutos en una sola pregunta difícil. ¡Practica, practica y practica para aumentar tu velocidad!

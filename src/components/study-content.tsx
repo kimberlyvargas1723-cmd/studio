@@ -60,7 +60,7 @@ export const StudyContent = React.forwardRef<HTMLDivElement, StudyContentProps>(
                 Guardar Resumen
               </Button>
             )}
-            {resourceContent && !summary && !selectedResource?.title.includes('Guía') && (
+            {resourceContent && !summary && (
               <Button variant="outline" size="sm" onClick={onSummarize} disabled={isSummarizing || isExtracting}>
                 {(isSummarizing || isExtracting) && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                 Resumir con IA
