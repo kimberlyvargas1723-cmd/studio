@@ -1,54 +1,64 @@
-# Comprensión Lectora: El Arte de Entender lo que Lees
+# Guía Definitiva de Comprensión Lectora para el EXANI-II
 
-La sección de Comprensión Lectora del EXANI-II no mide tu velocidad, sino tu capacidad para analizar, interpretar y evaluar textos. Es una de las habilidades más importantes, no solo para el examen, sino para toda tu carrera universitaria.
+La sección de Comprensión Lectora no solo mide si entiendes las palabras, sino si puedes analizar, interpretar y evaluar un texto de manera crítica. ¡Vamos a dominarla!
 
-### 1. Los Tres Niveles de Lectura
+### Habilidades Clave que Debes Demostrar
 
-Todo se resume en estos tres niveles. Identifica qué te pide la pregunta:
+1.  **Identificar la Idea Principal y las Secundarias:** ¿De qué trata realmente el texto? ¿Qué puntos apoyan esa idea central?
+2.  **Inferir Información:** ¿Qué te está diciendo el autor "entre líneas"? Es la habilidad de deducir lo que no está explícitamente escrito.
+3.  **Interpretar el Tono y la Intención:** ¿El autor está siendo objetivo, irónico, crítico, persuasivo? ¿Cuál es su propósito al escribir el texto?
+4.  **Reconocer la Estructura del Texto:** ¿Es una narración, una argumentación, una descripción? ¿Cómo está organizado? (Causa-efecto, problema-solución, etc.).
+5.  **Comprender Vocabulario en Contexto:** Entender qué significa una palabra específica dentro de la frase en la que se encuentra.
 
-- **Nivel Literal:** Entender lo que el texto dice **explícitamente**.
-  - **Preguntas típicas:** "Según el autor...", "El texto afirma que...", "¿En qué año ocurrió...?".
-  - **Estrategia:** La respuesta está directamente en el texto. Tu trabajo es localizarla. No necesitas interpretar ni suponer nada. Es como un juego de "buscar y encontrar".
+---
 
-- **Nivel Inferencial:** Deducir lo que el texto **implica o sugiere**, pero no dice directamente.
-  - **Preguntas típicas:** "Del texto se puede inferir que...", "Se deduce que el autor piensa...", "Una posible consecuencia sería...".
-  - **Estrategia:** Conecta las pistas que te da el texto. Pregúntate: "Si el autor dice A y B, ¿qué puedo concluir lógicamente?". La respuesta no estará palabra por palabra, pero estará respaldada por la evidencia del texto. Es el nivel de "leer entre líneas".
+### Estrategia de Lectura Activa en 3 Pasos
 
-- **Nivel Crítico o Analógico:** Evaluar el texto, formarte una opinión o compararlo con otras situaciones.
-  - **Preguntas típicas:** "¿Cuál es el propósito del autor?", "¿Qué tono utiliza el autor?", "La opinión del autor sobre el tema es...".
-  - **Estrategia:** Da un paso atrás y mira el texto como un todo. Pregúntate: "¿Por qué el autor escribió esto? ¿Para informar, persuadir o entretener?", "¿Cómo lo escribió? ¿Con un lenguaje objetivo, sarcástico, emotivo?".
+No te limites a leer pasivamente. Ataca el texto con esta estrategia:
 
-### 2. Elementos Clave de un Texto
+1.  **Primera Lectura (Rápida):** Lee el texto una vez para captar el tema general. No te detengas en los detalles. Pregúntate: "¿De qué va esto?".
+2.  **Segunda Lectura (Analítica):** Vuelve a leer, pero esta vez subraya o anota:
+    *   La oración que crees que contiene la **idea principal** (la tesis).
+    *   Palabras clave o ideas que se repiten.
+    *   Conectores que indiquen relaciones (ej: "sin embargo", "por lo tanto", "además").
+    *   Frases que revelen la opinión o el **tono** del autor.
+3.  **Abordar las Preguntas:** Con el texto ya "procesado", lee cada pregunta cuidadosamente. Vuelve a las partes específicas del texto que anotaste para confirmar tu respuesta. **Nunca respondas de memoria.**
 
-Para dominar los tres niveles, necesitas identificar estas piezas del rompecabezas en cualquier lectura:
+---
 
-- **Idea Principal o Tesis:** Es la afirmación central del autor, el mensaje más importante que quiere comunicar. A menudo se encuentra en el primer o último párrafo, pero no siempre.
-  - **Cómo encontrarla:** Pregúntate: "¿De qué trata fundamentalmente este texto? ¿Qué es lo que el autor intenta demostrar?".
+### Ejemplo Práctico
 
-- **Ideas Secundarias:** Son los argumentos, ejemplos, datos y explicaciones que apoyan y desarrollan la idea principal.
-  - **Cómo encontrarlas:** Son las frases que responden al "por qué" o "cómo" de la idea principal.
+**Texto de Ejemplo:**
 
-- **Propósito del Autor:** La razón por la que el autor escribió el texto.
-  - **Informar:** Presenta hechos y datos de manera objetiva (noticia, texto científico).
-  - **Persuadir:** Intenta convencer al lector de una opinión (editorial, columna de opinión, ensayo).
-  - **Entretener:** Busca provocar una respuesta emocional o contar una historia (cuento, novela).
+*El minimalismo, más que una simple tendencia estética de espacios vacíos y colores neutros, se ha consolidado como una filosofía de vida que responde al consumismo exacerbado de la sociedad moderna. Sus defensores argumentan que al poseer menos objetos, las personas pueden liberarse de las ataduras materiales y enfocar su tiempo y energía en experiencias significativas, como viajar, aprender o fortalecer relaciones interpersonales. Sin embargo, no todos ven este movimiento con buenos ojos. Algunos críticos señalan que el minimalismo puede convertirse en una nueva forma de consumismo elitista, donde el valor no reside en la cantidad, sino en la exclusividad y el alto costo de unos pocos objetos de "diseñador". Además, advierten sobre el riesgo de que esta filosofía, llevada al extremo, pueda generar ansiedad por el desapego o una falsa sensación de superioridad moral.*
 
-- **Tono del Autor:** La actitud del autor hacia el tema que está tratando.
-  - **Ejemplos:** Objetivo, crítico, irónico, optimista, pesimista, formal, informal.
+**Preguntas Tipo Examen:**
 
-### 3. Estrategias Prácticas para el Examen
+**1. ¿Cuál es la idea principal del texto?**
+    a) El minimalismo es una moda pasajera de decoración.
+    b) El minimalismo es una filosofía compleja con beneficios y críticas.
+    c) El minimalismo es la única solución al consumismo.
+    d) El minimalismo es una práctica elitista y costosa.
 
-- **Primero las Preguntas, Luego el Texto:** Antes de leer el pasaje completo, lee rápidamente las preguntas. Esto te dará un propósito y sabrás qué información clave buscar. Es como tener un mapa antes de entrar en un laberinto.
+    **Respuesta Correcta: b)**
+    **Análisis:** La opción 'a' es muy superficial. La 'c' es una afirmación extrema que el texto no hace. La 'd' es solo una de las críticas, no la idea central. La 'b' captura la dualidad que presenta el autor: los argumentos a favor (liberación) y en contra (elitismo, ansiedad).
 
-- **Subraya y Anota:** No seas un lector pasivo. Subraya las ideas que te parezcan principales, encierra en un círculo las palabras clave (nombres, fechas, conectores) y haz pequeñas notas al margen. Esto te mantiene enfocado y facilita la localización de respuestas.
+**2. Según el texto, ¿qué se puede inferir sobre los críticos del minimalismo?**
+    a) Creen que acumular objetos es positivo.
+    b) Piensan que el minimalismo puede tener consecuencias negativas no intencionadas.
+    c) Son personas que no entienden de diseño de interiores.
+    d) Rechazan por completo la idea de vivir con menos.
 
-- **Cuidado con los Distractores:** Las opciones incorrectas a menudo están diseñadas para engañarte.
-  - **Distractor de "Verdad a Medias":** Una opción que es parcialmente cierta pero no completamente.
-  - **Distractor de "Fuera de Contexto":** Una afirmación que es verdadera en general, pero que no se menciona ni se apoya en el texto.
-  - **Distractor de "Contradicción Directa":** Una opción que afirma lo contrario a lo que dice el texto.
+    **Respuesta Correcta: b)**
+    **Análisis:** El texto no dice que los críticos amen acumular objetos (a) o que no entiendan de diseño (c). Tampoco dice que rechacen *por completo* la idea (d). Lo que sí hacen es "advertir sobre el riesgo" y señalar que puede generar "ansiedad" o ser "elitista", es decir, ven posibles consecuencias negativas. Esto es una inferencia.
 
-- **El Poder de los Conectores:** Presta especial atención a palabras como "sin embargo", "por lo tanto", "además", "en contraste". Estas palabras son señales de tráfico que te indican la relación entre las ideas (oposición, causa-consecuencia, adición).
+**3. El tono del autor al presentar el tema es:**
+    a) Totalmente en contra del minimalismo.
+    b) Entusiasta y promotor del minimalismo.
+    c) Equilibrado y expositivo.
+    d) Sarcástico e indiferente.
 
-Estrategia: Para las preguntas de vocabulario en contexto ("¿Qué significa la palabra 'inefable' en el párrafo 3?"), no te fíes solo de tu conocimiento previo. Vuelve al texto y lee la oración completa. El contexto te dará la pista más segura sobre el significado que el autor quiso darle.
+    **Respuesta Correcta: c)**
+    **Análisis:** El autor presenta ambas caras de la moneda. Menciona a los "defensores" y sus argumentos, y luego introduce a los "críticos" con un "Sin embargo...". No toma un partido claro, sino que expone diferentes puntos de vista para informar al lector.
 
-Consejo Final: La práctica constante es la única forma de mejorar. Lee artículos de opinión, noticias y ensayos cortos. Después de cada lectura, intenta resumir la idea principal, identificar el propósito del autor y hacer una inferencia. Conviértete en un detective de textos.
+Estrategia: Aplica esta misma técnica a todos los textos que practiques. Desglosa el texto, entiende sus partes y luego enfrenta las preguntas con evidencia, no con suposiciones.

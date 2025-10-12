@@ -1,85 +1,101 @@
-# Pensamiento Matemático: Lógica y Estrategia
+# Guía de Pensamiento Matemático para el EXANI-II
 
-La sección de Pensamiento Matemático del EXANI-II no busca matemáticos puros, sino personas que puedan aplicar la lógica matemática para resolver problemas cotidianos y abstractos. La clave no es memorizar fórmulas complejas, sino entender los conceptos y saber cuándo aplicarlos.
+El pensamiento matemático no se trata de memorizar fórmulas, sino de razonar y resolver problemas. Esta guía te dará las herramientas y la práctica que necesitas.
 
-### 1. Aritmética: La Base de Todo
+### Áreas Clave a Dominar
 
-#### a) Jerarquía de Operaciones (PEMDAS/PAPOMUDAS)
-El orden en que resuelves las operaciones es crucial.
-1.  **P**aréntesis (y otros signos de agrupación)
-2.  **E**xponentes y Raíces
-3.  **M**ultiplicación y **D**ivisión (de izquierda a derecha)
-4.  **A**dición (Suma) y **S**ustracción (Resta) (de izquierda a derecha)
+1.  **Sentido Numérico y Porcentajes:** Operaciones básicas, regla de tres, cálculo de porcentajes, descuentos e incrementos.
+2.  **Álgebra Básica:** Lenguaje algebraico, ecuaciones de primer grado, sistemas de ecuaciones simples.
+3.  **Geometría:** Áreas y perímetros de figuras básicas (cuadrados, rectángulos, triángulos, círculos).
+4.  **Resolución de Problemas:** La habilidad más importante. Entender un problema, plantearlo y resolverlo.
 
-**Ejemplo:** `5 + 2 * (6 - 3)²`
-1.  Paréntesis: `6 - 3 = 3` -> `5 + 2 * 3²`
-2.  Exponente: `3² = 9` -> `5 + 2 * 9`
-3.  Multiplicación: `2 * 9 = 18` -> `5 + 18`
-4.  Suma: `5 + 18 = 23`
+---
 
-#### b) Porcentajes (%)
-Un porcentaje es una fracción de 100. "25%" es lo mismo que `25/100` o `0.25`.
+### Estrategias y Problemas Resueltos
 
-**Tres Problemas Clásicos:**
-- **Calcular un porcentaje:** "¿Cuál es el 30% de 200?"
-  - `200 * 0.30 = 60`
-- **Calcular el total (dado un porcentaje):** "Si 50 es el 20% de un número, ¿cuál es el número?"
-  - `50 / 0.20 = 250`
-- **Calcular qué porcentaje es un número de otro:** "¿Qué porcentaje es 15 de 60?"
-  - `(15 / 60) * 100 = 0.25 * 100 = 25%`
+La mejor forma de aprender es viendo cómo se hace. ¡Vamos a ello!
 
-Estrategia: Para aumentos y descuentos, piensa en el resultado final.
-- **Aumento del 15%:** Multiplica por `1.15` (el 100% original + el 15% de aumento).
-- **Descuento del 20%:** Multiplica por `0.80` (el 100% original - el 20% de descuento).
+#### 1. Porcentajes y Regla de Tres
 
-#### c) Regla de Tres
-Se usa para resolver problemas de proporcionalidad.
+**Estrategia:** La regla de tres simple es tu mejor amiga para los porcentajes. Recuerda que el total siempre es el 100%.
 
-- **Directa:** Si una cantidad aumenta, la otra también. (Más paletas, más dinero).
-  - "Si 3 plumas cuestan $12, ¿cuánto costarán 7 plumas?"
-    - `(7 * 12) / 3 = 84 / 3 = $28`
-    - Se multiplica cruzado y se divide por el número restante.
+**Problema Ejemplo:**
+*En una tienda, una camisa de $450 tiene un 25% de descuento. ¿Cuánto pagas por la camisa?*
 
-- **Inversa:** Si una cantidad aumenta, la otra disminuye. (Más pintores, menos tiempo).
-  - "Si 4 pintores tardan 6 días en pintar una casa, ¿cuánto tardarán 8 pintores?"
-    - `(4 * 6) / 8 = 24 / 8 = 3 días`
-    - Se multiplica en línea recta y se divide por el número restante.
+**Solución Paso a Paso:**
 
-### 2. Álgebra: El Lenguaje de las Incógnitas
+1.  **Identifica los datos:**
+    *   Precio original: $450 (esto es tu 100%)
+    *   Descuento: 25%
 
-El álgebra es simplemente usar letras (variables) para representar números desconocidos.
+2.  **Calcula el monto del descuento (usando regla de tres):**
+    *   Si $450 es el 100%
+    *   ¿Cuánto (X) es el 25%?
+    *   X = (450 * 25) / 100
+    *   X = 11250 / 100 = $112.5
 
-#### a) Lenguaje Algebraico
-Traducir frases a ecuaciones es fundamental.
-- "El doble de un número" -> `2x`
-- "Un número aumentado en 5" -> `x + 5`
-- "La suma de tres números consecutivos" -> `x + (x+1) + (x+2)`
-- "La edad de Juan es el triple que la de Pedro" -> `J = 3P`
+3.  **Resta el descuento al precio original:**
+    *   Precio final = $450 - $112.5 = $337.50
 
-#### b) Ecuaciones de Primer Grado
-El objetivo es despejar la `x`. Lo que está sumando pasa restando, lo que está multiplicando pasa dividiendo, etc.
+    **Respuesta:** Pagas **$337.50** por la camisa.
 
-**Ejemplo:** `4x - 7 = 13`
-1.  Suma 7 a ambos lados: `4x = 13 + 7` -> `4x = 20`
-2.  Divide entre 4: `x = 20 / 4` -> `x = 5`
+**Consejo Final:** También puedes calcularlo directamente. Si te descuentan el 25%, significa que pagas el 75% del precio. Entonces: $450 * 0.75 = $337.50. ¡Más rápido!
 
-### 3. Geometría: Las Formas del Mundo
+---
 
-Concéntrate en las figuras más comunes: cuadrados, rectángulos, triángulos y círculos.
+#### 2. Álgebra y Ecuaciones
 
-#### a) Perímetro
-Es la **suma de todos los lados** de una figura. Es la "cerca" que rodea la figura.
+**Estrategia:** Traduce el problema a lenguaje matemático. Usa "x" para representar el valor que no conoces y luego despeja la incógnita.
 
-#### b) Área
-Es el **espacio interior** de una figura.
-- **Rectángulo:** `Área = base * altura`
-- **Cuadrado:** `Área = lado * lado = lado²`
-- **Triángulo:** `Área = (base * altura) / 2` (¡No olvides dividir entre 2!)
-- **Círculo:** `Área = π * radio²`
+**Problema Ejemplo:**
+*El doble de la edad de Juan más 8 años es igual a 42 años. ¿Qué edad tiene Juan?*
 
-Estrategia: Muchas preguntas de geometría en el examen son "figuras compuestas" (ej. un cuadrado con un semicírculo encima). La clave es descomponer la figura en las formas simples que ya conoces. Calcula el área o perímetro de cada parte y luego súmalas o réstalas según lo pida el problema.
+**Solución Paso a Paso:**
 
-### 4. Probabilidad y Estadística: Entendiendo los Datos
-Este es un tema separado pero crucial. Ver el material de "Probabilidad y Estadística".
+1.  **Traduce la frase a una ecuación:**
+    *   "El doble de la edad de Juan" -> `2x`
+    *   "más 8 años" -> `+ 8`
+    *   "es igual a 42" -> `= 42`
+    *   **Ecuación completa: `2x + 8 = 42`**
 
-Consejo Final: Muchos problemas de pensamiento matemático se pueden resolver sin álgebra compleja, usando la lógica. Antes de plantear una ecuación, intenta razonar el problema. A veces, probar las opciones de respuesta (si el problema es de opción múltiple) puede ser más rápido que resolverlo desde cero.
+2.  **Despeja la 'x' (la edad de Juan):**
+    *   Pasa el 8 al otro lado (si está sumando, pasa restando):
+        `2x = 42 - 8`
+        `2x = 34`
+    *   Pasa el 2 al otro lado (si está multiplicando, pasa dividiendo):
+        `x = 34 / 2`
+        `x = 17`
+
+    **Respuesta:** Juan tiene **17 años**.
+
+---
+
+#### 3. Geometría (Áreas)
+
+**Estrategia:** Memoriza las fórmulas de área de las figuras básicas y asegúrate de entender qué es el radio y qué es el diámetro en un círculo.
+
+*   Área del cuadrado: `Lado * Lado`
+*   Área del rectángulo: `Base * Altura`
+*   Área del círculo: `π * radio²`
+
+**Problema Ejemplo:**
+*Se quiere poner pasto en un jardín circular que tiene un diámetro de 20 metros. ¿Cuántos metros cuadrados de pasto se necesitan? (Usa π ≈ 3.14)*
+
+**Solución Paso a Paso:**
+
+1.  **Identifica los datos:**
+    *   Figura: Círculo
+    *   Diámetro: 20 metros
+
+2.  **Encuentra el radio:** ¡Cuidado! La fórmula usa el radio, no el diámetro. El radio es la mitad del diámetro.
+    *   Radio = 20 / 2 = 10 metros
+
+3.  **Aplica la fórmula del área del círculo:**
+    *   Área = π * radio²
+    *   Área = 3.14 * (10)²
+    *   Área = 3.14 * 100
+    *   Área = 314 m²
+
+    **Respuesta:** Se necesitan **314 metros cuadrados** de pasto.
+
+Estrategia: ¡Practica, practica y practica! La velocidad y la confianza en matemáticas vienen de resolver muchos problemas diferentes. Usa estos ejemplos como base y busca más ejercicios.
