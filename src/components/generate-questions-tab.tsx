@@ -1,4 +1,3 @@
-// src/components/generate-questions-tab.tsx
 'use client';
 import { useState } from 'react';
 import {
@@ -11,7 +10,7 @@ import {
 import { Loader2, BookCheck } from 'lucide-react';
 import type { GeneratedQuiz, StudyResource } from '@/lib/types';
 import { Button } from '@/components/ui/button';
-import { generatePracticeQuestions } from '@/ai/flows/practice-question-generation';
+import { generatePracticeQuestionsAction } from '@/app/actions';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { GeneratedQuiz as GeneratedQuizComponent } from '@/components/generated-quiz';
 import { studyResources } from '@/lib/data';
@@ -19,9 +18,7 @@ import { useToast } from '@/hooks/use-toast';
 
 /**
  * A component that allows users to generate a practice quiz based on a selected study topic.
- * It fetches internal study materials and uses an AI flow to create questions.
- * This component manages the state for quiz generation and displays either the topic selection
- * UI or the generated quiz itself.
+ * It now uses a Server Action to create questions, keeping the client-side lean.
  */
 export function GenerateQuestionsTab() {
   const [selectedResource, setSelectedResource] = useState<StudyResource | null>(null);
@@ -33,8 +30,8 @@ export function GenerateQuestionsTab() {
   const { toast } = useToast();
 
   /**
-   * Handles the quiz generation process for a given study resource.
-   * It fetches the content of the resource, calls the AI flow, and sets the generated quiz in the state.
+   * Handles quiz generation by calling a Server Action.
+   * The client is only responsible for managing UI state.
    * @param {StudyResource} resource - The study resource to generate a quiz from.
    */
   const handleGenerate = async (resource: StudyResource) => {
@@ -43,23 +40,20 @@ export function GenerateQuestionsTab() {
     setGeneratedQuiz(null);
     
     try {
-      // Fetch the content of the internal markdown file from the public directory.
-      const resourceContent = await fetch(`/estudio/${resource.source}`).then(res => res.text());
+      const result = await generatePracticeQuestionsAction(resource);
 
-      // Call the AI flow to generate practice questions based on the fetched content.
-      const result = await generatePracticeQuestions({
-        summarizedContent: resourceContent,
-        topic: resource.title,
-      });
+      if (result.error) {
+        throw new Error(result.error);
+      }
 
       setGeneratedQuiz({
         title: `Quiz de: ${resource.title}`,
         topic: resource.title,
-        questions: result.questions,
+        questions: result.questions!,
       });
-    } catch (e) {
+    } catch (e: any) {
       console.error(e);
-      toast({ variant: 'destructive', title: 'Error', description: 'No se pudo generar el quiz. Intenta de nuevo.' });
+      toast({ variant: 'destructive', title: 'Error', description: e.message || 'No se pudo generar el quiz. Intenta de nuevo.' });
     } finally {
       setIsLoading(false);
     }

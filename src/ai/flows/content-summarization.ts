@@ -39,7 +39,7 @@ const summarizeContentPrompt = ai.definePrompt({
   prompt: `You are an expert summarizer for a student preparing for their psychology entrance exam. 
   Summarize the content provided from the following source: {{{url}}}. 
   Focus on the key points, definitions, and concepts relevant for efficient studying. 
-  Return a concise and accurate summary written in Spanish.`,
+  Return a concise and accurate summary written in Spanish. The summary must be 300 words or less and formatted as a bulleted list.`,
 });
 
 const summarizeContentFlow = ai.defineFlow(
