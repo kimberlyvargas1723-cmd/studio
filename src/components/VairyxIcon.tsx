@@ -64,14 +64,18 @@ export const VairyxIcon = (props: React.SVGProps<SVGSVGElement>) => (
       <path d="M35 52 L32 55 L32 35 C32 30 37 22 50 22 C63 22 68 30 68 35 L68 55 L65 52 Z" fill="none" stroke="hsl(var(--background) / 0.1)" strokeWidth="1.5" />
       
       {/* Visor */}
-      <rect x="38" y="40" width="24" height="6" rx="2" fill="hsl(var(--background))" />
-      <rect x="38" y="40" width="24" height="6" rx="2" fill="url(#arc-reactor-glow)" filter="url(#vairyx-glow)" />
+      <g className="animate-robot-eye-move">
+        <rect x="38" y="40" width="24" height="6" rx="2" fill="hsl(var(--background))" />
+        <rect x="38" y="40" width="24" height="6" rx="2" fill="url(#arc-reactor-glow)" filter="url(#vairyx-glow)" />
+      </g>
 
       {/* --- Arc Reactor --- */}
       <circle cx="50" cy="75" r="14" fill="hsl(var(--primary) / 0.8)" stroke="hsl(var(--border) / 0.5)" strokeWidth="0.5" />
       <circle cx="50" cy="75" r="11" fill="hsl(var(--background) / 0.8)" />
-      <circle cx="50" cy="75" r="12" fill="url(#arc-reactor-glow)" filter="url(#vairyx-glow)" />
-      <circle cx="50" cy="75" r="5" fill="hsl(var(--accent))" stroke="hsl(var(--background) / 0.5)" strokeWidth="1.5" />
+      <g className="animate-robot-antenna-blink">
+        <circle cx="50" cy="75" r="12" fill="url(#arc-reactor-glow)" filter="url(#vairyx-glow)" />
+        <circle cx="50" cy="75" r="5" fill="hsl(var(--accent))" stroke="hsl(var(--background) / 0.5)" strokeWidth="1.5" />
+      </g>
       <path d="M50 65 L48 73 L50 74 L52 73Z" fill="hsl(var(--background) / 0.2)" />
     </svg>
     {/* --- Shadow --- */}
