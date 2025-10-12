@@ -5,7 +5,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { Button } from '@/components/ui/button';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
-import { Loader2, BrainCircuit, Sparkles, Wand } from 'lucide-react';
+import { Loader2, BrainCircuit, Sparkles, Wand, RefreshCw } from 'lucide-react';
 import { learningStyleQuiz } from '@/lib/learning-style-quiz';
 import { generateLearningStrategyAction } from '@/app/actions';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
@@ -13,11 +13,11 @@ import ReactMarkdown from 'react-markdown';
 import { getLearningStrategy, saveLearningStrategy } from '@/lib/services';
 import type { LearningStrategy } from '@/lib/types';
 
-
 /**
- * Renders a tab for discovering the user's learning style via a VARK-based quiz.
- * Once completed, it calls an AI flow to generate a personalized learning strategy,
- * which is then saved to localStorage and displayed permanently.
+ * Renders a tab for discovering or updating the user's learning style.
+ * It allows taking a VARK-based quiz. Once completed, it calls an AI flow
+ * to generate a personalized learning strategy, which is then saved and displayed.
+ * Users can retake the quiz at any time to update their strategy.
  */
 export function LearningStyleQuizTab() {
   const [savedStrategy, setSavedStrategy] = useState<LearningStrategy | null>(null);
@@ -25,6 +25,7 @@ export function LearningStyleQuizTab() {
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [isLoading, setIsLoading] = useState(false);
   const [isClient, setIsClient] = useState(false);
+  const [isRetaking, setIsRetaking] = useState(false);
 
   useEffect(() => {
     // Prevents hydration errors by only accessing localStorage on the client.
@@ -65,8 +66,17 @@ export function LearningStyleQuizTab() {
         // Handle error, maybe show a toast
     } finally {
         setIsLoading(false);
+        setIsRetaking(false); // Finish retake mode
+        setCurrentQuestionIndex(0); // Reset for next time
+        setAnswers({});
     }
   };
+  
+  const startRetake = () => {
+    setIsRetaking(true);
+    setCurrentQuestionIndex(0);
+    setAnswers({});
+  }
 
   const currentQuestion = learningStyleQuiz[currentQuestionIndex];
   const isQuizFinished = currentQuestionIndex >= learningStyleQuiz.length;
@@ -75,7 +85,8 @@ export function LearningStyleQuizTab() {
     return <Card className="w-full max-w-4xl border-none shadow-none min-h-[300px] flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin" /></Card>;
   }
 
-  if (savedStrategy) {
+  // Display saved strategy if it exists and we are not in the middle of retaking the quiz
+  if (savedStrategy && !isRetaking) {
     return (
       <Card className="w-full max-w-4xl border-none shadow-none">
         <CardHeader>
@@ -94,6 +105,12 @@ export function LearningStyleQuizTab() {
              </AlertDescription>
           </Alert>
         </CardContent>
+        <CardFooter>
+            <Button variant="outline" onClick={startRetake}>
+                <RefreshCw className="mr-2 h-4 w-4" />
+                Volver a realizar el diagnóstico
+            </Button>
+        </CardFooter>
       </Card>
     );
   }
@@ -110,6 +127,7 @@ export function LearningStyleQuizTab() {
      );
   }
 
+  // Show quiz if no strategy is saved OR if user is retaking
   return (
     <Card className="w-full max-w-4xl border-none shadow-none">
       {!isQuizFinished ? (
