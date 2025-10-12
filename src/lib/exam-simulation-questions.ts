@@ -167,7 +167,7 @@ export const examQuestionPool: GeneratedQuestion[] = [
     options: ['10', '5', '0', '15'],
     correctAnswer: '10',
     explanation: 'Total que toca al menos uno = (Guitarra) + (Piano) - (Ambos) = 35 + 25 - 10 = 50. Los que no tocan ninguno son 60 - 50 = 10.',
-    topic: 'Pensamiento Matemático',
+    topic: 'Probabilidad y Estadística',
   },
   {
     question: 'Dedo es a Mano como Hoja es a ___',

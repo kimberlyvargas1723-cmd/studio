@@ -37,10 +37,10 @@ export const studyResources: StudyResource[] = [
     source: 'personalidad.md',
   },
   {
-    title: 'Psicometría',
+    title: 'Metodología y Estadística',
     category: 'Metodología',
     type: 'internal',
-    source: 'psicometria.md',
+    source: 'metodologia-y-estadistica.md',
   },
   {
     title: 'Guía para el Examen Psicométrico',
@@ -108,7 +108,7 @@ export const initialPerformance: PerformanceData[] = [
   { topic: 'Psicología del Desarrollo', correct: 0, incorrect: 0 },
   { topic: 'Psicología Social', correct: 0, incorrect: 0 },
   { topic: 'Personalidad', correct: 0, incorrect: 0 },
-  { topic: 'Psicometría', correct: 0, incorrect: 0 },
+  { topic: 'Metodología y Estadística', correct: 0, incorrect: 0 },
   { topic: 'Examen Psicométrico', correct: 0, incorrect: 0 },
   { topic: 'Comprensión Lectora', correct: 0, incorrect: 0 },
   { topic: 'Redacción Indirecta', correct: 0, incorrect: 0 },
