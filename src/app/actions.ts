@@ -35,7 +35,7 @@ export async function summarizeContentAction(content: string) {
 export async function generatePracticeQuestionsAction(resource: StudyResource) {
   try {
     // Build the correct path to the markdown file in the public directory
-    const filePath = path.join(process.cwd(), 'public', 'estudio', resource.source);
+    const filePath = path.join(process.cwd(), 'public', resource.source);
     const resourceContent = await fs.readFile(filePath, 'utf-8');
     
     const result = await generatePracticeQuestions({
