@@ -31,6 +31,11 @@ const menuItems = [
   { href: '/schedule', label: 'Mi Horario', icon: CalendarDays },
 ];
 
+/**
+ * Renders the main sidebar navigation for the application.
+ * It displays a list of navigation links with icons and highlights the active link
+ * based on the current URL pathname.
+ */
 export function MainSidebar() {
   const pathname = usePathname();
 

@@ -17,6 +17,10 @@ type StudyDay = {
   category: string;
 };
 
+/**
+ * Renders the schedule page, allowing the user to select an exam date
+ * and automatically generating a personalized study plan based on available resources.
+ */
 export default function SchedulePage() {
   const [examDate, setExamDate] = useState<Date | undefined>(undefined);
   const [studyPlan, setStudyPlan] = useState<StudyDay[]>([]);
@@ -25,10 +29,16 @@ export default function SchedulePage() {
   today.setHours(0, 0, 0, 0);
 
   useEffect(() => {
-    // This ensures the component only renders on the client, preventing hydration mismatch.
+    // This ensures the component only renders on the client, preventing a hydration mismatch
+    // for components that rely on client-side state like the current date.
     setIsClient(true);
   }, []);
 
+  /**
+   * Generates a study plan by distributing available study resources
+   * across the days leading up to the selected exam date.
+   * @param {Date} date - The selected exam date.
+   */
   const generateStudyPlan = (date: Date) => {
     const daysUntilExam = differenceInDays(date, today);
 
@@ -38,7 +48,7 @@ export default function SchedulePage() {
     }
 
     const plan: StudyDay[] = [];
-    // Distribute resources over the available days
+    // Distribute resources over the available days, looping if necessary.
     for (let i = 0; i < daysUntilExam; i++) {
       const resource = studyResources[i % studyResources.length];
       const taskDate = addDays(today, i);
@@ -48,7 +58,7 @@ export default function SchedulePage() {
         category: resource.category,
       });
     }
-     // Add a final review day
+     // Add a final review day on the exam date itself.
     if (daysUntilExam > 0) {
       plan.push({
         date: date,
@@ -57,10 +67,13 @@ export default function SchedulePage() {
       });
     }
 
-
     setStudyPlan(plan);
   };
 
+  /**
+   * Handles the selection of a new exam date from the calendar.
+   * @param {Date | undefined} date - The newly selected date.
+   */
   const handleDateSelect = (date: Date | undefined) => {
     if (date) {
       date.setHours(0,0,0,0)

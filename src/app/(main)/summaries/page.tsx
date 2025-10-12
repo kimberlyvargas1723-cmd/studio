@@ -26,17 +26,19 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { getSavedSummaries, deleteSummary as deleteSummaryFromStorage } from '@/lib/services';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 /**
  * Renders the page that displays all summaries saved by the user.
- * It allows viewing and deleting saved summaries.
+ * It allows viewing and deleting saved summaries from local storage.
  */
 export default function SummariesPage() {
   const [summaries, setSummaries] = useState<SavedSummary[]>([]);
   const [selectedSummary, setSelectedSummary] = useState<SavedSummary | null>(null);
 
   useEffect(() => {
-    // Load summaries from storage when the component mounts.
+    // Load summaries from storage when the component mounts and select the first one.
     const savedSummaries = getSavedSummaries();
     setSummaries(savedSummaries);
     if (savedSummaries.length > 0) {
@@ -45,14 +47,15 @@ export default function SummariesPage() {
   }, []);
 
   /**
-   * Handles the deletion of a summary.
-   * @param summaryId The ID of the summary to delete.
+   * Handles the deletion of a summary from local storage.
+   * It updates the state to reflect the change and selects a new summary if needed.
+   * @param {string} summaryId - The ID of the summary to delete.
    */
   const handleDelete = (summaryId: string) => {
     const updatedSummaries = deleteSummaryFromStorage(summaryId);
     setSummaries(updatedSummaries);
     
-    // If the deleted summary was the selected one, select the first available summary or null.
+    // If the deleted summary was the selected one, select the next available summary or null.
     if (selectedSummary?.id === summaryId) {
       setSelectedSummary(updatedSummaries.length > 0 ? updatedSummaries[0] : null);
     }
@@ -62,11 +65,12 @@ export default function SummariesPage() {
     <div className="flex min-h-screen w-full flex-col">
       <Header title="Mis Resúmenes" />
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8 lg:flex-row lg:items-start">
+        {/* Sidebar for listing saved summaries */}
         <Card className="w-full lg:w-1/3 lg:sticky lg:top-24">
           <CardHeader>
             <CardTitle className="font-headline">Resúmenes Guardados</CardTitle>
             <CardDescription>
-              Aquí están todos los resúmenes que has generado.
+              Aquí están todos los resúmenes que has generado con la IA.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -93,13 +97,15 @@ export default function SummariesPage() {
                    <div className="flex h-48 flex-col items-center justify-center gap-3 text-center text-muted-foreground">
                     <BookX className="h-12 w-12" />
                     <p className="font-semibold">No hay resúmenes</p>
-                    <p className="text-sm">Ve a "Estudiar" para crear tu primero.</p>
+                    <p className="text-sm">Ve a "Temas de Estudio" para crear tu primero.</p>
                   </div>
                 )}
               </div>
             </ScrollArea>
           </CardContent>
         </Card>
+
+        {/* Main content area for displaying the selected summary */}
         <Card className="w-full lg:w-2/3">
           {selectedSummary ? (
             <>
@@ -108,12 +114,12 @@ export default function SummariesPage() {
                     <div>
                         <CardTitle className="font-headline">{selectedSummary.title}</CardTitle>
                         <CardDescription>
-                            Original: <a href={selectedSummary.originalUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">{selectedSummary.originalUrl}</a>
+                            Resumen generado el {new Date(selectedSummary.createdAt).toLocaleDateString()}.
                         </CardDescription>
                     </div>
                      <AlertDialog>
                       <AlertDialogTrigger asChild>
-                        <Button variant="destructive" size="icon">
+                        <Button variant="destructive" size="icon" aria-label="Eliminar resumen">
                             <Trash2 className="h-4 w-4" />
                         </Button>
                       </AlertDialogTrigger>
@@ -137,9 +143,11 @@ export default function SummariesPage() {
             </CardHeader>
             <CardContent className="min-h-[60vh] lg:min-h-[calc(100vh-16rem)]">
                 <ScrollArea className="h-full">
-                <div className="prose prose-sm dark:prose-invert max-w-none whitespace-pre-wrap leading-relaxed">
-                    {selectedSummary.content}
-                </div>
+                  <article className="prose prose-sm dark:prose-invert max-w-none whitespace-pre-wrap leading-relaxed">
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                        {selectedSummary.content}
+                    </ReactMarkdown>
+                  </article>
                 </ScrollArea>
             </CardContent>
             </>
@@ -148,7 +156,7 @@ export default function SummariesPage() {
                  <div className="flex h-full flex-col items-center justify-center gap-3 text-center text-muted-foreground">
                     <BookX className="h-12 w-12" />
                     <p className="text-lg font-semibold">No hay ningún resumen seleccionado.</p>
-                    <p>Selecciona un resumen de la lista o crea uno nuevo en la sección de "Estudiar".</p>
+                    <p>Selecciona un resumen de la lista o crea uno nuevo en la sección de "Temas de Estudio".</p>
                 </div>
             </CardContent>
           )}

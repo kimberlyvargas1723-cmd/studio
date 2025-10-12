@@ -1,5 +1,4 @@
-// This file is machine-generated - edit at your own risk!
-
+// src/ai/flows/personalized-feedback-adaptation.ts
 'use server';
 
 /**
@@ -42,6 +41,11 @@ const PerformanceAnalysisOutputSchema = z.object({
 
 export type PerformanceAnalysisOutput = z.infer<typeof PerformanceAnalysisOutputSchema>;
 
+/**
+ * Analyzes student performance on a single question and provides adaptive feedback.
+ * @param {PerformanceAnalysisInput} input - The performance data to analyze.
+ * @returns {Promise<PerformanceAnalysisOutput>} A promise that resolves to personalized feedback and an adapted topic.
+ */
 export async function analyzePerformanceAndAdapt(input: PerformanceAnalysisInput): Promise<PerformanceAnalysisOutput> {
   return analyzePerformanceAndAdaptFlow(input);
 }

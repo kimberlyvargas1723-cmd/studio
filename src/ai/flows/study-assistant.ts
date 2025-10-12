@@ -28,6 +28,11 @@ const StudyAssistantOutputSchema = z.object({
 });
 export type StudyAssistantOutput = z.infer<typeof StudyAssistantOutputSchema>;
 
+/**
+ * Provides AI-powered study assistance, including answering questions and recommending resources.
+ * @param {StudyAssistantInput} input - The user's query and conversation history.
+ * @returns {Promise<StudyAssistantOutput>} A promise that resolves to the AI's response and an optional YouTube search query.
+ */
 export async function studyAssistant(input: StudyAssistantInput): Promise<StudyAssistantOutput> {
   return studyAssistantFlow(input);
 }

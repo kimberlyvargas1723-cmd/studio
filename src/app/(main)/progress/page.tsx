@@ -13,14 +13,15 @@ import { getFeedbackHistory, getPerformanceData } from '@/lib/services';
 
 /**
  * Renders the progress page, which displays the user's performance on quizzes
- * and the feedback history provided by the AI.
+ * through a bar chart and shows a history of feedback provided by the AI.
  */
 export default function ProgressPage() {
     const [performance, setPerformance] = useState<PerformanceData[]>(initialPerformance);
     const [feedbackHistory, setFeedbackHistory] = useState<Feedback[]>([]);
 
     useEffect(() => {
-        // Load performance data and feedback history from localStorage on component mount.
+        // On component mount, load performance data and feedback history from localStorage
+        // to ensure the user's progress is always up-to-date.
         setFeedbackHistory(getFeedbackHistory());
         setPerformance(getPerformanceData());
     }, []);

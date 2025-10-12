@@ -18,8 +18,8 @@ type Message = {
 };
 
 /**
- * Renders the AI Assistant page, providing a chat interface for students
- * to get study guidance and resource recommendations.
+ * Renders the AI Assistant page, providing a full-screen chat interface
+ * for students to get study guidance and resource recommendations from PsicoGuía.
  */
 export default function AssistantPage() {
   const [messages, setMessages] = useState<Message[]>([
@@ -31,6 +31,11 @@ export default function AssistantPage() {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  /**
+   * Handles sending a message from the user to the AI assistant.
+   * It updates the message history and calls the AI flow.
+   * @param {React.FormEvent} e - The form event.
+   */
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;

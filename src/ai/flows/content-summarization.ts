@@ -22,6 +22,12 @@ const ContentSummarizationOutputSchema = z.object({
 });
 export type ContentSummarizationOutput = z.infer<typeof ContentSummarizationOutputSchema>;
 
+/**
+ * Summarizes the provided content using an AI model.
+ * This flow takes a URL or a data URI and returns a concise summary.
+ * @param {ContentSummarizationInput} input - The content to be summarized.
+ * @returns {Promise<ContentSummarizationOutput>} A promise that resolves to the summary of the content.
+ */
 export async function summarizeContent(input: ContentSummarizationInput): Promise<ContentSummarizationOutput> {
   return summarizeContentFlow(input);
 }

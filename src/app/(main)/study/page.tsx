@@ -17,8 +17,9 @@ import { useToast } from '@/hooks/use-toast';
 import { saveSummary as saveSummaryToStorage } from '@/lib/services';
 
 /**
- * Renders the study page, allowing users to select study resources,
- * view their content, and generate AI-powered summaries.
+ * Renders the study page, which allows users to select study resources from a list.
+ * It can display internal markdown content, open external links,
+ * and trigger an AI-powered summarization for internal content.
  */
 export default function StudyPage() {
   const [selectedResource, setSelectedResource] = useState<StudyResource | null>(null);
@@ -30,41 +31,45 @@ export default function StudyPage() {
   const { toast } = useToast();
 
   /**
-   * Fetches and displays the content of a selected study resource.
-   * If the resource is external, it opens the link in a new tab.
-   * @param resource The study resource to handle.
+   * Handles the selection of a study resource.
+   * For internal resources, it fetches and displays the markdown content.
+   * For external URLs, it opens the link in a new tab.
+   * @param {StudyResource} resource - The study resource to handle.
    */
   const handleResourceSelect = async (resource: StudyResource) => {
     setSelectedResource(resource);
     setSummary(null);
     setError(null);
     setResourceContent(null);
-    setIsLoading(true);
 
     if (resource.type === 'internal') {
+      setIsLoading(true);
       try {
-        // Fetch the content of the internal markdown file.
+        // Fetch the content of the internal markdown file from the public directory.
         const response = await fetch(`/estudio/${resource.source}`);
-        if (!response.ok) throw new Error('Network response was not ok');
+        if (!response.ok) {
+            throw new Error(`Network response was not ok, status: ${response.status}`);
+        }
         const content = await response.text();
         setResourceContent(content);
       } catch (e) {
         console.error('Failed to fetch internal resource:', e);
-        setError('No se pudo cargar el contenido del recurso.');
+        setError('No se pudo cargar el contenido del recurso. Asegúrate de que el archivo existe en la carpeta `public/estudio`.');
         setResourceContent(null);
       } finally {
         setIsLoading(false);
       }
     } else {
-        // For external URLs, open in a new tab instead of summarizing.
+        // For external URLs, open in a new tab and display an informational message.
         window.open(resource.source, '_blank');
+        setResourceContent(`Se está abriendo el recurso externo en una nueva pestaña. La IA no puede resumir PDFs o enlaces externos directamente, pero puedes copiar y pegar el texto si deseas un resumen.`);
         setIsLoading(false);
-        setResourceContent(`Se está abriendo el recurso externo en una nueva pestaña. La IA no puede resumir PDFs o enlaces externos directamente, pero puedes copiar y pegar el texto si deseas un resumen.`)
     }
   };
 
   /**
-   * Generates a summary for the currently displayed internal content.
+   * Triggers the AI summarization process for the currently displayed internal content.
+   * The content is passed as a data URI to the AI flow.
    */
   const handleSummarizeContent = async () => {
     if (!resourceContent || selectedResource?.type !== 'internal') return;
@@ -74,7 +79,8 @@ export default function StudyPage() {
     setSummary(null);
     
     try {
-      // Use a data URI to pass the local content to the summarization flow.
+      // Use a data URI to pass the local markdown content to the summarization flow,
+      // avoiding the need for another network request.
       const result = await summarizeContent({ url: `data:text/markdown;charset=utf-8,${encodeURIComponent(resourceContent)}` });
       setSummary(result.summary);
     } catch (e) {
@@ -87,7 +93,8 @@ export default function StudyPage() {
   
 
   /**
-   * Saves the current summary to the browser's local storage.
+   * Saves the currently generated summary to the browser's local storage
+   * and shows a confirmation toast.
    */
   const handleSaveSummary = () => {
     if (!summary || !selectedResource) return;
@@ -110,6 +117,7 @@ export default function StudyPage() {
     <div className="flex min-h-screen w-full flex-col">
       <Header title="Temas de Estudio" />
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8 lg:flex-row lg:items-start">
+        {/* Sidebar with list of study resources */}
         <Card className="w-full lg:w-1/3 lg:sticky lg:top-24">
           <CardHeader>
             <CardTitle className="font-headline">Recursos de Estudio</CardTitle>
@@ -139,6 +147,8 @@ export default function StudyPage() {
             </ScrollArea>
           </CardContent>
         </Card>
+
+        {/* Main content area for displaying resources and summaries */}
         <Card className="w-full lg:w-2/3">
           <CardHeader>
             <div className="flex items-center justify-between">
@@ -190,9 +200,9 @@ export default function StudyPage() {
                 </ScrollArea>
               ) : resourceContent ? (
                    <ScrollArea className="h-[calc(100vh-20rem)]">
-                        <div className="prose prose-sm dark:prose-invert max-w-none">
+                        <article className="prose prose-sm dark:prose-invert max-w-none">
                             <ReactMarkdown remarkPlugins={[remarkGfm]}>{resourceContent}</ReactMarkdown>
-                        </div>
+                        </article>
                   </ScrollArea>
               ) : (
                  <div className="flex h-full flex-col items-center justify-center gap-3 text-center text-muted-foreground">

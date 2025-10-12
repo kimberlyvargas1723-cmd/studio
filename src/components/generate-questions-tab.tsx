@@ -20,6 +20,8 @@ import { useToast } from '@/hooks/use-toast';
 /**
  * A component that allows users to generate a practice quiz based on a selected study topic.
  * It fetches internal study materials and uses an AI flow to create questions.
+ * This component manages the state for quiz generation and displays either the topic selection
+ * UI or the generated quiz itself.
  */
 export function GenerateQuestionsTab() {
   const [selectedResource, setSelectedResource] = useState<StudyResource | null>(null);
@@ -32,7 +34,8 @@ export function GenerateQuestionsTab() {
 
   /**
    * Handles the quiz generation process for a given study resource.
-   * @param resource The study resource to generate a quiz from.
+   * It fetches the content of the resource, calls the AI flow, and sets the generated quiz in the state.
+   * @param {StudyResource} resource - The study resource to generate a quiz from.
    */
   const handleGenerate = async (resource: StudyResource) => {
     setIsLoading(true);
@@ -40,10 +43,10 @@ export function GenerateQuestionsTab() {
     setGeneratedQuiz(null);
     
     try {
-      // Fetch the content of the internal markdown file from the correct path.
+      // Fetch the content of the internal markdown file from the public directory.
       const resourceContent = await fetch(`/estudio/${resource.source}`).then(res => res.text());
 
-      // Call the AI flow to generate practice questions.
+      // Call the AI flow to generate practice questions based on the fetched content.
       const result = await generatePracticeQuestions({
         summarizedContent: resourceContent,
         topic: resource.title,
@@ -51,7 +54,7 @@ export function GenerateQuestionsTab() {
 
       setGeneratedQuiz({
         title: `Quiz de: ${resource.title}`,
-        topic: resource.title, // Add topic here
+        topic: resource.title,
         questions: result.questions,
       });
     } catch (e) {
@@ -62,7 +65,7 @@ export function GenerateQuestionsTab() {
     }
   };
 
-  // If a quiz has been generated, display it.
+  // If a quiz has been generated, render the quiz component.
   if (generatedQuiz) {
     return (
       <GeneratedQuizComponent
@@ -75,7 +78,7 @@ export function GenerateQuestionsTab() {
     );
   }
 
-  // Otherwise, show the quiz generation UI.
+  // Otherwise, show the UI for selecting a topic and generating a quiz.
   return (
     <Card className="w-full max-w-4xl">
       <CardHeader>

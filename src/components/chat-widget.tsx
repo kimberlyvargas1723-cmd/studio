@@ -21,7 +21,10 @@ type Message = {
   youtubeQuery?: string;
 };
 
-// A custom SVG component for the animated robot character.
+/**
+ * A custom SVG component for the animated robot character "PsicoGuía".
+ * This component includes CSS-driven animations for floating, blinking, and a pulsing antenna light.
+ */
 const RobotIcon = () => (
     <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -75,8 +78,8 @@ const encouragingMessages = [
 
 /**
  * Renders a floating chat widget that provides AI assistance.
- * It's accessible from a button in the bottom-right corner of the screen.
- * The widget also displays encouraging messages periodically.
+ * It's accessible from an animated robot button in the bottom-right corner of the screen.
+ * The widget also displays encouraging messages periodically when closed.
  */
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -91,7 +94,10 @@ export function ChatWidget() {
   const [isLoading, setIsLoading] = useState(false);
   const [activeMessage, setActiveMessage] = useState<string | null>(null);
 
-  // Effect to cycle through encouraging messages when the chat is closed
+  /**
+   * Effect to cycle through encouraging messages when the chat is closed.
+   * This creates the feeling that the assistant is proactively motivating the user.
+   */
   useEffect(() => {
     if (isOpen) {
       setActiveMessage(null);
@@ -103,7 +109,7 @@ export function ChatWidget() {
       setActiveMessage(encouragingMessages[randomIndex]);
       
       // The message will be visible for the duration of the CSS animation (5s)
-      // Then we clear it to allow a new message to be shown after the interval
+      // Then it's cleared to allow a new message to be shown after the next interval.
       setTimeout(() => {
         setActiveMessage(null);
       }, 5000);
@@ -113,6 +119,11 @@ export function ChatWidget() {
     return () => clearInterval(intervalId);
   }, [isOpen]);
 
+  /**
+   * Handles sending a message from the user to the AI assistant.
+   * It updates the message history, calls the AI flow, and handles the response.
+   * @param {React.FormEvent} e - The form event.
+   */
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;

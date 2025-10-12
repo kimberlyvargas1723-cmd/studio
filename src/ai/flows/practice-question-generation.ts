@@ -37,6 +37,11 @@ export type PracticeQuestionGenerationOutput = z.infer<
   typeof PracticeQuestionGenerationOutputSchema
 >;
 
+/**
+ * Generates a set of multiple-choice practice questions based on provided content.
+ * @param {PracticeQuestionGenerationInput} input - The content and topic for question generation.
+ * @returns {Promise<PracticeQuestionGenerationOutput>} A promise that resolves to an array of generated questions.
+ */
 export async function generatePracticeQuestions(
   input: PracticeQuestionGenerationInput
 ): Promise<PracticeQuestionGenerationOutput> {

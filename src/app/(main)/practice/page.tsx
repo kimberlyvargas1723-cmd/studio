@@ -1,9 +1,12 @@
 // src/app/(main)/practice/page.tsx
 'use client';
 import { Header } from '@/components/header';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { GenerateQuestionsTab } from '@/components/generate-questions-tab';
 
+/**
+ * Renders the practice page, which allows users to generate and take quizzes.
+ * This page serves as a container for the quiz generation and interaction components.
+ */
 export default function PracticePage() {
   return (
     <div className="flex min-h-screen w-full flex-col">
