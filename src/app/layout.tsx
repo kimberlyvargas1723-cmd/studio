@@ -4,7 +4,6 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 import { Inter, Lexend } from 'next/font/google';
-import { ChatWidget } from '@/components/chat-widget';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const lexend = Lexend({ subsets: ['latin'], variable: '--font-lexend' });
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
 
 /**
  * RootLayout is the main layout of the application. It applies global styles,
- * fonts, and essential components like the Toaster and the ChatWidget.
+ * fonts, and essential components like the Toaster.
  * This ensures a consistent look and feel across all pages.
  */
 export default function RootLayout({
@@ -29,7 +28,6 @@ export default function RootLayout({
       <body className={cn('font-body antialiased', inter.variable, lexend.variable)}>
         {children}
         <Toaster />
-        <ChatWidget />
       </body>
     </html>
   );
