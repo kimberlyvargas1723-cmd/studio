@@ -21,15 +21,45 @@ type Message = {
   youtubeQuery?: string;
 };
 
-// A custom icon for the chat widget trigger button.
-const ChatIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-      <path d="m15.5 7.5 2.3 2.3" strokeWidth="1.5"></path>
-      <path d="M18 10h.01"></path><path d="m7.5 15.5 2.3-2.3" strokeWidth="1.5"></path>
-      <path d="M7 13h.01"></path>
-    </svg>
-  );
+// A custom SVG component for the animated robot character.
+const RobotIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 100 120"
+    className="h-24 w-24 robot-float"
+    aria-label="PsicoGuía, tu asistente de IA"
+  >
+    <defs>
+      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+        <feMerge>
+          <feMergeNode in="coloredBlur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+    </defs>
+    {/* Antenna */}
+    <line x1="50" y1="15" x2="50" y2="5" stroke="hsl(var(--primary) / 0.5)" strokeWidth="2" />
+    <circle cx="50" cy="5" r="3" fill="hsl(var(--primary))" className="robot-antenna-light" />
+    
+    {/* Head */}
+    <rect x="30" y="15" width="40" height="30" rx="8" fill="hsl(var(--card))" stroke="hsl(var(--border))" strokeWidth="2" />
+    
+    {/* Eyes */}
+    <g className="robot-eye">
+        <circle cx="43" cy="30" r="4" fill="hsl(var(--primary))" />
+        <circle cx="57" cy="30" r="4" fill="hsl(var(--primary))" />
+    </g>
+
+    {/* Body */}
+    <rect x="20" y="45" width="60" height="40" rx="10" fill="hsl(var(--card))" stroke="hsl(var(--border))" strokeWidth="2" />
+    
+    {/* Screen on body with a sparkle */}
+    <rect x="35" y="55" width="30" height="20" rx="3" fill="hsl(var(--background))" />
+    <path d="M 48 60 L 50 55 L 52 60 L 55 62 L 52 64 L 50 69 L 48 64 L 45 62 Z" fill="hsl(var(--primary))" filter="url(#glow)" />
+  </svg>
+);
+
 
 /**
  * Renders a floating chat widget that provides AI assistance.
@@ -85,18 +115,25 @@ export function ChatWidget() {
   return (
     <Popover open={isOpen} onOpenChange={setIsOpen}>
       <PopoverTrigger asChild>
-        <Button
-          variant="default"
-          className="fixed bottom-6 right-6 h-16 w-16 rounded-full shadow-lg"
+        <button
+          className="fixed bottom-0 right-4 z-50 transition-transform duration-300 hover:scale-110"
           aria-label="Abrir chat de PsicoGuía"
         >
-          {isOpen ? <X className="h-6 w-6" /> : <ChatIcon />}
-        </Button>
+          {isOpen ? (
+            <div className="h-28 w-28 flex items-center justify-center">
+              <Button variant="default" className="h-14 w-14 rounded-full shadow-lg">
+                <X className="h-6 w-6" />
+              </Button>
+            </div>
+          ) : (
+            <RobotIcon />
+          )}
+        </button>
       </PopoverTrigger>
       <PopoverContent
         side="top"
         align="end"
-        className="w-[380px] rounded-xl shadow-2xl p-0 border-none"
+        className="w-[380px] rounded-xl shadow-2xl p-0 border-none mr-4 mb-2"
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
         <div className="flex h-[600px] w-full flex-col bg-card">
