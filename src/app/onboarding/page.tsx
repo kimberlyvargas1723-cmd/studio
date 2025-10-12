@@ -10,7 +10,7 @@ import { VairyxIcon } from '@/components/VairyxIcon';
 /**
  * Manages the multi-step onboarding process for new users.
  * It features a dynamic, conversational welcome from the AI assistant, Vairyx,
- * before proceeding to a diagnostic psychometric simulation.
+ * before proceeding to a diagnostic quiz to determine the user's learning style.
  */
 export default function OnboardingPage() {
   const [step, setStep] = useState(1);
@@ -33,12 +33,12 @@ export default function OnboardingPage() {
         </div>
 
         <div className="mt-10 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-            <h2 className="font-headline text-2xl font-semibold">Primer Paso: Simulación Psicométrica</h2>
+            <h2 className="font-headline text-2xl font-semibold">Primer Paso: Descubre tu Superpoder para Aprender</h2>
             <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
-                El examen psicométrico es tu primer filtro. Comenzaremos con una breve simulación para entender tu nivel actual en razonamiento lógico, series y analogías. ¡Esto es clave para empezar con el pie derecho!
+                Para crear el plan de estudio perfecto para ti, primero necesito entender cómo aprendes mejor. Este breve diagnóstico nos ayudará a descubrir tu estilo de aprendizaje único. ¡Es el secreto para estudiar de forma más inteligente, no más dura!
             </p>
             <Button size="lg" className="mt-6" onClick={() => setStep(2)}>
-                Comenzar Simulación
+                Descubrir mi Estilo de Aprendizaje
                 <BrainCircuit className="ml-2 h-5 w-5" />
             </Button>
         </div>
