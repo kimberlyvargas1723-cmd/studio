@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Header } from '@/components/header';
 import { PracticeQuiz } from '@/components/practice-quiz';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -27,7 +27,7 @@ function GenerateQuestionsTab() {
   );
   const [isLoading, setIsLoading] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const savedSummaries = JSON.parse(
       localStorage.getItem('savedSummaries') || '[]'
     );
