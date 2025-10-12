@@ -58,14 +58,14 @@ export default function DashboardPage() {
                 data-ai-hint={heroImage.imageHint}
               />
             )}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
           </div>
           <div className="relative z-10 p-6 md:p-8 text-white">
             <h2 className="font-headline text-3xl md:text-5xl font-bold">
-              Prepárate para Psicología UANL 2025
+              ¡Bienvenida, futura psicóloga Kimberly!
             </h2>
             <p className="mt-2 max-w-xl text-lg text-white/90">
-              Tu asistente inteligente para conquistar el examen de admisión de Psicología. Empieza a estudiar de forma más inteligente.
+              He preparado esta guía de estudio inteligente solo para ti, para que conquistes tu examen de admisión a Psicología UANL 2025. ¡Vamos a empezar este increíble viaje juntos!
             </p>
             <Button asChild className="mt-4 bg-primary text-primary-foreground hover:bg-primary/90">
               <Link href="/study">
