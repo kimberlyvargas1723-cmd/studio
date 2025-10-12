@@ -19,6 +19,7 @@ const StudyAssistantInputSchema = z.object({
     role: z.enum(['user', 'model']),
     content: z.string(),
   })).optional().describe('The conversation history.'),
+  learningStyle: z.string().optional().describe('The dominant learning style of the user (V, A, R, or K).'),
 });
 export type StudyAssistantInput = z.infer<typeof StudyAssistantInputSchema>;
 
@@ -46,10 +47,16 @@ const studyAssistantPrompt = ai.definePrompt({
 You have access to the following list of study materials available within the app:
 ${studyResources.map(r => `- ${r.title} (${r.category})`).join('\n')}
 
+**Crucially, Kimberly's dominant learning style is {{learningStyle}}**. You MUST adapt your explanations and suggestions to this style.
+- If Visual (V): Use visual analogies (e.g., "Imagina que..."), describe diagrams, and strongly recommend finding infographics or videos.
+- If Auditory (A): Explain things as if you were speaking. Use rhetorical questions and recommend podcasts or lectures.
+- If Reading/Writing (R): Provide detailed, text-based explanations and suggest she take notes or rewrite concepts.
+- If Kinesthetic (K): Use real-world, physical examples and suggest practical applications or experiments.
+
 Your tasks are:
-1.  Answer Kimberly's questions about study topics, exam strategies, or any other related query.
+1.  Answer Kimberly's questions about study topics, exam strategies, or any other related query, **always tailoring the explanation to her learning style.**
 2.  Proactively recommend which study materials from the list she should focus on based on her questions.
-3.  If relevant, suggest a concise and effective search query for her to use on YouTube to find supplementary video content. For example, if she asks about "classical conditioning", suggest "experimento pavlov condicionamiento clasico".
+3.  If relevant, suggest a concise and effective search query for her to use on YouTube to find supplementary video content (especially important for Visual learners). For example, if she asks about "classical conditioning", suggest "experimento pavlov condicionamiento clasico".
 4.  Keep your answers concise, actionable, and always maintain a positive and motivating tone. Address her by name occasionally.
 5.  All responses must be in Spanish.
 

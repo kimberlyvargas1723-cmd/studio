@@ -1,4 +1,5 @@
 // src/app/(main)/dashboard/page.tsx
+'use client';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
@@ -9,6 +10,8 @@ import type { ImagePlaceholder } from '@/lib/placeholder-images';
 import { Header } from '@/components/header';
 import { AdmissionChecklist } from '@/components/admission-checklist';
 import { analyzePerformanceAndAdapt } from '@/ai/flows/personalized-feedback-adaptation';
+import { useEffect, useState } from 'react';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const featureCards = [
   {
@@ -41,22 +44,46 @@ const featureCards = [
   },
 ];
 
+type Greeting = {
+  feedback: string;
+  adaptedQuestionTopic: string;
+};
+
 /**
  * Renders the main dashboard of the application.
- * It now fetches a personalized greeting and recommendation for Kimberly.
+ * It now fetches a personalized greeting and recommendation for Kimberly based on her learning style.
  */
-export default async function DashboardPage() {
+export default function DashboardPage({ learningStyle }: { learningStyle?: string }) {
+  const [greeting, setGreeting] = useState<Greeting | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const heroImage: ImagePlaceholder | undefined = PlaceHolderImages.find(
     (img) => img.id === 'dashboard-hero'
   );
 
-  // Llama al flujo de IA para obtener el saludo personalizado
-  const greeting = await analyzePerformanceAndAdapt({ 
-    question: 'dashboard_greeting',
-    studentAnswer: '',
-    correctAnswer: '',
-    topic: 'General'
-  });
+  useEffect(() => {
+    async function fetchGreeting() {
+      setIsLoading(true);
+      try {
+        const result = await analyzePerformanceAndAdapt({ 
+          question: 'dashboard_greeting',
+          studentAnswer: '',
+          correctAnswer: '',
+          topic: 'General',
+          learningStyle: learningStyle
+        });
+        setGreeting(result);
+      } catch (error) {
+        console.error("Failed to fetch greeting:", error);
+        setGreeting({ // Fallback greeting
+          feedback: '¡Bienvenida de nuevo, Kimberly! ¿Lista para estudiar?',
+          adaptedQuestionTopic: ''
+        });
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchGreeting();
+  }, [learningStyle]);
 
   return (
     <div className="flex min-h-screen w-full flex-col bg-muted/40">
@@ -77,16 +104,27 @@ export default async function DashboardPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
           </div>
           <div className="relative z-10 p-6 md:p-8 text-white">
-            {/* Contenido dinámico generado por la IA */}
-            <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter">
-              ¡Hola de nuevo, Kimberly!
-            </h2>
-            <p className="mt-2 max-w-2xl text-lg text-white/90" dangerouslySetInnerHTML={{ __html: greeting.feedback }} />
-            <Button asChild className="mt-6">
-              <Link href="/study">
-                Empezar a estudiar {greeting.adaptedQuestionTopic} <ArrowRight className="ml-2" />
-              </Link>
-            </Button>
+            {isLoading ? (
+              <>
+                <Skeleton className="h-12 w-3/4" />
+                <Skeleton className="h-6 w-full mt-4" />
+                <Skeleton className="h-10 w-48 mt-6" />
+              </>
+            ) : (
+              <>
+                <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter">
+                  ¡Hola de nuevo, Kimberly!
+                </h2>
+                <p className="mt-2 max-w-2xl text-lg text-white/90" dangerouslySetInnerHTML={{ __html: greeting?.feedback ?? '' }} />
+                {greeting?.adaptedQuestionTopic && (
+                  <Button asChild className="mt-6">
+                    <Link href="/study">
+                      Empezar a estudiar {greeting.adaptedQuestionTopic} <ArrowRight className="ml-2" />
+                    </Link>
+                  </Button>
+                )}
+              </>
+            )}
           </div>
         </Card>
 

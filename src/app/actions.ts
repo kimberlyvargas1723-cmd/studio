@@ -1,7 +1,7 @@
 // src/app/actions.ts
 'use server';
 
-import { summarizeContent } from '@/ai/flows/content-summarization';
+import { summarizeContent, type ContentSummarizationInput } from '@/ai/flows/content-summarization';
 import { generatePracticeQuestions } from '@/ai/flows/practice-question-generation';
 import { extractTextFromImage } from '@/ai/flows/image-text-extraction';
 import { generateStudyPlan } from '@/ai/flows/generate-study-plan';
@@ -14,14 +14,12 @@ import path from 'path';
 
 /**
  * Server Action to trigger AI content summarization.
- * @param {string} content - The markdown content to summarize.
+ * @param {ContentSummarizationInput} input - The content to summarize and optional learning style.
  * @returns {Promise<{summary: string} | {error: string}>} - The summary or an error.
  */
-export async function summarizeContentAction(content: string) {
+export async function summarizeContentAction(input: ContentSummarizationInput) {
   try {
-    const result = await summarizeContent({ 
-      url: `data:text/markdown;charset=utf-8,${encodeURIComponent(content)}` 
-    });
+    const result = await summarizeContent(input);
     return { summary: result.summary };
   } catch (e) {
     console.error('Error in summarizeContentAction:', e);

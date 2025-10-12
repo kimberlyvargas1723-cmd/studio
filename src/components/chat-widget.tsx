@@ -24,15 +24,16 @@ type Message = {
 
 type ChatWidgetProps = {
     feedback?: 'correct' | 'incorrect' | null;
+    learningStyle?: string;
 };
 
 /**
  * Renders an animated, interactive chat widget featuring the AI assistant, Vairyx.
  * This component acts as a floating action button that opens a popover containing
  * a full-featured chat interface, making Vairyx accessible from anywhere in the app.
- * It now accepts a 'feedback' prop to trigger visual feedback on the icon.
+ * It now accepts a 'feedback' prop to trigger visual feedback and a 'learningStyle' prop.
  */
-export function ChatWidget({ feedback }: ChatWidgetProps) {
+export function ChatWidget({ feedback, learningStyle }: ChatWidgetProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -77,7 +78,7 @@ export function ChatWidget({ feedback }: ChatWidgetProps) {
 
     try {
       const history = messages.map(msg => ({ role: msg.role, content: msg.content }));
-      const result = await studyAssistant({ query: input, history });
+      const result = await studyAssistant({ query: input, history, learningStyle });
       
       const modelMessage: Message = {
         role: 'model',

@@ -13,8 +13,9 @@ import { BrainCircuit, BookCheck, ClipboardCheck } from 'lucide-react';
  * or run a full exam simulation.
  * @param {object} props - The component props.
  * @param {(result: 'correct' | 'incorrect') => void} props.onQuizFeedback - Callback to notify the layout of quiz results.
+ * @param {string} [props.learningStyle] - The user's learning style code (V, A, R, K).
  */
-export default function PracticePage({ onQuizFeedback }: { onQuizFeedback?: (result: 'correct' | 'incorrect') => void }) {
+export default function PracticePage({ onQuizFeedback, learningStyle }: { onQuizFeedback?: (result: 'correct' | 'incorrect') => void; learningStyle?: string; }) {
   return (
     <div className="flex min-h-screen w-full flex-col">
       <Header title="Centro de Práctica" />
@@ -35,13 +36,13 @@ export default function PracticePage({ onQuizFeedback }: { onQuizFeedback?: (res
             </TabsTrigger>
           </TabsList>
           <TabsContent value="topic-quiz">
-            <GenerateQuestionsTab onQuizFeedback={onQuizFeedback} />
+            <GenerateQuestionsTab onQuizFeedback={onQuizFeedback} learningStyle={learningStyle} />
           </TabsContent>
           <TabsContent value="learning-style">
             <LearningStyleQuizTab />
           </TabsContent>
            <TabsContent value="exam-simulation">
-            <ExamSimulationTab onQuizFeedback={onQuizFeedback} />
+            <ExamSimulationTab onQuizFeedback={onQuizFeedback} learningStyle={learningStyle} />
           </TabsContent>
         </Tabs>
       </main>

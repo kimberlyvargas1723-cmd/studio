@@ -14,6 +14,7 @@ import {z} from 'genkit';
 
 const ContentSummarizationInputSchema = z.object({
   url: z.string().describe('The URL or data URI of the content to summarize.'),
+  learningStyle: z.string().optional().describe('The dominant learning style of the user (V, A, R, or K).'),
 });
 export type ContentSummarizationInput = z.infer<typeof ContentSummarizationInputSchema>;
 
@@ -36,10 +37,20 @@ const summarizeContentPrompt = ai.definePrompt({
   name: 'summarizeContentPrompt',
   input: {schema: ContentSummarizationInputSchema},
   output: {schema: ContentSummarizationOutputSchema},
-  prompt: `You are an expert summarizer for a student preparing for their psychology entrance exam. 
-  Summarize the content provided from the following source: {{{url}}}. 
-  Focus on the key points, definitions, and concepts relevant for efficient studying. 
-  Return a concise and accurate summary written in Spanish. The summary must be 300 words or less and formatted as a bulleted list.`,
+  prompt: `You are an expert summarizer for a student preparing for their psychology entrance exam.
+  The student's dominant learning style is {{learningStyle}}.
+
+  Summarize the content provided from the following source: {{{url}}}.
+  Focus on the key points, definitions, and concepts relevant for efficient studying.
+
+  Adapt the format of the summary to the student's learning style:
+  - If Visual (V): Use bullet points, bold keywords, and suggest where diagrams or flowcharts could clarify a concept (e.g., "[Sugerencia Visual: un mapa mental conectando A con B]").
+  - If Auditory (A): Structure the summary like a short podcast script. Use clear, conversational language and questions to prompt reflection (e.g., "¿Recuerdas la diferencia entre...?").
+  - If Reading/Writing (R): Create a dense, well-structured summary with clear headings, subheadings, and detailed definitions.
+  - If Kinesthetic (K): Focus on real-world examples, applications, and suggest simple actions or experiments (e.g., "[Ejemplo Práctico: Intenta asociar este concepto con un movimiento]").
+  - If no style is provided, use a standard bulleted list.
+
+  Return a concise and accurate summary written in Spanish. The summary must be 300 words or less.`,
 });
 
 const summarizeContentFlow = ai.defineFlow(

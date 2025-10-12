@@ -19,6 +19,7 @@ type GeneratedQuizProps = {
     onBack: () => void;
     isDiagnostic?: boolean;
     onQuizFeedback?: (result: 'correct' | 'incorrect') => void;
+    learningStyle?: string;
 };
 
 /**
@@ -27,7 +28,7 @@ type GeneratedQuizProps = {
  *
  * @param {GeneratedQuizProps} props - The quiz data, a back callback, and flags for diagnostic or psychometric mode.
  */
-export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false, onQuizFeedback }: GeneratedQuizProps) {
+export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false, onQuizFeedback, learningStyle }: GeneratedQuizProps) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
@@ -92,6 +93,7 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false, onQuizFeedba
             studentAnswer: selectedAnswer,
             correctAnswer: currentQuestion.correctAnswer,
             topic: currentQuestion.topic,
+            learningStyle: learningStyle
           });
           const newFeedback: Feedback = {...result, timestamp: new Date().toISOString(), topic: currentQuestion.topic};
           setFeedback(newFeedback);

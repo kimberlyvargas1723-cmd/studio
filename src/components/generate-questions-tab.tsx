@@ -18,6 +18,7 @@ import { useToast } from '@/hooks/use-toast';
 
 type GenerateQuestionsTabProps = {
   onQuizFeedback?: (result: 'correct' | 'incorrect') => void;
+  learningStyle?: string;
 };
 
 /**
@@ -25,7 +26,7 @@ type GenerateQuestionsTabProps = {
  * It uses a Server Action to create questions, keeping the client-side lean.
  * It displays study resources as cards to initiate quiz generation.
  */
-export function GenerateQuestionsTab({ onQuizFeedback }: GenerateQuestionsTabProps) {
+export function GenerateQuestionsTab({ onQuizFeedback, learningStyle }: GenerateQuestionsTabProps) {
   const [selectedResource, setSelectedResource] = useState<StudyResource | null>(null);
   const [generatedQuiz, setGeneratedQuiz] = useState<GeneratedQuiz | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -74,6 +75,7 @@ export function GenerateQuestionsTab({ onQuizFeedback }: GenerateQuestionsTabPro
           setSelectedResource(null);
         }}
         onQuizFeedback={onQuizFeedback}
+        learningStyle={learningStyle}
       />
     );
   }

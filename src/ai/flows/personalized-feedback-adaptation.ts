@@ -17,6 +17,7 @@ const PerformanceAnalysisInputSchema = z.object({
   studentAnswer: z.string().describe('The answer provided by the student.'),
   correctAnswer: z.string().describe('The correct answer to the question.'),
   topic: z.string().describe('The topic of the question.'),
+  learningStyle: z.string().optional().describe('The dominant learning style of the user (V, A, R, or K).'),
 });
 export type PerformanceAnalysisInput = z.infer<typeof PerformanceAnalysisInputSchema>;
 
@@ -36,11 +37,19 @@ export type PerformanceAnalysisOutput = z.infer<typeof PerformanceAnalysisOutput
 export async function analyzePerformanceAndAdapt(input: PerformanceAnalysisInput): Promise<PerformanceAnalysisOutput> {
   // For the dashboard greeting, we'll return a static, encouraging message.
   if (input.question === 'dashboard_greeting') {
-    return {
-      feedback: `He visto que ya has estado estudiando. ¡Excelente! Para seguir avanzando en tu preparación, te sugiero que hoy nos centremos en el concepto de **Memoria a Largo Plazo**, que complementa lo que ya viste.`,
-      areasForImprovement: 'Continuar con el plan de estudio.',
-      adaptedQuestionTopic: 'Memoria a Largo Plazo'
-    };
+      const greetingPrompt = `You are Vairyx, an encouraging AI tutor. Create a short, personalized greeting for Kimberly. Her learning style is {{learningStyle}}. 
+      Acknowledge her style with a small tip. For example, if she is Visual, say something like "¡Qué bueno verte, Kimberly! He visto que ya has estado estudiando. Para seguir avanzando, y ya que sé que eres una aprendiz **visual**, te sugiero que hoy nos centremos en el concepto de **Memoria a Largo Plazo**, que complementa lo que ya viste. Podríamos hacer un mapa mental."
+      Adapt the suggestion based on the style (A: 'podríamos repasarlo en voz alta', R: 'podríamos escribir los puntos clave', K: 'podríamos usar un ejemplo práctico'). Be concise and encouraging.`;
+      
+      const { text } = await ai.generate({
+        prompt: greetingPrompt.replace('{{learningStyle}}', input.learningStyle || 'general'),
+      });
+
+      return {
+          feedback: text,
+          areasForImprovement: 'Continuar con el plan de estudio.',
+          adaptedQuestionTopic: 'Memoria a Largo Plazo'
+      };
   }
   return analyzePerformanceFlow(input);
 }
@@ -50,7 +59,7 @@ const prompt = ai.definePrompt({
   name: 'performanceAnalysisPrompt',
   input: {schema: PerformanceAnalysisInputSchema},
   output: {schema: PerformanceAnalysisOutputSchema},
-  prompt: `You are an expert AI tutor for a psychology student named Kimberly. Your task is to analyze her answer to a practice question and provide adaptive feedback.
+  prompt: `You are an expert AI tutor for a psychology student named Kimberly. Her learning style is {{learningStyle}}. Your task is to analyze her answer to a practice question and provide adaptive feedback.
 
   Topic: {{topic}}
   Question: "{{question}}"
@@ -58,7 +67,7 @@ const prompt = ai.definePrompt({
   Kimberly's Answer: "{{studentAnswer}}"
 
   Analyze her answer and generate the following in Spanish:
-  1.  **feedback**: Provide concise, encouraging, and specific feedback. If she was wrong, explain the core misunderstanding. If she was right, reinforce the concept.
+  1.  **feedback**: Provide concise, encouraging, and specific feedback. If she was wrong, explain the core misunderstanding. If she was right, reinforce the concept. **Adapt your explanation to her learning style.** For example, for a Visual learner, say "Imagina que..."; for a Kinesthetic learner, use a real-world analogy.
   2.  **areasForImprovement**: Identify the single, most important underlying concept or skill she needs to work on. (e.g., "Diferenciar entre refuerzo positivo y negativo", "Identificar la función del hipocampo").
   3.  **adaptedQuestionTopic**: Suggest a closely related topic for the next question to either reinforce her knowledge or address her weak point.
   `,

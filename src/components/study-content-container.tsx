@@ -13,13 +13,17 @@ import { saveSummary } from '@/lib/services';
 import { summarizeContentAction, extractTextFromImageAction } from '@/app/actions';
 import { StudyContentDisplay } from '@/components/study-content-display';
 
+type StudyContentContainerProps = {
+  learningStyle?: string;
+};
+
 /**
  * A container component that manages the state and logic for the study page.
  * It handles resource selection, content fetching, summarization, and image text extraction,
  * passing the necessary data and handlers to the `StudyContentDisplay` component.
- * It also loads the Psychometric Guide by default.
+ * It now also receives the learning style to pass to the summarization action.
  */
-export function StudyContentContainer() {
+export function StudyContentContainer({ learningStyle }: StudyContentContainerProps) {
   const [selectedResource, setSelectedResource] = useState<StudyResource | null>(null);
   const [resourceContent, setResourceContent] = useState<string | null>(null);
   const [summary, setSummary] = useState<string | null>(null);
@@ -85,7 +89,7 @@ export function StudyContentContainer() {
 
   /**
    * Triggers the AI summarization process for the currently displayed content
-   * by calling a server action.
+   * by calling a server action. It now passes the learning style.
    */
   const handleSummarizeContent = async () => {
     if (!resourceContent) return;
@@ -95,7 +99,9 @@ export function StudyContentContainer() {
     setSummary(null);
     
     try {
-      const result = await summarizeContentAction(resourceContent);
+      const contentToSummarize = `data:text/markdown;charset=utf-8,${encodeURIComponent(resourceContent)}`;
+      const result = await summarizeContentAction({ url: contentToSummarize, learningStyle });
+      
       if (result.error) throw new Error(result.error);
       setSummary(result.summary!);
     } catch (e: any) {
