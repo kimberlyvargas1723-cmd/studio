@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Header } from '@/components/header';
 import { PracticeQuiz } from '@/components/practice-quiz';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -10,41 +10,39 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Lightbulb, Loader2, BookCheck } from 'lucide-react';
-import type { SavedSummary, GeneratedQuiz } from '@/lib/types';
+import { Loader2, BookCheck } from 'lucide-react';
+import type { GeneratedQuiz, StudyResource } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { generatePracticeQuestions } from '@/ai/flows/practice-question-generation';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { GeneratedQuiz as GeneratedQuizComponent } from '@/components/generated-quiz';
+import { studyResources } from '@/lib/data'; // Import studyResources
 
 function GenerateQuestionsTab() {
-  const [summaries, setSummaries] = useState<SavedSummary[]>([]);
-  const [selectedSummary, setSelectedSummary] = useState<SavedSummary | null>(
-    null
-  );
-  const [generatedQuiz, setGeneratedQuiz] = useState<GeneratedQuiz | null>(
-    null
-  );
+  const [selectedResource, setSelectedResource] = useState<StudyResource | null>(null);
+  const [generatedQuiz, setGeneratedQuiz] = useState<GeneratedQuiz | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [internalResources] = useState<StudyResource[]>(() =>
+    studyResources.filter(r => r.type === 'internal')
+  );
 
-  useEffect(() => {
-    const savedSummaries = JSON.parse(
-      localStorage.getItem('savedSummaries') || '[]'
-    );
-    setSummaries(savedSummaries);
-  }, []);
+  const handleGenerate = async (resource: StudyResource) => {
+    // We need the content of the internal resource.
+    // In a real app, we'd fetch it. For this environment, we'll simulate it.
+    const resourceContent = await fetch(`/content/${resource.source}`)
+        .then(res => res.text())
+        .catch(() => `Contenido de ${resource.title}.`);
 
-  const handleGenerate = async (summary: SavedSummary) => {
-    setSelectedSummary(summary);
+    setSelectedResource(resource);
     setGeneratedQuiz(null);
     setIsLoading(true);
     try {
       const result = await generatePracticeQuestions({
-        summarizedContent: summary.content,
-        topic: summary.title,
+        summarizedContent: resourceContent,
+        topic: resource.title,
       });
       setGeneratedQuiz({
-        title: `Quiz de: ${summary.title}`,
+        title: `Quiz de: ${resource.title}`,
         questions: result.questions,
       });
     } catch (e) {
@@ -61,7 +59,7 @@ function GenerateQuestionsTab() {
         quiz={generatedQuiz}
         onBack={() => {
           setGeneratedQuiz(null);
-          setSelectedSummary(null);
+          setSelectedResource(null);
         }}
       />
     );
@@ -71,35 +69,34 @@ function GenerateQuestionsTab() {
     <Card className="mt-4">
       <CardHeader>
         <CardTitle className="font-headline">
-          Generador de Preguntas desde Resúmenes
+          Generador de Quiz por Tema
         </CardTitle>
         <CardDescription>
-          Selecciona uno de tus resúmenes guardados para crear un quiz
-          personalizado con IA.
+          Selecciona un tema de estudio para crear un quiz personalizado con IA.
         </CardDescription>
       </CardHeader>
       <CardContent className="min-h-[300px]">
         {isLoading ? (
           <div className="flex h-full flex-col items-center justify-center gap-3 text-muted-foreground">
             <Loader2 className="h-8 w-8 animate-spin text-primary" />
-            <p>Generando preguntas...</p>
+            <p>Generando preguntas sobre {selectedResource?.title}...</p>
             <p className="text-sm">
               Esto puede tardar unos momentos. La IA está creando un quiz para
               ti.
             </p>
           </div>
-        ) : summaries.length > 0 ? (
+        ) : internalResources.length > 0 ? (
           <ScrollArea className="h-[400px]">
             <div className="space-y-2">
-              {summaries.map(summary => (
-                <Card key={summary.id} className="p-4 flex justify-between items-center">
+              {internalResources.map(resource => (
+                <Card key={resource.source} className="p-4 flex justify-between items-center">
                   <div>
-                    <h3 className="font-semibold">{summary.title}</h3>
+                    <h3 className="font-semibold">{resource.title}</h3>
                     <p className="text-sm text-muted-foreground">
-                      Creado: {new Date(summary.createdAt).toLocaleDateString()}
+                      {resource.category}
                     </p>
                   </div>
-                  <Button onClick={() => handleGenerate(summary)}>
+                  <Button onClick={() => handleGenerate(resource)}>
                     Generar Quiz
                   </Button>
                 </Card>
@@ -109,10 +106,9 @@ function GenerateQuestionsTab() {
         ) : (
           <div className="flex flex-col items-center justify-center text-center text-muted-foreground min-h-[300px]">
             <BookCheck className="h-12 w-12 mb-4 text-accent" />
-            <p className="text-lg font-semibold">No tienes resúmenes guardados</p>
+            <p className="text-lg font-semibold">No hay temas de estudio disponibles</p>
             <p>
-              Ve a la sección de "Estudiar", genera un resumen y guárdalo para
-              empezar.
+              Pronto se agregarán más materiales de estudio internos.
             </p>
           </div>
         )}

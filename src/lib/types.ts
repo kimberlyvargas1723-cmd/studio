@@ -40,3 +40,11 @@ export type GeneratedQuiz = {
   title: string;
   questions: GeneratedQuestion[];
 };
+
+export type Feedback = {
+  feedback: string;
+  areasForImprovement: string;
+  adaptedQuestionTopic: string;
+  timestamp: string;
+  topic?: string;
+};

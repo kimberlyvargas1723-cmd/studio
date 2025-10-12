@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { practiceQuestions } from '@/lib/data';
-import type { PracticeQuestion } from '@/lib/types';
+import type { PracticeQuestion, PerformanceData, Feedback } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -11,11 +11,6 @@ import { analyzePerformanceAndAdapt } from '@/ai/flows/personalized-feedback-ada
 import { Loader2, CheckCircle, XCircle, Lightbulb } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 
-type Feedback = {
-  feedback: string;
-  areasForImprovement: string;
-  adaptedQuestionTopic: string;
-};
 
 export function PracticeQuiz() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -29,6 +24,27 @@ export function PracticeQuiz() {
   const currentQuestion: PracticeQuestion = practiceQuestions[currentQuestionIndex];
   const isQuizFinished = currentQuestionIndex >= practiceQuestions.length;
 
+  const updatePerformanceData = (topic: string, wasCorrect: boolean) => {
+    const perfData: PerformanceData[] = JSON.parse(localStorage.getItem('performanceData') || '[]');
+    let topicPerf = perfData.find(p => p.topic === topic);
+    if (!topicPerf) {
+        topicPerf = { topic, correct: 0, incorrect: 0 };
+        perfData.push(topicPerf);
+    }
+    if(wasCorrect) {
+        topicPerf.correct += 1;
+    } else {
+        topicPerf.incorrect += 1;
+    }
+    localStorage.setItem('performanceData', JSON.stringify(perfData));
+  }
+
+  const saveFeedback = (feedbackData: Feedback) => {
+    const history: Feedback[] = JSON.parse(localStorage.getItem('feedbackHistory') || '[]');
+    history.unshift(feedbackData); // Add to the beginning
+    localStorage.setItem('feedbackHistory', JSON.stringify(history.slice(0, 20))); // Keep last 20
+  }
+
   const handleAnswerSubmit = async () => {
     if (!selectedAnswer) return;
 
@@ -39,6 +55,7 @@ export function PracticeQuiz() {
     if (correct) {
       setScore(score + 1);
     }
+    updatePerformanceData(currentQuestion.topic, correct);
     
     try {
       const result = await analyzePerformanceAndAdapt({
@@ -47,14 +64,19 @@ export function PracticeQuiz() {
         correctAnswer: currentQuestion.correctAnswer,
         topic: currentQuestion.topic,
       });
-      setFeedback(result);
+      const newFeedback: Feedback = {...result, timestamp: new Date().toISOString()};
+      setFeedback(newFeedback);
+      saveFeedback(newFeedback);
     } catch (error) {
       console.error("Error getting feedback:", error);
-      setFeedback({
+      const errorFeedback: Feedback = {
         feedback: "No se pudo obtener la retroalimentación. Por favor, intenta de nuevo.",
         areasForImprovement: "N/A",
-        adaptedQuestionTopic: currentQuestion.topic
-      });
+        adaptedQuestionTopic: currentQuestion.topic,
+        timestamp: new Date().toISOString(),
+      }
+      setFeedback(errorFeedback);
+      saveFeedback(errorFeedback);
     } finally {
       setIsLoading(false);
     }

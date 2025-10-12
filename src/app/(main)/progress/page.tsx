@@ -1,10 +1,26 @@
 'use client';
+import { useState, useEffect } from 'react';
 import { Header } from '@/components/header';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis, ResponsiveContainer, Tooltip } from 'recharts';
 import { initialPerformance } from '@/lib/data';
+import type { PerformanceData, Feedback } from '@/lib/types';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Lightbulb, BookX } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 
 export default function ProgressPage() {
+    const [performance, setPerformance] = useState<PerformanceData[]>(initialPerformance);
+    const [feedbackHistory, setFeedbackHistory] = useState<Feedback[]>([]);
+
+    useEffect(() => {
+        const history = JSON.parse(localStorage.getItem('feedbackHistory') || '[]');
+        const perfData = JSON.parse(localStorage.getItem('performanceData') || JSON.stringify(initialPerformance));
+        setFeedbackHistory(history);
+        setPerformance(perfData);
+    }, []);
+
+
   return (
     <div className="flex min-h-screen w-full flex-col">
       <Header title="Mi Progreso" />
@@ -19,7 +35,7 @@ export default function ProgressPage() {
           <CardContent>
             <div className="h-[400px] w-full">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={initialPerformance} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
+                <BarChart data={performance} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                   <XAxis 
                     dataKey="topic" 
@@ -58,9 +74,33 @@ export default function ProgressPage() {
             </CardDescription>
            </CardHeader>
             <CardContent>
-                 <div className="text-center text-muted-foreground p-8">
-                    <p>Completa un quiz para ver tu historial de retroalimentación aquí.</p>
-                </div>
+                 {feedbackHistory.length > 0 ? (
+                     <ScrollArea className="h-[400px] pr-4">
+                        <div className="space-y-4">
+                            {feedbackHistory.map((item, index) => (
+                                <div key={index} className="rounded-md border p-4">
+                                    <div className="flex justify-between items-start">
+                                        <p className="text-sm text-muted-foreground">
+                                           Sesión del {new Date(item.timestamp).toLocaleString()}
+                                        </p>
+                                        <Badge variant="secondary">{item.topic}</Badge>
+                                    </div>
+                                    <p className="font-semibold mt-2 text-primary flex items-center gap-2">
+                                        <Lightbulb className="h-4 w-4"/>
+                                        Sugerencia de la IA
+                                    </p>
+                                    <p className="text-sm mt-1">{item.feedback}</p>
+                                    <p className="text-sm mt-2"><strong>Área de mejora:</strong> {item.areasForImprovement}</p>
+                                </div>
+                            ))}
+                        </div>
+                     </ScrollArea>
+                 ) : (
+                    <div className="text-center text-muted-foreground p-8">
+                        <BookX className="h-12 w-12 mx-auto mb-4 text-accent" />
+                        <p>Completa un quiz para ver tu historial de retroalimentación aquí.</p>
+                    </div>
+                 )}
             </CardContent>
         </Card>
       </main>
