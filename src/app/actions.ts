@@ -4,6 +4,8 @@ import { summarizeContent } from '@/ai/flows/content-summarization';
 import { generatePracticeQuestions } from '@/ai/flows/practice-question-generation';
 import { extractTextFromImage } from '@/ai/flows/image-text-extraction';
 import type { StudyResource, GeneratedQuestion } from '@/lib/types';
+import fs from 'fs/promises';
+import path from 'path';
 
 /**
  * Server Action to trigger AI content summarization.
@@ -24,12 +26,15 @@ export async function summarizeContentAction(content: string) {
 
 /**
  * Server Action to trigger practice question generation.
+ * It reads the content of the study resource from the local filesystem.
  * @param {StudyResource} resource - The study resource to generate questions from.
  * @returns {Promise<{questions: GeneratedQuestion[]} | {error: string}>} - The generated questions or an error.
  */
 export async function generatePracticeQuestionsAction(resource: StudyResource) {
   try {
-    const resourceContent = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/estudio/${resource.source}`).then(res => res.text());
+    // Build the correct path to the markdown file in the public directory
+    const filePath = path.join(process.cwd(), 'public', 'estudio', resource.source);
+    const resourceContent = await fs.readFile(filePath, 'utf-8');
     
     const result = await generatePracticeQuestions({
       summarizedContent: resourceContent,
@@ -54,6 +59,4 @@ export async function extractTextFromImageAction(imageUrl: string) {
     return { textContent: result.textContent };
   } catch (e) {
     console.error('Error in extractTextFromImageAction:', e);
-    return { error: 'No se pudo extraer el texto de la imagen.' };
-  }
-}
+    return

@@ -1,44 +1,70 @@
-# Guía de Estudio: Comprensión Lectora (EXANI-II)
+# Comprensión Lectora: Leer Entre Líneas
 
-La Comprensión Lectora es una de las habilidades más importantes para tu vida universitaria y una sección clave del EXANI-II. No se trata solo de leer, sino de entender, analizar y evaluar lo que lees. La prueba se divide en tres ámbitos.
+La comprensión lectora en el EXANI-II no se trata solo de entender lo que lees, sino de analizar, interpretar e inferir. Es una de las habilidades más importantes, no solo para el examen, sino para toda tu carrera.
 
-### 1. Ámbito de Estudio
+---
 
-Son textos académicos, como fragmentos de artículos científicos o ensayos. El lenguaje es formal y denso en información.
+### 1. Tipos de Preguntas Comunes
 
--   **Habilidad 1: Identificar información.** Tu objetivo es encontrar datos específicos y explícitos en el texto. ¿Quién dijo qué? ¿En qué fecha ocurrió algo? ¿Cuál es la definición de un concepto?
-    -   **Estrategia:** Escanea el texto buscando palabras clave de la pregunta. No sobre-interpretes; la respuesta está escrita directamente en el texto.
+Prepárate para encontrar estas preguntas:
 
--   **Habilidad 2: Interpretar.** Aquí debes deducir la idea principal, el propósito del autor, las relaciones causa-efecto y las conclusiones.
-    -   **Estrategia:** Pregúntate: "¿De qué se trata principalmente este texto?" o "¿Qué me quiere decir el autor con esto?". Busca el hilo conductor que une todos los párrafos.
+-   **Idea Principal:** ¿Cuál es el punto central o la tesis del autor?
+-   **Inferencia:** ¿Qué se puede concluir o deducir del texto, aunque no esté dicho explícitamente?
+-   **Propósito del Autor:** ¿Por qué el autor escribió esto? ¿Para informar, persuadir, entretener?
+-   **Tono del Texto:** ¿Cuál es la actitud del autor hacia el tema? (Objetivo, crítico, optimista, sarcástico, etc.)
+-   **Significado de Palabras en Contexto:** ¿Qué significa una palabra específica según cómo se usa en el pasaje?
+-   **Información Específica:** Encontrar un dato o detalle concreto mencionado en el texto.
 
--   **Habilidad 3: Evaluar la forma y el contenido.** Tienes que juzgar la calidad del texto. ¿Los argumentos son sólidos? ¿La información es objetiva o subjetiva? ¿Es una opinión o un hecho?
-    -   **Estrategia:** Conviértete en un crítico. Busca la tesis del autor y evalúa si las pruebas que presenta la respaldan.
+---
 
-### 2. Ámbito Literario
+### 2. Estrategias Clave para Dominar la Sección
 
-Son textos de ficción, como cuentos, poemas o fragmentos de novelas. Aquí, el lenguaje figurado y las emociones son importantes.
+**Antes de Leer el Texto:**
 
--   **Habilidad 1: Identificar información.** Se enfoca en reconocer los elementos de la historia: ¿Quiénes son los personajes? ¿Dónde y cuándo ocurre la acción (escenario)? ¿Cuál es el conflicto principal?
-    -   **Estrategia:** Mientras lees, crea un mapa mental de los personajes y la trama.
+1.  **Lee las Preguntas Primero (Opcional pero Recomendado):** Echa un vistazo rápido a las preguntas *antes* de leer el pasaje. Esto te da un propósito. Tu cerebro sabrá qué información buscar, convirtiéndote en un lector activo y no pasivo. No intentes responderlas, solo tenlas en mente.
 
--   **Habilidad 2: Interpretar.** Debes entender el significado simbólico, el tono del narrador, las metáforas y el tema subyacente de la obra.
-    -   **Estrategia:** Pregúntate: "¿Qué representa este personaje o este objeto?" o "¿Qué sentimiento me transmite el poema?".
+**Mientras Lees el Texto:**
 
--   **Habilidad 3: Evaluar la forma y el contenido.** Analiza el estilo del autor y los recursos literarios que utiliza (metáforas, símiles, etc.). ¿Cómo logra el autor crear una atmósfera de misterio o alegría?
-    -   **Estrategia:** Presta atención al lenguaje. ¿Por qué el autor eligió *esa* palabra y no otra?
+2.  **Identifica la Idea Principal:** A medida que lees, pregúntate constantemente: "¿De qué trata realmente este texto? ¿Cuál es el mensaje que el autor quiere que me lleve?". Usualmente, la idea principal se encuentra en el primer o último párrafo, pero no siempre.
+3.  **Subraya o Anota Palabras Clave:** Marca nombres, fechas, definiciones y, sobre todo, "palabras de señal" que indiquen la estructura del texto.
+4.  **Presta Atención a las "Palabras de Señal":**
+    -   **Contraste:** *sin embargo, pero, a pesar de, por otro lado*. Indican un cambio de dirección o una objeción.
+    -   **Causa y Efecto:** *porque, debido a, por lo tanto, en consecuencia*. Muestran una relación de causalidad.
+    -   **Énfasis:** *lo más importante, crucialmente, en esencia*. El autor te está diciendo "¡Ojo aquí!".
+    -   **Ejemplos:** *por ejemplo, tal como, como ilustración*. Lo que sigue es un apoyo a una idea general.
 
-### 3. Ámbito de Participación Social
+**Después de Leer el Texto (Al Responder):**
 
-Son textos de la vida cotidiana: noticias, artículos de opinión, convocatorias, anuncios publicitarios.
+5.  **Distingue entre Hechos e Inferencias:**
+    -   Un **hecho** está escrito textualmente en el pasaje.
+    -   Una **inferencia** es una conclusión lógica basada en la evidencia del texto. La respuesta correcta a una pregunta de inferencia no estará escrita palabra por palabra, pero debe ser 100% respaldada por el texto. No uses conocimiento externo.
 
--   **Habilidad 1: Identificar información.** Tu tarea es localizar el propósito principal y la información clave. ¿A quién va dirigido el anuncio? ¿Cuál es la fecha límite de la convocatoria?
-    -   **Estrategia:** Estos textos están diseñados para ser eficientes. Ve directo a la información que necesitas (fechas, lugares, requisitos).
+6.  **Elimina Opciones Incorrectas:** A menudo, es más fácil descartar las respuestas incorrectas que encontrar la correcta directamente. Las opciones incorrectas suelen ser:
+    -   **Demasiado Extremas:** Usan palabras como *siempre, nunca, todos, ninguno*.
+    -   **Fuera del Alcance:** Mencionan información que no está en el texto.
+    -   **Contradictorias:** Dicen lo opuesto a lo que el texto afirma.
+    -   **Parcialmente Correctas:** Incluyen algo de verdad pero también información falsa.
 
--   **Habilidad 2: Interpretar.** Debes inferir la intención del autor. ¿Quiere persuadirte, informarte o advertirte?
-    -   **Estrategia:** Fíjate en el tono y las palabras utilizadas. Un anuncio usará un lenguaje persuasivo; una noticia, uno más objetivo.
+**Estrategia:** Para las preguntas de "significado en contexto", sustituye la palabra subrayada por cada una de las opciones. La opción que mantenga el sentido original de la oración es la correcta.
 
--   **Habilidad 3: Evaluar la forma y el contenido.** Evalúa la efectividad y la confiabilidad del mensaje. ¿La fuente de la noticia es fiable? ¿El anuncio es engañoso?
-    -   **Estrategia:** Activa tu "detector de sesgos". Pregúntate si la información está completa o si se está omitiendo algo importante para influir en tu opinión.
+---
 
-**Consejo Final:** La mejor forma de mejorar es practicando. Lee diferentes tipos de textos todos los días y trata de aplicar estas estrategias. ¡Conquistarás esta sección del examen!
+### Ejemplo Práctico
+
+**Texto:**
+> "El condicionamiento clásico, investigado por Ivan Pavlov, es un proceso de aprendizaje fundamental. A diferencia del condicionamiento operante, donde el comportamiento es controlado por sus consecuencias (recompensas o castigos), el condicionamiento clásico implica la formación de asociaciones entre estímulos. Si bien ambos son tipos de aprendizaje asociativo, su mecanismo subyacente es marcadamente diferente."
+
+**Pregunta de Inferencia:** ¿Qué se puede inferir sobre el condicionamiento operante?
+
+a)  Fue investigado por Ivan Pavlov.
+b)  No es un tipo de aprendizaje asociativo.
+c)  Involucra un comportamiento voluntario del sujeto.
+d)  Es menos importante que el condicionamiento clásico.
+
+**Análisis:**
+-   a) Incorrecto. El texto dice que Pavlov investigó el clásico.
+-   b) Incorrecto. El texto dice "ambos son tipos de aprendizaje asociativo".
+-   c) **Correcto.** Si el operante es controlado por *consecuencias*, implica que el sujeto debe *hacer* algo para recibir una recompensa o castigo (comportamiento voluntario). A diferencia del clásico, que son reflejos automáticos. Esta es una inferencia lógica.
+-   d) Incorrecto. El texto no hace un juicio de valor sobre cuál es más importante.
+
+**Consejo Final:** La práctica hace al maestro. Cuantos más textos del EXANI-II leas y analices, más rápido reconocerás los patrones de las preguntas y los tipos de "trampas" en las opciones de respuesta.

@@ -1,40 +1,86 @@
-# Guía de Estudio: Inglés como Lengua Extranjera (EXANI-II)
+# Inglés (Comprensión Lectora) en el EXANI-II
 
-La sección de inglés en el EXANI-II tiene un propósito principalmente **diagnóstico**. Esto significa que, por lo general, **no cuenta para tu puntaje de admisión final**. Sin embargo, es una excelente oportunidad para medir tu nivel y familiarizarte con el tipo de preguntas que podrías encontrar en la universidad.
+La sección de inglés en el EXANI-II se enfoca principalmente en la **comprensión lectora**. No evalúa tu habilidad para hablar o escribir, sino tu capacidad para entender textos escritos en inglés. La clave es no asustarse y aplicar las mismas estrategias de comprensión lectora que usas en español.
 
-El examen se enfoca en dos habilidades principales:
+---
 
-### 1. Comprensión Lectora (Reading Comprehension)
+### 1. Vocabulary in Context (Vocabulario en Contexto)
 
-Te presentarán textos cortos (similares a los del ámbito de estudio o de participación social en español) y te harán preguntas para evaluar si entendiste el contenido.
+Este es el tipo de pregunta más común. Te pedirán el significado de una palabra o frase tal como se usa en el texto.
 
-**Tipos de Preguntas Comunes:**
--   **Main Idea:** ¿Cuál es la idea principal del texto?
--   **Specific Information:** Encontrar datos concretos (nombres, fechas, lugares).
--   **Inference:** ¿Qué se puede inferir o deducir del texto, aunque no esté dicho explícitamente?
--   **Vocabulary in Context:** ¿Qué significa una palabra o frase específica dentro de la oración en la que se encuentra?
+**Example Text:**
+> "The company decided to **augment** its workforce by hiring 50 new employees to meet the growing demand."
 
-**Estrategia:**
-1.  **Lee las preguntas primero:** Esto te dará una idea de qué información buscar en el texto y te ayudará a enfocar tu lectura.
-2.  **Escanea el texto:** Busca las palabras clave de las preguntas para localizar rápidamente las respuestas a preguntas de información específica.
-3.  **No te preocupes por las palabras que no conoces:** A menudo, puedes entender el significado general por el contexto. No te estanques en una sola palabra.
-4.  **Descarta opciones incorrectas:** Si no estás seguro de la respuesta correcta, intenta eliminar las que son claramente erróneas.
+**Question:** The word "augment" is closest in meaning to...
+a)  decrease
+b)  increase
+c)  evaluate
+d)  train
 
-### 2. Redacción Indirecta (Grammar and Usage)
+**Strategy:**
+1.  **Read the sentence:** "The company decided to \_\_\_\_\_ its workforce... to meet the growing demand."
+2.  **Analyze the context:** "Growing demand" (demanda creciente) significa que la empresa necesita más capacidad. ¿Qué harías con tu fuerza laboral para satisfacer una mayor demanda? La aumentarías.
+3.  **Substitute the options:**
+    -   "decrease its workforce" (disminuir) - No tiene sentido.
+    -   "increase its workforce" (aumentar) - ¡Encaja perfectamente!
+    -   "evaluate its workforce" (evaluar) - Podría ser, pero no es la acción principal para satisfacer la demanda.
+    -   "train its workforce" (entrenar) - También es posible, pero primero necesitas a los trabajadores.
+4.  **Conclusion:** The most logical answer is **b) increase**.
 
-Al igual que en español, esta parte evalúa tu conocimiento de la estructura del idioma. Te darán una oración con una parte faltante o incorrecta y deberás elegir la opción que la complete o corrija gramaticalmente.
+**Consejo:** No te preocupes si no conoces la palabra. El contexto casi siempre te dará la pista que necesitas.
 
-**Temas Gramaticales Frecuentes:**
--   **Tiempos Verbales (Verb Tenses):** Presente simple, pasado simple, presente perfecto, futuro, etc.
--   **Preposiciones:** `in`, `on`, `at`, `for`, `to`, etc.
--   **Conjunciones:** `and`, `but`, `so`, `because`, `although`, etc.
--   **Verbos Modales:** `can`, `could`, `should`, `must`, `might`.
--   **Concordancia Sujeto-Verbo (Subject-Verb Agreement):** `She plays` (correcto) vs. `She play` (incorrecto).
+---
 
-**Estrategia:**
-1.  **Lee la oración completa:** Intenta entender la idea que se quiere expresar.
-2.  **Identifica la función de la palabra faltante:** ¿Necesitas un verbo, un sustantivo, una preposición?
-3.  **Revisa los tiempos verbales:** Asegúrate de que haya consistencia en el tiempo a lo largo de la oración o el contexto.
-4.  **Léela con cada opción:** A menudo, la opción correcta "sonará" más natural si tienes familiaridad con el idioma.
+### 2. Main Idea (Idea Principal)
 
-**Consejo Final:** No te estreses por esta sección. Tómala como una práctica. Un buen nivel de inglés te será muy útil en la Facultad de Psicología, ya que mucha de la investigación más actual se publica en este idioma. ¡Considera este un primer paso!
+Te pedirán identificar el punto central del pasaje.
+
+**Strategy:**
+-   Lee el primer y último párrafo. A menudo, la idea principal se presenta al principio y se resume al final.
+-   Pregúntate: "¿Qué es lo que el autor realmente quiere que yo sepa después de leer esto?".
+-   Busca frases repetidas o ideas que conecten todos los párrafos.
+
+---
+
+### 3. Specific Information (Información Específica)
+
+Son preguntas sobre detalles concretos mencionados en el texto (nombres, fechas, lugares, estadísticas).
+
+**Strategy:**
+-   Lee la pregunta primero para saber qué detalle estás buscando.
+-   Escanea el texto rápidamente buscando palabras clave de la pregunta (por ejemplo, si la pregunta es sobre "Dr. Evans", busca ese nombre en el texto).
+-   Una vez que encuentres la oración relevante, léela con cuidado para asegurarte de que responde a la pregunta.
+
+---
+
+### 4. Inference (Inferencia)
+
+Estas son las preguntas de "leer entre líneas". La respuesta no estará escrita directamente, pero estará fuertemente sugerida.
+
+**Example Text:**
+> "Although the café was famous for its coffee, on that rainy afternoon, every single customer was holding a cup of hot chocolate."
+
+**Question:** What can be inferred from the passage?
+a)  The café ran out of coffee.
+b)  People prefer hot chocolate on rainy days.
+c)  The café does not sell tea.
+d)  The customers were all children.
+
+**Analysis:**
+-   a) The text doesn't say they ran out. It's a possibility, but not a direct inference.
+-   b) This is a strong inference. The author contrasts the café's fame (coffee) with what everyone is *actually* drinking on a *rainy day* (hot chocolate). This suggests a connection between the weather and the drink choice.
+-   c) The text doesn't mention tea at all. We can't infer anything about it.
+-   d) There is no information about the customers' age.
+
+**Conclusion:** The most logical inference is **b)**.
+
+---
+
+### Consejos Generales para la Sección de Inglés
+
+-   **No traduzcas palabra por palabra:** Intenta captar el significado general de las oraciones y los párrafos. Traducir todo te hará perder mucho tiempo.
+-   **Identifica Cognados:** Busca palabras que se parezcan al español (e.g., *information* -> información, *different* -> diferente, *conclusion* -> conclusión). ¡Son pistas gratuitas!
+-   **Cuidado con los Falsos Cognados:** Algunos te pueden engañar. Por ejemplo, *actually* no significa "actualmente", sino "en realidad". *Library* no es "librería", sino "biblioteca".
+-   **No te estanques:** Si un texto o una pregunta te parece muy difícil, sigue adelante. Es mejor asegurar las preguntas fáciles y luego volver a las difíciles si te queda tiempo.
+
+**Consejo Final:** La mejor manera de mejorar es exponerte al idioma. Intenta leer noticias cortas, artículos de blog o incluso ver series en inglés con subtítulos en inglés. Esto te familiarizará con la estructura de
