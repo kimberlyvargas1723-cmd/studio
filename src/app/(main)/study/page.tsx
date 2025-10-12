@@ -10,7 +10,7 @@ import type { StudyResource } from '@/lib/types';
 import { Book, ExternalLink, Upload } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { saveSummary as saveSummaryToStorage } from '@/lib/services';
+import { saveSummary } from '@/lib/services';
 import { summarizeContentAction, extractTextFromImageAction } from '@/app/actions';
 import { StudyContent } from '@/components/study-content';
 
@@ -113,7 +113,7 @@ export default function StudyPage() {
    */
   const handleSaveSummary = () => {
     if (!summary || !selectedResource) return;
-    saveSummaryToStorage({ id: Date.now().toString(), title: `Resumen de: ${selectedResource.title}`, content: summary, originalUrl: selectedResource.source, createdAt: new Date().toISOString() });
+    saveSummary({ id: Date.now().toString(), title: `Resumen de: ${selectedResource.title}`, content: summary, originalUrl: selectedResource.source, createdAt: new Date().toISOString() });
     toast({ title: 'Resumen Guardado', description: 'Puedes encontrar tus resúmenes en la sección "Mis Resúmenes".' });
   };
 
