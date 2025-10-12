@@ -245,7 +245,7 @@ export function GeneratedQuiz({ quiz, onBack, isDiagnostic = false }: GeneratedQ
               <div>
                 <AlertTitle>{isCorrect ? '¡Correcto!' : 'Incorrecto'}</AlertTitle>
                 <AlertDescription className="text-current">
-                  {isCorrect ? '¡Excelente trabajo!' : `La respuesta correcta es: ${currentQuestion.correctAnswer}`}
+                   La respuesta correcta es: ${currentQuestion.correctAnswer}
                 </AlertDescription>
               </div>
             </Alert>
