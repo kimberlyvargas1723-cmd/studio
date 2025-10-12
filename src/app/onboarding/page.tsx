@@ -66,12 +66,12 @@ export default function OnboardingPage() {
             Juntos, vamos a identificar tus áreas de oportunidad, crear un plan de estudio y practicar hasta que te sientas completamente segura.
         </p>
         <div className="mt-10">
-            <h2 className="font-headline text-2xl font-semibold">Primer Paso: Diagnóstico</h2>
-            <p className="mt-2 text-muted-foreground">
-                Comenzaremos con un breve quiz para entender tu nivel actual. ¡No te preocupes, esto es solo para ayudarnos a empezar!
+            <h2 className="font-headline text-2xl font-semibold">Primer Paso: Simulación Psicométrica</h2>
+            <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
+                El examen psicométrico es tu primer filtro. Comenzaremos con una breve simulación para entender tu nivel actual en razonamiento lógico, series y analogías. ¡Esto es clave para empezar con el pie derecho!
             </p>
             <Button size="lg" className="mt-6" onClick={() => setStep(2)}>
-                Comenzar Quiz de Diagnóstico
+                Comenzar Simulación
                 <BrainCircuit className="ml-2 h-5 w-5" />
             </Button>
         </div>
