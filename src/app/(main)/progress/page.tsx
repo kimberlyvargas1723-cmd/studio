@@ -13,8 +13,11 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { generateProgressSummaryAction } from '@/app/actions';
 
 /**
- * Renders the progress page, displaying performance charts, feedback history,
- * and a new AI-generated intelligent summary of the user's progress.
+ * Renders the "My Progress" page.
+ * This component visualizes the user's performance data through charts and lists,
+ * providing insights into their study progress. It fetches historical performance
+ * and feedback from localStorage and also calls a Server Action to generate a
+ * new, intelligent summary of the user's current standing via an AI flow.
  */
 export default function ProgressPage() {
     const [performance, setPerformance] = useState<PerformanceData[]>([]);
@@ -22,11 +25,19 @@ export default function ProgressPage() {
     const [progressSummary, setProgressSummary] = useState<{summary: string; suggestion: string} | null>(null);
     const [isLoadingSummary, setIsLoadingSummary] = useState(true);
 
+    /**
+     * On component mount, this effect loads all necessary data:
+     * 1. Fetches historical performance data (correct/incorrect counts) from localStorage.
+     * 2. Fetches past AI feedback from localStorage.
+     * 3. If there is performance data, it calls a Server Action to generate a fresh
+     *    AI-powered progress summary.
+     */
     useEffect(() => {
         const perfData = getPerformanceData();
         setPerformance(perfData);
         setFeedbackHistory(getFeedbackHistory());
 
+        // Only generate a summary if the user has completed at least one quiz.
         const hasPerformanceData = perfData.some(p => p.correct > 0 || p.incorrect > 0);
         if (hasPerformanceData) {
             generateProgressSummaryAction(perfData)
@@ -76,6 +87,7 @@ export default function ProgressPage() {
         </Card>
 
         <div className="grid gap-6 md:grid-cols-2">
+            {/* Performance Chart Card */}
             <Card>
             <CardHeader>
                 <CardTitle className="font-headline">Rendimiento por Tema</CardTitle>
@@ -86,7 +98,7 @@ export default function ProgressPage() {
             <CardContent>
                 <div className="h-[400px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={performance} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
+                    <BarChart data={performance} margin={{ top: 5, right: 20, left: 0, bottom: 50 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                     <XAxis 
                         dataKey="topic" 
@@ -97,7 +109,6 @@ export default function ProgressPage() {
                         interval={0}
                         angle={-45}
                         textAnchor="end"
-                        height={80}
                         />
                     <YAxis 
                         stroke="hsl(var(--muted-foreground))"
@@ -121,6 +132,7 @@ export default function ProgressPage() {
                 </div>
             </CardContent>
             </Card>
+            {/* Feedback History Card */}
             <Card>
             <CardHeader>
                 <CardTitle className="font-headline">Historial de Retroalimentación</CardTitle>

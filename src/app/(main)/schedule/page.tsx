@@ -15,27 +15,33 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import type { StudyPlanOutput } from '@/ai/flows/generate-study-plan';
 
 /**
- * Renders the dynamic schedule page. Allows the user to select an exam date,
- * which triggers an AI-powered process to generate a personalized weekly study plan
- * based on their performance data.
+ * Renders the "My Smart Schedule" page.
+ * This interactive component allows the user to select an exam date from a calendar.
+ * Upon selection, it triggers an AI-powered Server Action to generate a personalized,
+ * weekly study plan. The plan is tailored based on the user's historical performance
+ * data, which is retrieved from localStorage.
  */
 export default function SchedulePage() {
   const [examDate, setExamDate] = useState<Date | undefined>(undefined);
   const [studyPlan, setStudyPlan] = useState<StudyPlanOutput | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  // State to ensure calendar only renders on the client to prevent hydration errors.
   const [isClient, setIsClient] = useState(false);
+  
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
   useEffect(() => {
-    // Ensures component only renders on the client to prevent hydration mismatch.
+    // This effect runs once on mount to confirm we are on the client side.
     setIsClient(true);
   }, []);
 
   /**
-   * Generates a study plan by calling a server action. It fetches the user's
-   * performance data from local storage and sends it to the AI flow.
+   * Triggers the generation of a study plan by calling a Server Action.
+   * It retrieves the user's performance data from localStorage and sends it,
+   * along with the number of days until the exam, to the AI flow for processing.
+   * Manages loading and error states during the generation process.
    * @param {Date} date - The selected exam date.
    */
   const handleGenerateStudyPlan = async (date: Date) => {
@@ -68,8 +74,9 @@ export default function SchedulePage() {
   };
 
   /**
-   * Handles the selection of a new exam date from the calendar.
-   * @param {Date | undefined} date - The newly selected date.
+   * Callback for when the user selects a new exam date from the calendar.
+   * It updates the state and triggers the plan generation.
+   * @param {Date | undefined} date - The newly selected date from the calendar.
    */
   const handleDateSelect = (date: Date | undefined) => {
     if (date) {
@@ -83,11 +90,12 @@ export default function SchedulePage() {
     <div className="flex min-h-screen w-full flex-col">
       <Header title="Mi Horario Inteligente" />
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8 lg:flex-row">
+        {/* Calendar Card */}
         <Card className="w-full lg:w-1/3 lg:sticky lg:top-24">
           <CardHeader>
             <CardTitle className="font-headline">Tu Fecha de Examen</CardTitle>
             <CardDescription>
-              Selecciona la fecha de tu examen para que la IA genere tu plan de estudio personalizado.
+              Selecciona la fecha para que la IA genere tu plan de estudio.
             </CardDescription>
           </CardHeader>
           <CardContent className="flex justify-center">
@@ -105,6 +113,7 @@ export default function SchedulePage() {
             )}
           </CardContent>
         </Card>
+        {/* Study Plan Card */}
         <Card className="w-full lg:w-2/3">
           <CardHeader>
             <CardTitle className="font-headline">Tu Plan de Estudio Semanal</CardTitle>
@@ -158,7 +167,7 @@ export default function SchedulePage() {
               ) : (
                 !loading && !error && (
                     <div className="flex h-full items-center justify-center text-muted-foreground text-center p-8">
-                    <p>Tu plan de estudio personalizado aparecerá aquí una vez que selecciones una fecha.</p>
+                    <p>Tu plan de estudio personalizado aparecerá aquí.</p>
                     </div>
                 )
               )}

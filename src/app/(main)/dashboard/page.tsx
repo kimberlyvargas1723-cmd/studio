@@ -44,14 +44,22 @@ const featureCards = [
   },
 ];
 
+/**
+ * Defines the structure for the personalized greeting object.
+ */
 type Greeting = {
   feedback: string;
   adaptedQuestionTopic: string;
 };
 
 /**
- * Renders the main dashboard of the application.
- * It now fetches a personalized greeting and recommendation for Kimberly based on her learning style.
+ * Renders the main dashboard page of the application.
+ * This component serves as the central hub for the user, Kimberly.
+ * It fetches a personalized greeting and a study recommendation from an AI flow
+ * based on the user's learning style. It also displays feature cards for navigation
+ * and an admission checklist.
+ *
+ * @param {{ learningStyle?: string }} props - The user's dominant learning style code (e.g., 'V', 'A', 'R', 'K').
  */
 export default function DashboardPage({ learningStyle }: { learningStyle?: string }) {
   const [greeting, setGreeting] = useState<Greeting | null>(null);
@@ -60,10 +68,15 @@ export default function DashboardPage({ learningStyle }: { learningStyle?: strin
     (img) => img.id === 'dashboard-hero'
   );
 
+  /**
+   * Fetches the personalized greeting from the AI flow when the component mounts
+   * or when the learning style changes. It handles loading and error states.
+   */
   useEffect(() => {
     async function fetchGreeting() {
       setIsLoading(true);
       try {
+        // A special call to the adaptation flow to get a dynamic greeting.
         const result = await analyzePerformanceAndAdapt({ 
           question: 'dashboard_greeting',
           studentAnswer: '',
@@ -74,7 +87,8 @@ export default function DashboardPage({ learningStyle }: { learningStyle?: strin
         setGreeting(result);
       } catch (error) {
         console.error("Failed to fetch greeting:", error);
-        setGreeting({ // Fallback greeting
+        // Set a fallback greeting in case the AI flow fails.
+        setGreeting({
           feedback: '¡Bienvenida de nuevo, Kimberly! ¿Lista para estudiar?',
           adaptedQuestionTopic: ''
         });
@@ -89,6 +103,7 @@ export default function DashboardPage({ learningStyle }: { learningStyle?: strin
     <div className="flex min-h-screen w-full flex-col bg-muted/40">
       <Header title="Dashboard" />
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
+        {/* Hero Card with Personalized Greeting */}
         <Card className="relative flex flex-col items-start justify-end overflow-hidden rounded-xl border-none shadow-lg">
           <div className="absolute inset-0 z-0">
             {heroImage && (
@@ -106,6 +121,7 @@ export default function DashboardPage({ learningStyle }: { learningStyle?: strin
           <div className="relative z-10 p-6 md:p-8 text-white">
             {isLoading ? (
               <>
+                {/* Skeleton UI for loading state */}
                 <Skeleton className="h-12 w-3/4" />
                 <Skeleton className="h-6 w-full mt-4" />
                 <Skeleton className="h-10 w-48 mt-6" />
@@ -115,6 +131,7 @@ export default function DashboardPage({ learningStyle }: { learningStyle?: strin
                 <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter">
                   ¡Hola de nuevo, Kimberly!
                 </h2>
+                {/* AI-generated feedback is rendered as HTML to allow for bolding, etc. */}
                 <p className="mt-2 max-w-2xl text-lg text-white/90" dangerouslySetInnerHTML={{ __html: greeting?.feedback ?? '' }} />
                 {greeting?.adaptedQuestionTopic && (
                   <Button asChild className="mt-6">
@@ -128,9 +145,9 @@ export default function DashboardPage({ learningStyle }: { learningStyle?: strin
           </div>
         </Card>
 
-        {/* Admission Checklist */}
         <AdmissionChecklist />
 
+        {/* Feature Cards Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {featureCards.map((feature) => {
             const cardImage: ImagePlaceholder | undefined = PlaceHolderImages.find(
