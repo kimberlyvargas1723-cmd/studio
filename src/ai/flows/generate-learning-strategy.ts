@@ -2,14 +2,20 @@
 /**
  * @fileOverview A flow for generating a personalized learning strategy based on the VARK model.
  *
- * - generateLearningStrategy - Generates a strategy based on a dominant learning style.
- * - LearningStrategyInput - The input type for the generateLearningStrategy function.
- * - LearningStrategyOutput - The return type for the generateLearningStrategy function.
+ * This file defines the AI flow that takes a user's dominant learning style code
+ * (V, A, R, or K) and generates a detailed, actionable learning strategy in Spanish.
+ *
+ * - generateLearningStrategy - The main function to trigger the strategy generation.
+ * - LearningStrategyInput - The Zod schema for the input.
+ * - LearningStrategyOutput - The Zod schema for the output.
  */
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
+/**
+ * Defines the schema for the input of the learning strategy generation flow.
+ */
 const LearningStrategyInputSchema = z.object({
   learningStyle: z
     .string()
@@ -17,8 +23,11 @@ const LearningStrategyInputSchema = z.object({
 });
 export type LearningStrategyInput = z.infer<typeof LearningStrategyInputSchema>;
 
+/**
+ * Defines the schema for the output of the learning strategy generation flow.
+ */
 const LearningStrategyOutputSchema = z.object({
-  style: z.string().describe('The full name of the learning style.'),
+  style: z.string().describe('The full name of the learning style in Spanish (e.g., "Visual", "Auditivo").'),
   strategy: z.string().describe('A detailed, personalized learning strategy in Markdown format.'),
 });
 export type LearningStrategyOutput = z.infer<typeof LearningStrategyOutputSchema>;
@@ -26,7 +35,7 @@ export type LearningStrategyOutput = z.infer<typeof LearningStrategyOutputSchema
 /**
  * Generates a personalized learning strategy based on a dominant learning style.
  * @param {LearningStrategyInput} input - The user's dominant learning style code.
- * @returns {Promise<LearningStrategyOutput>} A promise that resolves to the generated strategy.
+ * @returns {Promise<LearningStrategyOutput>} A promise that resolves to the full style name and the generated strategy.
  */
 export async function generateLearningStrategy(input: LearningStrategyInput): Promise<LearningStrategyOutput> {
   return generateLearningStrategyFlow(input);
@@ -44,15 +53,15 @@ Her dominant learning style is represented by the code: {{learningStyle}}.
 Your task is to generate a comprehensive and encouraging learning strategy in Spanish, formatted in Markdown. The strategy should be highly specific and actionable.
 
 Here are the mappings for the style codes:
-- V: Visual (Visual)
-- A: Auditivo (Auditory)
-- R: Lectoescritor (Reading/Writing)
-- K: Kinestésico (Kinesthetic)
+- V: Visual
+- A: Auditivo
+- R: Lectoescritor
+- K: Kinestésico
 
 First, determine the full name of the style from the code and set it in the 'style' output field.
 
 Then, for the 'strategy' output field, create a detailed guide with the following structure:
-1.  **Título Principal:** "Tu Superpoder: Aprendizaje [Nombre del Estilo]"
+1.  **Título Principal:** "### Tu Superpoder: Aprendizaje [Nombre del Estilo]"
 2.  **Introducción:** Una frase corta y motivadora sobre cómo aprovechar este superpoder.
 3.  **Estrategias Clave (Bulleted List):** Proporciona al menos 4-5 estrategias de estudio súper específicas y prácticas, adaptadas al estilo de aprendizaje.
     -   **Para Visual (V):** Sugiere usar mapas mentales, diagramas de flujo, subrayar con códigos de colores, ver documentales, usar tarjetas de memoria (flashcards) con imágenes.

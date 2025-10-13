@@ -2,22 +2,30 @@
 /**
  * @fileOverview A flow for generating an intelligent summary of a student's progress.
  *
- * - generateProgressSummary - Generates a summary and a suggestion based on performance data.
- * - ProgressSummaryInput - The input type for the generateProgressSummary function.
- * - ProgressSummaryOutput - The return type for the generateProgressSummary function.
+ * This file defines an AI flow that analyzes a student's performance data
+ * (correct vs. incorrect answers per topic) and generates a brief, encouraging
+ * summary along with a single, actionable suggestion for their next study session.
+ *
+ * - generateProgressSummary - The main function to trigger the summary generation.
+ * - ProgressSummaryInput - The Zod schema for the input.
+ * - ProgressSummaryOutput - The Zod schema for the output.
  */
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
-import type { PerformanceData } from '@/lib/types';
 
-
+/**
+ * Defines the schema for a single performance data point.
+ */
 const PerformanceDataSchema = z.object({
-  topic: z.string(),
-  correct: z.number(),
-  incorrect: z.number(),
+  topic: z.string().describe('The name of the study topic.'),
+  correct: z.number().describe('The count of correct answers for this topic.'),
+  incorrect: z.number().describe('The count of incorrect answers for this topic.'),
 });
 
+/**
+ * Defines the schema for the input of the progress summary generation flow.
+ */
 const ProgressSummaryInputSchema = z.object({
   performanceData: z
     .array(PerformanceDataSchema)
@@ -25,6 +33,9 @@ const ProgressSummaryInputSchema = z.object({
 });
 export type ProgressSummaryInput = z.infer<typeof ProgressSummaryInputSchema>;
 
+/**
+ * Defines the schema for the output of the progress summary generation flow.
+ */
 const ProgressSummaryOutputSchema = z.object({
   summary: z.string().describe('A brief, encouraging summary of the student\'s performance, highlighting one strength and one area for improvement.'),
   suggestion: z.string().describe('A single, actionable suggestion for the student to focus on next.'),
@@ -33,7 +44,7 @@ export type ProgressSummaryOutput = z.infer<typeof ProgressSummaryOutputSchema>;
 
 /**
  * Generates a personalized progress summary and suggestion based on student performance data.
- * @param {ProgressSummaryInput} input - The student's performance data.
+ * @param {ProgressSummaryInput} input - An object containing the student's performance data.
  * @returns {Promise<ProgressSummaryOutput>} A promise that resolves to the generated summary and suggestion.
  */
 export async function generateProgressSummary(input: ProgressSummaryInput): Promise<ProgressSummaryOutput> {
@@ -45,16 +56,16 @@ const prompt = ai.definePrompt({
   name: 'generateProgressSummaryPrompt',
   input: {schema: ProgressSummaryInputSchema},
   output: {schema: ProgressSummaryOutputSchema},
-  prompt: `You are an expert academic advisor AI named Vairyx. You are analyzing the performance data for Kimberly.
+  prompt: `You are an expert academic advisor AI named Vairyx. You are analyzing the performance data for a student named Kimberly.
 
 Your task is to provide a brief, insightful, and encouraging summary of her progress.
 
 Here are the rules:
-1.  **Analyze Performance:** Look at all topics with performance data (correct > 0 or incorrect > 0).
-2.  **Identify Strength:** Find a topic where her accuracy (correct / (correct + incorrect)) is highest. Mention this as a strength.
-3.  **Identify Weakness:** Find a topic where her accuracy is lowest. Frame this positively as an "área de oportunidad" or "punto a reforzar".
-4.  **Generate Summary:** Create a concise summary (2-3 sentences) in Spanish that mentions her strongest topic and the main topic to improve. Be encouraging.
-5.  **Generate Suggestion:** Provide one clear, actionable suggestion. This should be a direct recommendation, like "Hoy podríamos enfocarnos en un quiz de 'Bases Biológicas' para fortalecer ese tema."
+1.  **Analyze Performance:** Look at all topics with performance data (correct > 0 or incorrect > 0). Ignore topics with no activity.
+2.  **Identify Strength:** Find the topic where her accuracy (correct / (correct + incorrect)) is highest. Mention this as a strength. If there are ties, pick one.
+3.  **Identify Weakness:** Find the topic where her accuracy is lowest. Frame this positively as an "área de oportunidad" or "punto a reforzar".
+4.  **Generate Summary:** Create a concise summary (2-3 sentences) in Spanish that mentions her strongest topic and the main topic to improve. Be encouraging and address her as Kimberly.
+5.  **Generate Suggestion:** Provide one clear, actionable suggestion. This should be a direct recommendation, like "Mi sugerencia para hoy es enfocarnos en un quiz de 'Bases Biológicas' para fortalecer ese tema."
 6.  **Language:** All output must be in Spanish.
 
 Student Performance Data:
