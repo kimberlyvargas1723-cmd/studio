@@ -1,18 +1,14 @@
 // src/components/generated-quiz.tsx
 'use client';
-import { useState, useEffect, useRef } from 'react';
-import type { GeneratedQuiz, GeneratedQuestion, Feedback } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Loader2, CheckCircle, XCircle, Lightbulb, ArrowLeft, Timer } from 'lucide-react';
-import { analyzePerformanceAndAdapt } from '@/ai/flows/personalized-feedback-adaptation';
-import { updatePerformanceData, saveFeedback } from '@/lib/services';
-import { useRouter } from 'next/navigation';
+import { useQuiz } from '@/hooks/use-quiz';
+import type { GeneratedQuiz } from '@/lib/types';
 import { cn } from '@/lib/utils';
-
 
 type GeneratedQuizProps = {
     quiz: GeneratedQuiz;
@@ -22,122 +18,29 @@ type GeneratedQuizProps = {
 };
 
 /**
- * Renders an interactive quiz, now with an optional timer for psychometric tests.
- * Manages quiz state, scoring, feedback generation, and timer logic.
+ * Renders an interactive quiz by orchestrating the useQuiz hook.
+ * This component is now a lightweight wrapper that displays different views
+ * (question, results) based on the state managed by the useQuiz hook.
  *
- * @param {GeneratedQuizProps} props - The quiz data, a back callback, and flags for diagnostic or psychometric mode.
+ * @param {GeneratedQuizProps} props - The quiz data and callbacks.
  */
 export function GeneratedQuiz({ quiz, onBack, onQuizFeedback, learningStyle }: GeneratedQuizProps) {
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
-  const [isAnswered, setIsAnswered] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
-  const [score, setScore] = useState(0);
-  const [feedback, setFeedback] = useState<Feedback | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [timeLeft, setTimeLeft] = useState<number | null>(quiz.timeLimit ? quiz.timeLimit * 60 : null);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const router = useRouter();
-
-
-  const currentQuestion: GeneratedQuestion = quiz.questions[currentQuestionIndex];
-  const isQuizFinished = currentQuestionIndex >= quiz.questions.length;
-
-  useEffect(() => {
-    if (quiz.isPsychometric && timeLeft !== null && !isQuizFinished && !isAnswered) {
-        timerRef.current = setInterval(() => {
-            setTimeLeft(prev => {
-                if (prev === null || prev <= 1) {
-                    clearInterval(timerRef.current!);
-                    // Auto-submit or move to next question when time is up
-                    handleNextQuestion();
-                    return 0;
-                }
-                return prev - 1;
-            });
-        }, 1000);
-    } else if (timerRef.current) {
-        clearInterval(timerRef.current);
-    }
-    return () => {
-        if (timerRef.current) {
-            clearInterval(timerRef.current);
-        }
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [quiz.isPsychometric, currentQuestionIndex, isQuizFinished, isAnswered]);
-
-  const handleAnswerSubmit = async () => {
-    if (!selectedAnswer) return;
-
-    if (timerRef.current) clearInterval(timerRef.current);
-    setIsLoading(true);
-    setIsAnswered(true);
-    const correct = selectedAnswer === currentQuestion.correctAnswer;
-    setIsCorrect(correct);
-    
-    if (correct) {
-      setScore(score + 1);
-      onQuizFeedback?.('correct');
-    } else {
-      onQuizFeedback?.('incorrect');
-    }
-    
-    updatePerformanceData(currentQuestion.topic, correct);
-
-    try {
-      if (!quiz.isPsychometric) {
-          const result = await analyzePerformanceAndAdapt({
-            question: currentQuestion.question,
-            studentAnswer: selectedAnswer,
-            correctAnswer: currentQuestion.correctAnswer,
-            topic: currentQuestion.topic,
-            learningStyle: learningStyle
-          });
-          const newFeedback: Feedback = {...result, timestamp: new Date().toISOString(), topic: currentQuestion.topic};
-          setFeedback(newFeedback);
-          saveFeedback(newFeedback);
-      }
-    } catch (error) {
-      console.error("Error getting feedback:", error);
-      if (!quiz.isPsychometric) {
-          const errorFeedback: Feedback = {
-            feedback: "No se pudo obtener la retroalimentación. Por favor, intenta de nuevo.",
-            areasForImprovement: "N/A",
-            adaptedQuestionTopic: currentQuestion.topic,
-            timestamp: new Date().toISOString(),
-            topic: currentQuestion.topic,
-          }
-          setFeedback(errorFeedback);
-          saveFeedback(errorFeedback);
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleNextQuestion = () => {
-    setCurrentQuestionIndex(currentQuestionIndex + 1);
-    setSelectedAnswer(null);
-    setIsAnswered(false);
-    setFeedback(null);
-    if(quiz.timeLimit) setTimeLeft(quiz.timeLimit * 60);
-  };
-
-  const handleRestartQuiz = () => {
-    setCurrentQuestionIndex(0);
-    setScore(0);
-    setSelectedAnswer(null);
-    setIsAnswered(false);
-    setFeedback(null);
-    if(quiz.timeLimit) setTimeLeft(quiz.timeLimit * 60);
-  }
-  
-  const formatTime = (seconds: number) => {
-    const minutes = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-  };
+  const {
+    currentQuestion,
+    isQuizFinished,
+    selectedAnswer,
+    isAnswered,
+    isCorrect,
+    feedback,
+    isLoading,
+    score,
+    timeLeft,
+    setSelectedAnswer,
+    handleAnswerSubmit,
+    handleNextQuestion,
+    handleRestartQuiz,
+    formatTime,
+  } = useQuiz({ quiz, onQuizFeedback, learningStyle });
 
   if (isQuizFinished) {
     return (
@@ -184,7 +87,7 @@ export function GeneratedQuiz({ quiz, onBack, onQuizFeedback, learningStyle }: G
             </Button>
             <div className="flex-1 text-center">
                 <CardTitle className="font-headline text-lg">{quiz.title}</CardTitle>
-                <CardDescription>Pregunta {currentQuestionIndex + 1} de {quiz.questions.length}</CardDescription>
+                <CardDescription>Pregunta {quiz.questions.indexOf(currentQuestion) + 1} de {quiz.questions.length}</CardDescription>
             </div>
             {quiz.isPsychometric && timeLeft !== null ? (
                 <div className="flex items-center gap-2 text-lg font-semibold text-primary w-28 justify-end">

@@ -2,6 +2,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { studyResources } from '@/lib/data';
@@ -21,7 +22,7 @@ type StudyContentContainerProps = {
  * A container component that manages the state and logic for the study page.
  * It handles resource selection, content fetching, summarization, and image text extraction,
  * passing the necessary data and handlers to the `StudyContentDisplay` component.
- * It now also receives the learning style to pass to the summarization action.
+ * It now also receives the learning style and handles navigation on summary save.
  */
 export function StudyContentContainer({ learningStyle }: StudyContentContainerProps) {
   const [selectedResource, setSelectedResource] = useState<StudyResource | null>(null);
@@ -34,31 +35,20 @@ export function StudyContentContainer({ learningStyle }: StudyContentContainerPr
   const { toast } = useToast();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const contentCardRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
-  // On initial load, fetch and display the psychometric study guide.
   useEffect(() => {
-    const fetchPsychometricGuide = async () => {
-      const psychometricResource = studyResources.find(r => r.source === 'guia-psicometrico.md');
-      if (psychometricResource) {
-        handleResourceSelect(psychometricResource);
-      }
-    };
-    fetchPsychometricGuide();
+    const psychometricResource = studyResources.find(r => r.source === 'guia-psicometrico.md');
+    if (psychometricResource && !selectedResource) {
+      handleResourceSelect(psychometricResource);
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  /**
-   * Scrolls the content card into view, useful on mobile.
-   */
   const scrollContentIntoView = () => {
     contentCardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
-  /**
-   * Handles the selection of a study resource from the list.
-   * It fetches internal markdown content or provides instructions for external links.
-   * @param {StudyResource} resource - The resource that was selected.
-   */
   const handleResourceSelect = async (resource: StudyResource) => {
     setSelectedResource(resource);
     setSummary(null);
@@ -87,13 +77,8 @@ export function StudyContentContainer({ learningStyle }: StudyContentContainerPr
     }
   };
 
-  /**
-   * Triggers the AI summarization process for the currently displayed content
-   * by calling a server action. It now passes the learning style.
-   */
   const handleSummarizeContent = async () => {
     if (!resourceContent) return;
-
     setIsSummarizing(true);
     setError(null);
     setSummary(null);
@@ -101,7 +86,6 @@ export function StudyContentContainer({ learningStyle }: StudyContentContainerPr
     try {
       const contentToSummarize = `data:text/markdown;charset=utf-8,${encodeURIComponent(resourceContent)}`;
       const result = await summarizeContentAction({ url: contentToSummarize, learningStyle });
-      
       if (result.error) throw new Error(result.error);
       setSummary(result.summary!);
     } catch (e: any) {
@@ -112,20 +96,20 @@ export function StudyContentContainer({ learningStyle }: StudyContentContainerPr
     }
   };
 
-  /**
-   * Saves the generated summary to the user's local storage and shows a confirmation toast.
-   */
   const handleSaveSummary = () => {
     if (!summary || !selectedResource) return;
-    saveSummary({ id: Date.now().toString(), title: `Resumen de: ${selectedResource.title}`, content: summary, originalUrl: selectedResource.source, createdAt: new Date().toISOString() });
-    toast({ title: 'Resumen Guardado', description: 'Puedes encontrar tus resúmenes en la sección "Mis Resúmenes".' });
+    const newSummaryId = Date.now().toString();
+    saveSummary({ 
+        id: newSummaryId, 
+        title: `Resumen de: ${selectedResource.title}`, 
+        content: summary, 
+        originalUrl: selectedResource.source, 
+        createdAt: new Date().toISOString() 
+    });
+    toast({ title: 'Resumen Guardado', description: 'Tu resumen ha sido guardado exitosamente.' });
+    router.push(`/summaries?id=${newSummaryId}`);
   };
 
-  /**
-   * Handles the image upload event, reads the image as a data URL,
-   * and calls the server action to extract text from it.
-   * @param {React.ChangeEvent<HTMLInputElement>} e - The file input change event.
-   */
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
