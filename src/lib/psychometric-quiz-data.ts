@@ -32,10 +32,10 @@ export const psychometricQuizPool: GeneratedQuestion[] = [
     topic: 'Examen Psicométrico',
   },
   {
-    question: '¿Qué número sigue en la secuencia: 100, 97, 91, 82, 67, ___?',
-    options: ['50', '46', '52', '48'],
-    correctAnswer: '46',
-    explanation: 'La serie resta números primos consecutivos: -3, -6 (error, debería ser -2, -3, -5, -7, -11...), el patrón es restar impares -3, -6, -9... no. El patrón es restar números que aumentan: 100-3=97, 97-6=91, 91-9=82, 82-15=67... no. El patrón es restar números que aumentan en 3: 100-3=97; 97-6=91; 91-9=82; 82-12=70; 67-15=52. El patrón correcto es: 100 (-3) 97 (-6) 91 (-9) 82 (-12) 70 (-15) 55. La pregunta tiene un error. Aceptando la lógica del examen: se restan múltiplos de 3: -3, -6... ah, es 100-3=97, 97-2=95... El patrón es restar impares: 100-3=97, 97-6=91, 91-9=82, 82-15=67... El patrón es -3, -6, -9, -15... no es claro. REINTENTO: 100, 97(-3), 91(-6), 82(-9), 67(-15)... la diferencia entre las restas es -3, -3, -6... no.  REINTENTO 2: 100, 97, 91, 82, 67... Diferencias: -3, -6, -9... el siguiente debería ser -12. 82-12=70. La pregunta está mal formulada. Asumiré un patrón de -3, -6, -9, -12, -15. Así que 67-15 = 52. Pero no es opción. Patrón real: 100, 97(-3), 91(-6), 82(-9), 70(-12), 55(-15). Asumiremos que el 67 es un error y debería ser 70. La respuesta sería 55. No está. OK, un patrón más difícil. La resta es -3, -6, -9. Luego salta a -15. ¿Por qué? 3,6,9 es una serie. La siguiente sería 12. 82-12=70. OK. La pregunta es 100, 97, 91, 82, 67. Las diferencias son -3, -6, -9, -15. Las diferencias de las diferencias son -3, -3, -6. Tampoco. La pregunta está mal. Crearé una nueva. ¿Qué número sigue: 100, 99, 96, 91, 84, ___? La diferencia es -1, -3, -5, -7. La siguiente es -9. 84-9=75.',
+    question: '¿Qué número sigue en la secuencia: 100, 99, 96, 91, 84, ___?',
+    options: ['75', '77', '79', '81'],
+    correctAnswer: '75',
+    explanation: 'El patrón es restar números impares consecutivos: 100 (-1) = 99, 99 (-3) = 96, 96 (-5) = 91, 91 (-7) = 84, 84 (-9) = 75.',
     topic: 'Examen Psicométrico',
   },
   {
@@ -43,7 +43,7 @@ export const psychometricQuizPool: GeneratedQuestion[] = [
     options: ['24', '23', '25', '26'],
     correctAnswer: '24',
     explanation: 'La diferencia entre los números aumenta en 1 cada vez (+1, +2, +3, +4, +5, +6). 18+6=24.',
-    topic: 'Examen Psicomicométrico',
+    topic: 'Examen Psicométrico',
   },
   {
     question: 'Encuentra el siguiente número en la serie: 5, 6, 8, 11, 15, 20, ___',
@@ -64,6 +64,20 @@ export const psychometricQuizPool: GeneratedQuestion[] = [
     options: ['25', '24', '30', '28'],
     correctAnswer: '25',
     explanation: 'La serie consiste en los cuadrados de números consecutivos, empezando desde 2 (2², 3², 4², 5², 6², 7²). El número que falta es 5², que es 25.',
+    topic: 'Examen Psicométrico',
+  },
+   {
+    question: '¿Qué número sigue en la serie: 81, 27, 9, 3, ___?',
+    options: ['1', '0', '1/3', '3/2'],
+    correctAnswer: '1',
+    explanation: 'Cada número es el resultado de dividir el anterior entre 3.',
+    topic: 'Examen Psicométrico',
+  },
+  {
+    question: '¿Qué número continúa la secuencia: 2, 6, 12, 20, 30, 42, ___?',
+    options: ['56', '52', '60', '64'],
+    correctAnswer: '56',
+    explanation: 'La diferencia entre los números aumenta en 2 cada vez: +4, +6, +8, +10, +12, ... El siguiente aumento es +14. 42 + 14 = 56.',
     topic: 'Examen Psicométrico',
   },
 
@@ -91,8 +105,8 @@ export const psychometricQuizPool: GeneratedQuestion[] = [
   },
   {
     question: 'Telescopio es a Astrónomo como Microscopio es a ___',
-    options: ['Científico', 'Laboratorio', 'Biologo', 'Célula'],
-    correctAnswer: 'Biologo',
+    options: ['Científico', 'Laboratorio', 'Biólogo', 'Célula'],
+    correctAnswer: 'Biólogo',
     explanation: 'La analogía es de herramienta a profesional que la utiliza típicamente. Un astrónomo usa un telescopio; un biólogo usa un microscopio.',
     topic: 'Examen Psicométrico',
   },
@@ -108,6 +122,20 @@ export const psychometricQuizPool: GeneratedQuestion[] = [
     options: ['Gas', 'Hielo', 'Fuego', 'Aire'],
     correctAnswer: 'Hielo',
     explanation: 'La relación es de proceso de cambio de estado al estado inicial de la materia. La evaporación es el paso de líquido (agua) a gas. La sublimación es el paso de sólido (hielo) a gas.',
+    topic: 'Examen Psicométrico',
+  },
+  {
+    question: 'Capítulo es a Novela como Escena es a ___',
+    options: ['Teatro', 'Película', 'Actor', 'Obra de teatro'],
+    correctAnswer: 'Obra de teatro',
+    explanation: 'Un capítulo es una división de una novela. Una escena es una división de una obra de teatro.',
+    topic: 'Examen Psicométrico',
+  },
+  {
+    question: 'Certeza es a Duda como Conocimiento es a ___',
+    options: ['Ignorancia', 'Inteligencia', 'Sabiduría', 'Estudio'],
+    correctAnswer: 'Ignorancia',
+    explanation: 'La relación es de antónimos. Certeza es lo opuesto a Duda. Conocimiento es lo opuesto a Ignorancia.',
     topic: 'Examen Psicométrico',
   },
 
@@ -148,10 +176,24 @@ export const psychometricQuizPool: GeneratedQuestion[] = [
     topic: 'Examen Psicométrico',
   },
   {
-    question: 'En un código secreto, "PSICO" se escribe como "QUKEQ". Usando la misma lógica, ¿cómo se escribiría "MENTE"?',
+    question: 'En un código secreto, cada letra se sustituye por la que está dos posiciones adelante en el alfabeto. ¿Cómo se escribiría "MENTE"?',
     options: ['OGPVG', 'OGPUG', 'OFPVG', 'NFPUG'],
     correctAnswer: 'OGPVG',
-    explanation: 'El patrón es alternar +1, +2 en el alfabeto. P+1=Q, S+2=U, I+1=K(J,K), C+2=E, O+1=P(Q).  *Corrección* P+1=Q, S+2=U, I+2=K, C+2=E... no. El patrón es +1, +2, +3... No. El patrón es P(16)+1=Q(17), S(19)+2=U(21), I(9)+2=K(11), C(3)+2=E(5), O(15)+2=Q(17). El patrón es +1, +2, +2, +2, +2.  No es consistente. REINTENTO: El código real es simple, cada letra avanza 2 posiciones en el alfabeto (con ciclo). P->R, S->U, I->K, C->E, O->Q. Mi ejemplo "QUKEQ" es erróneo. Un patrón lógico sería: P+1=Q, S+2=U, I+3=L... no. REINTENTO 2: Usemos un patrón consistente: +2 a cada letra. "PSICO" -> "RUKeq". Ok, mi ejemplo está mal. Haré un ejemplo que funcione: En un código "MENTE" se cifra como "LDSZD". ¿Qué patrón es? M->L (-1), E->D(-1), N->S(+5), T->Z(+6), E->D(-1). Mal.  OK, patrón simple: +2. "PSICO" -> "RUKES". Entonces "MENTE" -> "OGPVG". M+2=O, E+2=G, N+2=P, T+2=V, E+2=G.  OGPVG.',
+    explanation: 'El patrón es +2 a cada letra. M+2=O, E+2=G, N+2=P, T+2=V, E+2=G. El resultado es OGPVG.',
+    topic: 'Examen Psicométrico',
+  },
+  {
+    question: 'Un padre tiene 30 años y su hijo 3. ¿Dentro de cuántos años la edad del padre será el cuádruple de la edad del hijo?',
+    options: ['3 años', '5 años', '6 años', '9 años'],
+    correctAnswer: '6 años',
+    explanation: 'Sea x los años que pasarán. La ecuación es 30 + x = 4 * (3 + x). Resolviendo: 30 + x = 12 + 4x -> 18 = 3x -> x = 6.',
+    topic: 'Examen Psicométrico',
+  },
+  {
+    question: 'Un cuadrado se divide en 9 cuadrados iguales. El cuadrado central se sombrea. Luego, cada uno de los 8 cuadrados restantes se divide en 9, y sus cuadrados centrales se sombrean. ¿Qué figura se describe?',
+    options: ['Un círculo', 'Un fractal (Alfombra de Sierpinski)', 'Un tablero de ajedrez', 'Una espiral'],
+    correctAnswer: 'Un fractal (Alfombra de Sierpinski)',
+    explanation: 'Este proceso de subdivisión y eliminación recursiva es la construcción de un fractal conocido como la Alfombra de Sierpinski.',
     topic: 'Examen Psicométrico',
   },
 ];

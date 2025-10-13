@@ -12,10 +12,10 @@ import type { GeneratedQuiz as GeneratedQuizType } from '@/lib/types';
 import { cn } from '@/lib/utils';
 
 
-const SIMULATION_QUESTIONS = 30;
-const SIMULATION_TIME_MINUTES = 30;
-const PSYCHOMETRIC_QUESTIONS = 15;
-const PSYCHOMETRIC_TIME_MINUTES = 10;
+const SIMULATION_QUESTIONS = 50;
+const SIMULATION_TIME_MINUTES = 55;
+const PSYCHOMETRIC_QUESTIONS = 25;
+const PSYCHOMETRIC_TIME_MINUTES = 20;
 
 /**
  * Mezcla un array en su lugar y lo devuelve (algoritmo de Fisher-Yates).

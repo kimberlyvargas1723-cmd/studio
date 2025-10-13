@@ -43,6 +43,13 @@ export const examQuestionPool: GeneratedQuestion[] = [
     explanation: 'El área de Wernicke se ubica en el lóbulo temporal izquierdo y su función principal es la decodificación y comprensión del lenguaje tanto hablado como escrito.',
     topic: 'Bases Biológicas de la Conducta',
   },
+  {
+    question: 'El potencial de acción, o impulso nervioso, es un fenómeno de "todo o nada". Esto significa que:',
+    options: ['La neurona puede disparar con diferentes intensidades.', 'El estímulo debe alcanzar un cierto umbral para que la neurona dispare con toda su fuerza.', 'La neurona se recarga gradualmente después de disparar.', 'Solo algunas neuronas pueden generar potenciales de acción.'],
+    correctAnswer: 'El estímulo debe alcanzar un cierto umbral para que la neurona dispare con toda su fuerza.',
+    explanation: 'El principio de "todo o nada" establece que si un estímulo alcanza el umbral de excitación, la neurona dispara un potencial de acción de la misma magnitud siempre. No hay disparos "débiles" o "fuertes".',
+    topic: 'Bases Biológicas de la Conducta',
+  },
 
   // --- Procesos Psicológicos Básicos ---
   {
@@ -71,6 +78,13 @@ export const examQuestionPool: GeneratedQuestion[] = [
     options: ['Poder, afiliación y logro', 'Supervivencia, seguridad y amor', 'Autonomía, competencia y relación', 'Estima, autorrealización y pertenencia'],
     correctAnswer: 'Autonomía, competencia y relación',
     explanation: 'La teoría de la autodeterminación postula que la motivación y el bienestar óptimos se alcanzan cuando se satisfacen las necesidades de autonomía (sentirse libre), competencia (sentirse capaz) y relación (sentirse conectado a otros).',
+    topic: 'Procesos Psicológicos Básicos',
+  },
+  {
+    question: '¿Qué principio de la Gestalt explica por qué tendemos a ver objetos incompletos como si estuvieran completos?',
+    options: ['Proximidad', 'Semejanza', 'Cierre', 'Continuidad'],
+    correctAnswer: 'Cierre',
+    explanation: 'El principio de cierre describe nuestra tendencia a llenar los espacios en blanco en una figura para percibirla como un objeto completo. Por ejemplo, vemos un círculo aunque falte una pequeña sección de su contorno.',
     topic: 'Procesos Psicológicos Básicos',
   },
   
@@ -109,6 +123,13 @@ export const examQuestionPool: GeneratedQuestion[] = [
     correctAnswer: 'La tendencia a atribuir nuestros éxitos a factores internos y nuestros fracasos a factores externos.',
     explanation: 'Es un mecanismo de protección del ego. Si sacamos un 10, es porque "soy inteligente" (factor interno). Si reprobamos, es porque "el examen era muy difícil" (factor externo).',
     topic: 'Psicología Social',
+  },
+  {
+    question: 'Un niño entiende que 5+2=7, pero no puede comprender el concepto abstracto de "justicia". Según Piaget, ¿en qué etapa del desarrollo cognitivo se encuentra probablemente?',
+    options: ['Sensoriomotora', 'Preoperacional', 'Operaciones Concretas', 'Operaciones Formales'],
+    correctAnswer: 'Operaciones Concretas',
+    explanation: 'En la etapa de Operaciones Concretas, los niños pueden pensar lógicamente sobre eventos concretos y realizar operaciones matemáticas, pero aún luchan con conceptos abstractos como la justicia o la libertad.',
+    topic: 'Psicología del Desarrollo',
   },
 
   // --- Habilidades EXANI-II (Comprensión Lectora, Redacción Indirecta, Inglés) ---
@@ -154,6 +175,20 @@ export const examQuestionPool: GeneratedQuestion[] = [
     explanation: 'To "adapt" means to modify or adjust something for a new purpose or situation. "Adopt" means to take up or start to use. "Adept" is an adjective meaning skilled. "Addict" is a noun or verb related to addiction.',
     topic: 'Inglés',
   },
+    {
+    question: '¿Qué opción presenta un error de concordancia verbal?',
+    options: ['La mayoría de los estudiantes votaron a favor.', 'El enjambre de abejas atacó al oso.', 'Una bandada de pájaros cruzaron el cielo.', 'El equipo de futbolistas entrenó duro.'],
+    correctAnswer: 'Una bandada de pájaros cruzaron el cielo.',
+    explanation: 'El sujeto de la oración es "Una bandada", que es singular. Por lo tanto, el verbo debe ser singular: "cruzó", no "cruzaron".',
+    topic: 'Redacción Indirecta',
+  },
+  {
+    question: 'Based on the text: "Despite the harsh weather, the rescue team persevered in their search for the missing hikers." What can be inferred about the rescue team?',
+    options: ['They were unsuccessful.', 'They were discouraged by the weather.', 'They were determined and persistent.', 'They were unprepared for the conditions.'],
+    correctAnswer: 'They were determined and persistent.',
+    explanation: 'The word "persevered" means to continue in a course of action even in the face of difficulty. This implies determination and persistence.',
+    topic: 'Inglés',
+  },
 
   // --- Pensamiento Matemático y Psicométrico ---
   {
@@ -167,7 +202,7 @@ export const examQuestionPool: GeneratedQuestion[] = [
     question: '¿Cuál es el siguiente elemento en la serie: F2, G3, H5, J8, M13, ___?',
     options: ['P21', 'R21', 'P20', 'R20'],
     correctAnswer: 'R21',
-    explanation: 'Son dos series combinadas. Números: La secuencia de Fibonacci (2, 3, 5, 8, 13, 21). Letras: El número de letras que se saltan sigue la secuencia de Fibonacci (F->G (0), G->H (0), H->J (1), J->M (2), M->R (4 -> 1+2+1)).',
+    explanation: 'Son dos series combinadas. Números: La secuencia de Fibonacci (2, 3, 5, 8, 13, 21). Letras: El número de letras que se saltan sigue la secuencia de Fibonacci - 1 (F->G salta 0, G->H salta 0, H->J salta 1, J->M salta 2, M->R salta 4).',
     topic: 'Simulacro General',
   },
   {
@@ -195,7 +230,7 @@ export const examQuestionPool: GeneratedQuestion[] = [
     question: 'El promedio de 5 números es 40. Si se retiran dos de esos números, cuyo promedio es 35, ¿cuál es el promedio de los 3 números restantes?',
     options: ['45', '43.33', '50', '40'],
     correctAnswer: '43.33',
-    explanation: 'Suma original: 5 * 40 = 200. Suma de los números retirados: 2 * 35 = 70. Suma de los restantes: 200 - 70 = 130. Promedio de los restantes: 130 / 3 = 43.33.',
+    explanation: 'Suma original: 5 * 40 = 200. Suma de los números retirados: 2 * 35 = 70. Suma de los restantes: 200 - 70 = 130. Promedio de los restantes: 130 / 3 ≈ 43.33.',
     topic: 'Probabilidad y Estadística',
   },
    {
@@ -210,6 +245,27 @@ export const examQuestionPool: GeneratedQuestion[] = [
     options: ['6 horas', '9 horas', '12 horas', '24 horas'],
     correctAnswer: '12 horas',
     explanation: 'El área de la primera pared es 2*2 = 4 m². El área de la segunda es 4*4 = 16 m². El área es 4 veces mayor. Por lo tanto, tardaré 4 veces más tiempo: 3 horas * 4 = 12 horas.',
+    topic: 'Pensamiento Matemático',
+  },
+  {
+    question: 'El precio de un artículo aumentó un 25% y ahora cuesta $200. ¿Cuál era el precio original?',
+    options: ['$150', '$160', '$175', '$180'],
+    correctAnswer: '$160',
+    explanation: 'Si el precio aumentó un 25%, el precio actual es el 125% del original. Sea P el precio original, 1.25 * P = $200. Entonces, P = $200 / 1.25 = $160.',
+    topic: 'Pensamiento Matemático',
+  },
+  {
+    question: 'De un grupo de 100 estudiantes, 60 tocan guitarra, 40 tocan piano, y 20 tocan ambos. ¿Cuántos estudiantes no tocan ninguno de los dos instrumentos?',
+    options: ['0', '10', '20', '30'],
+    correctAnswer: '20',
+    explanation: 'El total de estudiantes que tocan al menos un instrumento es la suma de los que tocan cada uno menos la intersección: 60 + 40 - 20 = 80. Los que no tocan ninguno son el total menos ese número: 100 - 80 = 20.',
+    topic: 'Probabilidad y Estadística',
+  },
+  {
+    question: 'Un coche viaja a 60 km/h y tarda 4 horas en llegar a su destino. ¿Cuánto tiempo tardaría si viajara a 80 km/h?',
+    options: ['2 horas', '3 horas', '3.5 horas', '5 horas'],
+    correctAnswer: '3 horas',
+    explanation: 'La distancia es velocidad * tiempo: 60 km/h * 4 h = 240 km. El nuevo tiempo es distancia / nueva velocidad: 240 km / 80 km/h = 3 horas.',
     topic: 'Pensamiento Matemático',
   },
 ];
