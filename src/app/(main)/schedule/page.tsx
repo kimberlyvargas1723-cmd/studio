@@ -90,7 +90,7 @@ export default function SchedulePage() {
   return (
     <div className="flex min-h-screen w-full flex-col">
       <Header title="Mi Horario Inteligente" />
-      <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8 lg:flex-row">
+      <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8 lg:flex-row lg:items-start">
         {/* Tarjeta del Calendario */}
         <Card className="w-full lg:w-1/3 lg:sticky lg:top-24">
           <CardHeader>
