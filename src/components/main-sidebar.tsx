@@ -20,7 +20,6 @@ import {
   FileText,
   CalendarDays,
   Volume2,
-  Layers,
 } from 'lucide-react';
 
 // Define la estructura y el contenido de los enlaces de navegación de la barra lateral.
@@ -28,15 +27,14 @@ const menuItems = [
   { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/study', label: 'Temas de Estudio', icon: BookOpen },
   { href: '/summaries', label: 'Mis Resúmenes', icon: FileText },
-  { href: '/flashcards', label: 'Gimnasio Mental', icon: Layers },
-  { href: '/practice', label: 'Practicar', icon: Target },
+  { href: '/practice', label: 'Centro de Práctica', icon: Target },
   { href: '/progress', label: 'Mi Progreso', icon: BarChart3 },
   { href: '/schedule', label: 'Mi Horario', icon: CalendarDays },
   { href: '/audio', label: 'Audio Lab', icon: Volume2 },
 ];
 
 /**
- * Renderiza la barra lateral de navegación principal de la aplicación.
+ * Renderiza la barra de navegación principal de la aplicación.
  * 
  * Este componente es responsable de mostrar un menú de navegación coherente en todas las
  * páginas principales. Utiliza el hook `usePathname` de Next.js para detectar la ruta actual
