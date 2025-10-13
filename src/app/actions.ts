@@ -13,29 +13,29 @@ import fs from 'fs/promises';
 import path from 'path';
 
 /**
- * Server Action to trigger AI content summarization.
- * @param {ContentSummarizationInput} input - The content to summarize and optional learning style.
- * @returns {Promise<{summary?: string; error?: string}>} - The summary or an error object.
+ * Server Action para disparar la sumarización de contenido por IA.
+ * @param {ContentSummarizationInput} input - El contenido a resumir y, opcionalmente, el estilo de aprendizaje.
+ * @returns {Promise<{summary?: string; error?: string}>} El resumen o un objeto de error.
  */
 export async function summarizeContentAction(input: ContentSummarizationInput) {
   try {
     const result = await summarizeContent(input);
     return { summary: result.summary };
-  } catch (e) {
+  } catch (e: any) {
     console.error('Error in summarizeContentAction:', e);
-    return { error: 'No se pudo generar el resumen. Por favor, intenta de nuevo.' };
+    return { error: e.message || 'No se pudo generar el resumen. Por favor, intenta de nuevo.' };
   }
 }
 
 /**
- * Server Action to trigger practice question generation.
- * It reads the content of the study resource from the local filesystem.
- * @param {StudyResource} resource - The study resource to generate questions from.
- * @returns {Promise<{questions?: GeneratedQuestion[]; error?: string}>} - The generated questions or an error object.
+ * Server Action para disparar la generación de preguntas de práctica.
+ * Lee el contenido del recurso de estudio desde el sistema de archivos local.
+ * @param {StudyResource} resource - El recurso de estudio del cual generar preguntas.
+ * @returns {Promise<{questions?: GeneratedQuestion[]; error?: string}>} Las preguntas generadas o un objeto de error.
  */
 export async function generatePracticeQuestionsAction(resource: StudyResource) {
   try {
-    // Build the correct path to the markdown file in the public directory
+    // Construye la ruta correcta al archivo markdown en el directorio src/lib/lecturas
     const filePath = path.join(process.cwd(), 'src/lib/lecturas', resource.source);
     const resourceContent = await fs.readFile(filePath, 'utf-8');
     
@@ -45,32 +45,32 @@ export async function generatePracticeQuestionsAction(resource: StudyResource) {
     });
 
     return { questions: result.questions };
-  } catch (e) {
+  } catch (e: any) {
     console.error('Error in generatePracticeQuestionsAction:', e);
-    return { error: 'No se pudo generar el quiz. Por favor, intenta de nuevo.' };
+    return { error: e.message || 'No se pudo generar el quiz. Por favor, intenta de nuevo.' };
   }
 }
 
 /**
- * Server Action to extract text from an image.
- * @param {string} imageUrl - The data URL of the image to process.
- * @returns {Promise<{textContent?: string; error?: string}>} - The extracted text or an error object.
+ * Server Action para extraer texto de una imagen.
+ * @param {string} imageUrl - La URL de datos de la imagen a procesar.
+ * @returns {Promise<{textContent?: string; error?: string}>} El texto extraído o un objeto de error.
  */
 export async function extractTextFromImageAction(imageUrl: string) {
   try {
     const result = await extractTextFromImage({ imageUrl });
     return { textContent: result.textContent };
-  } catch (e) {
+  } catch (e: any) {
     console.error('Error in extractTextFromImageAction:', e);
-    return { error: 'No se pudo extraer texto de la imagen. Asegúrate de que la imagen sea clara.' };
+    return { error: e.message || 'No se pudo extraer texto de la imagen. Asegúrate de que la imagen sea clara.' };
   }
 }
 
 
 /**
- * Server Action to trigger AI study plan generation.
- * @param {StudyPlanInput} input - The student's performance data and days until the exam.
- * @returns {Promise<{plan?: StudyPlanOutput; error?: string}>} - The generated plan or an error object.
+ * Server Action para disparar la generación del plan de estudio por IA.
+ * @param {StudyPlanInput} input - Los datos de rendimiento del estudiante y los días hasta el examen.
+ * @returns {Promise<{plan?: StudyPlanOutput; error?: string}>} El plan generado o un objeto de error.
  */
 export async function generateStudyPlanAction(input: StudyPlanInput): Promise<{ plan?: StudyPlanOutput; error?: string }> {
   try {
@@ -83,9 +83,9 @@ export async function generateStudyPlanAction(input: StudyPlanInput): Promise<{ 
 }
 
 /**
- * Server Action to generate an intelligent summary of the user's progress.
- * @param {PerformanceData[]} performanceData - The user's performance data.
- * @returns {Promise<{summary?: string; suggestion?: string; error?: string}>} - The generated summary and suggestion, or an error object.
+ * Server Action para generar un resumen inteligente del progreso del usuario.
+ * @param {PerformanceData[]} performanceData - Los datos de rendimiento del usuario.
+ * @returns {Promise<{summary?: string; suggestion?: string; error?: string}>} El resumen y la sugerencia generados, o un objeto de error.
  */
 export async function generateProgressSummaryAction(performanceData: PerformanceData[]) {
   try {
@@ -98,9 +98,9 @@ export async function generateProgressSummaryAction(performanceData: Performance
 }
 
 /**
- * Server Action to generate a personalized learning strategy based on a learning style.
- * @param {string} learningStyle - The user's dominant learning style (V, A, R, or K).
- * @returns {Promise<{style?: string; strategy?: string; error?: string}>} - The style and generated strategy, or an error object.
+ * Server Action para generar una estrategia de aprendizaje personalizada basada en un estilo de aprendizaje.
+ * @param {string} learningStyle - El estilo de aprendizaje dominante del usuario (V, A, R, o K).
+ * @returns {Promise<{style?: string; strategy?: string; error?: string}>} El estilo y la estrategia generada, o un objeto de error.
  */
 export async function generateLearningStrategyAction(learningStyle: string) {
   try {
