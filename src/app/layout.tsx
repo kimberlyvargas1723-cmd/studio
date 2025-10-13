@@ -3,10 +3,14 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
-import { Inter, Lexend } from 'next/font/google';
+import { PT_Sans } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const lexend = Lexend({ subsets: ['latin'], variable: '--font-lexend' });
+const ptSans = PT_Sans({ 
+  subsets: ['latin'], 
+  weight: ['400', '700'],
+  variable: '--font-pt-sans'
+});
+
 
 export const metadata: Metadata = {
   title: 'UANL Prep AI - Psicología 2025',
@@ -25,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body className={cn('font-body antialiased', inter.variable, lexend.variable)}>
+      <body className={cn('font-body antialiased', ptSans.variable)}>
           {children}
         <Toaster />
       </body>
