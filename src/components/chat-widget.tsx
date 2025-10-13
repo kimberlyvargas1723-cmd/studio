@@ -15,23 +15,33 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { studyAssistant } from '@/ai/flows/study-assistant';
 import { cn } from '@/lib/utils';
 
-
+/**
+ * Define la estructura de un único mensaje en el historial del chat.
+ */
 type Message = {
   role: 'user' | 'model';
   content: string;
   youtubeQuery?: string;
 };
 
+/**
+ * Define las props para el componente ChatWidget.
+ */
 type ChatWidgetProps = {
+    /** Estado para activar una animación de feedback en el ícono de Vairyx. */
     feedback?: 'correct' | 'incorrect' | null;
+    /** El estilo de aprendizaje del usuario para pasarlo al flujo de IA. */
     learningStyle?: string;
 };
 
 /**
- * Renders an animated, interactive chat widget featuring the AI assistant, Vairyx.
- * This component acts as a floating action button that opens a popover containing
- * a full-featured chat interface, making Vairyx accessible from anywhere in the app.
- * It now accepts a 'feedback' prop to trigger visual feedback and a 'learningStyle' prop.
+ * Renderiza un widget de chat flotante e interactivo con el asistente de IA, Vairyx.
+ *
+ * Este componente funciona como un botón de acción flotante que, al ser presionado,
+ * abre un popover con una interfaz de chat completa. Permite al usuario conversar
+- * con Vairyx desde cualquier página de la aplicación, manteniendo el contexto de la conversación.
+ *
+ * @param {ChatWidgetProps} props - Props para controlar el feedback visual y el estilo de aprendizaje.
  */
 export function ChatWidget({ feedback, learningStyle }: ChatWidgetProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,10 +56,11 @@ export function ChatWidget({ feedback, learningStyle }: ChatWidgetProps) {
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
   /**
-   * Scrolls the chat view to the bottom to show the latest message.
+   * Desplaza la vista del chat hacia el final para mostrar el mensaje más reciente.
+   * Se ejecuta cada vez que el historial de mensajes cambia.
    */
   const scrollToBottom = () => {
-    // This is a workaround to get the underlying div from the ScrollArea component
+    // Este es un workaround para obtener el div del viewport desde el componente ScrollArea de Radix.
     const viewport = scrollAreaRef.current?.querySelector('div[data-radix-scroll-area-viewport]');
     if (viewport) {
       viewport.scrollTop = viewport.scrollHeight;
@@ -58,14 +69,16 @@ export function ChatWidget({ feedback, learningStyle }: ChatWidgetProps) {
 
   useEffect(() => {
     if (isOpen) {
+      // Usamos un pequeño timeout para asegurar que el DOM se haya actualizado antes de hacer scroll.
       setTimeout(scrollToBottom, 100);
     }
   }, [messages, isOpen]);
   
   /**
-   * Handles sending a message from the user to the AI assistant.
-   * It updates the message history and calls the AI flow.
-   * @param {React.FormEvent} e - The form event.
+   * Maneja el envío de un mensaje del usuario al asistente de IA.
+   * Añade el mensaje del usuario al historial, limpia el input, y llama al flujo
+   * de Genkit `studyAssistant` para obtener una respuesta.
+   * @param {React.FormEvent} e - El evento del formulario.
    */
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -77,7 +90,9 @@ export function ChatWidget({ feedback, learningStyle }: ChatWidgetProps) {
     setIsLoading(true);
 
     try {
+      // Prepara el historial para el flujo de IA.
       const history = messages.map(msg => ({ role: msg.role, content: msg.content }));
+      // Llama al flujo de IA con la consulta actual, el historial y el estilo de aprendizaje.
       const result = await studyAssistant({ query: input, history, learningStyle });
       
       const modelMessage: Message = {
@@ -113,9 +128,9 @@ export function ChatWidget({ feedback, learningStyle }: ChatWidgetProps) {
                 side="top"
                 align="end"
                 className="w-[90vw] max-w-md flex flex-col p-0 mb-2 h-[70vh] rounded-xl"
-                onOpenAutoFocus={(e) => e.preventDefault()} // Prevents focus stealing
+                onOpenAutoFocus={(e) => e.preventDefault()} // Previene que el popover "robe" el foco al abrirse.
             >
-                {/* Header */}
+                {/* Cabecera del Chat */}
                 <div className="flex items-center justify-between border-b p-3">
                     <div className="flex items-center gap-3">
                         <Avatar className="h-8 w-8 border-2 border-primary">
@@ -130,7 +145,7 @@ export function ChatWidget({ feedback, learningStyle }: ChatWidgetProps) {
                     </Button>
                 </div>
                 
-                 {/* Chat Content */}
+                 {/* Contenido del Chat (Mensajes) */}
                  <div className="flex-1 flex flex-col overflow-hidden">
                     <ScrollArea className="flex-1 p-4" ref={scrollAreaRef}>
                         <div className="space-y-6">
@@ -191,6 +206,7 @@ export function ChatWidget({ feedback, learningStyle }: ChatWidgetProps) {
                                 )}
                         </div>
                     </ScrollArea>
+                    {/* Input para enviar mensajes */}
                     <div className="border-t p-4 bg-background/95 backdrop-blur-sm">
                         <form onSubmit={handleSendMessage} className="relative">
                         <Input

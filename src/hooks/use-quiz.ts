@@ -5,19 +5,25 @@ import { analyzePerformanceAndAdapt } from '@/ai/flows/personalized-feedback-ada
 import { updatePerformanceData, saveFeedback } from '@/lib/services';
 import type { GeneratedQuiz, GeneratedQuestion, Feedback } from '@/lib/types';
 
+/**
+ * Define las propiedades que el hook `useQuiz` necesita para funcionar.
+ */
 type UseQuizProps = {
+  /** El objeto del quiz que contiene las preguntas, el título, etc. */
   quiz: GeneratedQuiz;
+  /** Callback opcional para notificar al componente padre del resultado ('correct' o 'incorrect'). */
   onQuizFeedback?: (result: 'correct' | 'incorrect') => void;
+  /** El estilo de aprendizaje del usuario para adaptar el feedback. */
   learningStyle?: string;
 };
 
 /**
- * A custom hook to manage the entire state and logic of a quiz.
- * It handles question progression, scoring, timers, answer submission,
- * and AI feedback generation.
+ * Un hook personalizado que encapsula toda la lógica y el estado para un quiz interactivo.
+ * Maneja la progresión de preguntas, la selección de respuestas, la puntuación,
+ * los límites de tiempo, la evaluación de respuestas y la generación de feedback por IA.
  *
- * @param {UseQuizProps} props - The initial quiz data and callbacks.
- * @returns An object with state and handler functions for the quiz.
+ * @param {UseQuizProps} props - Las propiedades para inicializar el hook, incluyendo el quiz y los callbacks.
+ * @returns Un objeto que contiene el estado actual del quiz y las funciones para interactuar con él.
  */
 export const useQuiz = ({ quiz, onQuizFeedback, learningStyle }: UseQuizProps) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -26,20 +32,24 @@ export const useQuiz = ({ quiz, onQuizFeedback, learningStyle }: UseQuizProps) =
   const [isCorrect, setIsCorrect] = useState(false);
   const [score, setScore] = useState(0);
   const [feedback, setFeedback] = useState<Feedback | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // Para el feedback de la IA
   const [timeLeft, setTimeLeft] = useState<number | null>(quiz.timeLimit ? quiz.timeLimit * 60 : null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const currentQuestion: GeneratedQuestion = quiz.questions[currentQuestionIndex];
   const isQuizFinished = currentQuestionIndex >= quiz.questions.length;
 
+  /**
+   * Efecto para manejar el temporizador en quizzes psicométricos o simulacros.
+   * Se activa solo si el quiz tiene un límite de tiempo (`timeLimit`).
+   */
   useEffect(() => {
     if (quiz.isPsychometric && timeLeft !== null && !isQuizFinished && !isAnswered) {
       timerRef.current = setInterval(() => {
         setTimeLeft(prev => {
           if (prev === null || prev <= 1) {
             clearInterval(timerRef.current!);
-            handleNextQuestion(); // Auto-advance when time is up
+            handleNextQuestion(); // Avanza automáticamente cuando el tiempo se acaba.
             return 0;
           }
           return prev - 1;
@@ -54,6 +64,10 @@ export const useQuiz = ({ quiz, onQuizFeedback, learningStyle }: UseQuizProps) =
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quiz.isPsychometric, currentQuestionIndex, isQuizFinished, isAnswered]);
 
+  /**
+   * Maneja el envío de una respuesta. Evalúa si es correcta, actualiza el rendimiento,
+   * y (si no es psicométrico) solicita feedback personalizado a la IA.
+   */
   const handleAnswerSubmit = async () => {
     if (!selectedAnswer) return;
 
@@ -71,8 +85,10 @@ export const useQuiz = ({ quiz, onQuizFeedback, learningStyle }: UseQuizProps) =
       onQuizFeedback?.('incorrect');
     }
     
+    // Actualiza los datos de rendimiento en localStorage.
     updatePerformanceData(currentQuestion.topic, correct);
 
+    // Solo genera feedback de IA para quizzes de aprendizaje, no para simulacros.
     if (!quiz.isPsychometric) {
       try {
         const result = await analyzePerformanceAndAdapt({
@@ -87,6 +103,7 @@ export const useQuiz = ({ quiz, onQuizFeedback, learningStyle }: UseQuizProps) =
         saveFeedback(newFeedback);
       } catch (error) {
         console.error("Error getting feedback:", error);
+        // Genera un feedback de error para el usuario si la IA falla.
         const errorFeedback: Feedback = {
           feedback: "No se pudo obtener la retroalimentación. Por favor, intenta de nuevo.",
           areasForImprovement: "N/A",
@@ -101,6 +118,9 @@ export const useQuiz = ({ quiz, onQuizFeedback, learningStyle }: UseQuizProps) =
     setIsLoading(false);
   };
 
+  /**
+   * Avanza a la siguiente pregunta del quiz, reseteando el estado correspondiente.
+   */
   const handleNextQuestion = () => {
     setCurrentQuestionIndex(prev => prev + 1);
     setSelectedAnswer(null);
@@ -109,6 +129,9 @@ export const useQuiz = ({ quiz, onQuizFeedback, learningStyle }: UseQuizProps) =
     if (quiz.timeLimit) setTimeLeft(quiz.timeLimit * 60);
   };
 
+  /**
+   * Reinicia el quiz al estado inicial.
+   */
   const handleRestartQuiz = () => {
     setCurrentQuestionIndex(0);
     setScore(0);
@@ -118,7 +141,12 @@ export const useQuiz = ({ quiz, onQuizFeedback, learningStyle }: UseQuizProps) =
     if (quiz.timeLimit) setTimeLeft(quiz.timeLimit * 60);
   };
 
-  const formatTime = (seconds: number) => {
+  /**
+   * Formatea los segundos restantes a un formato MM:SS.
+   * @param {number} seconds - El total de segundos a formatear.
+   * @returns {string} El tiempo formateado.
+   */
+  const formatTime = (seconds: number): string => {
     const minutes = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;

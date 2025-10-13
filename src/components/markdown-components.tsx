@@ -4,13 +4,25 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Lightbulb, Target } from 'lucide-react';
 
 /**
- * A custom component to render paragraphs that start with "Estrategia:"
- * as a visually distinct "Strategy Block".
- * @param {{ children?: React.ReactNode }} props - The children passed by ReactMarkdown.
- * @returns A custom Alert component or a standard paragraph.
+ * @fileoverview
+ * Este archivo exporta un conjunto de componentes personalizados de React diseñados para
+ * ser utilizados con `ReactMarkdown`. Su propósito es "interceptar" patrones de texto
+ * específicos dentro del contenido Markdown (como párrafos que comienzan con "Estrategia:")
+ * y renderizarlos como componentes de UI más ricos y visualmente distintivos (como `Alerts`),
+ * en lugar de párrafos de texto plano.
+ *
+ * El objeto `CombinedMarkdownComponents` se pasa a la prop `components` de `ReactMarkdown`.
  */
-export const StrategyBlock = ({ children }: { children?: React.ReactNode }) => {
+
+/**
+ * Un componente personalizado para `ReactMarkdown` que renderiza párrafos que
+ * comienzan con "Estrategia:" como un bloque de alerta visualmente destacado.
+ * @param {{ children?: React.ReactNode }} props - Los nodos hijos pasados por `ReactMarkdown`.
+ * @returns {JSX.Element} Un componente de Alerta personalizado o un párrafo estándar.
+ */
+export const StrategyBlock = ({ children }: { children?: React.ReactNode }): JSX.Element => {
   const childArray = React.Children.toArray(children);
+  // Se verifica si el contenido del párrafo es un string que comienza con el patrón.
   if (childArray.length > 0 && typeof childArray[0] === 'object' && 'props' in childArray[0]) {
     const textContent = childArray[0].props.children;
     if (typeof textContent === 'string' && textContent.startsWith('Estrategia:')) {
@@ -26,17 +38,17 @@ export const StrategyBlock = ({ children }: { children?: React.ReactNode }) => {
       );
     }
   }
+  // Si no coincide, se renderiza un párrafo normal.
   return <p>{children}</p>;
 };
 
 /**
- * A custom component to render paragraphs that start with "Consejo Final:"
- * as a visually distinct "Final Tip Block".
- * @param {{ children?: React.ReactNode }} props - The children passed by ReactMarkdown.
- * @param {{ children?: React.ReactNode }} props - The children passed by ReactMarkdown.
- * @returns A custom Alert component or a standard paragraph.
+ * Un componente personalizado para `ReactMarkdown` que renderiza párrafos que
+ * comienzan con "Consejo Final:" como un bloque de alerta final y motivador.
+ * @param {{ children?: React.ReactNode }} props - Los nodos hijos pasados por `ReactMarkdown`.
+ * @returns {JSX.Element} Un componente de Alerta personalizado o un párrafo estándar.
  */
-export const FinalTipBlock = ({ children }: { children?: React.ReactNode }) => {
+export const FinalTipBlock = ({ children }: { children?: React.ReactNode }): JSX.Element => {
   const childArray = React.Children.toArray(children);
   if (childArray.length > 0 && typeof childArray[0] === 'object' && 'props' in childArray[0]) {
     const textContent = childArray[0].props.children;
@@ -58,15 +70,15 @@ export const FinalTipBlock = ({ children }: { children?: React.ReactNode }) => {
 
 
 /**
- * A combined component resolver for ReactMarkdown.
- * It inspects the content of a paragraph and decides whether to render
- * it as a special component (like StrategyBlock or FinalTipBlock) or as a
- * standard paragraph.
+ * Un objeto resolver que se pasa a la prop `components` de `ReactMarkdown`.
+ * Su clave `p` sobreescribe el renderizado por defecto de la etiqueta <p>.
+ * Inspecciona el contenido del párrafo y decide si debe ser renderizado por uno
+ * de nuestros componentes personalizados (`StrategyBlock`, `FinalTipBlock`) o como un párrafo estándar.
  */
 export const CombinedMarkdownComponents = {
     p: ({ children }: { children?: React.ReactNode }) => {
         const childArray = React.Children.toArray(children);
-        // Check if the first child has text content we can analyze
+        // Verifica si el primer hijo tiene contenido de texto que podamos analizar.
         if (childArray.length > 0 && typeof childArray[0] === 'object' && 'props' in childArray[0]) {
             const textContent = childArray[0].props.children;
             if (typeof textContent === 'string') {
@@ -78,7 +90,7 @@ export const CombinedMarkdownComponents = {
                 }
             }
         }
-        // If no special condition is met, render a default paragraph
+        // Si no se cumple ninguna condición especial, renderiza un párrafo por defecto.
         return <p>{children}</p>;
     },
 };

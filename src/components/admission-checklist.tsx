@@ -15,7 +15,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 
-
+/**
+ * Un array que define todas las tareas, fechas y enlaces para el proceso de admisión.
+ * Sirve como la fuente de verdad para el contenido del checklist.
+ */
 const admissionTasks = [
   {
     id: 'registro',
@@ -83,23 +86,38 @@ const admissionTasks = [
 ];
 
 /**
- * Renders an interactive, collapsible checklist for the university admission process.
- * It allows users to track their progress, see important dates, and access
- * official links for each step. State is persisted to localStorage.
+ * Renderiza un checklist interactivo y desplegable para el proceso de admisión a la universidad.
+ *
+ * Este componente permite a los usuarios rastrear su progreso marcando tareas como completadas.
+ * El estado del checklist (qué tareas están marcadas) se guarda y se recupera del `localStorage`
+ * del navegador, asegurando que el progreso del usuario persista entre sesiones.
+ * Esto se logra a través de los helpers `getChecklistState` y `updateChecklistState`.
  */
 export function AdmissionChecklist() {
   const [checkedState, setCheckedState] = useState<Record<string, boolean>>({});
 
+  /**
+   * Efecto que se ejecuta una sola vez cuando el componente se monta en el cliente.
+   * Su única responsabilidad es cargar el estado guardado del checklist desde el `localStorage`.
+   */
   useEffect(() => {
-    // Load the initial state from localStorage when the component mounts on the client.
     setCheckedState(getChecklistState());
   }, []);
 
+  /**
+   * Maneja el cambio de estado de un checkbox.
+   * Cuando un usuario marca o desmarca una tarea, esta función actualiza el estado
+   * del componente y, crucialmente, llama a `updateChecklistState` para persistir
+   * el cambio en el `localStorage`.
+   * @param {string} taskId - El ID de la tarea que está cambiando.
+   * @param {boolean} isChecked - El nuevo estado (marcado o no marcado).
+   */
   const handleCheckboxChange = (taskId: string, isChecked: boolean) => {
     setCheckedState(prevState => ({ ...prevState, [taskId]: isChecked }));
     updateChecklistState(taskId, isChecked);
   };
   
+  // Calcula si todas las tareas han sido completadas para mostrar un mensaje de felicitación.
   const allTasksCompleted = admissionTasks.every(task => checkedState[task.id]);
 
   return (

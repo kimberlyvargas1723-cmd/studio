@@ -1,5 +1,13 @@
 import type {Config} from 'tailwindcss';
 
+/**
+ * Configuración de Tailwind CSS para la aplicación PsicoGuía.
+ *
+ * Esta configuración define el sistema de diseño de la aplicación, incluyendo:
+ * - Modo oscuro ('class').
+ * - Rutas de contenido para el escaneo de clases de Tailwind.
+ * - Tema personalizado con fuentes, colores y animaciones.
+ */
 export default {
   darkMode: ['class'],
   content: [
@@ -9,10 +17,13 @@ export default {
   ],
   theme: {
     extend: {
+      // Define las familias de fuentes personalizadas utilizadas en la aplicación.
       fontFamily: {
-        body: ['var(--font-pt-sans)', 'sans-serif'],
-        headline: ['var(--font-pt-sans)', 'sans-serif'],
+        body: ['var(--font-pt-sans)', 'sans-serif'], // Fuente principal para el cuerpo del texto.
+        headline: ['var(--font-pt-sans)', 'sans-serif'], // Fuente para títulos y cabeceras.
       },
+      // Define la paleta de colores personalizada usando variables CSS HSL.
+      // Esto permite un temizado fácil y consistente.
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
@@ -47,6 +58,7 @@ export default {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
+        // Colores específicos para gráficos (recharts).
         chart: {
           '1': 'hsl(var(--chart-1))',
           '2': 'hsl(var(--chart-2))',
@@ -54,6 +66,7 @@ export default {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
         },
+        // Colores específicos para la barra lateral.
         sidebar: {
           DEFAULT: 'hsl(var(--sidebar-background))',
           foreground: 'hsl(var(--sidebar-foreground))',
@@ -65,32 +78,28 @@ export default {
           ring: 'hsl(var(--sidebar-ring))',
         },
       },
+      // Personaliza el radio de los bordes.
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+      // Define keyframes para animaciones personalizadas.
       keyframes: {
         'accordion-down': {
-          from: {
-            height: '0',
-          },
-          to: {
-            height: 'var(--radix-accordion-content-height)',
-          },
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
         },
         'accordion-up': {
-          from: {
-            height: 'var(--radix-accordion-content-height)',
-          },
-          to: {
-            height: '0',
-          },
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
         },
+        // Animación para el feedback visual del quiz.
         'feedback-flash': {
           '0%, 100%': { transform: 'scale(1)', opacity: '1' },
           '50%': { transform: 'scale(1.5)', opacity: '0.75' },
         },
+        // Animaciones para el ícono del robot Vairyx.
         'robot-float': {
             '0%, 100%': { transform: 'translateY(0)' },
             '50%': { transform: 'translateY(-10px)' },
@@ -108,17 +117,13 @@ export default {
             '50%, 70%': { transform: 'translateX(2.5px)' },
             '80%, 100%': { transform: 'translateX(0)' },
         },
+        // Animación para la aparición de elementos de la UI.
         'fade-in-up': {
-            from: {
-                opacity: '0',
-                transform: 'translateY(10px)',
-            },
-            to: {
-                opacity: '1',
-                transform: 'translateY(0)',
-            },
+            from: { opacity: '0', transform: 'translateY(10px)' },
+            to: { opacity: '1', transform: 'translateY(0)' },
         },
       },
+      // Asocia los keyframes a nombres de clases de animación utilizables.
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
@@ -131,5 +136,6 @@ export default {
       },
     },
   },
+  // Añade plugins de Tailwind para funcionalidades extra.
   plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
 } satisfies Config;
