@@ -16,6 +16,7 @@ import { textToSpeech } from '@/ai/flows/text-to-speech';
 import { generateDashboardGreeting } from '@/ai/flows/generate-dashboard-greeting';
 import { studyAssistant } from '@/ai/flows/study-assistant';
 import { generateFlashcards } from '@/ai/flows/generate-flashcards';
+import { analyzePerformanceAndAdapt } from '@/ai/flows/personalized-feedback-adaptation';
 import type {
   ContentSummarizationInput,
   StudyPlanInput,
@@ -31,6 +32,8 @@ import type {
   StudyAssistantOutput,
   FlashcardGenerationInput,
   FlashcardGenerationOutput,
+  PerformanceAnalysisInput,
+  PerformanceAnalysisOutput,
 } from '@/ai/schemas';
 import type { StudyResource } from '@/lib/types';
 import fs from 'fs/promises';
@@ -187,12 +190,28 @@ export async function studyAssistantAction(input: StudyAssistantInput): Promise<
  * @param {FlashcardGenerationInput} input - The content and topic for flashcard generation.
  * @returns {Promise<FlashcardGenerationOutput | { error: string }>} The generated flashcards or an error object.
  */
-export async function generateFlashcardsAction(input: FlashcardGenerationInput): Promise<FlashcardGenerationOutput | { error: string }> {
+export async function generateFlashcardsAction(input: FlashcardGenerationInput): Promise<{ flashcards?: FlashcardGenerationOutput['flashcards']; error?: string }> {
   try {
     const result = await generateFlashcards(input);
-    return result;
+    return { flashcards: result.flashcards };
   } catch (e: any) {
     console.error('Error in generateFlashcardsAction:', e);
     return { error: e.message || 'No se pudieron generar las flashcards. Intenta de nuevo.' };
   }
+}
+
+
+/**
+ * Server action to analyze a student's quiz answer and provide adaptive feedback.
+ * @param {PerformanceAnalysisInput} input - The question, student's answer, correct answer, topic, and learning style.
+ * @returns {Promise<PerformanceAnalysisOutput | { error: string }>} The personalized feedback and next step recommendation, or an error object.
+ */
+export async function analyzePerformanceAndAdaptAction(input: PerformanceAnalysisInput): Promise<PerformanceAnalysisOutput | { error: string }> {
+    try {
+        const result = await analyzePerformanceAndAdapt(input);
+        return result;
+    } catch (e: any) {
+        console.error('Error in analyzePerformanceAndAdaptAction:', e);
+        return { error: e.message || 'No se pudo generar el feedback adaptativo.' };
+    }
 }

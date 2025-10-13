@@ -41,13 +41,12 @@ export function StudyContentContainer({ learningStyle }: StudyContentContainerPr
 
   /**
    * Efecto que selecciona un recurso por defecto al cargar la página.
-   * Esto asegura que el usuario vea contenido relevante inmediatamente,
-   * pero solo si no ha seleccionado ya un recurso.
+   * Esto asegura que el usuario vea contenido relevante inmediatamente.
    */
   useEffect(() => {
     // Solo establece un recurso por defecto si el usuario no ha seleccionado uno todavía.
     if (!selectedResource) {
-      const defaultResource = studyResources.find(r => r.source === 'guia-psicometrico.md');
+      const defaultResource = studyResources.find(r => r.source === 'bases-biologicas.md');
       if (defaultResource) {
         handleResourceSelect(defaultResource);
       }
@@ -177,13 +176,12 @@ export function StudyContentContainer({ learningStyle }: StudyContentContainerPr
       topic: selectedResource.title,
     });
     
-    if (result.error) {
+    if (result.error || !result.flashcards) {
       toast({ variant: 'destructive', title: 'Error al crear flashcards', description: result.error });
     } else {
-      toast({ title: '¡Flashcards Creadas!', description: 'Tu nuevo mazo está listo para practicar en el Gimnasio Mental.' });
-      // TODO: Guardar las flashcards generadas y redirigir al usuario
-      // a la página de práctica de flashcards cuando esté implementada.
-      console.log(result.flashcards);
+      toast({ title: '¡Flashcards Creadas!', description: 'Tu nuevo mazo está listo. Redirigiendo al Gimnasio Mental...' });
+      // Guardamos el mazo en sessionStorage para que la página de práctica pueda leerlo.
+      sessionStorage.setItem('flashcardDeck', JSON.stringify(result.flashcards));
       router.push('/flashcards');
     }
     
