@@ -2,8 +2,15 @@
 import type { LearningStyleQuestion } from './types';
 
 /**
- * A short, VARK-based questionnaire to determine a user's dominant learning style.
- * V: Visual, A: Auditory, R: Reading/Writing, K: Kinesthetic
+ * @fileoverview
+ * Contiene el banco de preguntas para el cuestionario de estilo de aprendizaje VARK.
+ * Este cuestionario se utiliza para determinar el estilo de aprendizaje dominante
+ * de un usuario, que puede ser Visual (V), Auditivo (A), Lectoescritor (R) o Kinestésico (K).
+ *
+ * Cada objeto de pregunta contiene:
+ * - `id`: Un identificador único para la pregunta.
+ * - `question`: El texto de la pregunta que se mostrará al usuario.
+ * - `options`: Un array de 4 opciones, cada una asociada a un estilo VARK.
  */
 export const learningStyleQuiz: LearningStyleQuestion[] = [
   {

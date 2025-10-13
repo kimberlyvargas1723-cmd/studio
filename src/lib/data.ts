@@ -2,8 +2,9 @@
 import type { StudyResource, PerformanceData } from './types';
 
 /**
- * A list of available study resources, including internal content and external links.
- * These are the core materials for the student to study from.
+ * Una lista de todos los recursos de estudio disponibles en la aplicación.
+ * Estos son los materiales principales que el estudiante utilizará.
+ * Incluye tanto contenido interno (archivos Markdown) como enlaces externos.
  */
 export const studyResources: StudyResource[] = [
   {
@@ -99,8 +100,9 @@ export const studyResources: StudyResource[] = [
 ];
 
 /**
- * The initial state for user performance data, with all scores set to zero.
- * This is used if no data is found in localStorage.
+ * El estado inicial para los datos de rendimiento del usuario.
+ * Se utiliza si no se encuentran datos en `localStorage`.
+ * Garantiza que todos los temas estén disponibles para el seguimiento desde el principio.
  */
 export const initialPerformance: PerformanceData[] = [
   { topic: 'Bases Biológicas de la Conducta', correct: 0, incorrect: 0 },

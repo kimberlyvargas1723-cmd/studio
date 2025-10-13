@@ -2,8 +2,16 @@
 import type { GeneratedQuestion } from './types';
 
 /**
- * A pool of realistic questions for the full exam simulation,
- * covering all relevant topics of the EXANI-II for Psychology.
+ * @fileoverview
+ * Este archivo contiene un banco de preguntas estáticas y realistas, diseñadas
+ * para simular el examen de conocimientos EXANI-II para la carrera de Psicología.
+ * Las preguntas cubren las áreas temáticas más relevantes, incluyendo:
+ * - Fundamentos de Psicología (Bases Biológicas, Procesos Básicos, Desarrollo, Social).
+ * - Habilidades Generales del EXANI-II (Comprensión Lectora, Redacción Indirecta, Inglés).
+ * - Pensamiento Matemático y Estadística.
+ *
+ * Estas preguntas se utilizan en la pestaña "Simulacro de Examen" para proporcionar
+ * una práctica cronometrada y de formato similar al examen real.
  */
 export const examQuestionPool: GeneratedQuestion[] = [
   // --- Bases Biológicas de la Conducta (4) ---

@@ -2,11 +2,21 @@
 import type { GeneratedQuestion } from './types';
 
 /**
- * A comprehensive pool of psychometric practice questions covering
- * abstract reasoning, numerical series, and verbal analogies.
+ * @fileoverview
+ * Proporciona un banco de preguntas estáticas para el examen psicométrico.
+ * Estas preguntas están diseñadas para evaluar el razonamiento abstracto,
+ * numérico y verbal a través de diferentes tipos de problemas.
+ *
+ * Los tipos de preguntas incluyen:
+ * - **Series Numéricas:** Identificar el patrón en una secuencia de números.
+ * - **Analogías Verbales:** Encontrar la relación lógica entre pares de palabras.
+ * - **Razonamiento Abstracto:** Resolver problemas lógicos basados en figuras, secuencias o escenarios hipotéticos.
+ *
+ * Este banco de preguntas se utiliza en la simulación del examen psicométrico
+ * para ofrecer una práctica realista y cronometrada.
  */
 export const psychometricQuizPool: GeneratedQuestion[] = [
-  // --- Numerical Series ---
+  // --- Series Numéricas ---
   {
     question: '¿Qué número continúa la serie: 2, 5, 11, 23, ___?',
     options: ['47', '46', '34', '51'],
@@ -50,7 +60,7 @@ export const psychometricQuizPool: GeneratedQuestion[] = [
     topic: 'Examen Psicométrico',
   },
 
-  // --- Verbal Analogies ---
+  // --- Analogías Verbales ---
   {
     question: 'Médico es a Hospital como Maestro es a ___',
     options: ['Libro', 'Alumno', 'Escuela', 'Pizarrón'],
@@ -91,10 +101,10 @@ export const psychometricQuizPool: GeneratedQuestion[] = [
     options: ['Hospital', 'Medicina', 'Paciente', 'Bisturí'],
     correctAnswer: 'Medicina',
     explanation: 'La relación es entre un profesional y su campo de conocimiento o ciencia que aplica.',
-    topic: 'Examen Psicométrico',
+    topic: 'Examen Psicomicométrico',
   },
 
-  // --- Abstract Reasoning (described in text) ---
+  // --- Razonamiento Abstracto (descrito en texto) ---
   {
     question: 'Un cuadrado se divide en 4 cuadrados más pequeños. En cada turno, uno de los cuadrados pequeños se rota 90 grados en sentido horario. Si empezamos con una flecha apuntando hacia arriba en el cuadrado superior izquierdo, ¿hacia dónde apuntará después de 3 turnos si la rotación sigue el orden: superior izquierdo, superior derecho, inferior derecho?',
     options: ['Derecha', 'Abajo', 'Izquierda', 'Arriba'],
