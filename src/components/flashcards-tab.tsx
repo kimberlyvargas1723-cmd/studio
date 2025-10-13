@@ -1,4 +1,4 @@
-// src/app/(main)/flashcards/page.tsx
+// src/components/flashcards-tab.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -6,9 +6,10 @@ import { useRouter } from 'next/navigation';
 import { Header } from '@/components/header';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Layers, ArrowLeft, ArrowRight, RotateCw, Check, X } from 'lucide-react';
+import { Layers, ArrowLeft, ArrowRight, RotateCw } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 // Definimos el tipo Flashcard directamente aquí para simplicidad.
 type Flashcard = {
@@ -17,16 +18,16 @@ type Flashcard = {
 };
 
 /**
- * La página funcional del "Gimnasio Mental" para practicar con flashcards.
- * Esta página recupera un mazo de flashcards desde `sessionStorage`,
+ * La pestaña del "Gimnasio Mental" para practicar con flashcards.
+ * Esta pestaña recupera un mazo de flashcards desde `sessionStorage`,
  * permitiendo al usuario practicar con ellas de manera interactiva.
+ * Si no hay un mazo, muestra un mensaje de bienvenida.
  */
-export default function FlashcardsPracticePage() {
+export function FlashcardsTab() {
   const [deck, setDeck] = useState<Flashcard[]>([]);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [isClient, setIsClient] = useState(false);
-  const router = useRouter();
 
   /**
    * Efecto para cargar el mazo de flashcards desde sessionStorage
@@ -39,8 +40,6 @@ export default function FlashcardsPracticePage() {
       try {
         const parsedDeck = JSON.parse(storedDeck);
         setDeck(parsedDeck);
-        // Opcional: limpiar el storage después de cargarlo.
-        // sessionStorage.removeItem('flashcardDeck'); 
       } catch (error) {
         console.error("Error parsing flashcard deck from sessionStorage:", error);
       }
@@ -70,31 +69,28 @@ export default function FlashcardsPracticePage() {
   // Si no estamos en el cliente o no hay mazo, muestra un estado inicial o de carga.
   if (!isClient || deck.length === 0) {
     return (
-      <div className="flex min-h-screen w-full flex-col">
-        <Header title="Gimnasio Mental" />
-        <main className="flex flex-1 flex-col items-center justify-center gap-4 p-4 text-center">
-          <Card className="w-full max-w-lg">
-            <CardHeader>
+      <div className="flex w-full flex-col items-center justify-center">
+          <Card className="w-full max-w-lg mt-6">
+            <CardHeader className="text-center">
               <div className="flex flex-col items-center">
-                <Layers className="h-16 w-16 text-primary mb-4" />
-                <CardTitle className="font-headline text-2xl">Bienvenida al Gimnasio Mental</CardTitle>
+                <Layers className="h-12 w-12 text-primary mb-4" />
+                <CardTitle className="font-headline text-2xl">Sala de Flashcards</CardTitle>
                 <CardDescription className="mt-2">
-                  Aquí podrás practicar con los mazos de flashcards que generes.
+                  Aquí podrás practicar con los mazos de flashcards que generes. La repetición activa es clave para la memoria a largo plazo.
                 </CardDescription>
               </div>
             </CardHeader>
-            <CardContent>
+            <CardContent className="text-center">
               <p className="text-muted-foreground mb-6">
                 Para empezar, ve a la sección de "Temas de Estudio", resume un texto con la IA y luego presiona "Crear Flashcards". ¡Tu nuevo mazo aparecerá aquí listo para estudiar!
               </p>
               <Button asChild>
-                <a onClick={() => router.push('/study')}>
+                <Link href="/study">
                   Ir a Temas de Estudio
-                </a>
+                </Link>
               </Button>
             </CardContent>
           </Card>
-        </main>
       </div>
     );
   }
@@ -104,10 +100,8 @@ export default function FlashcardsPracticePage() {
 
   // Renderiza la interfaz de práctica de flashcards
   return (
-    <div className="flex min-h-screen w-full flex-col">
-      <Header title="Gimnasio Mental" />
-      <main className="flex flex-1 flex-col items-center justify-center gap-4 p-4">
-        <Card className="w-full max-w-2xl">
+    <div className="flex w-full flex-col items-center justify-center">
+        <Card className="w-full max-w-2xl mt-6">
           <CardHeader>
             <CardTitle>Practicando: Mazo de {deck.length} tarjetas</CardTitle>
             <CardDescription>Tarjeta {currentCardIndex + 1} de {deck.length}</CardDescription>
@@ -160,7 +154,6 @@ export default function FlashcardsPracticePage() {
             )}
           </CardFooter>
         </Card>
-      </main>
     </div>
   );
 }

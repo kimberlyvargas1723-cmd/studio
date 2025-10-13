@@ -5,9 +5,10 @@ import { GenerateQuestionsTab } from '@/components/generate-questions-tab';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { LearningStyleQuizTab } from '@/components/learning-style-quiz-tab';
 import { ExamSimulationTab } from '@/components/exam-simulation-tab';
-import { BrainCircuit, BookCheck, ClipboardCheck, Microscope, Dumbbell } from 'lucide-react';
+import { BrainCircuit, BookCheck, ClipboardCheck, Microscope, Dumbbell, Layers } from 'lucide-react';
 import { CaseStudyTab } from '@/components/case-study-tab';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { FlashcardsTab } from '@/components/flashcards-tab';
 
 /**
  * Define las props para la página de práctica.
@@ -27,6 +28,7 @@ type PracticePageProps = {
  * 2. Entrenar la aplicación de conceptos con casos prácticos (`CaseStudyTab`).
  * 3. Realizar un simulacro de examen completo (`ExamSimulationTab`).
  * 4. Descubrir su estilo de aprendizaje (`LearningStyleQuizTab`).
+ * 5. Practicar con flashcards (`FlashcardsTab`).
  * 
  * @param {PracticePageProps} props - Las props pasadas desde el layout.
  */
@@ -35,7 +37,7 @@ export default function PracticePage({ onQuizFeedback, learningStyle }: Practice
     <div className="flex min-h-screen w-full flex-col">
       <Header title="Gimnasio Mental" />
       <main className="flex flex-1 flex-col items-center gap-4 p-4 md:gap-8 md:p-8">
-        <Card className="w-full max-w-4xl border-0 bg-transparent shadow-none">
+        <Card className="w-full max-w-5xl border-0 bg-transparent shadow-none">
             <CardHeader className="text-center">
                 <div className="flex justify-center items-center mb-2">
                     <Dumbbell className="h-10 w-10 text-primary" />
@@ -46,8 +48,8 @@ export default function PracticePage({ onQuizFeedback, learningStyle }: Practice
                 </CardDescription>
             </CardHeader>
         </Card>
-        <Tabs defaultValue="topic-quiz" className="w-full max-w-4xl">
-          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 h-auto">
+        <Tabs defaultValue="topic-quiz" className="w-full max-w-5xl">
+          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-5 h-auto">
             <TabsTrigger value="topic-quiz" className="flex-col h-full py-2">
               <BookCheck className="mb-1" />
               Sala de Quizzes
@@ -55,6 +57,10 @@ export default function PracticePage({ onQuizFeedback, learningStyle }: Practice
              <TabsTrigger value="case-studies" className="flex-col h-full py-2">
               <Microscope className="mb-1" />
               Dojo de Casos
+            </TabsTrigger>
+            <TabsTrigger value="flashcards" className="flex-col h-full py-2">
+              <Layers className="mb-1" />
+              Sala de Flashcards
             </TabsTrigger>
             <TabsTrigger value="exam-simulation" className="flex-col h-full py-2">
                 <ClipboardCheck className="mb-1" />
@@ -70,6 +76,9 @@ export default function PracticePage({ onQuizFeedback, learningStyle }: Practice
           </TabsContent>
            <TabsContent value="case-studies">
             <CaseStudyTab onQuizFeedback={onQuizFeedback} learningStyle={learningStyle} />
+          </TabsContent>
+          <TabsContent value="flashcards">
+            <FlashcardsTab />
           </TabsContent>
            <TabsContent value="exam-simulation">
             <ExamSimulationTab onQuizFeedback={onQuizFeedback} learningStyle={learningStyle} />
