@@ -38,7 +38,7 @@ export const learningStyleQuiz: LearningStyleQuestion[] = [
     question: 'Si tienes que memorizar las partes del cerebro y sus funciones, ¿cómo lo haces más fácilmente?',
     options: [
       { style: 'V', text: 'Asocio cada parte con una imagen o un color en un esquema del cerebro.' },
-      { style:- 'A', text: 'Invento una canción o una rima con los nombres y funciones.' },
+      { style: 'A', text: 'Invento una canción o una rima con los nombres y funciones.' },
       { style: 'R', text: 'Escribo una y otra vez cada parte y su función en una lista.' },
       { style: 'K', text: 'Me toco la parte de la cabeza donde se ubicaría aproximadamente cada lóbulo mientras estudio.' },
     ],
