@@ -20,6 +20,7 @@ import {
   FileText,
   CalendarDays,
   Volume2,
+  Dumbbell,
 } from 'lucide-react';
 
 // Define la estructura y el contenido de los enlaces de navegación de la barra lateral.
@@ -27,7 +28,7 @@ const menuItems = [
   { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/study', label: 'Temas de Estudio', icon: BookOpen },
   { href: '/summaries', label: 'Mis Resúmenes', icon: FileText },
-  { href: '/practice', label: 'Centro de Práctica', icon: Target },
+  { href: '/practice', label: 'Gimnasio Mental', icon: Dumbbell },
   { href: '/progress', label: 'Mi Progreso', icon: BarChart3 },
   { href: '/schedule', label: 'Mi Horario', icon: CalendarDays },
   { href: '/audio', label: 'Audio Lab', icon: Volume2 },
