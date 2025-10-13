@@ -3,13 +3,13 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { Header } from '@/components/header';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Layers, ArrowLeft, ArrowRight, RotateCw } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { defaultFlashcardDeck } from '@/lib/flashcard-decks';
 
 // Definimos el tipo Flashcard directamente aquí para simplicidad.
 type Flashcard = {
@@ -19,30 +19,41 @@ type Flashcard = {
 
 /**
  * La pestaña del "Gimnasio Mental" para practicar con flashcards.
- * Esta pestaña recupera un mazo de flashcards desde `sessionStorage`,
- * permitiendo al usuario practicar con ellas de manera interactiva.
- * Si no hay un mazo, muestra un mensaje de bienvenida.
+ * Esta pestaña implementa una lógica de carga híbrida:
+ * 1. Prioriza cargar un mazo recién generado por el usuario desde `sessionStorage`.
+ * 2. Si no existe, carga un mazo pre-hecho de "Fundamentos" para asegurar que la sección nunca esté vacía.
  */
 export function FlashcardsTab() {
   const [deck, setDeck] = useState<Flashcard[]>([]);
+  const [deckTitle, setDeckTitle] = useState('Mazo de Flashcards');
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
   /**
-   * Efecto para cargar el mazo de flashcards desde sessionStorage
-   * solo en el lado del cliente.
+   * Efecto para cargar el mazo de flashcards desde sessionStorage o usar el mazo por defecto.
+   * Se ejecuta solo en el lado del cliente.
    */
   useEffect(() => {
     setIsClient(true);
-    const storedDeck = sessionStorage.getItem('flashcardDeck');
-    if (storedDeck) {
+    const storedDeckData = sessionStorage.getItem('flashcardDeck');
+    if (storedDeckData) {
       try {
-        const parsedDeck = JSON.parse(storedDeck);
-        setDeck(parsedDeck);
+        const parsedData = JSON.parse(storedDeckData);
+        setDeck(parsedData.deck);
+        setDeckTitle(parsedData.title || 'Mazo Recién Creado');
+        // Limpiamos el session storage para que la próxima vez cargue el mazo por defecto si no se genera uno nuevo.
+        sessionStorage.removeItem('flashcardDeck');
       } catch (error) {
         console.error("Error parsing flashcard deck from sessionStorage:", error);
+        // Si hay un error, carga el mazo por defecto.
+        setDeck(defaultFlashcardDeck.deck);
+        setDeckTitle(defaultFlashcardDeck.title);
       }
+    } else {
+        // Si no hay nada en sessionStorage, carga el mazo por defecto.
+        setDeck(defaultFlashcardDeck.deck);
+        setDeckTitle(defaultFlashcardDeck.title);
     }
   }, []);
 
@@ -66,23 +77,27 @@ export function FlashcardsTab() {
       setCurrentCardIndex(0);
   }
 
-  // Si no estamos en el cliente o no hay mazo, muestra un estado inicial o de carga.
-  if (!isClient || deck.length === 0) {
+  // Muestra un estado de carga mientras se determina si estamos en el cliente.
+  if (!isClient) {
+    return (
+        <Card className="w-full max-w-lg mt-6 min-h-[400px] flex items-center justify-center">
+           <Loader2 className="h-8 w-8 animate-spin" />
+        </Card>
+    )
+  }
+
+  // Si después de la carga inicial, no hay mazo, muestra un mensaje de error/guía.
+  if (deck.length === 0) {
     return (
       <div className="flex w-full flex-col items-center justify-center">
           <Card className="w-full max-w-lg mt-6">
             <CardHeader className="text-center">
-              <div className="flex flex-col items-center">
-                <Layers className="h-12 w-12 text-primary mb-4" />
                 <CardTitle className="font-headline text-2xl">Sala de Flashcards</CardTitle>
-                <CardDescription className="mt-2">
-                  Aquí podrás practicar con los mazos de flashcards que generes. La repetición activa es clave para la memoria a largo plazo.
-                </CardDescription>
-              </div>
+                <CardDescription>Error: No se pudo cargar el mazo de flashcards.</CardDescription>
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-muted-foreground mb-6">
-                Para empezar, ve a la sección de "Temas de Estudio", resume un texto con la IA y luego presiona "Crear Flashcards". ¡Tu nuevo mazo aparecerá aquí listo para estudiar!
+                Puedes generar tu propio mazo desde la sección de "Temas de Estudio".
               </p>
               <Button asChild>
                 <Link href="/study">
@@ -103,7 +118,7 @@ export function FlashcardsTab() {
     <div className="flex w-full flex-col items-center justify-center">
         <Card className="w-full max-w-2xl mt-6">
           <CardHeader>
-            <CardTitle>Practicando: Mazo de {deck.length} tarjetas</CardTitle>
+            <CardTitle>{deckTitle}</CardTitle>
             <CardDescription>Tarjeta {currentCardIndex + 1} de {deck.length}</CardDescription>
              <Progress value={progress} className="mt-2" />
           </CardHeader>

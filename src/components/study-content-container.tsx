@@ -180,9 +180,13 @@ export function StudyContentContainer({ learningStyle }: StudyContentContainerPr
       toast({ variant: 'destructive', title: 'Error al crear flashcards', description: result.error });
     } else {
       toast({ title: '¡Flashcards Creadas!', description: 'Tu nuevo mazo está listo. Redirigiendo al Gimnasio Mental...' });
-      // Guardamos el mazo en sessionStorage para que la página de práctica pueda leerlo.
-      sessionStorage.setItem('flashcardDeck', JSON.stringify(result.flashcards));
-      router.push('/flashcards');
+      // Guardamos el mazo y su título en sessionStorage para que la página de práctica pueda leerlo.
+      const deckData = {
+        title: `Mazo de: ${selectedResource.title}`,
+        deck: result.flashcards,
+      };
+      sessionStorage.setItem('flashcardDeck', JSON.stringify(deckData));
+      router.push('/practice');
     }
     
     setIsGeneratingFlashcards(false);
