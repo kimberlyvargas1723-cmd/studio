@@ -5,12 +5,13 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Loader2, CheckCircle, XCircle, Lightbulb, ArrowLeft, Timer } from 'lucide-react';
+import { Loader2, CheckCircle, XCircle, Lightbulb, ArrowLeft, Timer, Youtube, FileText } from 'lucide-react';
 import { useQuiz } from '@/hooks/use-quiz';
 import type { GeneratedQuiz } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import Link from 'next/link';
 
 /**
  * Define las props para el componente `GeneratedQuiz`.
@@ -166,13 +167,34 @@ export function GeneratedQuiz({ quiz, onBack, onQuizFeedback, learningStyle }: G
               ) : feedback && (
                 <Alert className="border-primary bg-primary/5">
                   <Lightbulb className="h-4 w-4 text-primary" />
-                  <AlertTitle className="font-bold text-primary">Retroalimentación Personalizada de Vairyx</AlertTitle>
+                  <AlertTitle className="font-bold text-primary">Sugerencia de Vairyx</AlertTitle>
                   <AlertDescription>
                     <div className="prose prose-sm dark:prose-invert max-w-none mt-2">
                        <ReactMarkdown>{feedback.feedback}</ReactMarkdown>
                     </div>
-                    <p className="mt-2 font-semibold">Área de mejora sugerida:</p>
+                    <p className="mt-3 font-semibold">Área de mejora:</p>
                     <p>{feedback.areasForImprovement}</p>
+                     <div className="mt-4">
+                        {feedback.nextStep.type === 'question' && (
+                             <p>Sugerencia: Practicar con una pregunta sobre **{feedback.nextStep.value}**.</p>
+                        )}
+                         {feedback.nextStep.type === 'summary' && (
+                            <Button asChild size="sm" variant="outline">
+                               <Link href={`/summaries`}>
+                                    <FileText className="mr-2"/>
+                                    Ir a Resúmenes de {feedback.nextStep.value}
+                                </Link>
+                            </Button>
+                        )}
+                        {feedback.nextStep.type === 'youtube' && (
+                           <Button asChild size="sm" variant="secondary" className="bg-red-100 dark:bg-red-900/30 border-red-500/50 hover:bg-red-200 dark:hover:bg-red-900">
+                                <a href={`https://www.youtube.com/results?search_query=${encodeURIComponent(feedback.nextStep.value)}`} target="_blank" rel="noopener noreferrer">
+                                    <Youtube className="mr-2 text-red-600"/>
+                                    Buscar en YouTube: "{feedback.nextStep.value}"
+                                </a>
+                            </Button>
+                        )}
+                    </div>
                   </AlertDescription>
                 </Alert>
               )

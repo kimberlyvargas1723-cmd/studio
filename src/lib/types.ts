@@ -100,8 +100,11 @@ export type Feedback = {
   feedback: string;
   /** El concepto o habilidad clave a mejorar. */
   areasForImprovement: string;
-  /** Un tema sugerido para la siguiente pregunta. */
-  adaptedQuestionTopic: string;
+  /** Un siguiente paso estratégico sugerido por la IA. */
+  nextStep: {
+    type: 'question' | 'summary' | 'youtube';
+    value: string;
+  };
   /** La fecha y hora en que se generó el feedback. */
   timestamp: string;
   /** El tema de la pregunta que originó el feedback. */

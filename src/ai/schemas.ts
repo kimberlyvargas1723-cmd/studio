@@ -32,7 +32,10 @@ export type PerformanceAnalysisInput = z.infer<typeof PerformanceAnalysisInputSc
 export const PerformanceAnalysisOutputSchema = z.object({
   feedback: z.string().describe('Specific, personalized feedback on why the student\'s answer was correct or incorrect.'),
   areasForImprovement: z.string().describe('The key concept or skill the student should focus on based on their answer.'),
-  adaptedQuestionTopic: z.string().describe('A suggested topic for the next question to reinforce the area for improvement.'),
+  nextStep: z.object({
+    type: z.enum(['question', 'summary', 'youtube']).describe("The type of next step recommended ('question', 'summary', or 'youtube')."),
+    value: z.string().describe("The value for the next step, which could be a topic, a summary suggestion, or a YouTube search query."),
+  }).describe('A strategic next step for the student, which could be another question, a suggestion to review a summary, or a YouTube search.'),
 });
 export type PerformanceAnalysisOutput = z.infer<typeof PerformanceAnalysisOutputSchema>;
 

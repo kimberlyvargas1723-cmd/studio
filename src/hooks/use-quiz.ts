@@ -124,7 +124,7 @@ export const useQuiz = ({ quiz, onQuizFeedback, learningStyle }: UseQuizProps) =
         const errorFeedback: Feedback = {
           feedback: "No se pudo obtener la retroalimentación. Por favor, intenta de nuevo.",
           areasForImprovement: "N/A",
-          adaptedQuestionTopic: currentQuestion.topic,
+           nextStep: { type: 'question', value: currentQuestion.topic },
           timestamp: new Date().toISOString(),
           topic: currentQuestion.topic,
         };
