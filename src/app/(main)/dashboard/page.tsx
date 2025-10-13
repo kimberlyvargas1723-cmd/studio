@@ -14,7 +14,7 @@ import { useEffect, useState } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { cn } from '@/lib/utils';
 
-// Define las tarjetas de funcionalidades que se muestran en el dashboard.
+// Define the feature cards shown on the dashboard.
 const featureCards = [
   {
     title: 'Material de Estudio',
@@ -47,7 +47,7 @@ const featureCards = [
 ];
 
 /**
- * Define la estructura para el objeto de saludo personalizado.
+ * Defines the structure for the personalized greeting object.
  */
 type Greeting = {
   greeting: string;
@@ -55,20 +55,19 @@ type Greeting = {
 };
 
 /**
- * Define las props para la página del Dashboard.
- * @param {string} [learningStyle] - El estilo de aprendizaje del usuario (ej. 'V', 'A', 'R', 'K').
+ * Defines the props for the Dashboard page.
+ * @param {string} [learningStyle] - The user's learning style (e.g., 'V', 'A', 'R', 'K').
  */
 type DashboardPageProps = {
   learningStyle?: string;
 };
 
 /**
- * Renderiza la página principal del dashboard de la aplicación.
- * Sirve como el centro de operaciones para el usuario.
- * Obtiene un saludo personalizado y una recomendación de estudio de un flujo de IA
- * basado en el estilo de aprendizaje del usuario.
+ * Renders the main dashboard page of the application.
+ * Serves as the user's central hub. Fetches a personalized greeting
+ * and study recommendation from an AI flow based on the user's learning style.
  *
- * @param {DashboardPageProps} props - Las props pasadas desde el layout.
+ * @param {DashboardPageProps} props - Props passed from the layout.
  */
 export default function DashboardPage({ learningStyle }: DashboardPageProps) {
   const [greeting, setGreeting] = useState<Greeting | null>(null);
@@ -78,8 +77,8 @@ export default function DashboardPage({ learningStyle }: DashboardPageProps) {
   );
 
   /**
-   * Efecto para obtener el saludo personalizado del flujo de IA al montar el componente
-   * o cuando el estilo de aprendizaje cambia. Maneja los estados de carga y error.
+   * Effect to fetch the personalized greeting from the AI flow on component mount
+   * or when the learning style changes. Handles loading and error states.
    */
   useEffect(() => {
     async function fetchGreeting() {
@@ -92,7 +91,7 @@ export default function DashboardPage({ learningStyle }: DashboardPageProps) {
         setGreeting(result as Greeting);
       } catch (error) {
         console.error("Failed to fetch greeting:", error);
-        // Establece un saludo de fallback en caso de que el flujo de IA falle.
+        // Set a fallback greeting in case the AI flow fails.
         setGreeting({
           greeting: '¡Bienvenida de nuevo, Kimberly! ¿Lista para estudiar?',
           suggestion: ''
@@ -108,8 +107,8 @@ export default function DashboardPage({ learningStyle }: DashboardPageProps) {
     <div className="flex min-h-screen w-full flex-col bg-muted/40">
       <Header title="Dashboard" />
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
-        {/* Tarjeta de Héroe con Saludo Personalizado */}
-        <Card className={cn("relative flex flex-col items-start justify-end overflow-hidden rounded-xl border-none shadow-lg transition-opacity duration-500", isLoading ? "opacity-0" : "opacity-100")}>
+        {/* Hero Card with Personalized Greeting */}
+        <Card className="relative flex flex-col items-start justify-end overflow-hidden rounded-xl border-none shadow-lg">
           <div className="absolute inset-0 z-0">
             {heroImage && (
               <Image
@@ -126,7 +125,7 @@ export default function DashboardPage({ learningStyle }: DashboardPageProps) {
           <div className="relative z-10 p-6 md:p-8 text-white">
             {isLoading ? (
               <>
-                {/* Skeleton UI para el estado de carga */}
+                {/* Skeleton UI for loading state */}
                 <Skeleton className="h-12 w-3/4" />
                 <Skeleton className="h-6 w-full mt-4" />
                 <Skeleton className="h-10 w-48 mt-6" />
@@ -136,7 +135,7 @@ export default function DashboardPage({ learningStyle }: DashboardPageProps) {
                 <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter">
                   ¡Hola de nuevo, Kimberly!
                 </h2>
-                {/* El feedback generado por IA se renderiza como HTML para permitir negritas, etc. */}
+                {/* AI-generated feedback is rendered as HTML to allow for bolding, etc. */}
                 <p className="mt-2 max-w-2xl text-lg text-white/90" dangerouslySetInnerHTML={{ __html: greeting?.greeting ?? '' }} />
                 {greeting?.suggestion && (
                   <Button asChild className="mt-6">
@@ -150,10 +149,10 @@ export default function DashboardPage({ learningStyle }: DashboardPageProps) {
           </div>
         </Card>
 
-        {/* Checklist de Admisión (Desplegable) */}
+        {/* Admission Checklist (Collapsible) */}
         <AdmissionChecklist />
 
-        {/* Rejilla de Tarjetas de Funcionalidades */}
+        {/* Feature Cards Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {featureCards.map((feature) => {
             const cardImage: ImagePlaceholder | undefined = PlaceHolderImages.find(
