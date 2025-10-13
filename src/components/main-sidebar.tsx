@@ -1,4 +1,3 @@
-
 // src/components/main-sidebar.tsx
 'use client';
 

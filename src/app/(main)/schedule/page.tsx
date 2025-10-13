@@ -1,3 +1,4 @@
+// src/app/(main)/schedule/page.tsx
 'use client';
 import { useState, useEffect } from 'react';
 import { addDays, format, differenceInDays } from 'date-fns';

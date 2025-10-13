@@ -87,6 +87,10 @@ export default {
             height: '0',
           },
         },
+        'feedback-flash': {
+          '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+          '50%': { transform: 'scale(1.5)', opacity: '0.75' },
+        },
         'robot-float': {
             '0%, 100%': { transform: 'translateY(0)' },
             '50%': { transform: 'translateY(-10px)' },
@@ -118,6 +122,7 @@ export default {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'feedback-flash': 'feedback-flash 0.5s ease-out',
         'robot-float': 'robot-float 4s ease-in-out infinite',
         'robot-shadow': 'robot-shadow 4s ease-in-out infinite',
         'robot-antenna-blink': 'robot-antenna-blink 2.5s ease-in-out infinite',
