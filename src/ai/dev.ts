@@ -1,3 +1,4 @@
+
 import { config } from 'dotenv';
 config();
 
@@ -11,3 +12,4 @@ import '@/ai/flows/generate-progress-summary.ts';
 import '@/ai/flows/generate-learning-strategy.ts';
 import '@/ai/flows/text-to-speech.ts';
 import '@/ai/flows/generate-dashboard-greeting.ts';
+import '@/ai/flows/generate-flashcards.ts';

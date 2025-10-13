@@ -179,3 +179,21 @@ export const DashboardGreetingOutputSchema = z.object({
     suggestion: z.string().describe('A suggested topic to start studying, often related to the tip.'),
 });
 export type DashboardGreetingOutput = z.infer<typeof DashboardGreetingOutputSchema>;
+
+
+// --- Flashcard Generation ---
+const FlashcardSchema = z.object({
+  question: z.string().describe('The question or term on the front of the flashcard.'),
+  answer: z.string().describe('The answer or definition on the back of the flashcard.'),
+});
+
+export const FlashcardGenerationInputSchema = z.object({
+  content: z.string().describe('The text content from which to generate flashcards.'),
+  topic: z.string().describe('The main topic of the content.'),
+});
+export type FlashcardGenerationInput = z.infer<typeof FlashcardGenerationInputSchema>;
+
+export const FlashcardGenerationOutputSchema = z.object({
+  flashcards: z.array(FlashcardSchema).describe('An array of generated flashcards.'),
+});
+export type FlashcardGenerationOutput = z.infer<typeof FlashcardGenerationOutputSchema>;

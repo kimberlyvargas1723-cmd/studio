@@ -15,6 +15,7 @@ import { generateLearningStrategy } from '@/ai/flows/generate-learning-strategy'
 import { textToSpeech } from '@/ai/flows/text-to-speech';
 import { generateDashboardGreeting } from '@/ai/flows/generate-dashboard-greeting';
 import { studyAssistant } from '@/ai/flows/study-assistant';
+import { generateFlashcards } from '@/ai/flows/generate-flashcards';
 import type {
   ContentSummarizationInput,
   StudyPlanInput,
@@ -28,6 +29,8 @@ import type {
   DashboardGreetingOutput,
   StudyAssistantInput,
   StudyAssistantOutput,
+  FlashcardGenerationInput,
+  FlashcardGenerationOutput,
 } from '@/ai/schemas';
 import type { StudyResource } from '@/lib/types';
 import fs from 'fs/promises';
@@ -177,4 +180,19 @@ export async function studyAssistantAction(input: StudyAssistantInput): Promise<
         console.error('Error in studyAssistantAction:', e);
         return { error: e.message || 'Lo siento, no pude procesar tu solicitud en este momento.' };
     }
+}
+
+/**
+ * Server Action to generate flashcards from a given text content.
+ * @param {FlashcardGenerationInput} input - The content and topic for flashcard generation.
+ * @returns {Promise<FlashcardGenerationOutput | { error: string }>} The generated flashcards or an error object.
+ */
+export async function generateFlashcardsAction(input: FlashcardGenerationInput): Promise<FlashcardGenerationOutput | { error: string }> {
+  try {
+    const result = await generateFlashcards(input);
+    return result;
+  } catch (e: any) {
+    console.error('Error in generateFlashcardsAction:', e);
+    return { error: e.message || 'No se pudieron generar las flashcards. Intenta de nuevo.' };
+  }
 }
