@@ -106,6 +106,9 @@ export const useQuiz = ({ quiz, onQuizFeedback, learningStyle }: UseQuizProps) =
     // Actualiza los datos de rendimiento en localStorage.
     updatePerformanceData(currentQuestion.topic, correct);
 
+    // Guardamos una referencia al índice de la pregunta que se está respondiendo.
+    const questionIndexAtSubmission = currentQuestionIndex;
+
     // Solo genera feedback de IA para quizzes de aprendizaje, no para simulacros.
     if (!quiz.isPsychometric) {
       try {
@@ -116,19 +119,26 @@ export const useQuiz = ({ quiz, onQuizFeedback, learningStyle }: UseQuizProps) =
           topic: currentQuestion.topic,
           learningStyle: learningStyle
         });
-        const newFeedback: Feedback = {...result, timestamp: new Date().toISOString(), topic: currentQuestion.topic};
-        setFeedback(newFeedback);
-        saveFeedback(newFeedback);
+
+        // **MEJORA CRÍTICA:** Solo actualiza el feedback si el usuario sigue en la misma pregunta.
+        if (questionIndexAtSubmission === currentQuestionIndex) {
+            const newFeedback: Feedback = {...result, timestamp: new Date().toISOString(), topic: currentQuestion.topic};
+            setFeedback(newFeedback);
+            saveFeedback(newFeedback);
+        }
       } catch (error) {
         console.error("Error getting feedback:", error);
-        const errorFeedback: Feedback = {
-          feedback: "No se pudo obtener la retroalimentación. Por favor, intenta de nuevo.",
-          areasForImprovement: "N/A",
-           nextStep: { type: 'question', value: currentQuestion.topic },
-          timestamp: new Date().toISOString(),
-          topic: currentQuestion.topic,
-        };
-        setFeedback(errorFeedback);
+        // Solo muestra el error si el usuario sigue en la misma pregunta.
+        if (questionIndexAtSubmission === currentQuestionIndex) {
+            const errorFeedback: Feedback = {
+            feedback: "No se pudo obtener la retroalimentación. Por favor, intenta de nuevo.",
+            areasForImprovement: "N/A",
+            nextStep: { type: 'question', value: currentQuestion.topic },
+            timestamp: new Date().toISOString(),
+            topic: currentQuestion.topic,
+            };
+            setFeedback(errorFeedback);
+        }
       }
     }
     setIsLoading(false);
