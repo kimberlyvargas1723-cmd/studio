@@ -6,23 +6,32 @@ import { BrainCircuit } from 'lucide-react';
 import { DiagnosticQuiz } from '@/components/diagnostic-quiz';
 import { VairyxIcon } from '@/components/VairyxIcon';
 
-
 /**
  * Manages the multi-step onboarding process for new users.
- * It features a dynamic, conversational welcome from the AI assistant, Vairyx,
- * before proceeding to a diagnostic quiz to determine the user's learning style.
+ * 
+ * This page serves as the initial welcome screen for Kimberly. It introduces the
+ * AI assistant, Vairyx, and explains the purpose of the diagnostic quiz.
+ * 
+ * @returns The JSX for the current step in the onboarding process.
  */
 export default function OnboardingPage() {
+  // State to manage the current step of the onboarding process.
+  // Step 1: Welcome message.
+  // Step 2: Diagnostic quiz.
   const [step, setStep] = useState(1);
 
-
+  // If the user proceeds to step 2, render the DiagnosticQuiz component.
   if (step === 2) {
     return <DiagnosticQuiz />;
   }
 
+  // Render the initial welcome screen (Step 1).
   return (
     <div className="flex min-h-screen w-full flex-col items-center justify-center bg-background p-4 text-center">
+        {/* The animated AI assistant icon */}
         <VairyxIcon className="h-40 w-40" />
+        
+        {/* Welcome message and introduction from Vairyx */}
         <div className="mt-8 max-w-2xl animate-fade-in-up">
             <h1 className="font-headline text-4xl font-bold tracking-tight text-primary md:text-5xl">
                 ¡Bienvenida a PsicoGuía, Kimberly!
@@ -32,6 +41,7 @@ export default function OnboardingPage() {
             </blockquote>
         </div>
 
+        {/* Call to action to start the diagnostic quiz */}
         <div className="mt-10 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             <h2 className="font-headline text-2xl font-semibold">Primer Paso: Descubre tu Superpoder para Aprender</h2>
             <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
