@@ -7,7 +7,7 @@ import { useToast } from '@/hooks/use-toast';
 import { studyResources } from '@/lib/data';
 import type { StudyResource } from '@/lib/types';
 import { saveSummary } from '@/lib/services';
-import { summarizeContentAction, extractTextFromImageAction } from '@/app/actions';
+import { summarizeContentAction, extractTextFromImageAction, generateFlashcardsAction } from '@/app/actions';
 import { StudyResourceSelector } from '@/components/study-resource-selector';
 import { StudyContentDisplay } from '@/components/study-content-display';
 
@@ -22,7 +22,7 @@ type StudyContentContainerProps = {
 /**
  * Un componente contenedor que gestiona toda la lógica de la página de estudio.
  * Maneja la selección de recursos, la carga de contenido, la llamada a las acciones
- * de servidor para resumir o extraer texto, y la persistencia de los resúmenes.
+ * de servidor para resumir, extraer texto y generar flashcards, y la persistencia de los resúmenes.
  *
  * @param {StudyContentContainerProps} props - Las props del componente.
  */
@@ -33,6 +33,7 @@ export function StudyContentContainer({ learningStyle }: StudyContentContainerPr
   const [isLoading, setIsLoading] = useState(false);
   const [isSummarizing, setIsSummarizing] = useState(false);
   const [isExtracting, setIsExtracting] = useState(false);
+  const [isGeneratingFlashcards, setIsGeneratingFlashcards] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
   const contentCardRef = useRef<HTMLDivElement>(null);
@@ -159,8 +160,34 @@ export function StudyContentContainer({ learningStyle }: StudyContentContainerPr
       }
       setIsExtracting(false);
   };
+  
+    /**
+   * Llama a la acción de servidor para generar flashcards a partir del resumen.
+   */
+  const handleGenerateFlashcards = async () => {
+    if (!summary || !selectedResource) return;
+    setIsGeneratingFlashcards(true);
+    
+    const result = await generateFlashcardsAction({
+      content: summary,
+      topic: selectedResource.title,
+    });
+    
+    if (result.error) {
+      toast({ variant: 'destructive', title: 'Error al crear flashcards', description: result.error });
+    } else {
+      toast({ title: '¡Flashcards Creadas!', description: 'Tu nuevo mazo está listo para practicar en el Gimnasio Mental.' });
+      // TODO: Guardar las flashcards generadas y redirigir al usuario
+      // a la página de práctica de flashcards cuando esté implementada.
+      console.log(result.flashcards);
+      router.push('/flashcards');
+    }
+    
+    setIsGeneratingFlashcards(false);
+  };
 
-  const isLoadingAny = isLoading || isSummarizing || isExtracting;
+
+  const isLoadingAny = isLoading || isSummarizing || isExtracting || isGeneratingFlashcards;
 
   return (
     <>
@@ -179,9 +206,11 @@ export function StudyContentContainer({ learningStyle }: StudyContentContainerPr
         isLoading={isLoadingAny}
         isSummarizing={isSummarizing}
         isExtracting={isExtracting}
+        isGeneratingFlashcards={isGeneratingFlashcards}
         error={error}
         onSummarize={handleSummarizeContent}
         onSaveSummary={handleSaveSummary}
+        onGenerateFlashcards={handleGenerateFlashcards}
       />
     </>
   );

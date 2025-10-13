@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Loader2, FileText, Save, BookCopy, CheckCircle } from 'lucide-react';
+import { Loader2, FileText, Save, BookCopy, CheckCircle, Layers } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Progress } from '@/components/ui/progress';
@@ -25,9 +25,11 @@ type StudyContentDisplayProps = {
   isLoading: boolean;
   isSummarizing: boolean;
   isExtracting: boolean;
+  isGeneratingFlashcards: boolean;
   error: string | null;
   onSummarize: () => void;
   onSaveSummary: () => void;
+  onGenerateFlashcards: () => void;
 };
 
 /**
@@ -48,9 +50,11 @@ export const StudyContentDisplay = React.forwardRef<HTMLDivElement, StudyContent
       isLoading,
       isSummarizing,
       isExtracting,
+      isGeneratingFlashcards,
       error,
       onSummarize,
       onSaveSummary,
+      onGenerateFlashcards,
     },
     ref
   ) => {
@@ -86,17 +90,25 @@ export const StudyContentDisplay = React.forwardRef<HTMLDivElement, StudyContent
               )}
               <CardTitle className="font-headline">{selectedResource?.title || 'Contenido'}</CardTitle>
             </div>
-            {summary && !isLoading ? (
-              <Button variant="outline" size="sm" onClick={onSaveSummary}>
-                <Save className="mr-2 h-4 w-4" />
-                Guardar Resumen
-              </Button>
-            ) : resourceContent && !summary ? (
-              <Button variant="outline" size="sm" onClick={onSummarize} disabled={isLoading}>
-                {isSummarizing && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                Resumir con IA
-              </Button>
-            ) : null}
+            <div className="flex items-center gap-2">
+              {summary && !isLoading && (
+                  <Button variant="default" size="sm" onClick={onGenerateFlashcards} disabled={isGeneratingFlashcards}>
+                      {isGeneratingFlashcards ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Layers className="mr-2 h-4 w-4" />}
+                      Crear Flashcards
+                  </Button>
+              )}
+              {summary && !isLoading ? (
+                <Button variant="outline" size="sm" onClick={onSaveSummary}>
+                  <Save className="mr-2 h-4 w-4" />
+                  Guardar Resumen
+                </Button>
+              ) : resourceContent && !summary ? (
+                <Button variant="outline" size="sm" onClick={onSummarize} disabled={isLoading}>
+                  {isSummarizing && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                  Resumir con IA
+                </Button>
+              ) : null}
+            </div>
           </div>
           <CardDescription>
             {selectedResource ? `Recurso: ${selectedResource.title}` : 'Aquí aparecerá el contenido del recurso que elijas.'}
@@ -111,7 +123,7 @@ export const StudyContentDisplay = React.forwardRef<HTMLDivElement, StudyContent
           {isLoading ? (
             <div className="flex h-full flex-col items-center justify-center gap-3 text-muted-foreground">
               <Loader2 className="h-8 w-8 animate-spin text-primary" />
-              <p>{isExtracting ? 'Extrayendo texto de la imagen...' : isSummarizing ? 'Resumiendo el material...' : 'Cargando...'}</p>
+              <p>{isExtracting ? 'Extrayendo texto de la imagen...' : isSummarizing ? 'Resumiendo el material...' : isGeneratingFlashcards ? 'Creando flashcards...' : 'Cargando...'}</p>
               <p className="text-sm">Esto puede tardar unos momentos.</p>
             </div>
           ) : error ? (
