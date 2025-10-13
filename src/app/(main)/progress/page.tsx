@@ -40,7 +40,7 @@ export default function ProgressPage() {
         // Solo genera un resumen si el usuario ha completado al menos un quiz.
         const hasPerformanceData = perfData.some(p => p.correct > 0 || p.incorrect > 0);
         if (hasPerformanceData) {
-            generateProgressSummaryAction(perfData)
+            generateProgressSummaryAction({ performanceData: perfData })
                 .then(result => {
                     if (result.summary && result.suggestion) {
                         setProgressSummary({summary: result.summary, suggestion: result.suggestion});
@@ -48,7 +48,7 @@ export default function ProgressPage() {
                 })
                 .finally(() => setIsLoadingSummary(false));
         } else {
-             setIsLoadingSummary(false);
+             setIsLoading(false);
         }
     }, []);
 

@@ -112,6 +112,7 @@ const WeeklyPlanSchema = z.object({
 export const StudyPlanInputSchema = z.object({
   performanceData: z.array(PerformanceDataSchemaForPlan).describe('An array of objects representing the student\'s performance in each topic.'),
   daysUntilExam: z.number().describe('The total number of days available for study until the exam date.'),
+  currentDate: z.string().optional().describe("The current date, used for generating the plan's start date.")
 });
 export type StudyPlanInput = z.infer<typeof StudyPlanInputSchema>;
 

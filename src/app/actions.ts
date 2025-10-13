@@ -17,8 +17,9 @@ import type {
   StudyPlanInput,
   StudyPlanOutput,
   ProgressSummaryInput,
+  PracticeQuestionGenerationOutput
 } from '@/ai/schemas';
-import type { StudyResource, GeneratedQuestion, PerformanceData } from '@/lib/types';
+import type { StudyResource } from '@/lib/types';
 import fs from 'fs/promises';
 import path from 'path';
 
@@ -41,7 +42,7 @@ export async function summarizeContentAction(input: ContentSummarizationInput) {
  * Server Action to trigger practice question generation.
  * Reads the study resource content from the local filesystem.
  * @param {StudyResource} resource - The study resource to generate questions from.
- * @returns {Promise<{questions?: GeneratedQuestion[]; error?: string}>} The generated questions or an error object.
+ * @returns {Promise<{questions?: PracticeQuestionGenerationOutput['questions']; error?: string}>} The generated questions or an error object.
  */
 export async function generatePracticeQuestionsAction(resource: StudyResource) {
   try {
@@ -79,10 +80,10 @@ export async function extractTextFromImageAction(imageUrl: string) {
 
 /**
  * Server Action to trigger AI study plan generation.
- * @param {StudyPlanInput} input - The student's performance data and days until the exam.
+ * @param {Omit<StudyPlanInput, 'currentDate'>} input - The student's performance data and days until the exam.
  * @returns {Promise<{plan?: StudyPlanOutput; error?: string}>} The generated plan or an error object.
  */
-export async function generateStudyPlanAction(input: StudyPlanInput): Promise<{ plan?: StudyPlanOutput; error?: string }> {
+export async function generateStudyPlanAction(input: Omit<StudyPlanInput, 'currentDate'>): Promise<{ plan?: StudyPlanOutput; error?: string }> {
   try {
     const result = await generateStudyPlan(input);
     return { plan: result };
@@ -94,12 +95,12 @@ export async function generateStudyPlanAction(input: StudyPlanInput): Promise<{ 
 
 /**
  * Server Action to generate an intelligent summary of the user's progress.
- * @param {PerformanceData[]} performanceData - The user's performance data.
+ * @param {ProgressSummaryInput} input - The user's performance data.
  * @returns {Promise<{summary?: string; suggestion?: string; error?: string}>} The generated summary and suggestion, or an error object.
  */
-export async function generateProgressSummaryAction(performanceData: PerformanceData[]) {
+export async function generateProgressSummaryAction(input: ProgressSummaryInput) {
   try {
-    const result = await generateProgressSummary({ performanceData });
+    const result = await generateProgressSummary(input);
     return { summary: result.summary, suggestion: result.suggestion };
   } catch (e: any) {
     console.error('Error in generateProgressSummaryAction:', e);
