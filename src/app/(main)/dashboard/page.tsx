@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, BookOpen, Target, BarChart3, Sparkles } from 'lucide-react';
+import { ArrowRight, BookOpen, Dumbbell, BarChart3, Sparkles } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import type { ImagePlaceholder } from '@/lib/placeholder-images';
 import { Header } from '@/components/header';
@@ -24,10 +24,10 @@ const featureCards = [
     imgId: 'study-card',
   },
   {
-    title: 'Práctica con Quizzes',
-    description: 'Pon a prueba tus conocimientos con preguntas de práctica.',
+    title: 'Gimnasio Mental',
+    description: 'Quizzes, flashcards, casos prácticos y simulacros de examen.',
     href: '/practice',
-    icon: Target,
+    icon: Dumbbell,
     imgId: 'practice-card',
   },
   {
