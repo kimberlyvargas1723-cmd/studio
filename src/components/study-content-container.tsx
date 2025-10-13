@@ -59,13 +59,13 @@ export function StudyContentContainer({ learningStyle }: StudyContentContainerPr
     if (resource.type === 'internal') {
       setIsLoading(true);
       try {
-        const response = await fetch(`/${resource.source}`);
-        if (!response.ok) throw new Error(`Network response was not ok, status: ${response.status}`);
+        const response = await fetch(`/lecturas/${resource.source}`);
+        if (!response.ok) throw new Error(`Error ${response.status}: No se pudo encontrar el recurso de estudio.`);
         const content = await response.text();
         setResourceContent(content);
-      } catch (e) {
+      } catch (e: any) {
         console.error('Failed to fetch internal resource:', e);
-        setError('No se pudo cargar el contenido del recurso.');
+        setError(e.message || 'No se pudo cargar el contenido del recurso.');
         setResourceContent(null);
       } finally {
         setIsLoading(false);
@@ -83,17 +83,15 @@ export function StudyContentContainer({ learningStyle }: StudyContentContainerPr
     setError(null);
     setSummary(null);
     
-    try {
-      const contentToSummarize = `data:text/markdown;charset=utf-8,${encodeURIComponent(resourceContent)}`;
-      const result = await summarizeContentAction({ url: contentToSummarize, learningStyle });
-      if (result.error) throw new Error(result.error);
+    const contentToSummarize = `data:text/markdown;charset=utf-8,${encodeURIComponent(resourceContent)}`;
+    const result = await summarizeContentAction({ url: contentToSummarize, learningStyle });
+    
+    if (result.error) {
+      setError(result.error);
+    } else {
       setSummary(result.summary!);
-    } catch (e: any) {
-      console.error(e);
-      setError(e.message || 'No se pudo generar el resumen del contenido.');
-    } finally {
-      setIsSummarizing(false);
     }
+    setIsSummarizing(false);
   };
 
   const handleSaveSummary = () => {
@@ -126,16 +124,14 @@ export function StudyContentContainer({ learningStyle }: StudyContentContainerPr
       setSelectedResource({ title: 'Apuntes Subidos', category: 'OCR', type: 'internal', source: file.name });
       scrollContentIntoView();
 
-      try {
-        const result = await extractTextFromImageAction(imageUrl);
-        if (result.error) throw new Error(result.error);
+      const result = await extractTextFromImageAction(imageUrl);
+      
+      if (result.error) {
+        setError(result.error);
+      } else {
         setResourceContent(result.textContent!);
-      } catch (err: any) {
-        console.error(err);
-        setError(err.message || 'No se pudo extraer el texto de la imagen.');
-      } finally {
-        setIsExtracting(false);
       }
+      setIsExtracting(false);
     };
     reader.readAsDataURL(file);
   };

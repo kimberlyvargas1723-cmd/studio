@@ -15,7 +15,7 @@ import path from 'path';
 /**
  * Server Action to trigger AI content summarization.
  * @param {ContentSummarizationInput} input - The content to summarize and optional learning style.
- * @returns {Promise<{summary: string} | {error: string}>} - The summary or an error.
+ * @returns {Promise<{summary?: string; error?: string}>} - The summary or an error object.
  */
 export async function summarizeContentAction(input: ContentSummarizationInput) {
   try {
@@ -23,7 +23,7 @@ export async function summarizeContentAction(input: ContentSummarizationInput) {
     return { summary: result.summary };
   } catch (e) {
     console.error('Error in summarizeContentAction:', e);
-    return { error: 'No se pudo generar el resumen del contenido.' };
+    return { error: 'No se pudo generar el resumen. Por favor, intenta de nuevo.' };
   }
 }
 
@@ -31,12 +31,12 @@ export async function summarizeContentAction(input: ContentSummarizationInput) {
  * Server Action to trigger practice question generation.
  * It reads the content of the study resource from the local filesystem.
  * @param {StudyResource} resource - The study resource to generate questions from.
- * @returns {Promise<{questions: GeneratedQuestion[]} | {error: string}>} - The generated questions or an error.
+ * @returns {Promise<{questions?: GeneratedQuestion[]; error?: string}>} - The generated questions or an error object.
  */
 export async function generatePracticeQuestionsAction(resource: StudyResource) {
   try {
     // Build the correct path to the markdown file in the public directory
-    const filePath = path.join(process.cwd(), 'public', resource.source);
+    const filePath = path.join(process.cwd(), 'src/lib/lecturas', resource.source);
     const resourceContent = await fs.readFile(filePath, 'utf-8');
     
     const result = await generatePracticeQuestions({
@@ -47,14 +47,14 @@ export async function generatePracticeQuestionsAction(resource: StudyResource) {
     return { questions: result.questions };
   } catch (e) {
     console.error('Error in generatePracticeQuestionsAction:', e);
-    return { error: 'No se pudo generar el quiz. Intenta de nuevo.' };
+    return { error: 'No se pudo generar el quiz. Por favor, intenta de nuevo.' };
   }
 }
 
 /**
  * Server Action to extract text from an image.
  * @param {string} imageUrl - The data URL of the image to process.
- * @returns {Promise<{textContent: string} | {error: string}>} - The extracted text or an error.
+ * @returns {Promise<{textContent?: string; error?: string}>} - The extracted text or an error object.
  */
 export async function extractTextFromImageAction(imageUrl: string) {
   try {
@@ -62,7 +62,7 @@ export async function extractTextFromImageAction(imageUrl: string) {
     return { textContent: result.textContent };
   } catch (e) {
     console.error('Error in extractTextFromImageAction:', e);
-    return { error: 'No se pudo extraer texto de la imagen.' };
+    return { error: 'No se pudo extraer texto de la imagen. Asegúrate de que la imagen sea clara.' };
   }
 }
 
@@ -70,7 +70,7 @@ export async function extractTextFromImageAction(imageUrl: string) {
 /**
  * Server Action to trigger AI study plan generation.
  * @param {StudyPlanInput} input - The student's performance data and days until the exam.
- * @returns {Promise<{plan: StudyPlanOutput} | {error: string}>} - The generated plan or an error.
+ * @returns {Promise<{plan?: StudyPlanOutput; error?: string}>} - The generated plan or an error object.
  */
 export async function generateStudyPlanAction(input: StudyPlanInput): Promise<{ plan?: StudyPlanOutput; error?: string }> {
   try {
@@ -78,14 +78,14 @@ export async function generateStudyPlanAction(input: StudyPlanInput): Promise<{ 
     return { plan: result };
   } catch (e: any) {
     console.error('Error in generateStudyPlanAction:', e);
-    return { error: e.message || 'No se pudo generar el plan de estudio.' };
+    return { error: e.message || 'No se pudo generar el plan de estudio. Intenta de nuevo más tarde.' };
   }
 }
 
 /**
  * Server Action to generate an intelligent summary of the user's progress.
  * @param {PerformanceData[]} performanceData - The user's performance data.
- * @returns {Promise<{summary: string; suggestion: string} | {error: string}>} - The generated summary and suggestion, or an error.
+ * @returns {Promise<{summary?: string; suggestion?: string; error?: string}>} - The generated summary and suggestion, or an error object.
  */
 export async function generateProgressSummaryAction(performanceData: PerformanceData[]) {
   try {
@@ -100,7 +100,7 @@ export async function generateProgressSummaryAction(performanceData: Performance
 /**
  * Server Action to generate a personalized learning strategy based on a learning style.
  * @param {string} learningStyle - The user's dominant learning style (V, A, R, or K).
- * @returns {Promise<{style: string; strategy: string} | {error: string}>} - The style and generated strategy, or an error.
+ * @returns {Promise<{style?: string; strategy?: string; error?: string}>} - The style and generated strategy, or an error object.
  */
 export async function generateLearningStrategyAction(learningStyle: string) {
   try {

@@ -45,24 +45,21 @@ export function GenerateQuestionsTab({ onQuizFeedback, learningStyle }: Generate
     setSelectedResource(resource);
     setGeneratedQuiz(null);
     
-    try {
-      const result = await generatePracticeQuestionsAction(resource);
+    const result = await generatePracticeQuestionsAction(resource);
 
-      if (result.error) {
-        throw new Error(result.error);
-      }
-
-      setGeneratedQuiz({
-        title: `Quiz de: ${resource.title}`,
-        topic: resource.title,
-        questions: result.questions!,
-      });
-    } catch (e: any) {
-      console.error(e);
-      toast({ variant: 'destructive', title: 'Error', description: e.message || 'No se pudo generar el quiz. Intenta de nuevo.' });
-    } finally {
+    if (result.error) {
+      toast({ variant: 'destructive', title: 'Error al generar quiz', description: result.error });
       setIsLoading(false);
+      return;
     }
+
+    setGeneratedQuiz({
+      title: `Quiz de: ${resource.title}`,
+      topic: resource.title,
+      questions: result.questions!,
+    });
+    
+    setIsLoading(false);
   };
 
   // If a quiz has been generated, render the quiz component.
