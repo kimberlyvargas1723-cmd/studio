@@ -13,7 +13,7 @@ import { Check, Dot, Loader2, CalendarIcon } from 'lucide-react';
 import { getPerformanceData } from '@/lib/services';
 import { generateStudyPlanAction } from '@/app/actions';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import type { StudyPlanOutput } from '@/ai/flows/generate-study-plan';
+import type { StudyPlanOutput } from '@/ai/schemas';
 
 /**
  * Renderiza la página "Mi Horario Inteligente".
