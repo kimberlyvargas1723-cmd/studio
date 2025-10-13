@@ -12,12 +12,15 @@ import { extractTextFromImage } from '@/ai/flows/image-text-extraction';
 import { generateStudyPlan } from '@/ai/flows/generate-study-plan';
 import { generateProgressSummary } from '@/ai/flows/generate-progress-summary';
 import { generateLearningStrategy } from '@/ai/flows/generate-learning-strategy';
+import { textToSpeech } from '@/ai/flows/text-to-speech';
 import type { 
   ContentSummarizationInput,
   StudyPlanInput,
   StudyPlanOutput,
   ProgressSummaryInput,
-  PracticeQuestionGenerationOutput
+  PracticeQuestionGenerationOutput,
+  TextToSpeechInput,
+  TextToSpeechOutput
 } from '@/ai/schemas';
 import type { StudyResource } from '@/lib/types';
 import fs from 'fs/promises';
@@ -121,5 +124,20 @@ export async function generateLearningStrategyAction(learningStyle: string) {
     {
     console.error('Error in generateLearningStrategyAction:', e);
     return { error: e.message || 'No se pudo generar la estrategia de aprendizaje.' };
+  }
+}
+
+/**
+ * Server Action to convert text to speech.
+ * @param {TextToSpeechInput} input - The text to convert.
+ * @returns {Promise<TextToSpeechOutput | { error: string }>} The audio data URI or an error object.
+ */
+export async function textToSpeechAction(input: TextToSpeechInput): Promise<TextToSpeechOutput | { error: string }> {
+  try {
+    const result = await textToSpeech(input);
+    return result;
+  } catch (e: any) {
+    console.error('Error in textToSpeechAction:', e);
+    return { error: e.message || 'No se pudo generar el audio. Intenta de nuevo.' };
   }
 }

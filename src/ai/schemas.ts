@@ -152,3 +152,14 @@ export const LearningStrategyOutputSchema = z.object({
   strategy: z.string().describe('A detailed and personalized learning strategy in Markdown format.'),
 });
 export type LearningStrategyOutput = z.infer<typeof LearningStrategyOutputSchema>;
+
+// --- Text to Speech ---
+export const TextToSpeechInputSchema = z.object({
+  text: z.string().describe('The text to convert to speech.'),
+});
+export type TextToSpeechInput = z.infer<typeof TextToSpeechInputSchema>;
+
+export const TextToSpeechOutputSchema = z.object({
+  audioDataUri: z.string().describe("A data URI representing the generated audio. Expected format: 'data:audio/wav;base64,<encoded_data>'."),
+});
+export type TextToSpeechOutput = z.infer<typeof TextToSpeechOutputSchema>;
