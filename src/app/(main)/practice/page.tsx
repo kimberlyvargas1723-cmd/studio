@@ -5,7 +5,8 @@ import { GenerateQuestionsTab } from '@/components/generate-questions-tab';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { LearningStyleQuizTab } from '@/components/learning-style-quiz-tab';
 import { ExamSimulationTab } from '@/components/exam-simulation-tab';
-import { BrainCircuit, BookCheck, ClipboardCheck } from 'lucide-react';
+import { BrainCircuit, BookCheck, ClipboardCheck, Microscope } from 'lucide-react';
+import { CaseStudyTab } from '@/components/case-study-tab';
 
 /**
  * Define las props para la página de práctica.
@@ -33,28 +34,35 @@ export default function PracticePage({ onQuizFeedback, learningStyle }: Practice
       <Header title="Centro de Práctica" />
       <main className="flex flex-1 flex-col items-center gap-4 p-4 md:gap-8 md:p-8">
         <Tabs defaultValue="topic-quiz" className="w-full max-w-4xl">
-          <TabsList className="grid w-full grid-cols-3">
+          <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="topic-quiz">
               <BookCheck className="mr-2 h-4 w-4" />
               Quiz por Tema
             </TabsTrigger>
-            <TabsTrigger value="learning-style">
-                <BrainCircuit className="mr-2 h-4 w-4" />
-              Mi Estilo
+             <TabsTrigger value="case-studies">
+              <Microscope className="mr-2 h-4 w-4" />
+              Dojo de Casos
             </TabsTrigger>
             <TabsTrigger value="exam-simulation">
                 <ClipboardCheck className="mr-2 h-4 w-4" />
               Simulacro
             </TabsTrigger>
+            <TabsTrigger value="learning-style">
+                <BrainCircuit className="mr-2 h-4 w-4" />
+              Mi Estilo
+            </TabsTrigger>
           </TabsList>
           <TabsContent value="topic-quiz">
             <GenerateQuestionsTab onQuizFeedback={onQuizFeedback} learningStyle={learningStyle} />
           </TabsContent>
-          <TabsContent value="learning-style">
-            <LearningStyleQuizTab />
+           <TabsContent value="case-studies">
+            <CaseStudyTab onQuizFeedback={onQuizFeedback} learningStyle={learningStyle} />
           </TabsContent>
            <TabsContent value="exam-simulation">
             <ExamSimulationTab onQuizFeedback={onQuizFeedback} learningStyle={learningStyle} />
+          </TabsContent>
+          <TabsContent value="learning-style">
+            <LearningStyleQuizTab />
           </TabsContent>
         </Tabs>
       </main>
