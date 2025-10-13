@@ -3,15 +3,12 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { useToast } from '@/hooks/use-toast';
 import { studyResources } from '@/lib/data';
 import type { StudyResource } from '@/lib/types';
-import { Book, ExternalLink, Upload, Loader2 } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { saveSummary } from '@/lib/services';
 import { summarizeContentAction, extractTextFromImageAction } from '@/app/actions';
+import { StudyResourceSelector } from '@/components/study-resource-selector';
 import { StudyContentDisplay } from '@/components/study-content-display';
 
 /**
@@ -38,7 +35,6 @@ export function StudyContentContainer({ learningStyle }: StudyContentContainerPr
   const [isExtracting, setIsExtracting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
-  const fileInputRef = useRef<HTMLInputElement>(null);
   const contentCardRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
@@ -59,7 +55,9 @@ export function StudyContentContainer({ learningStyle }: StudyContentContainerPr
    * Útil en dispositivos móviles después de seleccionar un recurso.
    */
   const scrollContentIntoView = () => {
-    contentCardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (window.innerWidth < 1024) { // Solo en móvil/tablet
+      contentCardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   /**
@@ -74,9 +72,7 @@ export function StudyContentContainer({ learningStyle }: StudyContentContainerPr
     setSummary(null);
     setError(null);
     setResourceContent(null);
-    if (window.innerWidth < 1024) { // Solo en móvil/tablet
-      scrollContentIntoView();
-    }
+    scrollContentIntoView();
 
     if (resource.type === 'internal') {
       setIsLoading(true);
@@ -142,17 +138,10 @@ export function StudyContentContainer({ learningStyle }: StudyContentContainerPr
   /**
    * Maneja la subida de una imagen por parte del usuario.
    * Convierte la imagen a un Data URI y llama a la acción de servidor para extraer su texto.
-   * @param {React.ChangeEvent<HTMLInputElement>} e - El evento de cambio del input de archivo.
+   * @param {string} imageUrl - El Data URI de la imagen subida.
+   * @param {File} file - El objeto de archivo original para obtener el nombre.
    */
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = async (event) => {
-      const imageUrl = event.target?.result as string;
-      if (!imageUrl) return;
-
+  const handleImageExtraction = async (imageUrl: string, file: File) => {
       setIsExtracting(true);
       setError(null);
       setSummary(null);
@@ -169,48 +158,19 @@ export function StudyContentContainer({ learningStyle }: StudyContentContainerPr
         setResourceContent(result.textContent!);
       }
       setIsExtracting(false);
-    };
-    reader.readAsDataURL(file);
-    // Resetea el valor del input para poder subir el mismo archivo de nuevo.
-    e.target.value = '';
   };
 
   const isLoadingAny = isLoading || isSummarizing || isExtracting;
 
   return (
     <>
-      {/* Columna de selección de recursos */}
-      <Card className="w-full lg:w-1/3 lg:sticky lg:top-24">
-        <CardHeader>
-          <CardTitle className="font-headline">Recursos de Estudio</CardTitle>
-          <CardDescription>Selecciona un tema, un enlace, o sube tus apuntes.</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ScrollArea className="h-[60vh] lg:h-[calc(100vh-20rem)] pr-2">
-            <div className="space-y-2">
-              <input type="file" ref={fileInputRef} onChange={handleImageUpload} accept="image/*" style={{ display: 'none' }} />
-              <Button variant="outline" className="w-full justify-start text-left h-auto py-2" onClick={() => fileInputRef.current?.click()} disabled={isLoadingAny}>
-                {isExtracting ? <Loader2 className="h-5 w-5 mr-3 animate-spin"/> : <Upload className="h-5 w-5 mr-3 text-muted-foreground" />}
-                <div className="flex flex-col">
-                  <span>Subir Apuntes (Imagen)</span>
-                  <span className="text-xs text-muted-foreground">Extraer texto con IA</span>
-                </div>
-              </Button>
-              {studyResources.map((resource) => (
-                <Button key={resource.source} variant={selectedResource?.source === resource.source ? "secondary" : "ghost"} className="w-full justify-start text-left h-auto py-2" onClick={() => handleResourceSelect(resource)} disabled={isLoadingAny}>
-                  {resource.type === 'internal' ? <Book className="h-5 w-5 mr-3 text-muted-foreground" /> : <ExternalLink className="h-5 w-5 mr-3 text-muted-foreground" />}
-                  <div className="flex flex-col flex-1 truncate">
-                    <span className="font-medium">{resource.title}</span>
-                    <span className="text-xs text-muted-foreground">{resource.category}</span>
-                  </div>
-                </Button>
-              ))}
-            </div>
-          </ScrollArea>
-        </CardContent>
-      </Card>
-
-      {/* Componente de visualización de contenido */}
+      <StudyResourceSelector 
+        resources={studyResources}
+        selectedResource={selectedResource}
+        onResourceSelect={handleResourceSelect}
+        onImageExtraction={handleImageExtraction}
+        isLoading={isLoadingAny}
+      />
       <StudyContentDisplay
         ref={contentCardRef}
         selectedResource={selectedResource}

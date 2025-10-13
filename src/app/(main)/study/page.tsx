@@ -5,11 +5,12 @@ import { Header } from '@/components/header';
 import { StudyContentContainer } from '@/components/study-content-container';
 
 /**
- * The main container component for the Study page.
- * It renders the header and the primary content container which manages the
- * entire study experience, including resource selection, content fetching,
- * summarization, and image text extraction.
- * The page uses a two-column layout on desktop and passes down the learning style.
+ * La página principal de "Temas de Estudio".
+ * Renderiza la cabecera y el contenedor principal (`StudyContentContainer`) que
+ * gestiona toda la experiencia de estudio. Esta arquitectura mantiene la página
+ * limpia y delega la lógica compleja al componente contenedor.
+ *
+ * @param {{ learningStyle?: string }} props - Props pasadas desde el layout.
  */
 export default function StudyPage({ learningStyle }: { learningStyle?: string }) {
   return (
