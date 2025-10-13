@@ -35,15 +35,15 @@ export default function PracticePage({ onQuizFeedback, learningStyle }: Practice
         <Tabs defaultValue="topic-quiz" className="w-full max-w-4xl">
           <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="topic-quiz">
-              <BookCheck className="mr-2" />
+              <BookCheck className="mr-2 h-4 w-4" />
               Quiz por Tema
             </TabsTrigger>
             <TabsTrigger value="learning-style">
-                <BrainCircuit className="mr-2" />
+                <BrainCircuit className="mr-2 h-4 w-4" />
               Mi Estilo
             </TabsTrigger>
             <TabsTrigger value="exam-simulation">
-                <ClipboardCheck className="mr-2" />
+                <ClipboardCheck className="mr-2 h-4 w-4" />
               Simulacro
             </TabsTrigger>
           </TabsList>

@@ -64,7 +64,7 @@ export function LearningStyleQuizTab() {
     return (
       <Card className="w-full max-w-4xl border-none shadow-none animate-fade-in-up">
         <CardHeader>
-          <CardTitle className="font-headline flex items-center gap-2"><Wand /> Tu Estrategia de Aprendizaje Personalizada</CardTitle>
+          <CardTitle className="font-headline text-2xl flex items-center gap-2"><Wand className="h-6 w-6" /> Tu Estrategia de Aprendizaje Personalizada</CardTitle>
           <CardDescription>
             Descubrimos que tu estilo de aprendizaje dominante es **{savedStrategy.style}**. Aquí tienes una guía creada por Vairyx para potenciar tu estudio.
           </CardDescription>

@@ -87,7 +87,7 @@ export function GenerateQuestionsTab({ onQuizFeedback, learningStyle }: Generate
   return (
     <Card className="w-full max-w-4xl border-none shadow-none">
       <CardHeader>
-        <CardTitle className="font-headline">
+        <CardTitle className="font-headline text-2xl">
           Generador de Quiz por Tema
         </CardTitle>
         <CardDescription>

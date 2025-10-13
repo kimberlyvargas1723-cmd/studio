@@ -5,10 +5,12 @@ import { useState } from 'react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ClipboardCheck, Brain } from 'lucide-react';
-import { GeneratedQuiz as GeneratedQuizComponent } from '@/components/generated-quiz';
+import { GeneratedQuiz } from '@/components/generated-quiz';
 import { examQuestionPool } from '@/lib/exam-simulation-questions';
 import { psychometricQuizPool } from '@/lib/psychometric-quiz-data';
-import type { GeneratedQuiz } from '@/lib/types';
+import type { GeneratedQuiz as GeneratedQuizType } from '@/lib/types';
+import { cn } from '@/lib/utils';
+
 
 const SIMULATION_QUESTIONS = 30;
 const SIMULATION_TIME_MINUTES = 30;
@@ -45,7 +47,7 @@ type ExamSimulationTabProps = {
  * Ofrece la opción de elegir entre los dos tipos de examen.
  */
 export function ExamSimulationTab({ onQuizFeedback, learningStyle }: ExamSimulationTabProps) {
-  const [activeQuiz, setActiveQuiz] = useState<GeneratedQuiz | null>(null);
+  const [activeQuiz, setActiveQuiz] = useState<GeneratedQuizType | null>(null);
 
   /**
    * Inicia una simulación de examen.
@@ -79,7 +81,7 @@ export function ExamSimulationTab({ onQuizFeedback, learningStyle }: ExamSimulat
 
   if (activeQuiz) {
     return (
-      <GeneratedQuizComponent
+      <GeneratedQuiz
         quiz={activeQuiz}
         onBack={() => setActiveQuiz(null)}
         onQuizFeedback={onQuizFeedback}
@@ -91,7 +93,7 @@ export function ExamSimulationTab({ onQuizFeedback, learningStyle }: ExamSimulat
   return (
     <Card className="w-full max-w-4xl border-none shadow-none">
       <CardHeader className="text-center">
-        <CardTitle className="font-headline">Simulacro de Examen</CardTitle>
+        <CardTitle className="font-headline text-2xl">Simulacro de Examen</CardTitle>
         <CardDescription>
           Elige qué examen quieres simular. Cada uno está diseñado para imitar la presión y el formato del examen real.
         </CardDescription>
