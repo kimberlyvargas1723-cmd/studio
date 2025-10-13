@@ -14,16 +14,20 @@ import { generateProgressSummary } from '@/ai/flows/generate-progress-summary';
 import { generateLearningStrategy } from '@/ai/flows/generate-learning-strategy';
 import { textToSpeech } from '@/ai/flows/text-to-speech';
 import { generateDashboardGreeting } from '@/ai/flows/generate-dashboard-greeting';
-import type { 
+import { studyAssistant } from '@/ai/flows/study-assistant';
+import type {
   ContentSummarizationInput,
   StudyPlanInput,
   StudyPlanOutput,
   ProgressSummaryInput,
+  ProgressSummaryOutput,
   PracticeQuestionGenerationOutput,
   TextToSpeechInput,
   TextToSpeechOutput,
   DashboardGreetingInput,
   DashboardGreetingOutput,
+  StudyAssistantInput,
+  StudyAssistantOutput,
 } from '@/ai/schemas';
 import type { StudyResource } from '@/lib/types';
 import fs from 'fs/promises';
@@ -52,8 +56,7 @@ export async function summarizeContentAction(input: ContentSummarizationInput) {
  */
 export async function generatePracticeQuestionsAction(resource: StudyResource) {
   try {
-    // Correctly build the path to the markdown file in the src/lib/lecturas directory
-    const filePath = path.join(process.cwd(), 'src/lib/lecturas', resource.source);
+    const filePath = path.join(process.cwd(), 'public/lecturas', resource.source);
     const resourceContent = await fs.readFile(filePath, 'utf-8');
     
     const result = await generatePracticeQuestions({
@@ -102,12 +105,12 @@ export async function generateStudyPlanAction(input: Omit<StudyPlanInput, 'curre
 /**
  * Server Action to generate an intelligent summary of the user's progress.
  * @param {ProgressSummaryInput} input - The user's performance data.
- * @returns {Promise<{summary?: string; suggestion?: string; error?: string}>} The generated summary and suggestion, or an error object.
+ * @returns {Promise<ProgressSummaryOutput | { error: string }>} The generated summary and suggestion, or an error object.
  */
-export async function generateProgressSummaryAction(input: ProgressSummaryInput) {
+export async function generateProgressSummaryAction(input: ProgressSummaryInput): Promise<ProgressSummaryOutput | { error: string }> {
   try {
     const result = await generateProgressSummary(input);
-    return { summary: result.summary, suggestion: result.suggestion };
+    return result;
   } catch (e: any) {
     console.error('Error in generateProgressSummaryAction:', e);
     return { error: e.message || 'No se pudo generar el resumen de progreso.' };
@@ -157,5 +160,21 @@ export async function generateDashboardGreetingAction(input: DashboardGreetingIn
     } catch (e: any) {
         console.error('Error in generateDashboardGreetingAction:', e);
         return { error: e.message || 'No se pudo generar el saludo.' };
+    }
+}
+
+
+/**
+ * Server Action to get a response from the study assistant AI.
+ * @param {StudyAssistantInput} input - The user's query, history, and learning style.
+ * @returns {Promise<StudyAssistantOutput | { error: string }>} The AI's response or an error object.
+ */
+export async function studyAssistantAction(input: StudyAssistantInput): Promise<StudyAssistantOutput | { error: string }> {
+    try {
+        const result = await studyAssistant(input);
+        return result;
+    } catch (e: any) {
+        console.error('Error in studyAssistantAction:', e);
+        return { error: e.message || 'Lo siento, no pude procesar tu solicitud en este momento.' };
     }
 }

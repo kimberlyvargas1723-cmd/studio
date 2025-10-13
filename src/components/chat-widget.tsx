@@ -12,7 +12,7 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { VairyxIcon } from './VairyxIcon';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { studyAssistant } from '@/ai/flows/study-assistant';
+import { studyAssistantAction } from '@/app/actions';
 import { cn } from '@/lib/utils';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -98,11 +98,15 @@ export function ChatWidget({ feedback, learningStyle }: ChatWidgetProps) {
       // Prepara el historial para el flujo de IA.
       const history = messages.map(msg => ({ role: msg.role, content: msg.content }));
       // Llama al flujo de IA con la consulta actual, el historial y el estilo de aprendizaje.
-      const result = await studyAssistant({ query: input, history, learningStyle });
+      const result = await studyAssistantAction({ query: input, history, learningStyle });
       
+      if ('error' in result) {
+        throw new Error(result.error);
+      }
+
       const modelMessage: Message = {
         role: 'model',
-        content: result.response,
+        content: result.response!,
         youtubeQuery: result.youtubeSearchQuery,
       };
       setMessages(prev => [...prev, modelMessage]);

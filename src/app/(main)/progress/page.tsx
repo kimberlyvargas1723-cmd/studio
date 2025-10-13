@@ -48,7 +48,7 @@ export default function ProgressPage() {
                 })
                 .finally(() => setIsLoadingSummary(false));
         } else {
-             setIsLoading(false);
+             setIsLoadingSummary(false);
         }
     }, []);
 
