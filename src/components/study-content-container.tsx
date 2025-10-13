@@ -41,12 +41,16 @@ export function StudyContentContainer({ learningStyle }: StudyContentContainerPr
 
   /**
    * Efecto que selecciona un recurso por defecto al cargar la página.
-   * Esto asegura que el usuario vea contenido relevante inmediatamente.
+   * Esto asegura que el usuario vea contenido relevante inmediatamente,
+   * pero solo si no ha seleccionado ya un recurso.
    */
   useEffect(() => {
-    const defaultResource = studyResources.find(r => r.source === 'guia-psicometrico.md');
-    if (defaultResource && !selectedResource) {
-      handleResourceSelect(defaultResource);
+    // Solo establece un recurso por defecto si el usuario no ha seleccionado uno todavía.
+    if (!selectedResource) {
+      const defaultResource = studyResources.find(r => r.source === 'guia-psicometrico.md');
+      if (defaultResource) {
+        handleResourceSelect(defaultResource);
+      }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
