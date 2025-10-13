@@ -75,6 +75,13 @@ export default function DashboardPage({ learningStyle }: DashboardPageProps) {
   const heroImage: ImagePlaceholder | undefined = PlaceHolderImages.find(
     (img) => img.id === 'dashboard-hero'
   );
+  const [isClient, setIsClient] = useState(false);
+
+  // This effect runs once on component mount on the client side.
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
 
   /**
    * Effect to fetch the personalized greeting from the AI flow on component mount
@@ -82,6 +89,9 @@ export default function DashboardPage({ learningStyle }: DashboardPageProps) {
    */
   useEffect(() => {
     async function fetchGreeting() {
+      // Only run this logic on the client side.
+      if (!isClient) return;
+
       setIsLoading(true);
       try {
         const result = await generateDashboardGreetingAction({ learningStyle });
@@ -101,7 +111,7 @@ export default function DashboardPage({ learningStyle }: DashboardPageProps) {
       }
     }
     fetchGreeting();
-  }, [learningStyle]);
+  }, [learningStyle, isClient]);
 
   return (
     <div className="flex min-h-screen w-full flex-col bg-muted/40">
@@ -123,7 +133,7 @@ export default function DashboardPage({ learningStyle }: DashboardPageProps) {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
           </div>
           <div className="relative z-10 p-6 md:p-8 text-white">
-            {isLoading ? (
+            {isLoading || !isClient ? (
               <>
                 {/* Skeleton UI for loading state */}
                 <Skeleton className="h-12 w-3/4" />

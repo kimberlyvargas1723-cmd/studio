@@ -22,7 +22,7 @@ export function LearningStyleQuizTab() {
 
   /**
    * Efecto para cargar la estrategia desde localStorage solo en el cliente.
-   * Esto previene errores de hidratación.
+   * Esto previene errores de hidratación y el "flash" de contenido incorrecto.
    */
   useEffect(() => {
     setIsClient(true);
@@ -50,7 +50,8 @@ export function LearningStyleQuizTab() {
     setIsRetaking(true);
   }
 
-  // Muestra un loader mientras se determina si estamos en el cliente.
+  // Muestra un loader mientras se determina si estamos en el cliente,
+  // para evitar mostrar la opción de "retake" antes de tiempo.
   if (!isClient) {
     return (
         <Card className="w-full max-w-4xl border-none shadow-none min-h-[300px] flex items-center justify-center">
