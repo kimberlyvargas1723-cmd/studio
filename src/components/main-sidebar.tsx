@@ -28,7 +28,7 @@ const menuItems = [
   { href: '/study', label: 'Temas de Estudio', icon: BookOpen },
   { href: '/summaries', label: 'Mis Resúmenes', icon: FileText },
   { href: '/practice', label: 'Practicar', icon: Target },
-  { href: '/progress', label: 'Mi Progreso', icon: BarChart3.tsx },
+  { href: '/progress', label: 'Mi Progreso', icon: BarChart3 },
   { href: '/schedule', label: 'Mi Horario', icon: CalendarDays },
   { href: '/audio', label: 'Audio Lab', icon: Volume2 },
 ];

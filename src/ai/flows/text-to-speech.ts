@@ -7,20 +7,9 @@
 
 import { ai } from '@/ai/genkit';
 import { googleAI } from '@genkit-ai/google-genai';
-import { z } from 'genkit';
+import { TextToSpeechInputSchema, type TextToSpeechInput, TextToSpeechOutputSchema, type TextToSpeechOutput } from '@/ai/schemas';
 import wav from 'wav';
 
-// Define the input schema for the text-to-speech flow
-export const TextToSpeechInputSchema = z.object({
-  text: z.string().describe('The text to convert to speech.'),
-});
-export type TextToSpeechInput = z.infer<typeof TextToSpeechInputSchema>;
-
-// Define the output schema for the text-to-speech flow
-export const TextToSpeechOutputSchema = z.object({
-  audioDataUri: z.string().describe("A data URI representing the generated audio. Expected format: 'data:audio/wav;base64,<encoded_data>'."),
-});
-export type TextToSpeechOutput = z.infer<typeof TextToSpeechOutputSchema>;
 
 /**
  * Converts a string of text into speech and returns it as a WAV audio data URI.
