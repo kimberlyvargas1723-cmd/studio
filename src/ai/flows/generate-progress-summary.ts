@@ -1,51 +1,27 @@
+// src/ai/flows/generate-progress-summary.ts
 'use server';
 /**
- * @fileOverview A flow for generating an intelligent summary of a student's progress.
+ * @fileOverview Flow to generate an intelligent summary of a student's progress.
  *
  * This file defines an AI flow that analyzes a student's performance data
- * (correct vs. incorrect answers per topic) and generates a brief, encouraging
- * summary along with a single, actionable suggestion for their next study session.
+ * (correct vs. incorrect answers by topic) and generates a brief, encouraging summary
+ * along with a single actionable suggestion for their next study session.
  *
- * - generateProgressSummary - The main function to trigger the summary generation.
- * - ProgressSummaryInput - The Zod schema for the input.
- * - ProgressSummaryOutput - The Zod schema for the output.
+ * - `generateProgressSummary`: The main function to trigger the summary generation.
  */
 
-import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
+import { ai } from '@/ai/genkit';
+import {
+  ProgressSummaryInputSchema,
+  type ProgressSummaryInput,
+  ProgressSummaryOutputSchema,
+  type ProgressSummaryOutput
+} from '@/ai/schemas';
 
 /**
- * Defines the schema for a single performance data point.
- */
-const PerformanceDataSchema = z.object({
-  topic: z.string().describe('The name of the study topic.'),
-  correct: z.number().describe('The count of correct answers for this topic.'),
-  incorrect: z.number().describe('The count of incorrect answers for this topic.'),
-});
-
-/**
- * Defines the schema for the input of the progress summary generation flow.
- */
-const ProgressSummaryInputSchema = z.object({
-  performanceData: z
-    .array(PerformanceDataSchema)
-    .describe('An array of objects representing the student\'s performance in each topic.'),
-});
-export type ProgressSummaryInput = z.infer<typeof ProgressSummaryInputSchema>;
-
-/**
- * Defines the schema for the output of the progress summary generation flow.
- */
-const ProgressSummaryOutputSchema = z.object({
-  summary: z.string().describe('A brief, encouraging summary of the student\'s performance, highlighting one strength and one area for improvement.'),
-  suggestion: z.string().describe('A single, actionable suggestion for the student to focus on next.'),
-});
-export type ProgressSummaryOutput = z.infer<typeof ProgressSummaryOutputSchema>;
-
-/**
- * Generates a personalized progress summary and suggestion based on student performance data.
+ * Generates a custom progress summary and suggestion based on student performance data.
  * @param {ProgressSummaryInput} input - An object containing the student's performance data.
- * @returns {Promise<ProgressSummaryOutput>} A promise that resolves to the generated summary and suggestion.
+ * @returns {Promise<ProgressSummaryOutput>} A promise that resolves with the generated summary and suggestion.
  */
 export async function generateProgressSummary(input: ProgressSummaryInput): Promise<ProgressSummaryOutput> {
   return generateProgressSummaryFlow(input);
@@ -54,8 +30,8 @@ export async function generateProgressSummary(input: ProgressSummaryInput): Prom
 
 const prompt = ai.definePrompt({
   name: 'generateProgressSummaryPrompt',
-  input: {schema: ProgressSummaryInputSchema},
-  output: {schema: ProgressSummaryOutputSchema},
+  input: { schema: ProgressSummaryInputSchema },
+  output: { schema: ProgressSummaryOutputSchema },
   prompt: `You are an expert academic advisor AI named Vairyx. You are analyzing the performance data for a student named Kimberly.
 
 Your task is to provide a brief, insightful, and encouraging summary of her progress.
@@ -83,7 +59,7 @@ const generateProgressSummaryFlow = ai.defineFlow(
     outputSchema: ProgressSummaryOutputSchema,
   },
   async (input) => {
-    const {output} = await prompt(input);
+    const { output } = await prompt(input);
     return output!;
   }
 );

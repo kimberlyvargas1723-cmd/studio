@@ -1,71 +1,27 @@
+// src/ai/flows/generate-study-plan.ts
 'use server';
 /**
- * @fileOverview A flow for generating a dynamic, personalized study plan.
+ * @fileOverview Flow to generate a dynamic and personalized study plan.
  *
  * This file defines an AI flow that creates a weekly study plan based on a student's
  * performance data and the number of days remaining until their exam. It prioritizes
  * weak areas and incorporates spaced repetition for strengths.
  *
- * - generateStudyPlan - The main function to trigger the plan generation.
- * - StudyPlanInput - The Zod schema for the input.
- * - StudyPlanOutput - The Zod schema for the output.
+ * - `generateStudyPlan`: The main function to trigger the plan generation.
  */
 
-import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
+import { ai } from '@/ai/genkit';
+import {
+  StudyPlanInputSchema,
+  type StudyPlanInput,
+  StudyPlanOutputSchema,
+  type StudyPlanOutput
+} from '@/ai/schemas';
 
 /**
- * Defines the schema for a single performance data point.
- */
-const PerformanceDataSchema = z.object({
-  topic: z.string().describe('The name of the study topic.'),
-  correct: z.number().describe('The count of correct answers for this topic.'),
-  incorrect: z.number().describe('The count of incorrect answers for this topic.'),
-});
-
-/**
- * Defines the schema for a single daily task within the study plan.
- */
-const StudyTaskSchema = z.object({
-  day: z.string().describe("The day of the week for the task (e.g., 'Lunes')."),
-  date: z.string().describe("The specific date for the task in 'Mmm DD' format (e.g., 'Jul 29')."),
-  task: z.string().describe('A specific, actionable study task for the day.'),
-  topic: z.string().describe('The main topic related to the task.'),
-  isReview: z.boolean().describe('Whether the task is a review of a previously studied topic.'),
-});
-
-/**
- * Defines the schema for a single week in the study plan.
- */
-const WeeklyPlanSchema = z.object({
-    week: z.number().describe('The week number of the study plan, starting from 1.'),
-    focus: z.string().describe('A brief summary of the main focus for the week.'),
-    tasks: z.array(StudyTaskSchema).describe('A list of daily tasks for the week.'),
-});
-
-/**
- * Defines the schema for the input of the study plan generation flow.
- */
-const StudyPlanInputSchema = z.object({
-  performanceData: z
-    .array(PerformanceDataSchema)
-    .describe('An array of objects representing the student\'s performance in each topic.'),
-  daysUntilExam: z.number().describe('The total number of days available for studying until the exam date.'),
-});
-export type StudyPlanInput = z.infer<typeof StudyPlanInputSchema>;
-
-/**
- * Defines the schema for the output of the study plan generation flow.
- */
-const StudyPlanOutputSchema = z.object({
-  plan: z.array(WeeklyPlanSchema).describe('An array of weekly study plans.'),
-});
-export type StudyPlanOutput = z.infer<typeof StudyPlanOutputSchema>;
-
-/**
- * Generates a personalized study plan based on student performance data.
- * @param {StudyPlanInput} input - An object containing the student's performance data and days until the exam.
- * @returns {Promise<StudyPlanOutput>} A promise that resolves to the generated study plan.
+ * Generates a personalized study plan based on the student's performance data.
+ * @param {StudyPlanInput} input - An object containing student performance data and days until the exam.
+ * @returns {Promise<StudyPlanOutput>} A promise that resolves with the generated study plan.
  */
 export async function generateStudyPlan(input: StudyPlanInput): Promise<StudyPlanOutput> {
   return generateStudyPlanFlow(input);
@@ -74,8 +30,8 @@ export async function generateStudyPlan(input: StudyPlanInput): Promise<StudyPla
 
 const prompt = ai.definePrompt({
   name: 'generateStudyPlanPrompt',
-  input: {schema: StudyPlanInputSchema},
-  output: {schema: StudyPlanOutputSchema},
+  input: { schema: StudyPlanInputSchema },
+  output: { schema: StudyPlanOutputSchema },
   prompt: `You are an expert academic advisor AI named Vairyx. You are creating a personalized study plan for Kimberly, who is preparing for her UANL Psychology entrance exam.
 
 You will receive her performance data (correct vs. incorrect answers per topic) and the total number of days until her exam.
@@ -121,7 +77,7 @@ const generateStudyPlanFlow = ai.defineFlow(
         currentDate,
     };
 
-    const {output} = await prompt(promptInput);
+    const { output } = await prompt(promptInput);
     return output!;
   }
 );

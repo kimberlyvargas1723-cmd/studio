@@ -1,51 +1,35 @@
+// src/ai/flows/generate-learning-strategy.ts
 'use server';
 /**
- * @fileOverview A flow for generating a personalized learning strategy based on the VARK model.
+ * @fileOverview Flow to generate a personalized learning strategy based on the VARK model.
  *
  * This file defines the AI flow that takes a user's dominant learning style code
  * (V, A, R, or K) and generates a detailed, actionable learning strategy in Spanish.
  *
- * - generateLearningStrategy - The main function to trigger the strategy generation.
- * - LearningStrategyInput - The Zod schema for the input.
- * - LearningStrategyOutput - The Zod schema for the output.
+ * - `generateLearningStrategy`: The main function to trigger the strategy generation.
  */
 
-import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
-
-/**
- * Defines the schema for the input of the learning strategy generation flow.
- */
-const LearningStrategyInputSchema = z.object({
-  learningStyle: z
-    .string()
-    .describe('The dominant learning style code (V, A, R, or K).'),
-});
-export type LearningStrategyInput = z.infer<typeof LearningStrategyInputSchema>;
-
-/**
- * Defines the schema for the output of the learning strategy generation flow.
- */
-const LearningStrategyOutputSchema = z.object({
-  style: z.string().describe('The full name of the learning style in Spanish (e.g., "Visual", "Auditivo").'),
-  strategy: z.string().describe('A detailed, personalized learning strategy in Markdown format.'),
-});
-export type LearningStrategyOutput = z.infer<typeof LearningStrategyOutputSchema>;
+import { ai } from '@/ai/genkit';
+import {
+  LearningStrategyInputSchema,
+  type LearningStrategyInput,
+  LearningStrategyOutputSchema,
+  type LearningStrategyOutput
+} from '@/ai/schemas';
 
 /**
  * Generates a personalized learning strategy based on a dominant learning style.
  * @param {LearningStrategyInput} input - The user's dominant learning style code.
- * @returns {Promise<LearningStrategyOutput>} A promise that resolves to the full style name and the generated strategy.
+ * @returns {Promise<LearningStrategyOutput>} A promise that resolves with the full style name and the generated strategy.
  */
 export async function generateLearningStrategy(input: LearningStrategyInput): Promise<LearningStrategyOutput> {
   return generateLearningStrategyFlow(input);
 }
 
-
 const prompt = ai.definePrompt({
   name: 'generateLearningStrategyPrompt',
-  input: {schema: LearningStrategyInputSchema},
-  output: {schema: LearningStrategyOutputSchema},
+  input: { schema: LearningStrategyInputSchema },
+  output: { schema: LearningStrategyOutputSchema },
   prompt: `You are an expert educational psychologist AI named Vairyx. You are creating a personalized learning strategy for Kimberly based on her dominant learning style from the VARK model.
 
 Her dominant learning style is represented by the code: {{learningStyle}}.
@@ -84,7 +68,7 @@ const generateLearningStrategyFlow = ai.defineFlow(
     outputSchema: LearningStrategyOutputSchema,
   },
   async (input) => {
-    const {output} = await prompt(input);
+    const { output } = await prompt(input);
     return output!;
   }
 );

@@ -16,9 +16,10 @@ const PSYCHOMETRIC_QUESTIONS = 15;
 const PSYCHOMETRIC_TIME_MINUTES = 10;
 
 /**
- * Shuffles an array in-place and returns it.
- * @param {T[]} array The array to shuffle.
- * @returns {T[]} The shuffled array.
+ * Mezcla un array en su lugar y lo devuelve (algoritmo de Fisher-Yates).
+ * @template T
+ * @param {T[]} array El array a mezclar.
+ * @returns {T[]} El mismo array, pero mezclado.
  */
 function shuffleArray<T>(array: T[]): T[] {
     for (let i = array.length - 1; i > 0; i--) {
@@ -28,18 +29,30 @@ function shuffleArray<T>(array: T[]): T[] {
     return array;
 }
 
+/**
+ * Define las props para el componente `ExamSimulationTab`.
+ * @param {(result: 'correct' | 'incorrect') => void} [onQuizFeedback] - Callback para notificar al layout del resultado de una respuesta.
+ * @param {string} [learningStyle] - El estilo de aprendizaje del usuario.
+ */
 type ExamSimulationTabProps = {
   onQuizFeedback?: (result: 'correct' | 'incorrect') => void;
   learningStyle?: string;
 };
 
 /**
- * Renders the tab for running a full admission exam simulation (EXANI-II style)
- * or a specific psychometric exam simulation. It now provides a choice between the two.
+ * Renderiza la pestaña para realizar una simulación de examen de admisión (EXANI-II)
+ * o una simulación específica del examen psicométrico.
+ * Ofrece la opción de elegir entre los dos tipos de examen.
  */
 export function ExamSimulationTab({ onQuizFeedback, learningStyle }: ExamSimulationTabProps) {
   const [activeQuiz, setActiveQuiz] = useState<GeneratedQuiz | null>(null);
 
+  /**
+   * Inicia una simulación de examen.
+   * Mezcla el banco de preguntas correspondiente, selecciona un subconjunto
+   * y configura el objeto del quiz con las preguntas y el límite de tiempo.
+   * @param {'knowledge' | 'psychometric'} type - El tipo de simulación a iniciar.
+   */
   const handleStartSimulation = (type: 'knowledge' | 'psychometric') => {
     if (type === 'knowledge') {
         const shuffledQuestions = shuffleArray([...examQuestionPool]);
@@ -48,7 +61,7 @@ export function ExamSimulationTab({ onQuizFeedback, learningStyle }: ExamSimulat
             title: 'Simulacro: Examen de Conocimientos',
             topic: 'Simulacro General',
             questions: selectedQuestions,
-            isPsychometric: true,
+            isPsychometric: true, // Se marca como true para activar el temporizador y deshabilitar el feedback de IA.
             timeLimit: SIMULATION_TIME_MINUTES,
         });
     } else {
@@ -58,7 +71,7 @@ export function ExamSimulationTab({ onQuizFeedback, learningStyle }: ExamSimulat
             title: 'Simulacro: Examen Psicométrico',
             topic: 'Examen Psicométrico',
             questions: selectedQuestions,
-            isPsychometric: true,
+            isPsychometric: true, // Activa el temporizador.
             timeLimit: PSYCHOMETRIC_TIME_MINUTES,
         });
     }

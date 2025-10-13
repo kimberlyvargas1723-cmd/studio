@@ -1,44 +1,29 @@
 // src/ai/flows/content-summarization.ts
 'use server';
-
 /**
- * @fileOverview A content summarization AI agent.
+ * @fileOverview AI flow for content summarization.
  *
- * This file defines the AI flow for summarizing content. It takes a URL or a data URI
- * of content and a user's learning style, then returns a concise summary adapted
- * to that style.
+ * This file defines the AI flow that takes content (via text or URL)
+ * and a user's learning style to generate a concise summary
+ * adapted to that style.
  *
- * - summarizeContent - The main function that triggers the summarization flow.
- * - ContentSummarizationInput - The Zod schema for the input.
- * - ContentSummarizationOutput - The Zod schema for the output.
+ * - `summarizeContent`: The main function that invokes the summarization flow.
  */
 
-import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
-
-/**
- * Defines the schema for the input of the content summarization flow.
- */
-const ContentSummarizationInputSchema = z.object({
-  url: z.string().describe('The URL or data URI of the content to summarize.'),
-  learningStyle: z.string().optional().describe('The dominant learning style of the user (V, A, R, or K).'),
-});
-export type ContentSummarizationInput = z.infer<typeof ContentSummarizationInputSchema>;
-
-/**
- * Defines the schema for the output of the content summarization flow.
- */
-const ContentSummarizationOutputSchema = z.object({
-  summary: z.string().describe('The summary of the content, formatted in Markdown.'),
-});
-export type ContentSummarizationOutput = z.infer<typeof ContentSummarizationOutputSchema>;
+import { ai } from '@/ai/genkit';
+import {
+  ContentSummarizationInputSchema,
+  type ContentSummarizationInput,
+  ContentSummarizationOutputSchema,
+  type ContentSummarizationOutput
+} from '@/ai/schemas';
 
 /**
  * Summarizes the provided content using an AI model.
- * This flow takes a URL or a data URI and returns a concise summary
+ * This flow takes a URL or Data URI and returns a concise summary
  * adapted to the user's specified learning style.
  * @param {ContentSummarizationInput} input - The content to be summarized and the user's learning style.
- * @returns {Promise<ContentSummarizationOutput>} A promise that resolves to the summary of the content.
+ * @returns {Promise<ContentSummarizationOutput>} A promise that resolves with the content summary.
  */
 export async function summarizeContent(input: ContentSummarizationInput): Promise<ContentSummarizationOutput> {
   return summarizeContentFlow(input);
@@ -46,8 +31,8 @@ export async function summarizeContent(input: ContentSummarizationInput): Promis
 
 const summarizeContentPrompt = ai.definePrompt({
   name: 'summarizeContentPrompt',
-  input: {schema: ContentSummarizationInputSchema},
-  output: {schema: ContentSummarizationOutputSchema},
+  input: { schema: ContentSummarizationInputSchema },
+  output: { schema: ContentSummarizationOutputSchema },
   prompt: `You are an expert summarizer for a student named Kimberly, who is preparing for her psychology entrance exam.
   The student's dominant learning style is {{learningStyle}}.
 
@@ -71,7 +56,7 @@ const summarizeContentFlow = ai.defineFlow(
     outputSchema: ContentSummarizationOutputSchema,
   },
   async input => {
-    const {output} = await summarizeContentPrompt(input);
+    const { output } = await summarizeContentPrompt(input);
     return output!;
   }
 );

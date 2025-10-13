@@ -18,9 +18,9 @@ export const metadata: Metadata = {
 };
 
 /**
- * RootLayout is the main layout of the application. It applies global styles,
- * fonts, and essential components like the Toaster.
- * This ensures a consistent look and feel across all pages.
+ * RootLayout es el layout principal de la aplicación. Aplica estilos globales,
+ * fuentes y componentes esenciales como el Toaster.
+ * Esto asegura una apariencia consistente en todas las páginas.
  */
 export default function RootLayout({
   children,

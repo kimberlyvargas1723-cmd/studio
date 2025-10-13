@@ -74,7 +74,7 @@ export const examQuestionPool: GeneratedQuestion[] = [
     topic: 'Procesos Psicológicos Básicos',
   },
   
-  // --- Psicología del Desarrollo y Social (4) ---
+  // --- Psicología del Desarrollo y Social (5) ---
   {
     question: 'Según Erik Erikson, la principal crisis psicosocial que enfrenta un adolescente es:',
     options: ['Confianza vs. Desconfianza', 'Iniciativa vs. Culpa', 'Laboriosidad vs. Inferioridad', 'Identidad vs. Confusión de roles'],
@@ -111,7 +111,7 @@ export const examQuestionPool: GeneratedQuestion[] = [
     topic: 'Psicología Social',
   },
 
-  // --- Habilidades EXANI-II (Comprensión Lectora, Redacción Indirecta) (6) ---
+  // --- Habilidades EXANI-II (Comprensión Lectora, Redacción Indirecta, Inglés) (6) ---
   {
     question: 'Identifica la opción que presenta un error en la concordancia verbal: "La manada de lobos, a pesar del frío, corrían por el bosque".',
     options: ['La manada de lobos', 'a pesar del frío', 'corrían por el bosque', 'No hay error'],
@@ -168,7 +168,7 @@ export const examQuestionPool: GeneratedQuestion[] = [
     options: ['H8', 'I9', 'H9', 'I8'],
     correctAnswer: 'I9',
     explanation: 'La serie alterna letras saltándose una (A, C, E, G, I) y números impares consecutivos (1, 3, 5, 7, 9).',
-    topic: 'Examen Psicométrico',
+    topic: 'Simulacro General',
   },
   {
     question: 'Si el 30% de un número es 45, ¿cuál es el número?',
@@ -189,7 +189,7 @@ export const examQuestionPool: GeneratedQuestion[] = [
     options: ['Árbol', 'Verde', 'Rama', 'Raíz'],
     correctAnswer: 'Rama',
     explanation: 'La analogía es de parte a todo. Un dedo es parte de una mano; una hoja es parte de una rama (y esta a su vez del árbol, pero rama es la conexión más directa).',
-    topic: 'Examen Psicométrico',
+    topic: 'Simulacro General',
   },
   {
     question: 'Calcula la media (promedio) de los siguientes números: 10, 15, 20, 25, 30.',
@@ -203,7 +203,7 @@ export const examQuestionPool: GeneratedQuestion[] = [
     options: ['Círculo', 'Hexágono', 'Octágono', 'Triángulo'],
     correctAnswer: 'Hexágono',
     explanation: 'La secuencia aumenta el número de lados de la figura en uno cada vez (3, 4, 5, 6).',
-    topic: 'Examen Psicométrico',
+    topic: 'Simulacro General',
   },
   {
     question: 'El precio de un producto aumentó de $80 a $100. ¿Cuál fue el porcentaje de aumento?',

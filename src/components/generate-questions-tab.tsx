@@ -1,3 +1,4 @@
+// src/components/generate-questions-tab.tsx
 'use client';
 import { useState } from 'react';
 import {
@@ -16,15 +17,20 @@ import { GeneratedQuiz as GeneratedQuizComponent } from '@/components/generated-
 import { studyResources } from '@/lib/data';
 import { useToast } from '@/hooks/use-toast';
 
+/**
+ * Define las props para el componente `GenerateQuestionsTab`.
+ * @param {(result: 'correct' | 'incorrect') => void} [onQuizFeedback] - Callback para notificar al layout del resultado de un quiz.
+ * @param {string} [learningStyle] - El estilo de aprendizaje del usuario.
+ */
 type GenerateQuestionsTabProps = {
   onQuizFeedback?: (result: 'correct' | 'incorrect') => void;
   learningStyle?: string;
 };
 
 /**
- * A component that allows users to generate a practice quiz based on a selected study topic.
- * It uses a Server Action to create questions, keeping the client-side lean.
- * It displays study resources as cards to initiate quiz generation.
+ * Un componente que permite a los usuarios generar un quiz de práctica
+ * basado en un tema de estudio seleccionado.
+ * Utiliza una Acción de Servidor para crear las preguntas, manteniendo el cliente ligero.
  */
 export function GenerateQuestionsTab({ onQuizFeedback, learningStyle }: GenerateQuestionsTabProps) {
   const [selectedResource, setSelectedResource] = useState<StudyResource | null>(null);
@@ -36,9 +42,9 @@ export function GenerateQuestionsTab({ onQuizFeedback, learningStyle }: Generate
   const { toast } = useToast();
 
   /**
-   * Handles quiz generation by calling a Server Action.
-   * The client is only responsible for managing UI state.
-   * @param {StudyResource} resource - The study resource to generate a quiz from.
+   * Maneja la generación de un quiz llamando a una Acción de Servidor.
+   * El cliente solo se encarga de gestionar el estado de la UI.
+   * @param {StudyResource} resource - El recurso de estudio para generar el quiz.
    */
   const handleGenerate = async (resource: StudyResource) => {
     setIsLoading(true);
@@ -62,7 +68,7 @@ export function GenerateQuestionsTab({ onQuizFeedback, learningStyle }: Generate
     setIsLoading(false);
   };
 
-  // If a quiz has been generated, render the quiz component.
+  // Si se ha generado un quiz, renderiza el componente del quiz.
   if (generatedQuiz) {
     return (
       <GeneratedQuizComponent
@@ -77,7 +83,7 @@ export function GenerateQuestionsTab({ onQuizFeedback, learningStyle }: Generate
     );
   }
 
-  // Otherwise, show the UI for selecting a topic and generating a quiz.
+  // De lo contrario, muestra la UI para seleccionar un tema y generar un quiz.
   return (
     <Card className="w-full max-w-4xl border-none shadow-none">
       <CardHeader>
@@ -99,11 +105,11 @@ export function GenerateQuestionsTab({ onQuizFeedback, learningStyle }: Generate
             </p>
           </div>
         ) : internalResources.length > 0 ? (
-          <ScrollArea className="h-[50vh]">
+          <ScrollArea className="h-[50vh] pr-2">
             <div className="space-y-2">
               {internalResources.map(resource => (
-                <Card key={resource.source} className="p-4 flex justify-between items-center">
-                  <div>
+                <Card key={resource.source} className="p-4 flex flex-wrap justify-between items-center gap-2">
+                  <div className="flex-1">
                     <h3 className="font-semibold">{resource.title}</h3>
                     <p className="text-sm text-muted-foreground">
                       {resource.category}

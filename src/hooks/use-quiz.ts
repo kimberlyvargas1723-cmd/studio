@@ -1,9 +1,16 @@
 // src/hooks/use-quiz.ts
 'use client';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { analyzePerformanceAndAdapt } from '@/ai/flows/personalized-feedback-adaptation';
 import { updatePerformanceData, saveFeedback } from '@/lib/services';
 import type { GeneratedQuiz, GeneratedQuestion, Feedback } from '@/lib/types';
+
+/**
+ * @fileoverview Este es un hook personalizado que encapsula toda la lógica y el estado
+ * para un quiz interactivo. Maneja la progresión de preguntas, la selección de respuestas,
+ * la puntuación, los límites de tiempo, la evaluación de respuestas y la generación
+ * de feedback por IA.
+ */
 
 /**
  * Define las propiedades que el hook `useQuiz` necesita para funcionar.
@@ -19,8 +26,6 @@ type UseQuizProps = {
 
 /**
  * Un hook personalizado que encapsula toda la lógica y el estado para un quiz interactivo.
- * Maneja la progresión de preguntas, la selección de respuestas, la puntuación,
- * los límites de tiempo, la evaluación de respuestas y la generación de feedback por IA.
  *
  * @param {UseQuizProps} props - Las propiedades para inicializar el hook, incluyendo el quiz y los callbacks.
  * @returns Un objeto que contiene el estado actual del quiz y las funciones para interactuar con él.
@@ -38,13 +43,27 @@ export const useQuiz = ({ quiz, onQuizFeedback, learningStyle }: UseQuizProps) =
 
   const currentQuestion: GeneratedQuestion = quiz.questions[currentQuestionIndex];
   const isQuizFinished = currentQuestionIndex >= quiz.questions.length;
+  
+  /**
+   * Avanza a la siguiente pregunta del quiz, reseteando el estado correspondiente.
+   * Se usa useCallback para memorizar la función y evitar re-creaciones innecesarias.
+   */
+  const handleNextQuestion = useCallback(() => {
+    if (currentQuestionIndex < quiz.questions.length) {
+      setCurrentQuestionIndex(prev => prev + 1);
+      setSelectedAnswer(null);
+      setIsAnswered(false);
+      setFeedback(null);
+      if (quiz.timeLimit) setTimeLeft(quiz.timeLimit * 60);
+    }
+  }, [currentQuestionIndex, quiz.questions.length, quiz.timeLimit]);
 
   /**
    * Efecto para manejar el temporizador en quizzes psicométricos o simulacros.
    * Se activa solo si el quiz tiene un límite de tiempo (`timeLimit`).
    */
   useEffect(() => {
-    if (quiz.isPsychometric && timeLeft !== null && !isQuizFinished && !isAnswered) {
+    if (quiz.timeLimit && timeLeft !== null && !isQuizFinished && !isAnswered) {
       timerRef.current = setInterval(() => {
         setTimeLeft(prev => {
           if (prev === null || prev <= 1) {
@@ -61,8 +80,7 @@ export const useQuiz = ({ quiz, onQuizFeedback, learningStyle }: UseQuizProps) =
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [quiz.isPsychometric, currentQuestionIndex, isQuizFinished, isAnswered]);
+  }, [quiz.timeLimit, timeLeft, isQuizFinished, isAnswered, handleNextQuestion]);
 
   /**
    * Maneja el envío de una respuesta. Evalúa si es correcta, actualiza el rendimiento,
@@ -103,7 +121,6 @@ export const useQuiz = ({ quiz, onQuizFeedback, learningStyle }: UseQuizProps) =
         saveFeedback(newFeedback);
       } catch (error) {
         console.error("Error getting feedback:", error);
-        // Genera un feedback de error para el usuario si la IA falla.
         const errorFeedback: Feedback = {
           feedback: "No se pudo obtener la retroalimentación. Por favor, intenta de nuevo.",
           areasForImprovement: "N/A",
@@ -112,21 +129,9 @@ export const useQuiz = ({ quiz, onQuizFeedback, learningStyle }: UseQuizProps) =
           topic: currentQuestion.topic,
         };
         setFeedback(errorFeedback);
-        saveFeedback(errorFeedback);
       }
     }
     setIsLoading(false);
-  };
-
-  /**
-   * Avanza a la siguiente pregunta del quiz, reseteando el estado correspondiente.
-   */
-  const handleNextQuestion = () => {
-    setCurrentQuestionIndex(prev => prev + 1);
-    setSelectedAnswer(null);
-    setIsAnswered(false);
-    setFeedback(null);
-    if (quiz.timeLimit) setTimeLeft(quiz.timeLimit * 60);
   };
 
   /**
@@ -164,7 +169,7 @@ export const useQuiz = ({ quiz, onQuizFeedback, learningStyle }: UseQuizProps) =
     timeLeft,
     setSelectedAnswer,
     handleAnswerSubmit,
-    handleNextQuestion,
+    handleNextQuestion: handleNextQuestion,
     handleRestartQuiz,
     formatTime,
   };

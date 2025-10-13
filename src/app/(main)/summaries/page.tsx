@@ -31,12 +31,21 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Link from 'next/link';
 
+/**
+ * El contenido principal de la página de resúmenes.
+ * Se separa en un componente hijo para poder usar el hook `useSearchParams`
+ * dentro de un `<Suspense>`.
+ */
 function SummariesPageContent() {
   const [summaries, setSummaries] = useState<SavedSummary[]>([]);
   const [selectedSummary, setSelectedSummary] = useState<SavedSummary | null>(null);
   const searchParams = useSearchParams();
   const router = useRouter();
   
+  /**
+   * Efecto para cargar los resúmenes guardados desde localStorage al montar el componente.
+   * También selecciona un resumen si se provee un `id` en la URL.
+   */
   useEffect(() => {
     const savedSummaries = getSavedSummaries();
     setSummaries(savedSummaries);
@@ -46,23 +55,33 @@ function SummariesPageContent() {
       const summaryToSelect = savedSummaries.find(s => s.id === summaryIdFromUrl);
       setSelectedSummary(summaryToSelect || null);
     } else if (savedSummaries.length > 0) {
+      // Si no hay id en la URL, selecciona el primer resumen de la lista.
       setSelectedSummary(savedSummaries[0]);
     }
   }, [searchParams]);
 
+  /**
+   * Maneja la eliminación de un resumen.
+   * Llama al servicio para eliminarlo del localStorage, actualiza el estado local
+   * y ajusta el resumen seleccionado.
+   * @param {string} summaryId - El ID del resumen a eliminar.
+   */
   const handleDelete = (summaryId: string) => {
     const updatedSummaries = deleteSummaryFromStorage(summaryId);
     setSummaries(updatedSummaries);
     
+    // Si el resumen eliminado era el que estaba seleccionado, selecciona el primero de la nueva lista.
     if (selectedSummary?.id === summaryId) {
       setSelectedSummary(updatedSummaries.length > 0 ? updatedSummaries[0] : null);
     }
+    // Redirige para limpiar el query param `id` si es que existía.
     router.replace('/summaries');
   }
 
+  // Vista para cuando no hay resúmenes guardados.
   if (summaries.length === 0) {
     return (
-      <main className="flex flex-1 items-center justify-center text-center">
+      <main className="flex flex-1 items-center justify-center text-center p-4">
         <Card className="max-w-md">
             <CardHeader>
                 <CardTitle className="font-headline">Aún no tienes resúmenes</CardTitle>
@@ -84,8 +103,10 @@ function SummariesPageContent() {
     );
   }
 
+  // Vista principal con la lista de resúmenes y el contenido del seleccionado.
   return (
     <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8 lg:flex-row lg:items-start">
+      {/* Columna de la lista de resúmenes */}
       <Card className="w-full lg:w-1/3 lg:sticky lg:top-24">
         <CardHeader>
           <CardTitle className="font-headline">Resúmenes Guardados</CardTitle>
@@ -105,7 +126,7 @@ function SummariesPageContent() {
                 >
                   <FileText className="h-5 w-5 mr-3 text-muted-foreground" />
                   <div className="flex flex-col flex-1 truncate">
-                    <span className="truncate">{summary.title}</span>
+                    <span className="truncate font-medium">{summary.title}</span>
                     <span className="text-xs text-muted-foreground">
                       {new Date(summary.createdAt).toLocaleString()}
                     </span>
@@ -117,6 +138,7 @@ function SummariesPageContent() {
         </CardContent>
       </Card>
 
+      {/* Columna del contenido del resumen seleccionado */}
       <Card className="w-full lg:w-2/3">
         {selectedSummary ? (
           <>
@@ -153,7 +175,7 @@ function SummariesPageContent() {
               </div>
           </CardHeader>
           <CardContent className="min-h-[60vh] lg:min-h-[calc(100vh-16rem)]">
-              <ScrollArea className="h-full">
+              <ScrollArea className="h-full pr-4">
                 <article className="prose prose-sm dark:prose-invert max-w-none whitespace-pre-wrap leading-relaxed">
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>
                       {selectedSummary.content}
@@ -177,15 +199,19 @@ function SummariesPageContent() {
 }
 
 /**
- * Renders the page that displays all summaries saved by the user.
- * It allows viewing and deleting saved summaries from local storage.
- * It now uses Suspense to handle URL search parameters on the client.
+ * Renderiza la página que muestra todos los resúmenes guardados por el usuario.
+ * Utiliza Suspense para manejar los parámetros de búsqueda de la URL en el cliente
+ * de forma segura y evitar errores de hidratación en Next.js.
  */
 export default function SummariesPage() {
   return (
     <div className="flex min-h-screen w-full flex-col">
       <Header title="Mis Resúmenes" />
-      <Suspense fallback={<div>Cargando...</div>}>
+      <Suspense fallback={
+        <div className="flex-1 flex items-center justify-center">
+            <Loader2 className="h-8 w-8 animate-spin" />
+        </div>
+      }>
         <SummariesPageContent />
       </Suspense>
     </div>

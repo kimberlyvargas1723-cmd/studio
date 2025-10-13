@@ -9,41 +9,41 @@ import { Calendar } from '@/components/ui/calendar';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Check, Dot, Loader2 } from 'lucide-react';
+import { Check, Dot, Loader2, CalendarIcon } from 'lucide-react';
 import { getPerformanceData } from '@/lib/services';
 import { generateStudyPlanAction } from '@/app/actions';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import type { StudyPlanOutput } from '@/ai/flows/generate-study-plan';
 
 /**
- * Renders the "My Smart Schedule" page.
- * This interactive component allows the user to select an exam date from a calendar.
- * Upon selection, it triggers an AI-powered Server Action to generate a personalized,
- * weekly study plan. The plan is tailored based on the user's historical performance
- * data, which is retrieved from localStorage.
+ * Renderiza la página "Mi Horario Inteligente".
+ * Este componente interactivo permite al usuario seleccionar una fecha de examen.
+ * Al seleccionarla, dispara una Acción de Servidor para generar un plan de estudio
+ * semanal personalizado, basado en los datos de rendimiento históricos del usuario
+ * obtenidos de localStorage.
  */
 export default function SchedulePage() {
   const [examDate, setExamDate] = useState<Date | undefined>(undefined);
   const [studyPlan, setStudyPlan] = useState<StudyPlanOutput | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  // State to ensure calendar only renders on the client to prevent hydration errors.
+  // Estado para asegurar que el calendario solo se renderice en el cliente para evitar errores de hidratación.
   const [isClient, setIsClient] = useState(false);
   
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
+  // Este efecto se ejecuta una vez al montar para confirmar que estamos en el lado del cliente.
   useEffect(() => {
-    // This effect runs once on mount to confirm we are on the client side.
     setIsClient(true);
   }, []);
 
   /**
-   * Triggers the generation of a study plan by calling a Server Action.
-   * It retrieves the user's performance data from localStorage and sends it,
-   * along with the number of days until the exam, to the AI flow for processing.
-   * Manages loading and error states during the generation process.
-   * @param {Date} date - The selected exam date.
+   * Dispara la generación de un plan de estudio llamando a una Acción de Servidor.
+   * Recupera los datos de rendimiento del usuario de localStorage y los envía,
+   * junto con el número de días hasta el examen, al flujo de IA para su procesamiento.
+   * Gestiona los estados de carga y error durante el proceso.
+   * @param {Date} date - La fecha de examen seleccionada.
    */
   const handleGenerateStudyPlan = async (date: Date) => {
     setLoading(true);
@@ -75,9 +75,9 @@ export default function SchedulePage() {
   };
 
   /**
-   * Callback for when the user selects a new exam date from the calendar.
-   * It updates the state and triggers the plan generation.
-   * @param {Date | undefined} date - The newly selected date from the calendar.
+   * Callback para cuando el usuario selecciona una nueva fecha de examen del calendario.
+   * Actualiza el estado y dispara la generación del plan.
+   * @param {Date | undefined} date - La fecha recién seleccionada del calendario.
    */
   const handleDateSelect = (date: Date | undefined) => {
     if (date) {
@@ -91,7 +91,7 @@ export default function SchedulePage() {
     <div className="flex min-h-screen w-full flex-col">
       <Header title="Mi Horario Inteligente" />
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8 lg:flex-row">
-        {/* Calendar Card */}
+        {/* Tarjeta del Calendario */}
         <Card className="w-full lg:w-1/3 lg:sticky lg:top-24">
           <CardHeader>
             <CardTitle className="font-headline">Tu Fecha de Examen</CardTitle>
@@ -114,7 +114,7 @@ export default function SchedulePage() {
             )}
           </CardContent>
         </Card>
-        {/* Study Plan Card */}
+        {/* Tarjeta del Plan de Estudio */}
         <Card className="w-full lg:w-2/3">
           <CardHeader>
             <CardTitle className="font-headline">Tu Plan de Estudio Semanal</CardTitle>
@@ -144,13 +144,13 @@ export default function SchedulePage() {
                   {studyPlan.plan.map((week, weekIndex) => (
                     <div key={weekIndex}>
                       <h3 className="font-headline text-lg font-semibold text-primary">Semana {week.week}: {week.focus}</h3>
-                      <div className="mt-3 space-y-3 border-l-2 border-primary pl-6 ml-2">
+                      <div className="mt-3 space-y-3 border-l-2 border-primary/20 ml-2">
                         {week.tasks.map((day, dayIndex) => (
-                          <div key={dayIndex} className="relative flex items-start gap-4">
-                             <div className="absolute -left-[35px] top-1 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold">
+                          <div key={dayIndex} className="relative flex items-start gap-4 pl-8">
+                             <div className="absolute -left-[1.1rem] top-1 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold text-xs">
                                 {day.date}
                             </div>
-                            <div className="flex-1 rounded-md border p-3 bg-card hover:border-primary transition-all">
+                            <div className="flex-1 rounded-md border p-3 bg-card hover:border-primary/50 transition-all">
                                <p className="font-semibold">{day.day}: {day.task}</p>
                                <div className="flex items-center justify-between mt-2">
                                 <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${day.isReview ? 'bg-secondary text-secondary-foreground' : 'bg-accent/20 text-accent-foreground'}`}>
@@ -168,7 +168,10 @@ export default function SchedulePage() {
               ) : (
                 !loading && !error && (
                     <div className="flex h-full items-center justify-center text-muted-foreground text-center p-8">
-                    <p>Tu plan de estudio personalizado aparecerá aquí.</p>
+                      <div className="flex flex-col items-center gap-3">
+                        <CalendarIcon className="h-12 w-12" />
+                        <p className="text-lg font-semibold">Tu plan de estudio personalizado aparecerá aquí.</p>
+                      </div>
                     </div>
                 )
               )}

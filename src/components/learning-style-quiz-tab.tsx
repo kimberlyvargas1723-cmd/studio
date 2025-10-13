@@ -11,17 +11,20 @@ import type { LearningStrategy } from '@/lib/types';
 import { LearningStyleQuiz } from '@/components/learning-style-quiz';
 
 /**
- * Renders a tab for discovering or updating the user's learning style.
- * It displays the currently saved strategy or shows the reusable LearningStyleQuiz
- * component if no strategy exists or if the user chooses to retake the quiz.
+ * Renderiza una pestaña para descubrir o actualizar el estilo de aprendizaje del usuario.
+ * Muestra la estrategia guardada actualmente o el componente reutilizable `LearningStyleQuiz`
+ * si no existe una estrategia o si el usuario decide volver a realizar el quiz.
  */
 export function LearningStyleQuizTab() {
   const [savedStrategy, setSavedStrategy] = useState<LearningStrategy | null>(null);
   const [isClient, setIsClient] = useState(false);
   const [isRetaking, setIsRetaking] = useState(false);
 
+  /**
+   * Efecto para cargar la estrategia desde localStorage solo en el cliente.
+   * Esto previene errores de hidratación.
+   */
   useEffect(() => {
-    // Prevents hydration errors by only accessing localStorage on the client.
     setIsClient(true);
     const strategy = getLearningStrategy();
     if (strategy) {
@@ -29,24 +32,37 @@ export function LearningStyleQuizTab() {
     }
   }, []);
   
+  /**
+   * Callback que se ejecuta cuando el quiz finaliza.
+   * Guarda la nueva estrategia y actualiza el estado para mostrarla.
+   * @param {LearningStrategy} strategy - La estrategia generada por la IA.
+   */
   const handleQuizFinish = (strategy: LearningStrategy) => {
     saveLearningStrategy(strategy);
     setSavedStrategy(strategy);
     setIsRetaking(false);
   }
 
+  /**
+   * Pone la UI en modo "realizar quiz de nuevo".
+   */
   const startRetake = () => {
     setIsRetaking(true);
   }
 
+  // Muestra un loader mientras se determina si estamos en el cliente.
   if (!isClient) {
-    return <Card className="w-full max-w-4xl border-none shadow-none min-h-[300px] flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin" /></Card>;
+    return (
+        <Card className="w-full max-w-4xl border-none shadow-none min-h-[300px] flex items-center justify-center">
+            <Loader2 className="h-8 w-8 animate-spin" />
+        </Card>
+    );
   }
 
-  // Display saved strategy if it exists and we are not in the middle of retaking the quiz
+  // Muestra la estrategia guardada si existe y no se está volviendo a hacer el quiz.
   if (savedStrategy && !isRetaking) {
     return (
-      <Card className="w-full max-w-4xl border-none shadow-none">
+      <Card className="w-full max-w-4xl border-none shadow-none animate-fade-in-up">
         <CardHeader>
           <CardTitle className="font-headline flex items-center gap-2"><Wand /> Tu Estrategia de Aprendizaje Personalizada</CardTitle>
           <CardDescription>
@@ -73,13 +89,13 @@ export function LearningStyleQuizTab() {
     );
   }
 
-  // Show quiz if no strategy is saved OR if user is retaking
+  // Muestra el quiz si no hay estrategia guardada o si se está volviendo a hacer.
   return (
      <LearningStyleQuiz
         onFinish={handleQuizFinish}
         title="Descubre/Actualiza tu Estilo de Aprendizaje"
         description="Responde estas preguntas para que Vairyx pueda crear o actualizar tu estrategia de estudio."
-        finishButtonText="Generar mi Estrategia con IA"
+        finishButtonText="Actualizar mi Estrategia con IA"
       />
   );
 }

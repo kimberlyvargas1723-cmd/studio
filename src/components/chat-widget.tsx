@@ -14,9 +14,14 @@ import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { studyAssistant } from '@/ai/flows/study-assistant';
 import { cn } from '@/lib/utils';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 /**
  * Define la estructura de un único mensaje en el historial del chat.
+ * @param {'user' | 'model'} role - El remitente del mensaje.
+ * @param {string} content - El contenido textual del mensaje.
+ * @param {string} [youtubeQuery] - Una consulta de búsqueda opcional para YouTube.
  */
 type Message = {
   role: 'user' | 'model';
@@ -39,7 +44,7 @@ type ChatWidgetProps = {
  *
  * Este componente funciona como un botón de acción flotante que, al ser presionado,
  * abre un popover con una interfaz de chat completa. Permite al usuario conversar
-- * con Vairyx desde cualquier página de la aplicación, manteniendo el contexto de la conversación.
+ * con Vairyx desde cualquier página de la aplicación, manteniendo el contexto de la conversación.
  *
  * @param {ChatWidgetProps} props - Props para controlar el feedback visual y el estilo de aprendizaje.
  */
@@ -118,7 +123,7 @@ export function ChatWidget({ feedback, learningStyle }: ChatWidgetProps) {
         <Popover open={isOpen} onOpenChange={setIsOpen}>
             <PopoverTrigger asChild>
                 <button
-                    className="transition-transform duration-300 hover:scale-110"
+                    className="transition-transform duration-300 hover:scale-110 focus-visible:ring-2 focus-visible:ring-ring rounded-full focus-visible:ring-offset-2"
                     aria-label="Abrir chat de Vairyx"
                 >
                     <VairyxIcon className="h-28 w-28" feedback={feedback} />
@@ -163,14 +168,16 @@ export function ChatWidget({ feedback, learningStyle }: ChatWidgetProps) {
                                 )}
                                 <div
                                 className={cn(
-                                    'max-w-xs md:max-w-sm rounded-xl px-4 py-3',
+                                    'max-w-xs md:max-w-sm rounded-xl px-4 py-3 shadow-sm',
                                     {
                                     'rounded-br-none bg-primary text-primary-foreground': message.role === 'user',
                                     'rounded-bl-none bg-muted': message.role === 'model',
                                     }
                                 )}
                                 >
-                                <p className="whitespace-pre-wrap text-sm">{message.content}</p>
+                                <div className="prose prose-sm dark:prose-invert max-w-none text-current whitespace-pre-wrap">
+                                    <ReactMarkdown remarkPlugins={[remarkGfm]}>{message.content}</ReactMarkdown>
+                                </div>
                                 {message.youtubeQuery && (
                                     <Button 
                                         variant="outline" 

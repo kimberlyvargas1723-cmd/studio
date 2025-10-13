@@ -12,7 +12,9 @@ import { AdmissionChecklist } from '@/components/admission-checklist';
 import { analyzePerformanceAndAdapt } from '@/ai/flows/personalized-feedback-adaptation';
 import { useEffect, useState } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
+import { cn } from '@/lib/utils';
 
+// Define las tarjetas de funcionalidades que se muestran en el dashboard.
 const featureCards = [
   {
     title: 'Material de Estudio',
@@ -45,7 +47,7 @@ const featureCards = [
 ];
 
 /**
- * Defines the structure for the personalized greeting object.
+ * Define la estructura para el objeto de saludo personalizado.
  */
 type Greeting = {
   feedback: string;
@@ -53,15 +55,22 @@ type Greeting = {
 };
 
 /**
- * Renders the main dashboard page of the application.
- * This component serves as the central hub for the user, Kimberly.
- * It fetches a personalized greeting and a study recommendation from an AI flow
- * based on the user's learning style. It also displays feature cards for navigation
- * and an admission checklist.
- *
- * @param {{ learningStyle?: string }} props - The user's dominant learning style code (e.g., 'V', 'A', 'R', 'K').
+ * Define las props para la página del Dashboard.
+ * @param {string} [learningStyle] - El estilo de aprendizaje del usuario (ej. 'V', 'A', 'R', 'K').
  */
-export default function DashboardPage({ learningStyle }: { learningStyle?: string }) {
+type DashboardPageProps = {
+  learningStyle?: string;
+};
+
+/**
+ * Renderiza la página principal del dashboard de la aplicación.
+ * Sirve como el centro de operaciones para el usuario.
+ * Obtiene un saludo personalizado y una recomendación de estudio de un flujo de IA
+ * basado en el estilo de aprendizaje del usuario.
+ *
+ * @param {DashboardPageProps} props - Las props pasadas desde el layout.
+ */
+export default function DashboardPage({ learningStyle }: DashboardPageProps) {
   const [greeting, setGreeting] = useState<Greeting | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const heroImage: ImagePlaceholder | undefined = PlaceHolderImages.find(
@@ -69,14 +78,14 @@ export default function DashboardPage({ learningStyle }: { learningStyle?: strin
   );
 
   /**
-   * Fetches the personalized greeting from the AI flow when the component mounts
-   * or when the learning style changes. It handles loading and error states.
+   * Efecto para obtener el saludo personalizado del flujo de IA al montar el componente
+   * o cuando el estilo de aprendizaje cambia. Maneja los estados de carga y error.
    */
   useEffect(() => {
     async function fetchGreeting() {
       setIsLoading(true);
       try {
-        // A special call to the adaptation flow to get a dynamic greeting.
+        // Una llamada especial al flujo de adaptación para obtener un saludo dinámico.
         const result = await analyzePerformanceAndAdapt({ 
           question: 'dashboard_greeting',
           studentAnswer: '',
@@ -87,7 +96,7 @@ export default function DashboardPage({ learningStyle }: { learningStyle?: strin
         setGreeting(result);
       } catch (error) {
         console.error("Failed to fetch greeting:", error);
-        // Set a fallback greeting in case the AI flow fails.
+        // Establece un saludo de fallback en caso de que el flujo de IA falle.
         setGreeting({
           feedback: '¡Bienvenida de nuevo, Kimberly! ¿Lista para estudiar?',
           adaptedQuestionTopic: ''
@@ -103,8 +112,8 @@ export default function DashboardPage({ learningStyle }: { learningStyle?: strin
     <div className="flex min-h-screen w-full flex-col bg-muted/40">
       <Header title="Dashboard" />
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
-        {/* Hero Card with Personalized Greeting */}
-        <Card className="relative flex flex-col items-start justify-end overflow-hidden rounded-xl border-none shadow-lg">
+        {/* Tarjeta de Héroe con Saludo Personalizado */}
+        <Card className={cn("relative flex flex-col items-start justify-end overflow-hidden rounded-xl border-none shadow-lg transition-opacity duration-500", isLoading ? "opacity-0" : "opacity-100")}>
           <div className="absolute inset-0 z-0">
             {heroImage && (
               <Image
@@ -121,17 +130,17 @@ export default function DashboardPage({ learningStyle }: { learningStyle?: strin
           <div className="relative z-10 p-6 md:p-8 text-white">
             {isLoading ? (
               <>
-                {/* Skeleton UI for loading state */}
+                {/* Skeleton UI para el estado de carga */}
                 <Skeleton className="h-12 w-3/4" />
                 <Skeleton className="h-6 w-full mt-4" />
                 <Skeleton className="h-10 w-48 mt-6" />
               </>
             ) : (
-              <>
+              <div className="animate-fade-in-up">
                 <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter">
                   ¡Hola de nuevo, Kimberly!
                 </h2>
-                {/* AI-generated feedback is rendered as HTML to allow for bolding, etc. */}
+                {/* El feedback generado por IA se renderiza como HTML para permitir negritas, etc. */}
                 <p className="mt-2 max-w-2xl text-lg text-white/90" dangerouslySetInnerHTML={{ __html: greeting?.feedback ?? '' }} />
                 {greeting?.adaptedQuestionTopic && (
                   <Button asChild className="mt-6">
@@ -140,14 +149,15 @@ export default function DashboardPage({ learningStyle }: { learningStyle?: strin
                     </Link>
                   </Button>
                 )}
-              </>
+              </div>
             )}
           </div>
         </Card>
 
+        {/* Checklist de Admisión (Desplegable) */}
         <AdmissionChecklist />
 
-        {/* Feature Cards Grid */}
+        {/* Rejilla de Tarjetas de Funcionalidades */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {featureCards.map((feature) => {
             const cardImage: ImagePlaceholder | undefined = PlaceHolderImages.find(

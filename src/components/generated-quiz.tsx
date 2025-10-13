@@ -9,7 +9,16 @@ import { Loader2, CheckCircle, XCircle, Lightbulb, ArrowLeft, Timer } from 'luci
 import { useQuiz } from '@/hooks/use-quiz';
 import type { GeneratedQuiz } from '@/lib/types';
 import { cn } from '@/lib/utils';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
+/**
+ * Define las props para el componente `GeneratedQuiz`.
+ * @param {GeneratedQuiz} quiz - El objeto de datos del quiz a renderizar.
+ * @param {() => void} onBack - Callback para volver a la pantalla anterior.
+ * @param {(result: 'correct' | 'incorrect') => void} [onQuizFeedback] - Callback para notificar al layout del resultado.
+ * @param {string} [learningStyle] - El estilo de aprendizaje del usuario para el feedback adaptativo.
+ */
 type GeneratedQuizProps = {
     quiz: GeneratedQuiz;
     onBack: () => void;
@@ -18,11 +27,11 @@ type GeneratedQuizProps = {
 };
 
 /**
- * Renders an interactive quiz by orchestrating the useQuiz hook.
- * This component is now a lightweight wrapper that displays different views
- * (question, results) based on the state managed by the useQuiz hook.
+ * Renderiza un quiz interactivo orquestando el hook `useQuiz`.
+ * Este componente es un wrapper que muestra diferentes vistas (pregunta, resultados)
+ * basándose en el estado gestionado por el hook `useQuiz`.
  *
- * @param {GeneratedQuizProps} props - The quiz data and callbacks.
+ * @param {GeneratedQuizProps} props - Los datos del quiz y los callbacks.
  */
 export function GeneratedQuiz({ quiz, onBack, onQuizFeedback, learningStyle }: GeneratedQuizProps) {
   const {
@@ -42,9 +51,10 @@ export function GeneratedQuiz({ quiz, onBack, onQuizFeedback, learningStyle }: G
     formatTime,
   } = useQuiz({ quiz, onQuizFeedback, learningStyle });
 
+  // Vista de resultados al finalizar el quiz.
   if (isQuizFinished) {
     return (
-      <Card className="w-full max-w-2xl mt-4">
+      <Card className="w-full max-w-2xl mt-4 animate-fade-in-up">
         <CardHeader>
           <CardTitle className="font-headline text-2xl">
             ¡Práctica Completada!
@@ -69,7 +79,7 @@ export function GeneratedQuiz({ quiz, onBack, onQuizFeedback, learningStyle }: G
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Volver a Práctica
             </Button>
-            <Button onClick={handleRestartQuiz} className="w-full sm-w-auto">
+            <Button onClick={handleRestartQuiz} className="w-full sm:w-auto">
                 Volver a Intentar
             </Button>
         </CardFooter>
@@ -77,6 +87,7 @@ export function GeneratedQuiz({ quiz, onBack, onQuizFeedback, learningStyle }: G
     );
   }
 
+  // Vista principal del quiz.
   return (
     <Card className="w-full max-w-2xl mt-4">
       <CardHeader>
@@ -89,7 +100,8 @@ export function GeneratedQuiz({ quiz, onBack, onQuizFeedback, learningStyle }: G
                 <CardTitle className="font-headline text-lg">{quiz.title}</CardTitle>
                 <CardDescription>Pregunta {quiz.questions.indexOf(currentQuestion) + 1} de {quiz.questions.length}</CardDescription>
             </div>
-            {quiz.isPsychometric && timeLeft !== null ? (
+            {/* Muestra el temporizador solo si está definido en el quiz. */}
+            {quiz.timeLimit && timeLeft !== null ? (
                 <div className="flex items-center gap-2 text-lg font-semibold text-primary w-28 justify-end">
                     <Timer className="h-5 w-5" />
                     {formatTime(timeLeft)}
@@ -111,7 +123,7 @@ export function GeneratedQuiz({ quiz, onBack, onQuizFeedback, learningStyle }: G
                 htmlFor={`option-gen-${index}`}
                 className={cn(
                     "flex items-center space-x-3 p-4 rounded-md border transition-colors cursor-pointer",
-                    "hover:bg-accent",
+                    "hover:bg-accent/50",
                     selectedAnswer === option && "bg-accent border-primary",
                     isAnswered && option === currentQuestion.correctAnswer && "border-green-500 bg-green-50 dark:bg-green-900/20",
                     isAnswered && selectedAnswer === option && option !== currentQuestion.correctAnswer && "border-destructive bg-red-50 dark:bg-red-900/20",
@@ -124,7 +136,7 @@ export function GeneratedQuiz({ quiz, onBack, onQuizFeedback, learningStyle }: G
         </RadioGroup>
 
         {isAnswered && (
-          <div className="mt-6 space-y-4">
+          <div className="mt-6 space-y-4 animate-fade-in-up">
              <Alert variant={isCorrect ? 'default' : 'destructive'} className={cn(
                  "flex items-center",
                  isCorrect ? 'border-green-500 bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-200' : 'border-destructive bg-red-50 dark:bg-red-900/20'
@@ -132,7 +144,7 @@ export function GeneratedQuiz({ quiz, onBack, onQuizFeedback, learningStyle }: G
               {isCorrect ? <CheckCircle className="h-5 w-5 mr-2 text-green-500" /> : <XCircle className="h-5 w-5 mr-2 text-destructive" />}
               <div>
                 <AlertTitle>{isCorrect ? '¡Correcto!' : 'Incorrecto'}</AlertTitle>
-                <AlertDescription className={cn(isCorrect ? 'text-green-700 dark:text-green-300' : 'text-destructive-foreground')}>
+                <AlertDescription className={cn(isCorrect ? 'text-green-700 dark:text-green-300' : 'text-red-700 dark:text-red-300')}>
                   La respuesta correcta es: {currentQuestion.correctAnswer}
                 </AlertDescription>
               </div>
@@ -144,23 +156,26 @@ export function GeneratedQuiz({ quiz, onBack, onQuizFeedback, learningStyle }: G
                 {currentQuestion.explanation}
               </AlertDescription>
             </Alert>
-            {isLoading && !quiz.isPsychometric && (
-              <div className="flex items-center gap-2 text-muted-foreground p-4 justify-center">
-                <Loader2 className="h-4 w-4 animate-spin" />
-                Analizando tu respuesta y adaptando tu ruta...
-              </div>
-            )}
-            {feedback && !isLoading && !quiz.isPsychometric && (
-              <Alert className="border-primary">
-                <Lightbulb className="h-4 w-4 text-primary" />
-                <AlertTitle>Retroalimentación Personalizada de Vairyx</AlertTitle>
-                <AlertDescription>
-                  <p className="font-semibold mt-2">Sugerencia:</p>
-                  <p>{feedback.feedback}</p>
-                  <p className="mt-2 font-semibold">Área de mejora sugerida:</p>
-                  <p>{feedback.areasForImprovement}</p>
-                </AlertDescription>
-              </Alert>
+            {/* Solo muestra feedback de IA para quizzes de aprendizaje, no de simulación. */}
+            {!quiz.isPsychometric && (
+              isLoading ? (
+                <div className="flex items-center gap-2 text-muted-foreground p-4 justify-center">
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  Analizando tu respuesta y adaptando tu ruta...
+                </div>
+              ) : feedback && (
+                <Alert className="border-primary bg-primary/5">
+                  <Lightbulb className="h-4 w-4 text-primary" />
+                  <AlertTitle className="font-bold text-primary">Retroalimentación Personalizada de Vairyx</AlertTitle>
+                  <AlertDescription>
+                    <div className="prose prose-sm dark:prose-invert max-w-none mt-2">
+                       <ReactMarkdown>{feedback.feedback}</ReactMarkdown>
+                    </div>
+                    <p className="mt-2 font-semibold">Área de mejora sugerida:</p>
+                    <p>{feedback.areasForImprovement}</p>
+                  </AlertDescription>
+                </Alert>
+              )
             )}
           </div>
         )}

@@ -7,38 +7,38 @@ import type { LearningStrategy } from '@/lib/types';
 import { LearningStyleQuiz } from '@/components/learning-style-quiz';
 
 /**
- * A wrapper component specifically for the initial onboarding diagnostic quiz.
+ * Un componente contenedor específicamente para el quiz de diagnóstico inicial del onboarding.
  * 
- * Its main responsibilities are:
- * 1. To render the reusable `LearningStyleQuiz` component.
- * 2. To define what happens *after* the quiz is completed in the context of onboarding:
- *    - Save the generated learning strategy to localStorage.
- *    - Mark onboarding as complete in localStorage.
- *    - Redirect the user to the main dashboard.
+ * Sus principales responsabilidades son:
+ * 1. Renderizar el componente reutilizable `LearningStyleQuiz`.
+ * 2. Definir lo que sucede *después* de que se completa el quiz en el contexto del onboarding:
+ *    - Guardar la estrategia de aprendizaje generada en localStorage.
+ *    - Marcar el onboarding como completado en localStorage.
+ *    - Redirigir al usuario al dashboard principal.
  * 
- * This component acts as a "host" for the quiz during the first-time user experience.
+ * Este componente actúa como un "anfitrión" para el quiz durante la primera experiencia del usuario.
  */
 export function DiagnosticQuiz() {
   const router = useRouter();
 
   /**
-   * Callback function passed to the `LearningStyleQuiz`.
-   * This function is executed once the user completes the quiz and the AI
-   * has generated their personalized learning strategy.
-   * @param {LearningStrategy} strategy - The strategy object returned from the AI flow.
+   * Callback pasado al `LearningStyleQuiz`.
+   * Esta función se ejecuta una vez que el usuario completa el quiz y la IA
+   * ha generado su estrategia de aprendizaje personalizada.
+   * @param {LearningStrategy} strategy - El objeto de estrategia devuelto por el flujo de IA.
    */
   const handleFinishOnboarding = (strategy: LearningStrategy) => {
-    // Persist the user's learning strategy.
+    // Persiste la estrategia de aprendizaje del usuario.
     saveLearningStrategy(strategy);
-    // Set a flag to indicate that the onboarding process is complete.
+    // Establece una bandera para indicar que el proceso de onboarding está completo.
     localStorage.setItem('onboardingComplete', 'true');
-    // Redirect the user to the dashboard to begin using the app.
+    // Redirige al usuario al dashboard para comenzar a usar la aplicación.
     router.push('/dashboard');
   };
 
   return (
     <div className="flex min-h-screen w-full items-center justify-center bg-muted/40 p-4">
-      {/* Render the reusable quiz component with the specific onboarding handler */}
+      {/* Renderiza el componente de quiz reutilizable con el manejador específico para el onboarding */}
       <LearningStyleQuiz 
         onFinish={handleFinishOnboarding}
         title="Diagnóstico de Estilo de Aprendizaje"

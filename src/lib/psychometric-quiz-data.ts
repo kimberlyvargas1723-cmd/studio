@@ -101,7 +101,7 @@ export const psychometricQuizPool: GeneratedQuestion[] = [
     options: ['Hospital', 'Medicina', 'Paciente', 'Bisturí'],
     correctAnswer: 'Medicina',
     explanation: 'La relación es entre un profesional y su campo de conocimiento o ciencia que aplica.',
-    topic: 'Examen Psicomicométrico',
+    topic: 'Examen Psicométrico',
   },
 
   // --- Razonamiento Abstracto (descrito en texto) ---

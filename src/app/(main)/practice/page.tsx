@@ -8,14 +8,26 @@ import { ExamSimulationTab } from '@/components/exam-simulation-tab';
 import { BrainCircuit, BookCheck, ClipboardCheck } from 'lucide-react';
 
 /**
- * Renders the practice center page, which uses tabs to allow users to
- * generate AI-powered quizzes by topic, discover their learning style, 
- * or run a full exam simulation.
- * @param {object} props - The component props.
- * @param {(result: 'correct' | 'incorrect') => void} props.onQuizFeedback - Callback to notify the layout of quiz results.
- * @param {string} [props.learningStyle] - The user's learning style code (V, A, R, K).
+ * Define las props para la página de práctica.
+ * @param {(result: 'correct' | 'incorrect') => void} [onQuizFeedback] - Callback para notificar al layout del resultado de un quiz.
+ * @param {string} [learningStyle] - El estilo de aprendizaje del usuario (V, A, R, K).
  */
-export default function PracticePage({ onQuizFeedback, learningStyle }: { onQuizFeedback?: (result: 'correct' | 'incorrect') => void; learningStyle?: string; }) {
+type PracticePageProps = {
+  onQuizFeedback?: (result: 'correct' | 'incorrect') => void;
+  learningStyle?: string;
+};
+
+
+/**
+ * Renderiza la página del "Centro de Práctica".
+ * Utiliza un sistema de pestañas para permitir a los usuarios:
+ * 1. Generar quizzes por tema con IA (`GenerateQuestionsTab`).
+ * 2. Descubrir su estilo de aprendizaje (`LearningStyleQuizTab`).
+ * 3. Realizar un simulacro de examen completo (`ExamSimulationTab`).
+ * 
+ * @param {PracticePageProps} props - Las props pasadas desde el layout.
+ */
+export default function PracticePage({ onQuizFeedback, learningStyle }: PracticePageProps) {
   return (
     <div className="flex min-h-screen w-full flex-col">
       <Header title="Centro de Práctica" />
@@ -28,11 +40,11 @@ export default function PracticePage({ onQuizFeedback, learningStyle }: { onQuiz
             </TabsTrigger>
             <TabsTrigger value="learning-style">
                 <BrainCircuit className="mr-2" />
-              Mi Estilo de Aprendizaje
+              Mi Estilo
             </TabsTrigger>
             <TabsTrigger value="exam-simulation">
                 <ClipboardCheck className="mr-2" />
-              Simulacro de Examen
+              Simulacro
             </TabsTrigger>
           </TabsList>
           <TabsContent value="topic-quiz">

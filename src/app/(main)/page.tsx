@@ -6,38 +6,38 @@ import { useRouter } from 'next/navigation';
 import { Loader2 } from 'lucide-react';
 
 /**
- * The main entry point of the app after a user is authenticated.
- * This component acts as a router guard, checking if the user has completed 
- * the onboarding process by verifying a flag in localStorage.
+ * El punto de entrada principal de la aplicación después de que un usuario se autentica.
+ * Este componente actúa como un guardia de enrutamiento, verificando si el usuario ha completado
+ * el proceso de onboarding al verificar una bandera en localStorage.
  * 
- * - If onboarding is complete, it redirects the user to their main '/dashboard'.
- * - If onboarding is not complete, it sends them to the '/onboarding' page to start.
+ * - Si el onboarding está completo, redirige al usuario a su dashboard principal '/dashboard'.
+ * - Si el onboarding no está completo, lo envía a la página '/onboarding' para comenzar.
  * 
- * This ensures users always start at the right place in their journey.
+ * Esto asegura que los usuarios siempre comiencen en el lugar correcto de su viaje.
  */
 export default function InitialPage() {
   const router = useRouter();
 
   /**
-   * Effect to check onboarding status and perform redirection.
-   * Runs once when the component mounts.
+   * Efecto para verificar el estado de onboarding y realizar la redirección.
+   * Se ejecuta una vez cuando el componente se monta.
    */
   useEffect(() => {
-      // Check localStorage for the 'onboardingComplete' flag.
+      // Verifica en localStorage la bandera 'onboardingComplete'.
       const onboardingComplete = localStorage.getItem('onboardingComplete');
       
       if (onboardingComplete === 'true') {
-        // If onboarding is done, go to the main dashboard.
+        // Si el onboarding está hecho, ve al dashboard principal.
         router.replace('/dashboard');
       } else {
-        // Otherwise, start the onboarding process.
+        // De lo contrario, comienza el proceso de onboarding.
         router.replace('/onboarding');
       }
   }, [router]);
 
   /**
-   * Renders a loading spinner while the redirection logic is being processed.
-   * This provides visual feedback to the user that something is happening.
+   * Renderiza un spinner de carga mientras se procesa la lógica de redirección.
+   * Esto proporciona feedback visual al usuario de que algo está sucediendo.
    */
   return (
     <div className="flex h-screen w-full items-center justify-center bg-background">

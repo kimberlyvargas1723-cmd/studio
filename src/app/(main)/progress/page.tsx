@@ -13,11 +13,11 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { generateProgressSummaryAction } from '@/app/actions';
 
 /**
- * Renders the "My Progress" page.
- * This component visualizes the user's performance data through charts and lists,
- * providing insights into their study progress. It fetches historical performance
- * and feedback from localStorage and also calls a Server Action to generate a
- * new, intelligent summary of the user's current standing via an AI flow.
+ * Renderiza la página "Mi Progreso".
+ * Este componente visualiza los datos de rendimiento del usuario a través de gráficos y listas,
+ * proporcionando información sobre su progreso de estudio. Obtiene el rendimiento histórico
+ * y el feedback de localStorage, y también llama a una Acción de Servidor para generar un
+ * nuevo resumen inteligente del estado actual del usuario a través de un flujo de IA.
  */
 export default function ProgressPage() {
     const [performance, setPerformance] = useState<PerformanceData[]>([]);
@@ -26,24 +26,24 @@ export default function ProgressPage() {
     const [isLoadingSummary, setIsLoadingSummary] = useState(true);
 
     /**
-     * On component mount, this effect loads all necessary data:
-     * 1. Fetches historical performance data (correct/incorrect counts) from localStorage.
-     * 2. Fetches past AI feedback from localStorage.
-     * 3. If there is performance data, it calls a Server Action to generate a fresh
-     *    AI-powered progress summary.
+     * Al montar el componente, este efecto carga todos los datos necesarios:
+     * 1. Obtiene los datos históricos de rendimiento (conteos de aciertos/errores) de localStorage.
+     * 2. Obtiene el feedback pasado de la IA de localStorage.
+     * 3. Si hay datos de rendimiento, llama a una Acción de Servidor para generar un resumen
+     *    de progreso fresco impulsado por IA.
      */
     useEffect(() => {
         const perfData = getPerformanceData();
         setPerformance(perfData);
         setFeedbackHistory(getFeedbackHistory());
 
-        // Only generate a summary if the user has completed at least one quiz.
+        // Solo genera un resumen si el usuario ha completado al menos un quiz.
         const hasPerformanceData = perfData.some(p => p.correct > 0 || p.incorrect > 0);
         if (hasPerformanceData) {
             generateProgressSummaryAction(perfData)
                 .then(result => {
-                    if (!result.error) {
-                        setProgressSummary({summary: result.summary!, suggestion: result.suggestion!});
+                    if (result.summary && result.suggestion) {
+                        setProgressSummary({summary: result.summary, suggestion: result.suggestion});
                     }
                 })
                 .finally(() => setIsLoadingSummary(false));
@@ -57,7 +57,7 @@ export default function ProgressPage() {
       <Header title="Mi Progreso" />
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
         
-        {/* Intelligent Progress Summary Card */}
+        {/* Tarjeta de Resumen de Progreso Inteligente */}
         <Card className="bg-gradient-to-br from-primary/10 to-transparent">
             <CardHeader className="flex flex-row items-center gap-4">
                 <Sparkles className="w-8 h-8 text-primary" />
@@ -87,7 +87,7 @@ export default function ProgressPage() {
         </Card>
 
         <div className="grid gap-6 md:grid-cols-2">
-            {/* Performance Chart Card */}
+            {/* Tarjeta del Gráfico de Rendimiento */}
             <Card>
             <CardHeader>
                 <CardTitle className="font-headline">Rendimiento por Tema</CardTitle>
@@ -98,7 +98,7 @@ export default function ProgressPage() {
             <CardContent>
                 <div className="h-[400px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={performance} margin={{ top: 5, right: 20, left: 0, bottom: 50 }}>
+                    <BarChart data={performance.filter(p => p.correct > 0 || p.incorrect > 0)} margin={{ top: 5, right: 20, left: 0, bottom: 50 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                     <XAxis 
                         dataKey="topic" 
@@ -132,7 +132,7 @@ export default function ProgressPage() {
                 </div>
             </CardContent>
             </Card>
-            {/* Feedback History Card */}
+            {/* Tarjeta del Historial de Feedback */}
             <Card>
             <CardHeader>
                 <CardTitle className="font-headline">Historial de Retroalimentación</CardTitle>

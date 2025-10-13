@@ -1,54 +1,35 @@
+// src/ai/flows/personalized-feedback-adaptation.ts
 'use server';
-
 /**
- * @fileOverview A flow for analyzing a student's answer to generate personalized feedback.
+ * @fileOverview Flow to analyze a student's answer and generate personalized feedback.
  *
- * This file defines the core AI flow for adaptive learning. It analyzes a student's
- * quiz answer, provides personalized feedback adapted to their learning style,
- * identifies areas for improvement, and suggests a topic for the next question.
- * It also includes a special case for generating a dynamic greeting on the dashboard.
+ * This file defines the central AI flow for adaptive learning. It analyzes
+ * a student's quiz response, provides personalized feedback adapted to their
+ * learning style, identifies areas for improvement, and suggests a topic for the next question.
+ * It also includes a special case for generating a dynamic dashboard greeting.
  *
- * - analyzePerformanceAndAdapt - The main function to trigger the analysis.
- * - PerformanceAnalysisInput - The Zod schema for the input.
- * - PerformanceAnalysisOutput - The Zod schema for the output.
+ * - `analyzePerformanceAndAdapt`: The main function to trigger the analysis.
  */
 
-import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
-
-/**
- * Defines the schema for the input of the performance analysis flow.
- */
-const PerformanceAnalysisInputSchema = z.object({
-  question: z.string().describe('The question that was asked.'),
-  studentAnswer: z.string().describe('The answer provided by the student.'),
-  correctAnswer: z.string().describe('The correct answer to the question.'),
-  topic: z.string().describe('The topic of the question.'),
-  learningStyle: z.string().optional().describe('The dominant learning style of the user (V, A, R, or K).'),
-});
-export type PerformanceAnalysisInput = z.infer<typeof PerformanceAnalysisInputSchema>;
-
-/**
- * Defines the schema for the output of the performance analysis flow.
- */
-const PerformanceAnalysisOutputSchema = z.object({
-  feedback: z.string().describe('Specific, personalized feedback on why the student\'s answer was right or wrong.'),
-  areasForImprovement: z.string().describe('The key concept or skill the student should focus on based on their answer.'),
-  adaptedQuestionTopic: z.string().describe('A suggested topic for the next question to reinforce the area of improvement.'),
-});
-export type PerformanceAnalysisOutput = z.infer<typeof PerformanceAnalysisOutputSchema>;
+import { ai } from '@/ai/genkit';
+import {
+  PerformanceAnalysisInputSchema,
+  type PerformanceAnalysisInput,
+  PerformanceAnalysisOutputSchema,
+  type PerformanceAnalysisOutput
+} from '@/ai/schemas';
 
 /**
  * Analyzes a student's answer to a quiz question to provide personalized, adaptive feedback.
  * This flow is the core of the adaptive learning tutor. It also handles a special case
- * for generating a personalized greeting on the dashboard.
+ * for generating a personalized dashboard greeting.
  *
- * @param {PerformanceAnalysisInput} input - The context of the question and answer, or a special 'dashboard_greeting' request.
- * @returns {Promise<PerformanceAnalysisOutput>} A promise that resolves to the personalized feedback and next steps.
+ * @param {PerformanceAnalysisInput} input - The question and answer context, or a special 'dashboard_greeting' request.
+ * @returns {Promise<PerformanceAnalysisOutput>} A promise that resolves with the personalized feedback and next steps.
  */
 export async function analyzePerformanceAndAdapt(input: PerformanceAnalysisInput): Promise<PerformanceAnalysisOutput> {
   // This special case handles the dynamic greeting message on the dashboard.
-  // It provides a welcoming and personalized message to the user when they first land on the page.
+  // It provides a welcoming, personalized message to the user when they land on the page.
   if (input.question === 'dashboard_greeting') {
       const greetingPrompt = `You are Vairyx, an encouraging AI tutor. Create a short, personalized greeting for Kimberly. Her learning style is {{learningStyle}}. 
       Acknowledge her style with a small tip. For example, if she is Visual, say something like "¡Qué bueno verte, Kimberly! He visto que ya has estado estudiando. Para seguir avanzando, y ya que sé que eres una aprendiz **visual**, te sugiero que hoy nos centremos en el concepto de **Memoria a Largo Plazo**, que complementa lo que ya viste. Podríamos hacer un mapa mental."
@@ -71,8 +52,8 @@ export async function analyzePerformanceAndAdapt(input: PerformanceAnalysisInput
 
 const prompt = ai.definePrompt({
   name: 'performanceAnalysisPrompt',
-  input: {schema: PerformanceAnalysisInputSchema},
-  output: {schema: PerformanceAnalysisOutputSchema},
+  input: { schema: PerformanceAnalysisInputSchema },
+  output: { schema: PerformanceAnalysisOutputSchema },
   prompt: `You are an expert AI tutor for a psychology student named Kimberly. Her dominant learning style is {{learningStyle}}.
   Your task is to analyze her answer to a practice question and provide adaptive feedback.
 
@@ -96,7 +77,7 @@ const analyzePerformanceFlow = ai.defineFlow(
     outputSchema: PerformanceAnalysisOutputSchema,
   },
   async input => {
-    const {output} = await prompt(input);
+    const { output } = await prompt(input);
     return output!;
   }
 );

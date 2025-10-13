@@ -2,6 +2,13 @@
 import type { StudyResource, PerformanceData } from './types';
 
 /**
+ * @fileoverview
+ * Este archivo sirve como una base de datos estática para la aplicación.
+ * Contiene datos iniciales y listas que raramente cambian, como la lista de
+ * recursos de estudio y la estructura inicial para el seguimiento del rendimiento.
+ */
+
+/**
  * Una lista de todos los recursos de estudio disponibles en la aplicación.
  * Estos son los materiales principales que el estudiante utilizará.
  * Incluye tanto contenido interno (archivos Markdown) como enlaces externos.
@@ -102,7 +109,8 @@ export const studyResources: StudyResource[] = [
 /**
  * El estado inicial para los datos de rendimiento del usuario.
  * Se utiliza si no se encuentran datos en `localStorage`.
- * Garantiza que todos los temas estén disponibles para el seguimiento desde el principio.
+ * Garantiza que todos los temas estén disponibles para el seguimiento desde el principio,
+ * incluso si el usuario aún no ha interactuado con ellos.
  */
 export const initialPerformance: PerformanceData[] = [
   { topic: 'Bases Biológicas de la Conducta', correct: 0, incorrect: 0 },
@@ -112,6 +120,7 @@ export const initialPerformance: PerformanceData[] = [
   { topic: 'Personalidad', correct: 0, incorrect: 0 },
   { topic: 'Metodología y Estadística', correct: 0, incorrect: 0 },
   { topic: 'Examen Psicométrico', correct: 0, incorrect: 0 },
+  { topic: 'Simulacro General', correct: 0, incorrect: 0 },
   { topic: 'Comprensión Lectora', correct: 0, incorrect: 0 },
   { topic: 'Redacción Indirecta', correct: 0, incorrect: 0 },
   { topic: 'Pensamiento Matemático', correct: 0, incorrect: 0 },

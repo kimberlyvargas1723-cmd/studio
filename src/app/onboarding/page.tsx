@@ -7,31 +7,31 @@ import { DiagnosticQuiz } from '@/components/diagnostic-quiz';
 import { VairyxIcon } from '@/components/VairyxIcon';
 
 /**
- * Manages the multi-step onboarding process for new users.
+ * Gestiona el proceso de onboarding de múltiples pasos para nuevos usuarios.
  * 
- * This page serves as the initial welcome screen for Kimberly. It introduces the
- * AI assistant, Vairyx, and explains the purpose of the diagnostic quiz.
+ * Esta página sirve como la pantalla de bienvenida inicial para Kimberly. Introduce al
+ * asistente de IA, Vairyx, y explica el propósito del quiz de diagnóstico.
  * 
- * @returns The JSX for the current step in the onboarding process.
+ * @returns El JSX para el paso actual en el proceso de onboarding.
  */
 export default function OnboardingPage() {
-  // State to manage the current step of the onboarding process.
-  // Step 1: Welcome message.
-  // Step 2: Diagnostic quiz.
+  // Estado para gestionar el paso actual del proceso de onboarding.
+  // Paso 1: Mensaje de bienvenida.
+  // Paso 2: Quiz de diagnóstico.
   const [step, setStep] = useState(1);
 
-  // If the user proceeds to step 2, render the DiagnosticQuiz component.
+  // Si el usuario procede al paso 2, renderiza el componente DiagnosticQuiz.
   if (step === 2) {
     return <DiagnosticQuiz />;
   }
 
-  // Render the initial welcome screen (Step 1).
+  // Renderiza la pantalla de bienvenida inicial (Paso 1).
   return (
     <div className="flex min-h-screen w-full flex-col items-center justify-center bg-background p-4 text-center">
-        {/* The animated AI assistant icon */}
+        {/* El ícono animado del asistente de IA */}
         <VairyxIcon className="h-40 w-40" />
         
-        {/* Welcome message and introduction from Vairyx */}
+        {/* Mensaje de bienvenida e introducción de Vairyx */}
         <div className="mt-8 max-w-2xl animate-fade-in-up">
             <h1 className="font-headline text-4xl font-bold tracking-tight text-primary md:text-5xl">
                 ¡Bienvenida a PsicoGuía, Kimberly!
@@ -41,7 +41,7 @@ export default function OnboardingPage() {
             </blockquote>
         </div>
 
-        {/* Call to action to start the diagnostic quiz */}
+        {/* Llamada a la acción para iniciar el quiz de diagnóstico */}
         <div className="mt-10 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             <h2 className="font-headline text-2xl font-semibold">Primer Paso: Descubre tu Superpoder para Aprender</h2>
             <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
