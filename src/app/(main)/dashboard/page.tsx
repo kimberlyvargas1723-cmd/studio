@@ -9,7 +9,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import type { ImagePlaceholder } from '@/lib/placeholder-images';
 import { Header } from '@/components/header';
 import { AdmissionChecklist } from '@/components/admission-checklist';
-import { analyzePerformanceAndAdapt } from '@/ai/flows/personalized-feedback-adaptation';
+import { generateDashboardGreetingAction } from '@/app/actions';
 import { useEffect, useState } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { cn } from '@/lib/utils';
@@ -50,8 +50,8 @@ const featureCards = [
  * Define la estructura para el objeto de saludo personalizado.
  */
 type Greeting = {
-  feedback: string;
-  adaptedQuestionTopic: string;
+  greeting: string;
+  suggestion: string;
 };
 
 /**
@@ -85,21 +85,17 @@ export default function DashboardPage({ learningStyle }: DashboardPageProps) {
     async function fetchGreeting() {
       setIsLoading(true);
       try {
-        // Una llamada especial al flujo de adaptación para obtener un saludo dinámico.
-        const result = await analyzePerformanceAndAdapt({ 
-          question: 'dashboard_greeting',
-          studentAnswer: '',
-          correctAnswer: '',
-          topic: 'General',
-          learningStyle: learningStyle
-        });
-        setGreeting(result);
+        const result = await generateDashboardGreetingAction({ learningStyle });
+        if (result.error) {
+            throw new Error(result.error);
+        }
+        setGreeting(result as Greeting);
       } catch (error) {
         console.error("Failed to fetch greeting:", error);
         // Establece un saludo de fallback en caso de que el flujo de IA falle.
         setGreeting({
-          feedback: '¡Bienvenida de nuevo, Kimberly! ¿Lista para estudiar?',
-          adaptedQuestionTopic: ''
+          greeting: '¡Bienvenida de nuevo, Kimberly! ¿Lista para estudiar?',
+          suggestion: ''
         });
       } finally {
         setIsLoading(false);
@@ -141,11 +137,11 @@ export default function DashboardPage({ learningStyle }: DashboardPageProps) {
                   ¡Hola de nuevo, Kimberly!
                 </h2>
                 {/* El feedback generado por IA se renderiza como HTML para permitir negritas, etc. */}
-                <p className="mt-2 max-w-2xl text-lg text-white/90" dangerouslySetInnerHTML={{ __html: greeting?.feedback ?? '' }} />
-                {greeting?.adaptedQuestionTopic && (
+                <p className="mt-2 max-w-2xl text-lg text-white/90" dangerouslySetInnerHTML={{ __html: greeting?.greeting ?? '' }} />
+                {greeting?.suggestion && (
                   <Button asChild className="mt-6">
                     <Link href="/study">
-                      Empezar a estudiar {greeting.adaptedQuestionTopic} <ArrowRight className="ml-2" />
+                      Empezar a estudiar {greeting.suggestion} <ArrowRight className="ml-2" />
                     </Link>
                   </Button>
                 )}

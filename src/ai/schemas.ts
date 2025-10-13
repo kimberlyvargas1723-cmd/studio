@@ -153,6 +153,7 @@ export const LearningStrategyOutputSchema = z.object({
 });
 export type LearningStrategyOutput = z.infer<typeof LearningStrategyOutputSchema>;
 
+
 // --- Text to Speech ---
 export const TextToSpeechInputSchema = z.object({
   text: z.string().describe('The text to convert to speech.'),
@@ -163,3 +164,15 @@ export const TextToSpeechOutputSchema = z.object({
   audioDataUri: z.string().describe("A data URI representing the generated audio. Expected format: 'data:audio/wav;base64,<encoded_data>'."),
 });
 export type TextToSpeechOutput = z.infer<typeof TextToSpeechOutputSchema>;
+
+// --- Dashboard Greeting ---
+export const DashboardGreetingInputSchema = z.object({
+    learningStyle: z.string().optional().describe('The user\'s dominant learning style (V, A, R, or K).'),
+});
+export type DashboardGreetingInput = z.infer<typeof DashboardGreetingInputSchema>;
+
+export const DashboardGreetingOutputSchema = z.object({
+    greeting: z.string().describe('A short, personalized greeting for the user, including a style-specific tip.'),
+    suggestion: z.string().describe('A suggested topic to start studying, often related to the tip.'),
+});
+export type DashboardGreetingOutput = z.infer<typeof DashboardGreetingOutputSchema>;

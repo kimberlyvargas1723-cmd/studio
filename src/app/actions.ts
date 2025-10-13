@@ -13,6 +13,7 @@ import { generateStudyPlan } from '@/ai/flows/generate-study-plan';
 import { generateProgressSummary } from '@/ai/flows/generate-progress-summary';
 import { generateLearningStrategy } from '@/ai/flows/generate-learning-strategy';
 import { textToSpeech } from '@/ai/flows/text-to-speech';
+import { generateDashboardGreeting } from '@/ai/flows/generate-dashboard-greeting';
 import type { 
   ContentSummarizationInput,
   StudyPlanInput,
@@ -20,7 +21,9 @@ import type {
   ProgressSummaryInput,
   PracticeQuestionGenerationOutput,
   TextToSpeechInput,
-  TextToSpeechOutput
+  TextToSpeechOutput,
+  DashboardGreetingInput,
+  DashboardGreetingOutput,
 } from '@/ai/schemas';
 import type { StudyResource } from '@/lib/types';
 import fs from 'fs/promises';
@@ -140,4 +143,19 @@ export async function textToSpeechAction(input: TextToSpeechInput): Promise<Text
     console.error('Error in textToSpeechAction:', e);
     return { error: e.message || 'No se pudo generar el audio. Intenta de nuevo.' };
   }
+}
+
+/**
+ * Server Action to generate a personalized greeting for the dashboard.
+ * @param {DashboardGreetingInput} input - The user's learning style.
+ * @returns {Promise<DashboardGreetingOutput | { error: string }>} The greeting and suggestion, or an error object.
+ */
+export async function generateDashboardGreetingAction(input: DashboardGreetingInput): Promise<DashboardGreetingOutput | { error: string }> {
+    try {
+        const result = await generateDashboardGreeting(input);
+        return result;
+    } catch (e: any) {
+        console.error('Error in generateDashboardGreetingAction:', e);
+        return { error: e.message || 'No se pudo generar el saludo.' };
+    }
 }

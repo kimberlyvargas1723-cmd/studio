@@ -6,7 +6,6 @@
  * This file defines the central AI flow for adaptive learning. It analyzes
  * a student's quiz response, provides personalized feedback adapted to their
  * learning style, identifies areas for improvement, and suggests a topic for the next question.
- * It also includes a special case for generating a dynamic dashboard greeting.
  *
  * - `analyzePerformanceAndAdapt`: The main function to trigger the analysis.
  */
@@ -21,31 +20,12 @@ import {
 
 /**
  * Analyzes a student's answer to a quiz question to provide personalized, adaptive feedback.
- * This flow is the core of the adaptive learning tutor. It also handles a special case
- * for generating a personalized dashboard greeting.
+ * This flow is the core of the adaptive learning tutor.
  *
- * @param {PerformanceAnalysisInput} input - The question and answer context, or a special 'dashboard_greeting' request.
+ * @param {PerformanceAnalysisInput} input - The question and answer context.
  * @returns {Promise<PerformanceAnalysisOutput>} A promise that resolves with the personalized feedback and next steps.
  */
 export async function analyzePerformanceAndAdapt(input: PerformanceAnalysisInput): Promise<PerformanceAnalysisOutput> {
-  // This special case handles the dynamic greeting message on the dashboard.
-  // It provides a welcoming, personalized message to the user when they land on the page.
-  if (input.question === 'dashboard_greeting') {
-      const greetingPrompt = `You are Vairyx, an encouraging AI tutor. Create a short, personalized greeting for Kimberly. Her learning style is {{learningStyle}}. 
-      Acknowledge her style with a small tip. For example, if she is Visual, say something like "¡Qué bueno verte, Kimberly! He visto que ya has estado estudiando. Para seguir avanzando, y ya que sé que eres una aprendiz **visual**, te sugiero que hoy nos centremos en el concepto de **Memoria a Largo Plazo**, que complementa lo que ya viste. Podríamos hacer un mapa mental."
-      Adapt the suggestion based on the style (A: 'podríamos repasarlo en voz alta', R: 'podríamos escribir los puntos clave', K: 'podríamos usar un ejemplo práctico'). Be concise and encouraging.`;
-      
-      const { text } = await ai.generate({
-        prompt: greetingPrompt.replace('{{learningStyle}}', input.learningStyle || 'general'),
-      });
-
-      return {
-          feedback: text,
-          areasForImprovement: 'Continuar con el plan de estudio.',
-          adaptedQuestionTopic: 'Memoria a Largo Plazo'
-      };
-  }
-  // For all other cases, proceed with the standard performance analysis flow.
   return analyzePerformanceFlow(input);
 }
 
