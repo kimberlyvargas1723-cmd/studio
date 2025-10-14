@@ -19,7 +19,7 @@
 @layer base {
   /* Tema Claro (por defecto) */
   :root {
-    --background: 220 13% 97%; /* #F4F5F7 */
+    --background: 220 20% 98%; /* #F9FAFB */
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
