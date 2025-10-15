@@ -1,4 +1,4 @@
-// src/app/(main)/dashboard/page.tsx
+// src/app/dashboard/page.tsx
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';

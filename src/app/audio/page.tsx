@@ -1,4 +1,4 @@
-// src/app/(main)/audio/page.tsx
+// src/app/audio/page.tsx
 'use client';
 import { useState, useRef } from 'react';
 import { Header } from '@/components/header';

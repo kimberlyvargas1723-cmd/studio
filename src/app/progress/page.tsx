@@ -1,4 +1,4 @@
-// src/app/(main)/progress/page.tsx
+// src/app/progress/page.tsx
 'use client';
 import { useState, useEffect } from 'react';
 import { Header } from '@/components/header';

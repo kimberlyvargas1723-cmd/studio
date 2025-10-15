@@ -1,4 +1,4 @@
-// src/app/(main)/practice/page.tsx
+// src/app/practice/page.tsx
 'use client';
 import { Header } from '@/components/header';
 import { GenerateQuestionsTab } from '@/components/generate-questions-tab';

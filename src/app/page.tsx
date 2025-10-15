@@ -1,4 +1,4 @@
-// src/app/(main)/page.tsx
+// src/app/page.tsx
 'use client';
 
 import { useEffect } from 'react';
@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { Loader2 } from 'lucide-react';
 
 /**
- * El punto de entrada principal de la aplicación después de que un usuario se autentica.
+ * El punto de entrada principal de la aplicación.
  * Este componente actúa como un guardia de enrutamiento, verificando si el usuario ha completado
  * el proceso de onboarding al verificar una bandera en localStorage.
  * 
