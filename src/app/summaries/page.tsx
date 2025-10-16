@@ -14,7 +14,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { SavedSummary } from '@/lib/types';
-import { FileText, Trash2, BookX, ArrowLeft } from 'lucide-react';
+import { FileText, Trash2, BookX, ArrowLeft, Loader2 } from 'lucide-react';
 import {
   AlertDialog,
   AlertDialogAction,
