@@ -73,7 +73,7 @@ Your tasks are:
 Conversation History:
 {{#if history}}
 {{#each history}}
-{{#if (eq this.role 'user')}}
+{{#if (this.role == 'user')}}
 Kimberly: {{{this.content}}}
 {{else}}
 Vairyx: {{{this.content}}}
