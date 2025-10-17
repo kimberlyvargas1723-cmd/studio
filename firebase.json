@@ -1,20 +1,16 @@
 {
-  "hosting": {
-    "source": ".",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "frameworksBackend": {
-      "region": "us-central1",
-      "buildConfig": {
-        "runtime": "nodejs20",
-        "commands": [
-          "npm install",
-          "npm run build"
-        ]
-      }
+  "apphosting": [
+    {
+      "backendId": "app",
+      "rootDir": ".",
+      "ignore": [
+        "firebase.json",
+        ".git",
+        "**/.*",
+        "**/node_modules/**",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ]
     }
-  }
+  ]
 }
