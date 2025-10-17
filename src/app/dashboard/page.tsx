@@ -13,6 +13,9 @@ import { generateDashboardGreetingAction } from '@/app/actions';
 import { useEffect, useState } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { cn } from '@/lib/utils';
+// MODIFICADO: Importar las herramientas de Firebase
+import { database } from '@/firebase/config';
+import { ref, onValue } from "firebase/database";
 
 // Define the feature cards shown on the dashboard.
 const featureCards = [
@@ -56,7 +59,7 @@ type Greeting = {
 
 /**
  * Defines the props for the Dashboard page.
- * @param {string} [learningStyle] - The user's learning style (e.g., 'V', 'A', 'R', 'K').
+ * @param {string} [learningStyle] - The user's learning style (e.g., \'V\', \'A\', \'R\', \'K\').
  */
 type DashboardPageProps = {
   learningStyle?: string;
@@ -71,6 +74,8 @@ type DashboardPageProps = {
  */
 export default function DashboardPage({ learningStyle }: DashboardPageProps) {
   const [greeting, setGreeting] = useState<Greeting | null>(null);
+  // MODIFICADO: Añadir estado para la Nota del Día
+  const [noteOfTheDay, setNoteOfTheDay] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const heroImage: ImagePlaceholder | undefined = PlaceHolderImages.find(
     (img) => img.id === 'dashboard-hero'
@@ -112,6 +117,21 @@ export default function DashboardPage({ learningStyle }: DashboardPageProps) {
     }
     fetchGreeting();
   }, [learningStyle, isClient]);
+  
+  // MODIFICADO: Efecto para escuchar la Nota del Día desde Firebase
+  useEffect(() => {
+    // Solo ejecutar en el cliente
+    if (!isClient) return;
+
+    const noteRef = ref(database, 'noteOfTheDay');
+    const unsubscribe = onValue(noteRef, (snapshot) => {
+      const data = snapshot.val();
+      setNoteOfTheDay(data || '');
+    });
+
+    // Limpiar el listener cuando el componente se desmonte
+    return () => unsubscribe();
+  }, [isClient]);
 
   return (
     <div className="flex min-h-screen w-full flex-col bg-muted/40">
@@ -147,6 +167,14 @@ export default function DashboardPage({ learningStyle }: DashboardPageProps) {
                 </h2>
                 {/* AI-generated feedback is rendered as HTML to allow for bolding, etc. */}
                 <p className="mt-2 max-w-2xl text-lg text-white/90" dangerouslySetInnerHTML={{ __html: greeting?.greeting ?? '' }} />
+                
+                {/* MODIFICADO: Mostrar la Nota del Día si existe */}
+                {noteOfTheDay && (
+                    <p className="mt-4 text-lg italic text-white/80 animate-pulse">
+                        "{noteOfTheDay}"
+                    </p>
+                )}
+
                 {greeting?.suggestion && (
                   <Button asChild className="mt-6">
                     <Link href="/study">
