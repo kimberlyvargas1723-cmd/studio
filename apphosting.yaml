@@ -1,0 +1,23 @@
+# Specifies the version of the App Hosting configuration schema.
+configVersion: 1
+
+# Defines the repository from which the app is deployed.
+# This should match the GitHub repository where your code is stored.
+repository:
+  owner: 'kimberlyvargas1723-cmd'
+  repository: 'studio'
+  branch: 'main'
+
+# Defines the build and runtime configuration for the Next.js backend.
+runConfig:
+  # App Hosting provides a modern, secure, and optimized Node.js runtime.
+  runtime: 'nodejs20'
+  # This command builds your Next.js app for production.
+  build: 'npm run build'
+  # This command starts the Next.js production server.
+  start: 'next start'
+
+# Defines how incoming requests are routed to the backend.
+# This should match the backendId, which acts as the identifier for your service.
+serving:
+  backendId: 'studio'

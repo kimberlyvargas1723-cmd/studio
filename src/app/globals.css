@@ -1,0 +1,164 @@
+/*
+  Este archivo define los estilos globales y las variables de tema de la aplicación.
+  Utiliza un enfoque de tres capas de Tailwind CSS: base, components y utilities.
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Capa Base (`@layer base`):
+  1. Define las variables de color CSS para los temas claro (:root) y oscuro (.dark).
+     - Estas variables (ej. --background, --primary) son utilizadas por la configuración
+       de Tailwind para crear un sistema de diseño consistente.
+     - El uso de HSL (Hue, Saturation, Lightness) permite una fácil manipulación del color.
+  2. Establece estilos base para elementos globales como `body`.
+  3. Importa animaciones personalizadas y otras utilidades.
+*/
+@layer base {
+  /* Tema Claro (por defecto) */
+  :root {
+    --background: 220 20% 98%; /* #F9FAFB */
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 216 100% 68%; /* #5C9DFF - El azul principal de la marca */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 34 100% 67%; /* #FFB85C - El naranja/ámbar para acentos */
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 216 100% 68%;
+    /* Colores para gráficos */
+    --chart-1: 216 100% 68%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 34 100% 67%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 210 70% 50%;
+    /* Colores específicos para la barra lateral */
+    --sidebar-background: 222.2 84% 4.9%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 216 100% 68%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217.2 32.6% 17.5%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-ring: 216 100% 68%;
+  }
+
+  /* Tema Oscuro */
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 216 100% 68%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 34 100% 67%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 216 100% 68%;
+    --sidebar-background: 222.2 84% 4.9%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 216 100% 68%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217.2 32.6% 17.5%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-ring: 216 100% 68%;
+  }
+}
+
+/* 
+  Estilos base para elementos HTML fundamentales.
+*/
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .line-through {
+    text-decoration: line-through;
+  }
+}
+
+/*
+  Capa de Utilidades (`@layer utilities`):
+  Define animaciones personalizadas que pueden ser utilizadas como clases de utilidad
+  en cualquier parte de la aplicación (ej. `animate-robot-float`).
+  Los keyframes se definen en `tailwind.config.ts`.
+*/
+@layer utilities {
+    @keyframes robot-float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    @keyframes robot-shadow {
+        0%, 100% { transform: scale(1); opacity: 0.2; }
+        50% { transform: scale(0.85); opacity: 0.1; }
+    }
+    @keyframes robot-antenna-blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+    }
+    @keyframes robot-eye-move {
+        0%, 40% { transform: translateX(0); }
+        50%, 70% { transform: translateX(2.5px); }
+        80%, 100% { transform: translateX(0); }
+    }
+    @keyframes fade-in-up {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+     @keyframes feedback-flash {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.5); opacity: 0.75; }
+    }
+
+    .animate-robot-float {
+        animation: robot-float 4s ease-in-out infinite;
+    }
+    .animate-robot-shadow {
+        animation: robot-shadow 4s ease-in-out infinite;
+    }
+    .animate-robot-antenna-blink {
+        animation: robot-antenna-blink 2.5s ease-in-out infinite;
+    }
+    .animate-robot-eye-move {
+        animation: robot-eye-move 7s ease-in-out infinite;
+    }
+    .animate-fade-in-up {
+        animation: fade-in-up 0.5s ease-out forwards;
+    }
+    .animate-feedback-flash {
+        animation: feedback-flash 0.5s ease-out;
+    }
+}

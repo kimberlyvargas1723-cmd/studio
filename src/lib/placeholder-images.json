@@ -1,0 +1,40 @@
+{
+  "placeholderImages": [
+    {
+      "id": "dashboard-hero",
+      "description": "Una estudiante de psicología concentrada en sus estudios, con diagramas del cerebro y libros de texto.",
+      "imageUrl": "https://picsum.photos/seed/101/1200/400",
+      "imageHint": "student psychology"
+    },
+    {
+      "id": "study-card",
+      "description": "Libros de psicología y neurociencia en un escritorio.",
+      "imageUrl": "https://picsum.photos/seed/102/600/400",
+      "imageHint": "psychology books"
+    },
+    {
+      "id": "practice-card",
+      "description": "Una ilustración de un cerebro con engranajes, simbolizando el pensamiento y la resolución de problemas.",
+      "imageUrl": "https://picsum.photos/seed/103/600/400",
+      "imageHint": "brain puzzle"
+    },
+    {
+      "id": "assistant-card",
+      "description": "Un calendario con un plan de estudio marcado.",
+      "imageUrl": "https://picsum.photos/seed/106/600/400",
+      "imageHint": "study schedule"
+    },
+    {
+      "id": "progress-card",
+      "description": "Un gráfico de barras mostrando el progreso en diferentes áreas de la psicología.",
+      "imageUrl": "https://picsum.photos/seed/105/600/400",
+      "imageHint": "progress chart"
+    },
+    {
+      "id": "user-avatar",
+      "description": "Un avatar de perfil para una estudiante de psicología.",
+      "imageUrl": "https://picsum.photos/seed/107/100/100",
+      "imageHint": "female student portrait"
+    }
+  ]
+}

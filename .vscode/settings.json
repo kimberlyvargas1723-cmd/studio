@@ -1,0 +1,19 @@
+{
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "files.associations": {
+        "*.css": "tailwindcss"
+    },
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "claudeCodeChat.permissions.yoloMode": true,
+    "IDX.aI.showChatInEditorTab": true,
+    "IDX.agenticWorkspace": true,
+    "chat.editor.wordWrap": "on",
+    "chat.tools.autoApprove": true,
+    "claudeCodeChat.wsl.enabled": true,
+    "githubPullRequests.experimental.useQuickChat": true,
+    "githubPullRequests.experimental.chat": true,
+    "githubPullRequests.experimental.notificationsView": true,
+    "telemetry.feedback.enabled": true
+}
