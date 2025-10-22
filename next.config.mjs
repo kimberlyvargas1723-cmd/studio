@@ -1,3 +1,5 @@
+import path from 'path';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
@@ -28,6 +30,13 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+  },
+  // Ensure webpack resolves '@/...' to the src directory
+  webpack(config) {
+    config.resolve = config.resolve || {};
+    config.resolve.alias = config.resolve.alias || {};
+    config.resolve.alias['@'] = path.resolve(process.cwd(), 'src');
+    return config;
   },
 };
 

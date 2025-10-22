@@ -6,10 +6,19 @@
     "dev": "next dev --turbopack -p 9002",
     "genkit:dev": "genkit start -- tsx src/ai/dev.ts",
     "genkit:watch": "genkit start -- tsx --watch src/ai/dev.ts",
-    "build": "NODE_ENV=production next build",
-    "start": "next start -p $PORT",
+    "build": "next build",
+    "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "db:load": "tsx scripts/load-database.ts",
+    "db:init": "tsx scripts/load-database.ts",
+    "backup": "tsx scripts/backup-firestore.ts",
+    "restore": "tsx scripts/backup-firestore.ts restore",
+    "setup:firebase": "tsx scripts/setup-firebase-complete.ts",
+    "setup:guide": "tsx scripts/firebase-setup-guide.ts",
+    "setup:verify": "tsx scripts/firebase-setup-guide.ts verify",
+    "cache:health": "tsx -e \"import { checkCacheHealth } from './CACHE/index.ts'; console.log(JSON.stringify(checkCacheHealth(), null, 2));\"",
+    "cache:reset": "tsx -e \"import { resetCache } from './CACHE/index.ts'; resetCache();\""
   },
   "dependencies": {
     "@genkit-ai/google-genai": "^1.20.0",
@@ -40,7 +49,9 @@
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.6.0",
+    "firebase": "^12.4.0",
     "genkit": "^1.20.0",
+    "googleapis": "^164.1.0",
     "lucide-react": "^0.475.0",
     "next": "15.3.3",
     "react": "^18.3.1",
@@ -56,7 +67,7 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.13",
+    "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/wav": "^1.0.3",
@@ -64,5 +75,21 @@
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
-  }
+  },
+  "description": "Este es un proyecto de Next.js que crea una aplicación de estudio adaptativo llamada PsicoGuía, diseñada para ayudar a los estudiantes a prepararse para su examen de admisión a la facultad de Psicología.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimberlyvargas1723-cmd/studio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kimberlyvargas1723-cmd/studio/issues"
+  },
+  "homepage": "https://github.com/kimberlyvargas1723-cmd/studio#readme"
 }

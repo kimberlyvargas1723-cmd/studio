@@ -1,10 +1,285 @@
 rules_version = '2';
 
+// Firebase Storage Security Rules
+// Optimized for Psychology Study Application
+// Last Updated: 2025-10-20
+
 service firebase.storage {
   match /b/{bucket}/o {
-    // Solo permite leer y escribir a usuarios autenticados
-    match /{allPaths=**} {
-      allow read, write: if request.auth != null;
+
+    // ============================================================
+    // HELPER FUNCTIONS
+    // ============================================================
+
+    // Check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Check if user owns the resource
+    function isOwner(uid) {
+      return isAuthenticated() && request.auth.uid == uid;
+    }
+
+    // Check file size (in bytes)
+    function isValidSize(maxSizeMB) {
+      return request.resource.size <= maxSizeMB * 1024 * 1024;
+    }
+
+    // Check if file is an image
+    function isImage() {
+      return request.resource.contentType.matches('image/.*');
+    }
+
+    // Check if file is a PDF
+    function isPDF() {
+      return request.resource.contentType == 'application/pdf';
+    }
+
+    // Check if file is an audio file
+    function isAudio() {
+      return request.resource.contentType.matches('audio/.*');
+    }
+
+    // Check if file is a video file
+    function isVideo() {
+      return request.resource.contentType.matches('video/.*');
+    }
+
+    // Check if file is a document
+    function isDocument() {
+      return request.resource.contentType.matches('application/.*') ||
+             request.resource.contentType.matches('text/.*');
+    }
+
+    // ============================================================
+    // STUDY MATERIALS - Public Educational Content
+    // ============================================================
+
+    match /studyMaterials/{allPaths=**} {
+      // Anyone authenticated can read study materials
+      allow read: if isAuthenticated();
+
+      // Only admins can write (implement admin check via custom claims)
+      allow write: if isAuthenticated() &&
+                      request.auth.token.admin == true;
+    }
+
+    // Specific study material categories with size limits
+    match /studyMaterials/pdfs/{fileName} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() &&
+                      request.auth.token.admin == true &&
+                      isPDF() &&
+                      isValidSize(50); // Max 50MB for PDFs
+    }
+
+    match /studyMaterials/images/{fileName} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() &&
+                      request.auth.token.admin == true &&
+                      isImage() &&
+                      isValidSize(10); // Max 10MB for images
+    }
+
+    match /studyMaterials/videos/{fileName} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() &&
+                      request.auth.token.admin == true &&
+                      isVideo() &&
+                      isValidSize(500); // Max 500MB for videos
+    }
+
+    match /studyMaterials/audio/{fileName} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() &&
+                      request.auth.token.admin == true &&
+                      isAudio() &&
+                      isValidSize(100); // Max 100MB for audio
+    }
+
+    // ============================================================
+    // USER UPLOADS - Personal User Content
+    // ============================================================
+
+    match /userUploads/{uid}/{allPaths=**} {
+      // Users can only access their own uploads
+      allow read, write: if isOwner(uid);
+    }
+
+    // Screenshots
+    match /userUploads/{uid}/screenshots/{fileName} {
+      allow read: if isOwner(uid);
+      allow write: if isOwner(uid) &&
+                      isImage() &&
+                      isValidSize(5); // Max 5MB for screenshots
+    }
+
+    // Notes (PDFs, text documents)
+    match /userUploads/{uid}/notes/{fileName} {
+      allow read: if isOwner(uid);
+      allow write: if isOwner(uid) &&
+                      isDocument() &&
+                      isValidSize(20); // Max 20MB for notes
+    }
+
+    // Study materials uploaded by user
+    match /userUploads/{uid}/materials/{fileName} {
+      allow read: if isOwner(uid);
+      allow write: if isOwner(uid) &&
+                      (isPDF() || isImage() || isDocument()) &&
+                      isValidSize(30); // Max 30MB for user materials
+    }
+
+    // User audio recordings
+    match /userUploads/{uid}/audio/{fileName} {
+      allow read: if isOwner(uid);
+      allow write: if isOwner(uid) &&
+                      isAudio() &&
+                      isValidSize(50); // Max 50MB for audio recordings
+    }
+
+    // ============================================================
+    // AVATARS - User Profile Pictures
+    // ============================================================
+
+    match /avatars/{uid}/{fileName} {
+      // Users can read their own avatar and others' avatars (for display)
+      allow read: if isAuthenticated();
+
+      // Users can only write to their own avatar location
+      allow write: if isOwner(uid) &&
+                      isImage() &&
+                      isValidSize(2); // Max 2MB for avatars
+    }
+
+    // ============================================================
+    // SESSION RECORDINGS - Study Session Data
+    // ============================================================
+
+    match /sessionRecordings/{uid}/{sessionId}/{fileName} {
+      // Users can only access their own session recordings
+      allow read: if isOwner(uid);
+
+      // Users can create new session recordings
+      allow create: if isOwner(uid) &&
+                       isValidSize(100); // Max 100MB per session file
+
+      // No updates or deletes after creation (for data integrity)
+      allow update, delete: if false;
+    }
+
+    // Session metadata (JSON files)
+    match /sessionRecordings/{uid}/{sessionId}/metadata.json {
+      allow read: if isOwner(uid);
+      allow write: if isOwner(uid) &&
+                      request.resource.contentType == 'application/json' &&
+                      isValidSize(1); // Max 1MB for metadata
+    }
+
+    // ============================================================
+    // BACKUPS - Database and User Data Backups
+    // ============================================================
+
+    match /backups/{uid}/{backupId}/{fileName} {
+      // Only the owner can read their backups
+      allow read: if isOwner(uid);
+
+      // Only system (via Cloud Functions with admin) can write backups
+      allow write: if request.auth.token.admin == true ||
+                      request.auth.token.backup == true;
+    }
+
+    // System-wide backups (admin only)
+    match /backups/system/{backupId}/{fileName} {
+      allow read, write: if request.auth.token.admin == true;
+    }
+
+    // ============================================================
+    // TEMPORARY FILES - Auto-cleanup eligible
+    // ============================================================
+
+    match /temporaryFiles/{uid}/{fileName} {
+      // Users can access their own temp files
+      allow read, delete: if isOwner(uid);
+
+      // Users can create temp files with time limit
+      allow create: if isOwner(uid) &&
+                       isValidSize(50) && // Max 50MB for temp files
+                       request.resource.metadata.expiresAt != null;
+
+      // Allow update only to extend expiration or modify metadata
+      allow update: if isOwner(uid);
+    }
+
+    // Shared temporary files (with token)
+    match /temporaryFiles/shared/{token}/{fileName} {
+      // Anyone with the token can read
+      allow read: if isAuthenticated();
+
+      // Only creator can write
+      allow write: if isAuthenticated() &&
+                      isValidSize(20);
+    }
+
+    // ============================================================
+    // GENERATED CONTENT - AI-generated materials
+    // ============================================================
+
+    match /generated/{uid}/summaries/{fileName} {
+      allow read: if isOwner(uid);
+      allow write: if isOwner(uid) &&
+                      isDocument() &&
+                      isValidSize(10); // Max 10MB for summaries
+    }
+
+    match /generated/{uid}/flashcards/{fileName} {
+      allow read: if isOwner(uid);
+      allow write: if isOwner(uid) &&
+                      request.resource.contentType == 'application/json' &&
+                      isValidSize(5); // Max 5MB for flashcard sets
+    }
+
+    match /generated/{uid}/quizzes/{fileName} {
+      allow read: if isOwner(uid);
+      allow write: if isOwner(uid) &&
+                      request.resource.contentType == 'application/json' &&
+                      isValidSize(5); // Max 5MB for quizzes
+    }
+
+    // ============================================================
+    // ANALYTICS - Study analytics and reports
+    // ============================================================
+
+    match /analytics/{uid}/{reportId}/{fileName} {
+      // Users can read their own analytics
+      allow read: if isOwner(uid);
+
+      // Only system can write analytics
+      allow write: if request.auth.token.admin == true ||
+                      request.auth.token.analytics == true;
+    }
+
+    // ============================================================
+    // EXPORTS - User data exports
+    // ============================================================
+
+    match /exports/{uid}/{exportId}/{fileName} {
+      // Users can access their own exports
+      allow read, delete: if isOwner(uid);
+
+      // System creates exports
+      allow create: if request.auth.token.admin == true ||
+                       request.auth.token.export == true;
+    }
+
+    // ============================================================
+    // DEFAULT DENY - Security by default
+    // ============================================================
+
+    // Deny all other paths not explicitly allowed above
+    match /{document=**} {
+      allow read, write: if false;
     }
   }
 }

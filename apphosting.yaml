@@ -1,3 +1,16 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Specifies the version of the App Hosting configuration schema.
 configVersion: 1
 
@@ -15,7 +28,26 @@ runConfig:
   # This command builds your Next.js app for production.
   build: 'npm run build'
   # This command starts the Next.js production server.
-  start: 'next start'
+  start: 'npm run start'
+  # Configuración de recursos para resolver problemas de build
+  cpu: 2
+  memoryMiB: 2048
+  minInstances: 1
+  maxInstances: 50
+  concurrency: 80
+
+# Environment variables for the application
+env:
+  - variable: NODE_ENV
+    value: production
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_TELEMETRY_DISABLED
+    value: "1"
+    availability:
+      - BUILD
+      - RUNTIME
 
 # Defines how incoming requests are routed to the backend.
 # This should match the backendId, which acts as the identifier for your service.
