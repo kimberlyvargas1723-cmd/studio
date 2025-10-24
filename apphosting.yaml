@@ -48,6 +48,24 @@ env:
     availability:
       - BUILD
       - RUNTIME
+  # Firebase Configuration
+  - variable: NEXT_PUBLIC_FIREBASE_API_KEY
+    secret: FIREBASE_API_KEY
+  - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+    value: studio-7785277282-cd0f6
+  - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+    value: studio-7785277282-cd0f6.firebaseapp.com
+  - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+    value: studio-7785277282-cd0f6.firebasestorage.app
+  - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+    value: "524788938527"
+  - variable: NEXT_PUBLIC_FIREBASE_APP_ID
+    value: 1:524788938527:web:44df26f55d2b325ae8e22a
+  - variable: NEXT_PUBLIC_FIREBASE_DATABASE_URL
+    value: https://studio-7785277282-cd0f6-default-rtdb.firebaseio.com
+  # Gemini API Configuration
+  - variable: GEMINI_API_KEY
+    secret: GEMINI_API_KEY
 
 # Defines how incoming requests are routed to the backend.
 # This should match the backendId, which acts as the identifier for your service.
