@@ -1,0 +1,68 @@
+// src/data/examen-psicometrico-completo-2024.json
+{
+  "titulo": "Examen Psicométrico UANL 2024 - Enero-Junio",
+  "descripcion": "Examen psicométrico oficial de la UANL para ingreso a licenciatura en Psicología",
+  "fecha": "2024",
+  "tipo": "psicometrico",
+  "duracion": 180,
+  "instrucciones": "Este examen evalúa aptitudes básicas. No requiere conocimientos específicos de Psicología.",
+  "secciones": [
+    {
+      "titulo": "Razonamiento Matemático",
+      "descripcion": "Problemas de lógica matemática y numérica",
+      "tiempo": 60,
+      "preguntas": [
+        {
+          "id": "mat_001",
+          "pregunta": "¿Cuál es el siguiente número en la secuencia: 2, 4, 8, 16, ...?",
+          "opciones": ["24", "32", "30", "28"],
+          "respuesta_correcta": 1,
+          "explicacion": "Es una secuencia de potencias de 2: 2¹, 2², 2³, 2⁴, por lo tanto el siguiente es 2⁵ = 32"
+        },
+        {
+          "id": "mat_002",
+          "pregunta": "Si 3 manzanas cuestan $15, ¿cuánto cuestan 7 manzanas?",
+          "opciones": ["$25", "$35", "$45", "$30"],
+          "respuesta_correcta": 1,
+          "explicacion": "Si 3 manzanas = $15, entonces 1 manzana = $5. Por lo tanto 7 manzanas = 7 × $5 = $35"
+        }
+      ]
+    },
+    {
+      "titulo": "Comprensión Lectora",
+      "descripcion": "Comprensión y análisis de textos",
+      "tiempo": 60,
+      "preguntas": [
+        {
+          "id": "lect_001",
+          "texto": "La psicología es la ciencia que estudia el comportamiento y los procesos mentales de los seres humanos. A través de diversos métodos científicos, busca explicar, predecir y modificar conductas para mejorar la calidad de vida de las personas.",
+          "pregunta": "¿Cuál es el objetivo principal de la psicología según el texto?",
+          "opciones": [
+            "Estudiar únicamente los procesos mentales",
+            "Explicar, predecir y modificar conductas",
+            "Analizar solo el comportamiento observable",
+            "Mejorar la calidad de vida sin métodos científicos"
+          ],
+          "respuesta_correcta": 1,
+          "explicacion": "El texto menciona explícitamente 'explicar, predecir y modificar conductas' como objetivos principales"
+        }
+      ]
+    },
+    {
+      "titulo": "Razonamiento Verbal",
+      "descripcion": "Análisis de lenguaje y lógica verbal",
+      "tiempo": 60,
+      "preguntas": [
+        {
+          "id": "verb_001",
+          "pregunta": "Completa la analogía: Médico : Enfermedad :: Psicólogo : _______",
+          "opciones": ["Medicina", "Comportamiento", "Hospital", "Paciente"],
+          "respuesta_correcta": 1,
+          "explicacion": "El médico trata enfermedades, el psicólogo trata problemas de comportamiento y salud mental"
+        }
+      ]
+    }
+  ],
+  "fuente": "UANL Oficial - Examen psicométrico enero-junio 2024",
+  "url": "http://psicologia.uanl.mx/wp-content/uploads/2023/09/Examen-psicome%CC81trico-enero-junio-de-2024-final.pdf"
+}

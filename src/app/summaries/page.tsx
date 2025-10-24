@@ -1,5 +1,8 @@
 // src/app/summaries/page.tsx
 'use client';
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+
 
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';

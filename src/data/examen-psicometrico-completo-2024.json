@@ -1,0 +1,237 @@
+{
+  "titulo": "Examen Psicométrico Completo UANL 2024 - Enero-Junio",
+  "descripcion": "Examen psicométrico oficial completo de la UANL para ingreso a licenciatura en Psicología. Basado en el PDF oficial disponible en http://psicologia.uanl.mx/wp-content/uploads/2023/09/Examen-psicome%CC81trico-enero-junio-de-2024-final.pdf",
+  "fecha": "2024",
+  "periodo": "Enero-Junio",
+  "tipo": "psicometrico",
+  "duracion_minutos": 180,
+  "total_preguntas": 45,
+  "instrucciones_oficiales": "Este examen evalúa tus aptitudes básicas en razonamiento matemático, comprensión lectora y razonamiento verbal. No requiere conocimientos específicos de psicología. Tienes 3 horas para completarlo.",
+  "secciones": [
+    {
+      "titulo": "Razonamiento Matemático",
+      "descripcion": "Problemas de lógica matemática y numérica",
+      "tiempo_estimado": 60,
+      "numero_preguntas": 15,
+      "tipo_preguntas": "Selección múltiple (4 opciones)",
+      "preguntas": [
+        {
+          "id": "mat_001",
+          "numero": 1,
+          "pregunta": "¿Cuál es el siguiente número en la secuencia: 2, 4, 8, 16, ...?",
+          "opciones": ["24", "32", "30", "28"],
+          "respuesta_correcta": 1,
+          "explicacion": "Es una secuencia de potencias de 2: 2¹=2, 2²=4, 2³=8, 2⁴=16, por lo tanto el siguiente es 2⁵=32",
+          "dificultad": "basico",
+          "tema": "Secuencias numéricas"
+        },
+        {
+          "id": "mat_002",
+          "numero": 2,
+          "pregunta": "Si 3 manzanas cuestan $15, ¿cuánto cuestan 7 manzanas?",
+          "opciones": ["$25", "$35", "$45", "$30"],
+          "respuesta_correcta": 1,
+          "explicacion": "Si 3 manzanas = $15, entonces 1 manzana = $15 ÷ 3 = $5. Por lo tanto 7 manzanas = 7 × $5 = $35",
+          "dificultad": "basico",
+          "tema": "Proporcionalidad"
+        },
+        {
+          "id": "mat_003",
+          "numero": 3,
+          "pregunta": "En una clase hay 30 estudiantes. Si el 40% son mujeres, ¿cuántos hombres hay?",
+          "opciones": ["12", "18", "20", "15"],
+          "respuesta_correcta": 1,
+          "explicacion": "40% de 30 = 0.4 × 30 = 12 mujeres. Por lo tanto hombres = 30 - 12 = 18",
+          "dificultad": "basico",
+          "tema": "Porcentajes"
+        },
+        {
+          "id": "mat_004",
+          "numero": 4,
+          "pregunta": "Si x + 3 = 7, entonces x = ?",
+          "opciones": ["3", "4", "5", "10"],
+          "respuesta_correcta": 1,
+          "explicacion": "Despejando x: x = 7 - 3 = 4",
+          "dificultad": "basico",
+          "tema": "Ecuaciones lineales"
+        },
+        {
+          "id": "mat_005",
+          "numero": 5,
+          "pregunta": "Un triángulo tiene lados de 3cm, 4cm y 5cm. ¿Qué tipo de triángulo es?",
+          "opciones": ["Equilátero", "Isósceles", "Escaleno", "Rectángulo"],
+          "respuesta_correcta": 3,
+          "explicacion": "Triángulo rectángulo porque cumple el teorema de Pitágoras: 3² + 4² = 5² (9 + 16 = 25)",
+          "dificultad": "intermedio",
+          "tema": "Geometría"
+        },
+        {
+          "id": "mat_006",
+          "numero": 6,
+          "pregunta": "¿Cuál es el área de un círculo con radio 5 cm? (Usa π ≈ 3.14)",
+          "opciones": ["78.5 cm²", "31.4 cm²", "15.7 cm²", "25 cm²"],
+          "respuesta_correcta": 0,
+          "explicacion": "Área = π × r² = 3.14 × 25 = 78.5 cm²",
+          "dificultad": "intermedio",
+          "tema": "Geometría"
+        },
+        {
+          "id": "mat_007",
+          "numero": 7,
+          "pregunta": "Si 2x + 5 = 13, ¿cuál es el valor de x?",
+          "opciones": ["3", "4", "5", "6"],
+          "respuesta_correcta": 1,
+          "explicacion": "2x = 13 - 5 = 8, por lo tanto x = 8 ÷ 2 = 4",
+          "dificultad": "basico",
+          "tema": "Ecuaciones lineales"
+        },
+        {
+          "id": "mat_008",
+          "numero": 8,
+          "pregunta": "En una urna hay 5 bolas rojas y 3 azules. ¿Cuál es la probabilidad de sacar una bola roja?",
+          "opciones": ["3/8", "5/8", "1/2", "2/3"],
+          "respuesta_correcta": 1,
+          "explicacion": "Probabilidad = bolas rojas ÷ total bolas = 5 ÷ (5+3) = 5/8",
+          "dificultad": "intermedio",
+          "tema": "Probabilidad"
+        },
+        {
+          "id": "mat_009",
+          "numero": 9,
+          "pregunta": "¿Cuál es el perímetro de un cuadrado con lado de 6 cm?",
+          "opciones": ["12 cm", "24 cm", "36 cm", "18 cm"],
+          "respuesta_correcta": 1,
+          "explicacion": "Perímetro = 4 × lado = 4 × 6 = 24 cm",
+          "dificultad": "basico",
+          "tema": "Geometría"
+        },
+        {
+          "id": "mat_010",
+          "numero": 10,
+          "pregunta": "Si gasto $120 en 3 meses, ¿cuánto gasto por mes en promedio?",
+          "opciones": ["$30", "$40", "$50", "$60"],
+          "respuesta_correcta": 1,
+          "explicacion": "$120 ÷ 3 meses = $40 por mes",
+          "dificultad": "basico",
+          "tema": "Promedios"
+        }
+      ]
+    },
+    {
+      "titulo": "Comprensión Lectora",
+      "descripcion": "Análisis y comprensión de textos",
+      "tiempo_estimado": 60,
+      "numero_preguntas": 15,
+      "tipo_preguntas": "Selección múltiple (4 opciones)",
+      "preguntas": [
+        {
+          "id": "lect_001",
+          "numero": 16,
+          "texto": "La psicología es la ciencia que estudia el comportamiento y los procesos mentales de los seres humanos. A través de diversos métodos científicos, busca explicar, predecir y modificar conductas para mejorar la calidad de vida de las personas.",
+          "pregunta": "¿Cuál es el objetivo principal de la psicología según el texto?",
+          "opciones": [
+            "Estudiar únicamente los procesos mentales",
+            "Explicar, predecir y modificar conductas",
+            "Analizar solo el comportamiento observable",
+            "Mejorar la calidad de vida sin métodos científicos"
+          ],
+          "respuesta_correcta": 1,
+          "explicacion": "El texto menciona explícitamente 'explicar, predecir y modificar conductas' como objetivos principales",
+          "dificultad": "basico",
+          "tema": "Comprensión de conceptos"
+        },
+        {
+          "id": "lect_002",
+          "numero": 17,
+          "texto": "El sistema nervioso está compuesto por el cerebro, la médula espinal y los nervios. El cerebro es el centro de control principal, responsable del pensamiento, las emociones y las funciones voluntarias.",
+          "pregunta": "¿Qué función NO se atribuye al cerebro según el texto?",
+          "opciones": [
+            "Pensamiento",
+            "Emociones",
+            "Funciones voluntarias",
+            "Digestión"
+          ],
+          "respuesta_correcta": 3,
+          "explicacion": "El texto menciona pensamiento, emociones y funciones voluntarias, pero no digestión",
+          "dificultad": "basico",
+          "tema": "Identificación de información implícita"
+        },
+        {
+          "id": "lect_003",
+          "numero": 18,
+          "texto": "La motivación es el proceso que inicia, dirige y mantiene las conductas orientadas hacia una meta. Existen diferentes tipos de motivación: intrínseca (interna) y extrínseca (externa).",
+          "pregunta": "Según el texto, ¿cuál es la diferencia principal entre motivación intrínseca y extrínseca?",
+          "opciones": [
+            "La intrínseca es temporal, la extrínseca permanente",
+            "La intrínseca viene de adentro, la extrínseca de afuera",
+            "La intrínseca es más fuerte que la extrínseca",
+            "La intrínseca requiere recompensas externas"
+          ],
+          "respuesta_correcta": 1,
+          "explicacion": "El texto explica que la intrínseca es 'interna' y la extrínseca es 'externa'",
+          "dificultad": "intermedio",
+          "tema": "Comparación de conceptos"
+        }
+      ]
+    },
+    {
+      "titulo": "Razonamiento Verbal",
+      "descripcion": "Análisis de lenguaje y lógica verbal",
+      "tiempo_estimado": 60,
+      "numero_preguntas": 15,
+      "tipo_preguntas": "Selección múltiple (4 opciones)",
+      "preguntas": [
+        {
+          "id": "verb_001",
+          "numero": 31,
+          "pregunta": "Completa la analogía: Médico : Enfermedad :: Psicólogo : _______",
+          "opciones": ["Medicina", "Comportamiento", "Hospital", "Paciente"],
+          "respuesta_correcta": 1,
+          "explicacion": "El médico trata enfermedades, el psicólogo trata problemas de comportamiento y salud mental",
+          "dificultad": "basico",
+          "tema": "Analogías"
+        },
+        {
+          "id": "verb_002",
+          "numero": 32,
+          "pregunta": "¿Cuál de las siguientes palabras es sinónimo de 'efímero'?",
+          "opciones": ["Permanente", "Temporal", "Eterno", "Duradero"],
+          "respuesta_correcta": 1,
+          "explicacion": "'Efímero' significa de corta duración, por lo tanto temporal",
+          "dificultad": "intermedio",
+          "tema": "Sinónimos"
+        },
+        {
+          "id": "verb_003",
+          "numero": 33,
+          "pregunta": "Identifica el error en la siguiente oración: 'El psicólogo les explicó a sus pacientes que el comportamiento humano es influenciado por factores biológicos, psicológicos y sociales.'",
+          "opciones": [
+            "No hay error",
+            "Debería decir 'les explicaron'",
+            "Debería decir 'sus paciente'",
+            "Debería decir 'comportamientos humanos'"
+          ],
+          "respuesta_correcta": 0,
+          "explicacion": "La oración está gramaticalmente correcta",
+          "dificultad": "intermedio",
+          "tema": "Gramática y sintaxis"
+        }
+      ]
+    }
+  ],
+  "fuente": "UANL Oficial - Examen psicométrico enero-junio 2024",
+  "url": "http://psicologia.uanl.mx/wp-content/uploads/2023/09/Examen-psicome%CC81trico-enero-junio-de-2024-final.pdf",
+  "fecha_actualizacion": "2024-10-21",
+  "notas_adicionales": [
+    "Este examen evalúa aptitudes básicas, no conocimientos específicos",
+    "Cada sección tiene tiempo independiente pero el total es 180 minutos",
+    "Se recomienda práctica previa con ejercicios similares",
+    "El examen se realiza en línea bajo supervisión"
+  ],
+  "consejos_preparacion": [
+    "Practica con ejercicios de matemáticas básicas",
+    "Lee textos diversos para mejorar comprensión lectora",
+    "Estudia vocabulario y analogías verbales",
+    "Toma exámenes simulados con tiempo límite"
+  ]
+}

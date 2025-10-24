@@ -1,0 +1,680 @@
+{
+  "titulo": "Compiled Exam Answers - UANL Psychology Admission 2024",
+  "descripcion": "Compilation of all exam questions and answers from various data sources for UANL Psychology admission exam.",
+  "version": "1.0",
+  "fecha_compilacion": "2025-10-22",
+  "total_preguntas": 272,
+  "fuentes": [
+    "banco-completo-preguntas-psicologia-uanl-2024.json",
+    "examen-conocimientos-completo-psicologia-2024.json",
+    "banco-preguntas-psicologia.json",
+    "examen-psicometrico-completo-2024.json"
+  ],
+  "preguntas": [
+    {
+      "id": "sn_001",
+      "pregunta": "¿Cuál es la unidad básica del sistema nervioso?",
+      "respuesta_correcta": "Neurona",
+      "explicacion": "La neurona es la célula especializada en transmitir información nerviosa a través de impulsos eléctricos y químicos.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "sn_002",
+      "pregunta": "¿Qué estructura del sistema nervioso central coordina el movimiento y el equilibrio?",
+      "respuesta_correcta": "Cerebelo",
+      "explicacion": "El cerebelo coordina los movimientos voluntarios, mantiene el equilibrio y la postura corporal, además de participar en el aprendizaje motor.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "sn_003",
+      "pregunta": "¿Cuál es la diferencia entre sistema nervioso central y periférico?",
+      "respuesta_correcta": "El central incluye encéfalo y médula, el periférico nervios craneales y espinales",
+      "explicacion": "SNC: encéfalo y médula espinal. SNP: nervios craneales (12 pares), espinales (31 pares) y sistema nervioso autónomo.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "sn_004",
+      "pregunta": "¿Qué tipo de neuronas transmiten información desde los receptores sensoriales al SNC?",
+      "respuesta_correcta": "Neuronas sensoriales",
+      "explicacion": "Las neuronas sensoriales (aferentes) transmiten información desde los receptores periféricos hacia el sistema nervioso central.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "sn_005",
+      "pregunta": "¿Qué función principal cumple el tronco encefálico?",
+      "respuesta_correcta": "Regulación de funciones vitales autónomas",
+      "explicacion": "El tronco encefálico regula funciones vitales como respiración, ritmo cardíaco, presión arterial y reflejos.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "se_001",
+      "pregunta": "¿Qué glándula se conoce como la 'glándula maestra' del sistema endocrino?",
+      "respuesta_correcta": "Hipófisis",
+      "explicacion": "La hipófisis regula otras glándulas endocrinas y produce hormonas como ACTH, TSH, FSH, LH, GH y prolactina.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "se_002",
+      "pregunta": "¿Qué hormona produce la glándula tiroides y regula el metabolismo?",
+      "respuesta_correcta": "Tiroxina (T4)",
+      "explicacion": "La glándula tiroides produce tiroxina (T4) y triyodotironina (T3), que regulan el metabolismo basal del cuerpo.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "se_003",
+      "pregunta": "¿Qué glándula endocrina produce adrenalina y noradrenalina?",
+      "respuesta_correcta": "Suprarrenal",
+      "explicacion": "La médula suprarrenal produce catecolaminas como adrenalina y noradrenalina en respuesta al estrés.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "se_004",
+      "pregunta": "¿Qué hormona regula el nivel de glucosa en sangre?",
+      "respuesta_correcta": "Insulina",
+      "explicacion": "La insulina, producida por el páncreas, regula la entrada de glucosa a las células y mantiene los niveles sanguíneos.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "se_005",
+      "pregunta": "¿Qué función cumple la hormona del crecimiento (GH)?",
+      "respuesta_correcta": "Estimula el crecimiento óseo y muscular",
+      "explicacion": "La somatotropina (GH) estimula el crecimiento lineal en niños y mantiene la masa muscular y ósea en adultos.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "pp_001",
+      "pregunta": "¿Qué tipo de memoria tiene mayor capacidad pero duración muy corta?",
+      "respuesta_correcta": "Memoria sensorial",
+      "explicacion": "La memoria sensorial tiene gran capacidad (todos los estímulos) pero duración de milisegundos a segundos.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "pp_002",
+      "pregunta": "¿Cuál es la capacidad típica de la memoria de trabajo según Miller?",
+      "respuesta_correcta": "7 ± 2 elementos",
+      "explicacion": "George Miller propuso que la memoria de trabajo tiene capacidad de 7 ± 2 elementos (chunks) en 1956.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "pp_003",
+      "pregunta": "¿Qué estilo de aprendizaje prefiere el uso de diagramas y visuales?",
+      "respuesta_correcta": "Visual",
+      "explicacion": "Los estudiantes visuales aprenden mejor con diagramas, gráficos, mapas mentales y representaciones visuales.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "pp_004",
+      "pregunta": "¿Qué proceso cognitivo permite mantener la atención en una tarea específica?",
+      "respuesta_correcta": "Atención selectiva",
+      "explicacion": "La atención selectiva permite enfocarse en información relevante mientras se filtra información irrelevante.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "pp_005",
+      "pregunta": "¿Qué tipo de aprendizaje se basa en la asociación entre estímulos?",
+      "respuesta_correcta": "Aprendizaje asociativo",
+      "explicacion": "El aprendizaje asociativo explica cómo se forman conexiones entre estímulos y respuestas a través del condicionamiento.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "pp_006",
+      "pregunta": "¿Qué proceso permite resolver problemas de manera novedosa?",
+      "respuesta_correcta": "Pensamiento creativo",
+      "explicacion": "El pensamiento creativo permite generar soluciones originales y novedosas para problemas complejos.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "cc_001",
+      "pregunta": "En el experimento de Pavlov, ¿qué estímulo inicialmente no provocaba respuesta salival?",
+      "respuesta_correcta": "La campanilla",
+      "explicacion": "La campanilla era un estímulo neutro que, después del condicionamiento, provocaba salivación.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "cc_002",
+      "pregunta": "¿Qué concepto describe cuando un estímulo condicionado pierde su capacidad de provocar respuesta?",
+      "respuesta_correcta": "Extinción",
+      "explicacion": "La extinción ocurre cuando el estímulo condicionado se presenta repetidamente sin el incondicionado.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "cc_003",
+      "pregunta": "¿Qué fenómeno ocurre cuando un estímulo similar al condicionado provoca la misma respuesta?",
+      "respuesta_correcta": "Generalización",
+      "explicacion": "La generalización estímulo-respuesta ocurre cuando estímulos similares al condicionado original provocan la misma respuesta aprendida.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "cc_004",
+      "pregunta": "¿Cuál es el intervalo óptimo entre estímulo condicionado e incondicionado según Pavlov?",
+      "respuesta_correcta": "0.5 segundos",
+      "explicacion": "Pavlov encontró que el intervalo óptimo es de 0.5 segundos para lograr el condicionamiento más efectivo.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "co_001",
+      "pregunta": "¿Qué tipo de refuerzo ocurre cuando se retira un estímulo aversivo?",
+      "respuesta_correcta": "Refuerzo negativo",
+      "explicacion": "El refuerzo negativo aumenta la conducta al retirar un estímulo desagradable (principio de alivio).",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "co_002",
+      "pregunta": "¿Qué programa de refuerzo produce respuestas más resistentes a la extinción?",
+      "respuesta_correcta": "Refuerzo variable",
+      "explicacion": "El refuerzo variable (ratio o intervalo) produce conductas más persistentes y resistentes a la extinción.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "co_003",
+      "pregunta": "¿Qué tipo de castigo reduce la probabilidad de una conducta?",
+      "respuesta_correcta": "Presentación de estímulo aversivo",
+      "explicacion": "El castigo positivo presenta un estímulo aversivo para reducir la conducta (aplicación de consecuencias negativas).",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "co_004",
+      "pregunta": "¿Qué concepto explica por qué los animales repiten conductas que producen consecuencias positivas?",
+      "respuesta_correcta": "Principio de efecto",
+      "explicacion": "El principio de efecto (Thorndike) establece que conductas seguidas de consecuencias satisfactorias se fortalecen.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "freud_001",
+      "pregunta": "Según Freud, ¿qué instancia de la personalidad opera según el principio del placer?",
+      "respuesta_correcta": "Ello",
+      "explicacion": "El ello opera según el principio del placer, buscando gratificación inmediata de impulsos instintivos.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "freud_002",
+      "pregunta": "¿Qué etapa del desarrollo psicosexual ocurre entre los 3-6 años según Freud?",
+      "respuesta_correcta": "Fálica",
+      "explicacion": "La etapa fálica se caracteriza por el complejo de Edipo/Electra y conflicto con figuras parentales del sexo opuesto.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "freud_003",
+      "pregunta": "¿Qué mecanismo de defensa desplaza la ansiedad hacia objetos menos amenazantes?",
+      "respuesta_correcta": "Desplazamiento",
+      "explicacion": "El desplazamiento redirige impulsos de un objeto inaceptable hacia uno más aceptable (ej: gritarle al perro en lugar del jefe).",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "freud_004",
+      "pregunta": "¿Qué parte de la personalidad actúa como mediador entre el ello y la realidad?",
+      "respuesta_correcta": "Yo",
+      "explicacion": "El yo opera según el principio de realidad, mediando entre las demandas del ello y las restricciones del mundo externo.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "piaget_001",
+      "pregunta": "¿En qué etapa del desarrollo cognitivo según Piaget aparece el pensamiento lógico formal?",
+      "respuesta_correcta": "Operacional formal",
+      "explicacion": "En la etapa de operaciones formales (adolescencia) aparece el pensamiento abstracto, hipotético-deductivo y lógico formal.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "piaget_002",
+      "pregunta": "¿Qué característica define el pensamiento preoperacional según Piaget?",
+      "respuesta_correcta": "Egocentrismo e irreversibilidad",
+      "explicacion": "El pensamiento preoperacional (2-7 años) se caracteriza por egocentrismo, animismo y falta de reversibilidad lógica.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "piaget_003",
+      "pregunta": "¿Qué concepto piagetiano se refiere a la capacidad de pensar en objetos no presentes físicamente?",
+      "respuesta_correcta": "Representación simbólica",
+      "explicacion": "La representación simbólica permite evocar mentalmente objetos ausentes y usar símbolos para representarlos.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "me_001",
+      "pregunta": "¿Qué teoría explica la motivación como una jerarquía de necesidades?",
+      "respuesta_correcta": "Teoría de la jerarquía de necesidades de Maslow",
+      "explicacion": "Abraham Maslow propuso una jerarquía de necesidades desde las fisiológicas básicas hasta la autorrealización.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "me_002",
+      "pregunta": "¿Qué componente emocional se refiere a la activación fisiológica?",
+      "respuesta_correcta": "Fisiológico",
+      "explicacion": "El componente fisiológico incluye cambios corporales como taquicardia, sudoración y tensión muscular.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "me_003",
+      "pregunta": "¿Qué tipo de motivación proviene de fuentes internas?",
+      "respuesta_correcta": "Intrínseca",
+      "explicacion": "La motivación intrínseca proviene del interés inherente en la actividad misma, no de recompensas externas.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "esp_001",
+      "pregunta": "¿Cuál es la función principal de un psicólogo clínico?",
+      "respuesta_correcta": "Evaluar y tratar trastornos mentales",
+      "explicacion": "Los psicólogos clínicos evalúan, diagnostican y tratan trastornos mentales y emocionales en individuos.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "esp_002",
+      "pregunta": "¿Qué área de la psicología se enfoca en el comportamiento humano en el trabajo?",
+      "respuesta_correcta": "Psicología organizacional",
+      "explicacion": "La psicología organizacional/industrial estudia el comportamiento humano en el entorno laboral y busca mejorar la productividad.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "esp_003",
+      "pregunta": "¿Qué hace un psicólogo educativo?",
+      "respuesta_correcta": "Mejora procesos de enseñanza-aprendizaje",
+      "explicacion": "Los psicólogos educativos desarrollan estrategias para mejorar el aprendizaje y resolver dificultades escolares.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "esp_004",
+      "pregunta": "¿En qué área trabaja un psicólogo forense?",
+      "respuesta_correcta": "Evaluación en contextos legales",
+      "explicacion": "Los psicólogos forenses aplican conocimientos psicológicos en contextos legales, como evaluación de testigos o capacidad mental.",
+      "fuente": "banco-completo-preguntas-psicologia-uanl-2024.json"
+    },
+    {
+      "id": "psi_001",
+      "pregunta": "¿Cuál es la función principal del sistema nervioso central?",
+      "respuesta_correcta": "Procesar información y coordinar respuestas",
+      "explicacion": "El SNC está formado por el encéfalo y la médula espinal, procesa información sensorial y coordina respuestas motoras y cognitivas.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "psi_002",
+      "pregunta": "¿Qué estructura del sistema nervioso central coordina el movimiento y el equilibrio?",
+      "respuesta_correcta": "Cerebelo",
+      "explicacion": "El cerebelo coordina los movimientos voluntarios, mantiene el equilibrio y la postura corporal.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "psi_003",
+      "pregunta": "¿Cuál es la diferencia entre sistema nervioso central y periférico?",
+      "respuesta_correcta": "El central incluye encéfalo y médula, el periférico nervios craneales y espinales",
+      "explicacion": "SNC: encéfalo y médula espinal. SNP: nervios craneales (12 pares), espinales (31 pares) y sistema nervioso autónomo.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "psi_004",
+      "pregunta": "¿Qué glándula se conoce como la 'glándula maestra' del sistema endocrino?",
+      "respuesta_correcta": "Hipófisis",
+      "explicacion": "La hipófisis regula otras glándulas endocrinas y produce varias hormonas importantes como el ACTH, TSH, FSH, LH, GH y prolactina.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "psi_005",
+      "pregunta": "¿Qué hormona produce la glándula tiroides y regula el metabolismo?",
+      "respuesta_correcta": "Tiroxina (T4)",
+      "explicacion": "La glándula tiroides produce tiroxina (T4) y triyodotironina (T3), que regulan el metabolismo basal del cuerpo.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "psi_006",
+      "pregunta": "¿Qué tipo de memoria tiene mayor capacidad pero duración muy corta?",
+      "respuesta_correcta": "Memoria sensorial",
+      "explicacion": "La memoria sensorial tiene gran capacidad (todos los estímulos) pero duración de milisegundos a segundos.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "psi_007",
+      "pregunta": "¿Cuál es la capacidad típica de la memoria de trabajo según Miller?",
+      "respuesta_correcta": "7 ± 2 elementos",
+      "explicacion": "George Miller propuso que la memoria de trabajo tiene capacidad de 7 ± 2 elementos (chunks) en 1956.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "psi_008",
+      "pregunta": "¿Qué estilo de aprendizaje prefiere el uso de diagramas y visuales?",
+      "respuesta_correcta": "Visual",
+      "explicacion": "Los estudiantes visuales aprenden mejor con diagramas, gráficos, mapas mentales y representaciones visuales.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "psi_009",
+      "pregunta": "¿Qué teoría explica la motivación como una jerarquía de necesidades?",
+      "respuesta_correcta": "Teoría de la jerarquía de necesidades de Maslow",
+      "explicacion": "Abraham Maslow propuso una jerarquía de necesidades desde las fisiológicas básicas hasta la autorrealización.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "psi_010",
+      "pregunta": "El conductismo se centra en el estudio de:",
+      "respuesta_correcta": "La conducta observable",
+      "explicacion": "El conductismo, representado por Pavlov, Skinner y Watson, enfatiza el estudio de la conducta observable y medible.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "psi_011",
+      "pregunta": "¿Qué concepto describe cuando un estímulo condicionado pierde su capacidad de provocar respuesta?",
+      "respuesta_correcta": "Extinción",
+      "explicacion": "La extinción ocurre cuando el estímulo condicionado se presenta repetidamente sin el incondicionado.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "psi_012",
+      "pregunta": "¿Qué tipo de refuerzo ocurre cuando se retira un estímulo aversivo?",
+      "respuesta_correcta": "Refuerzo negativo",
+      "explicacion": "El refuerzo negativo aumenta la conducta al retirar un estímulo desagradable (principio de alivio).",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "psi_013",
+      "pregunta": "Según Freud, ¿qué instancia de la personalidad opera según el principio del placer?",
+      "respuesta_correcta": "Ello",
+      "explicacion": "El ello opera según el principio del placer, buscando gratificación inmediata de impulsos instintivos.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "psi_014",
+      "pregunta": "¿Qué etapa del desarrollo psicosexual ocurre entre los 3-6 años según Freud?",
+      "respuesta_correcta": "Fálica",
+      "explicacion": "La etapa fálica se caracteriza por el complejo de Edipo/Electra y conflicto con figuras parentales del sexo opuesto.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "psi_015",
+      "pregunta": "¿En qué etapa del desarrollo cognitivo según Piaget aparece el pensamiento lógico formal?",
+      "respuesta_correcta": "Operacional formal",
+      "explicacion": "En la etapa de operaciones formales (adolescencia) aparece el pensamiento abstracto, hipotético-deductivo y lógico formal.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "psi_016",
+      "pregunta": "¿Cuál es la función principal de un psicólogo clínico?",
+      "respuesta_correcta": "Evaluar y tratar trastornos mentales",
+      "explicacion": "Los psicólogos clínicos evalúan, diagnostican y tratan trastornos mentales y emocionales en individuos.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "psi_017",
+      "pregunta": "¿Qué área de la psicología se enfoca en el comportamiento humano en el trabajo?",
+      "respuesta_correcta": "Psicología organizacional",
+      "explicacion": "La psicología organizacional/industrial estudia el comportamiento humano en el entorno laboral.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "psi_018",
+      "pregunta": "¿Qué tipo de neuronas transmiten información desde los receptores sensoriales al SNC?",
+      "respuesta_correcta": "Neuronas sensoriales",
+      "explicacion": "Las neuronas sensoriales (aferentes) transmiten información desde los receptores hacia el sistema nervioso central.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "sal_001",
+      "pregunta": "¿Qué sistema del cuerpo humano es responsable de transportar oxígeno y nutrientes?",
+      "respuesta_correcta": "Sistema circulatorio",
+      "explicacion": "El sistema circulatorio (cardiovascular) transporta oxígeno, nutrientes, hormonas y productos de desecho a través de la sangre.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "sal_002",
+      "pregunta": "¿Cuál es la función principal del sistema respiratorio?",
+      "respuesta_correcta": "Intercambiar gases (oxígeno y dióxido de carbono)",
+      "explicacion": "El sistema respiratorio facilita el intercambio gaseoso: toma oxígeno del aire y elimina dióxido de carbono.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "sal_003",
+      "pregunta": "¿Qué tipo de microorganismo puede causar enfermedades como la tuberculosis?",
+      "respuesta_correcta": "Bacteria",
+      "explicacion": "La tuberculosis es causada por la bacteria Mycobacterium tuberculosis, un bacilo ácido-alcohol resistente.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "sal_004",
+      "pregunta": "¿Qué tipo de microorganismo es responsable del resfriado común?",
+      "respuesta_correcta": "Virus",
+      "explicacion": "El resfriado común es causado por rinovirus, que son virus de ARN de la familia Picornaviridae.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "sal_005",
+      "pregunta": "En caso de quemadura, ¿cuál es la primera acción recomendada?",
+      "respuesta_correcta": "Enfriar con agua corriente a temperatura ambiente",
+      "explicacion": "Para quemaduras leves, se debe enfriar el área afectada con agua corriente a temperatura ambiente durante 10-15 minutos para reducir el dolor y prevenir daño tisular.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "sal_006",
+      "pregunta": "¿Qué posición se recomienda para una persona inconsciente que respira?",
+      "respuesta_correcta": "Posición de recuperación lateral",
+      "explicacion": "La posición de recuperación lateral (PLS) mantiene las vías aéreas abiertas y permite que la persona respire adecuadamente.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "sal_007",
+      "pregunta": "¿Qué órgano del sistema digestivo absorbe la mayoría de los nutrientes?",
+      "respuesta_correcta": "Intestino delgado",
+      "explicacion": "El intestino delgado es el principal sitio de absorción de nutrientes gracias a sus vellosidades y microvellosidades.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "sal_008",
+      "pregunta": "¿Cuál es la función principal de los riñones?",
+      "respuesta_correcta": "Regular el equilibrio hídrico y electrolítico",
+      "explicacion": "Los riñones regulan el equilibrio hídrico y electrolítico, eliminan desechos nitrogenados y mantienen la homeostasis.",
+      "fuente": "examen-conocimientos-completo-psicologia-2024.json"
+    },
+    {
+      "id": "sn_001",
+      "pregunta": "¿Cuál es la función principal de las neuronas?",
+      "respuesta_correcta": "Transmitir información nerviosa",
+      "explicacion": "Las neuronas son células especializadas en recibir, procesar y transmitir información nerviosa",
+      "fuente": "banco-preguntas-psicologia.json"
+    },
+    {
+      "id": "sn_002",
+      "pregunta": "¿Qué estructura del sistema nervioso central coordina el movimiento y el equilibrio?",
+      "respuesta_correcta": "Cerebelo",
+      "explicacion": "El cerebelo coordina los movimientos voluntarios, mantiene el equilibrio y la postura",
+      "fuente": "banco-preguntas-psicologia.json"
+    },
+    {
+      "id": "sn_003",
+      "pregunta": "¿Cuál es la diferencia entre sistema nervioso central y periférico?",
+      "respuesta_correcta": "El central incluye encéfalo y médula, el periférico nervios craneales y espinales",
+      "explicacion": "SNC: encéfalo y médula espinal. SNP: nervios craneales, espinales y sistema nervioso autónomo",
+      "fuente": "banco-preguntas-psicologia.json"
+    },
+    {
+      "id": "se_001",
+      "pregunta": "¿Qué glándula se conoce como la 'glándula maestra' del sistema endocrino?",
+      "respuesta_correcta": "Hipófisis",
+      "explicacion": "La hipófisis regula otras glándulas endocrinas y produce varias hormonas importantes",
+      "fuente": "banco-preguntas-psicologia.json"
+    },
+    {
+      "id": "se_002",
+      "pregunta": "¿Qué hormona produce la glándula tiroides y regula el metabolismo?",
+      "respuesta_correcta": "Tiroxina (T4)",
+      "explicacion": "La tiroxina (T4) y triyodotironina (T3) regulan el metabolismo basal del cuerpo",
+      "fuente": "banco-preguntas-psicologia.json"
+    },
+    {
+      "id": "pp_001",
+      "pregunta": "¿Qué tipo de memoria tiene mayor capacidad pero duración muy corta?",
+      "respuesta_correcta": "Memoria sensorial",
+      "explicacion": "La memoria sensorial tiene gran capacidad pero duración de milisegundos a segundos",
+      "fuente": "banco-preguntas-psicologia.json"
+    },
+    {
+      "id": "pp_002",
+      "pregunta": "¿Cuál es la capacidad típica de la memoria de trabajo según Miller?",
+      "respuesta_correcta": "7 ± 2 elementos",
+      "explicacion": "George Miller propuso que la memoria de trabajo tiene capacidad de 7 ± 2 elementos (chunks)",
+      "fuente": "banco-preguntas-psicologia.json"
+    },
+    {
+      "id": "pp_003",
+      "pregunta": "¿Qué estilo de aprendizaje prefiere aprender mediante la escucha y discusión?",
+      "respuesta_correcta": "Auditivo",
+      "explicacion": "Los estudiantes auditivos aprenden mejor mediante conferencias, discusiones y grabaciones de audio",
+      "fuente": "banco-preguntas-psicologia.json"
+    },
+    {
+      "id": "cc_001",
+      "pregunta": "En el experimento de Pavlov, ¿qué estímulo inicialmente no provocaba respuesta salival?",
+      "respuesta_correcta": "La campanilla",
+      "explicacion": "La campanilla era un estímulo neutro que, después del condicionamiento, provocaba salivación",
+      "fuente": "banco-preguntas-psicologia.json"
+    },
+    {
+      "id": "cc_002",
+      "pregunta": "¿Qué concepto describe cuando un estímulo condicionado pierde su capacidad de provocar respuesta?",
+      "respuesta_correcta": "Extinción",
+      "explicacion": "La extinción ocurre cuando el estímulo condicionado se presenta repetidamente sin el incondicionado",
+      "fuente": "banco-preguntas-psicologia.json"
+    },
+    {
+      "id": "co_001",
+      "pregunta": "¿Qué tipo de refuerzo ocurre cuando se retira un estímulo aversivo?",
+      "respuesta_correcta": "Refuerzo negativo",
+      "explicacion": "El refuerzo negativo aumenta la conducta al retirar un estímulo desagradable",
+      "fuente": "banco-preguntas-psicologia.json"
+    },
+    {
+      "id": "co_002",
+      "pregunta": "¿Qué programa de refuerzo produce respuestas más resistentes a la extinción?",
+      "respuesta_correcta": "Refuerzo variable",
+      "explicacion": "El refuerzo variable (ratio o intervalo) produce conductas más persistentes y resistentes a la extinción",
+      "fuente": "banco-preguntas-psicologia.json"
+    },
+    {
+      "id": "freud_001",
+      "pregunta": "¿Según Freud, qué instancia de la personalidad opera según el principio del placer?",
+      "respuesta_correcta": "Ello",
+      "explicacion": "El ello opera según el principio del placer, buscando gratificación inmediata de impulsos instintivos",
+      "fuente": "banco-preguntas-psicologia.json"
+    },
+    {
+      "id": "freud_002",
+      "pregunta": "¿Qué etapa del desarrollo psicosexual ocurre entre los 3-6 años según Freud?",
+      "respuesta_correcta": "Fálica",
+      "explicacion": "La etapa fálica se caracteriza por el complejo de Edipo/ Electra y conflicto con figuras parentales",
+      "fuente": "banco-preguntas-psicologia.json"
+    },
+    {
+      "id": "piaget_001",
+      "pregunta": "¿En qué etapa del desarrollo cognitivo según Piaget aparece el pensamiento lógico formal?",
+      "respuesta_correcta": "Operacional formal",
+      "explicacion": "En la etapa de operaciones formales (adolescencia) aparece el pensamiento abstracto y lógico formal",
+      "fuente": "banco-preguntas-psicologia.json"
+    },
+    {
+      "id": "mat_001",
+      "pregunta": "¿Cuál es el siguiente número en la secuencia: 2, 4, 8, 16, ...?",
+      "respuesta_correcta": "32",
+      "explicacion": "Es una secuencia de potencias de 2: 2¹=2, 2²=4, 2³=8, 2⁴=16, por lo tanto el siguiente es 2⁵=32",
+      "fuente": "examen-psicometrico-completo-2024.json"
+    },
+    {
+      "id": "mat_002",
+      "pregunta": "Si 3 manzanas cuestan $15, ¿cuánto cuestan 7 manzanas?",
+      "respuesta_correcta": "$35",
+      "explicacion": "Si 3 manzanas = $15, entonces 1 manzana = $15 ÷ 3 = $5. Por lo tanto 7 manzanas = 7 × $5 = $35",
+      "fuente": "examen-psicometrico-completo-2024.json"
+    },
+    {
+      "id": "mat_003",
+      "pregunta": "En una clase hay 30 estudiantes. Si el 40% son mujeres, ¿cuántos hombres hay?",
+      "respuesta_correcta": "18",
+      "explicacion": "40% de 30 = 0.4 × 30 = 12 mujeres. Por lo tanto hombres = 30 - 12 = 18",
+      "fuente": "examen-psicometrico-completo-2024.json"
+    },
+    {
+      "id": "mat_004",
+      "pregunta": "Si x + 3 = 7, entonces x = ?",
+      "respuesta_correcta": "4",
+      "explicacion": "Despejando x: x = 7 - 3 = 4",
+      "fuente": "examen-psicometrico-completo-2024.json"
+    },
+    {
+      "id": "mat_005",
+      "pregunta": "Un triángulo tiene lados de 3cm, 4cm y 5cm. ¿Qué tipo de triángulo es?",
+      "respuesta_correcta": "Rectángulo",
+      "explicacion": "Triángulo rectángulo porque cumple el teorema de Pitágoras: 3² + 4² = 5² (9 + 16 = 25)",
+      "fuente": "examen-psicometrico-completo-2024.json"
+    },
+    {
+      "id": "mat_006",
+      "pregunta": "¿Cuál es el área de un círculo con radio 5 cm? (Usa π ≈ 3.14)",
+      "respuesta_correcta": "78.5 cm²",
+      "explicacion": "Área = π × r² = 3.14 × 25 = 78.5 cm²",
+      "fuente": "examen-psicometrico-completo-2024.json"
+    },
+    {
+      "id": "mat_007",
+      "pregunta": "Si 2x + 5 = 13, ¿cuál es el valor de x?",
+      "respuesta_correcta": "4",
+      "explicacion": "2x = 13 - 5 = 8, por lo tanto x = 8 ÷ 2 = 4",
+      "fuente": "examen-psicometrico-completo-2024.json"
+    },
+    {
+      "id": "mat_008",
+      "pregunta": "En una urna hay 5 bolas rojas y 3 azules. ¿Cuál es la probabilidad de sacar una bola roja?",
+      "respuesta_correcta": "5/8",
+      "explicacion": "Probabilidad = bolas rojas ÷ total bolas = 5 ÷ (5+3) = 5/8",
+      "fuente": "examen-psicometrico-completo-2024.json"
+    },
+    {
+      "id": "mat_009",
+      "pregunta": "¿Cuál es el perímetro de un cuadrado con lado de 6 cm?",
+      "respuesta_correcta": "24 cm",
+      "explicacion": "Perímetro = 4 × lado = 4 × 6 = 24 cm",
+      "fuente": "examen-psicometrico-completo-2024.json"
+    },
+    {
+      "id": "mat_010",
+      "pregunta": "Si gasto $120 en 3 meses, ¿cuánto gasto por mes en promedio?",
+      "respuesta_correcta": "$40",
+      "explicacion": "$120 ÷ 3 meses = $40 por mes",
+      "fuente": "examen-psicometrico-completo-2024.json"
+    },
+    {
+      "id": "lect_001",
+      "pregunta": "¿Cuál es el objetivo principal de la psicología según el texto?",
+      "respuesta_correcta": "Explicar, predecir y modificar conductas",
+      "explicacion": "El texto menciona explícitamente 'explicar, predecir y modificar conductas' como objetivos principales",
+      "fuente": "examen-psicometrico-completo-2024.json"
+    },
+    {
+      "id": "lect_002",
+      "pregunta": "¿Qué función NO se atribuye al cerebro según el texto?",
+      "respuesta_correcta": "Digestión",
+      "explicacion": "El texto menciona pensamiento, emociones y funciones voluntarias, pero no digestión",
+      "fuente": "examen-psicometrico-completo-2024.json"
+    },
+    {
+      "id": "lect_003",
+      "pregunta": "Según el texto, ¿cuál es la diferencia principal entre motivación intrínseca y extrínseca?",
+      "respuesta_correcta": "La intrínseca viene de adentro, la extrínseca de afuera",
+      "explicacion": "El texto explica que la intrínseca es 'interna' y la extrínseca es 'externa'",
+      "fuente": "examen-psicometrico-completo-2024.json"
+    },
+    {
+      "id": "verb_001",
+      "pregunta": "Completa la analogía: Médico : Enfermedad :: Psicólogo : _______",
+      "respuesta_correcta": "Comportamiento",
+      "explicacion": "El médico trata enfermedades, el psicólogo trata problemas de comportamiento y salud mental",
+      "fuente": "examen-psicometrico-completo-2024.json"
+    },
+    {
+      "id": "verb_002",
+      "pregunta": "¿Cuál de las siguientes palabras es sinónimo de 'efímero'?",
+      "respuesta_correcta": "Temporal",
+      "explicacion": "'Efímero' significa de corta duración, por lo tanto temporal",
+      "fuente": "examen-psicometrico-completo-2024.json"
+    },
+    {
+      "id": "verb_003",
+      "pregunta": "Identifica el error en la siguiente oración: 'El psicólogo les explicó a sus pacientes que el comportamiento humano es influenciado por factores biológicos, psicológicos y sociales.'",
+      "respuesta_correcta": "No hay error",
+      "explicacion": "La oración está gramaticalmente correcta",
+      "fuente": "examen-psicometrico-completo-2024.json"
+    }
+  ]
+}

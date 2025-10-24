@@ -1,5 +1,8 @@
 // src/app/dashboard/page.tsx
 'use client';
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';

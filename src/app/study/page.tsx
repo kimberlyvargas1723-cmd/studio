@@ -1,5 +1,8 @@
 // src/app/study/page.tsx
 'use client';
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+
 
 import { Header } from '@/components/header';
 import { StudyContentContainer } from '@/components/study-content-container';

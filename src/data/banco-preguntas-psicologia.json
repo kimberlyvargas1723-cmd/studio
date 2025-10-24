@@ -1,0 +1,249 @@
+// src/data/banco-preguntas-psicologia.json
+{
+  "titulo": "Banco de Preguntas - Psicología UANL",
+  "descripcion": "Colección de preguntas basadas en el temario oficial EXANI-II",
+  "version": "1.0",
+  "ultima_actualizacion": "2025-01-21",
+  "temas": [
+    {
+      "titulo": "Sistema Nervioso",
+      "subtitulo": "Bases biopsicosociales de la conducta",
+      "preguntas": [
+        {
+          "id": "sn_001",
+          "pregunta": "¿Cuál es la función principal de las neuronas?",
+          "opciones": [
+            "Almacenar energía",
+            "Transmitir información nerviosa",
+            "Regular la temperatura corporal",
+            "Producir hormonas"
+          ],
+          "respuesta_correcta": 1,
+          "dificultad": "basico",
+          "explicacion": "Las neuronas son células especializadas en recibir, procesar y transmitir información nerviosa"
+        },
+        {
+          "id": "sn_002",
+          "pregunta": "¿Qué estructura del sistema nervioso central coordina el movimiento y el equilibrio?",
+          "opciones": [
+            "Tálamo",
+            "Hipotálamo",
+            "Cerebelo",
+            "Amígdala"
+          ],
+          "respuesta_correcta": 2,
+          "dificultad": "intermedio",
+          "explicacion": "El cerebelo coordina los movimientos voluntarios, mantiene el equilibrio y la postura"
+        },
+        {
+          "id": "sn_003",
+          "pregunta": "¿Cuál es la diferencia entre sistema nervioso central y periférico?",
+          "opciones": [
+            "El central controla funciones voluntarias, el periférico las involuntarias",
+            "El central incluye encéfalo y médula, el periférico nervios craneales y espinales",
+            "El central procesa información, el periférico la transmite",
+            "El central es interno, el periférico externo"
+          ],
+          "respuesta_correcta": 1,
+          "dificultad": "basico",
+          "explicacion": "SNC: encéfalo y médula espinal. SNP: nervios craneales, espinales y sistema nervioso autónomo"
+        }
+      ]
+    },
+    {
+      "titulo": "Sistema Endócrino",
+      "subtitulo": "Bases biopsicosociales de la conducta",
+      "preguntas": [
+        {
+          "id": "se_001",
+          "pregunta": "¿Qué glándula se conoce como la 'glándula maestra' del sistema endocrino?",
+          "opciones": [
+            "Tiroides",
+            "Hipófisis",
+            "Páncreas",
+            "Suprarrenal"
+          ],
+          "respuesta_correcta": 1,
+          "dificultad": "basico",
+          "explicacion": "La hipófisis regula otras glándulas endocrinas y produce varias hormonas importantes"
+        },
+        {
+          "id": "se_002",
+          "pregunta": "¿Qué hormona produce la glándula tiroides y regula el metabolismo?",
+          "opciones": [
+            "Insulina",
+            "Adrenalina",
+            "Tiroxina (T4)",
+            "Testosterona"
+          ],
+          "respuesta_correcta": 2,
+          "dificultad": "basico",
+          "explicacion": "La tiroxina (T4) y triyodotironina (T3) regulan el metabolismo basal del cuerpo"
+        }
+      ]
+    },
+    {
+      "titulo": "Procesos Psicológicos",
+      "subtitulo": "Bases biopsicosociales de la conducta",
+      "preguntas": [
+        {
+          "id": "pp_001",
+          "pregunta": "¿Qué tipo de memoria tiene mayor capacidad pero duración muy corta?",
+          "opciones": [
+            "Memoria sensorial",
+            "Memoria a corto plazo",
+            "Memoria episódica",
+            "Memoria semántica"
+          ],
+          "respuesta_correcta": 0,
+          "dificultad": "intermedio",
+          "explicacion": "La memoria sensorial tiene gran capacidad pero duración de milisegundos a segundos"
+        },
+        {
+          "id": "pp_002",
+          "pregunta": "¿Cuál es la capacidad típica de la memoria de trabajo según Miller?",
+          "opciones": [
+            "3 ± 1 elementos",
+            "5 ± 2 elementos",
+            "7 ± 2 elementos",
+            "9 ± 3 elementos"
+          ],
+          "respuesta_correcta": 2,
+          "dificultad": "intermedio",
+          "explicacion": "George Miller propuso que la memoria de trabajo tiene capacidad de 7 ± 2 elementos (chunks)"
+        },
+        {
+          "id": "pp_003",
+          "pregunta": "¿Qué estilo de aprendizaje prefiere aprender mediante la escucha y discusión?",
+          "opciones": [
+            "Visual",
+            "Auditivo",
+            "Cinestésico",
+            "Lectura/escritura"
+          ],
+          "respuesta_correcta": 1,
+          "dificultad": "basico",
+          "explicacion": "Los estudiantes auditivos aprenden mejor mediante conferencias, discusiones y grabaciones de audio"
+        }
+      ]
+    },
+    {
+      "titulo": "Condicionamiento Clásico",
+      "subtitulo": "Corrientes psicológicas",
+      "preguntas": [
+        {
+          "id": "cc_001",
+          "pregunta": "En el experimento de Pavlov, ¿qué estímulo inicialmente no provocaba respuesta salival?",
+          "opciones": [
+            "La comida",
+            "La campanilla",
+            "El perro",
+            "El experimentador"
+          ],
+          "respuesta_correcta": 1,
+          "dificultad": "basico",
+          "explicacion": "La campanilla era un estímulo neutro que, después del condicionamiento, provocaba salivación"
+        },
+        {
+          "id": "cc_002",
+          "pregunta": "¿Qué concepto describe cuando un estímulo condicionado pierde su capacidad de provocar respuesta?",
+          "opciones": [
+            "Condicionamiento",
+            "Generalización",
+            "Discriminación",
+            "Extinción"
+          ],
+          "respuesta_correcta": 3,
+          "dificultad": "basico",
+          "explicacion": "La extinción ocurre cuando el estímulo condicionado se presenta repetidamente sin el incondicionado"
+        }
+      ]
+    },
+    {
+      "titulo": "Condicionamiento Operante",
+      "subtitulo": "Corrientes psicológicas",
+      "preguntas": [
+        {
+          "id": "co_001",
+          "pregunta": "¿Qué tipo de refuerzo ocurre cuando se retira un estímulo aversivo?",
+          "opciones": [
+            "Refuerzo positivo",
+            "Refuerzo negativo",
+            "Castigo positivo",
+            "Castigo negativo"
+          ],
+          "respuesta_correcta": 1,
+          "dificultad": "intermedio",
+          "explicacion": "El refuerzo negativo aumenta la conducta al retirar un estímulo desagradable"
+        },
+        {
+          "id": "co_002",
+          "pregunta": "¿Qué programa de refuerzo produce respuestas más resistentes a la extinción?",
+          "opciones": [
+            "Refuerzo continuo",
+            "Refuerzo fijo",
+            "Refuerzo variable",
+            "Refuerzo intermitente"
+          ],
+          "respuesta_correcta": 2,
+          "dificultad": "avanzado",
+          "explicacion": "El refuerzo variable (ratio o intervalo) produce conductas más persistentes y resistentes a la extinción"
+        }
+      ]
+    },
+    {
+      "titulo": "Teoría de Freud",
+      "subtitulo": "Corrientes psicológicas",
+      "preguntas": [
+        {
+          "id": "freud_001",
+          "pregunta": "¿Según Freud, qué instancia de la personalidad opera según el principio del placer?",
+          "opciones": [
+            "Ello",
+            "Yo",
+            "Superyó",
+            "Ideal del yo"
+          ],
+          "respuesta_correcta": 0,
+          "dificultad": "intermedio",
+          "explicacion": "El ello opera según el principio del placer, buscando gratificación inmediata de impulsos instintivos"
+        },
+        {
+          "id": "freud_002",
+          "pregunta": "¿Qué etapa del desarrollo psicosexual ocurre entre los 3-6 años según Freud?",
+          "opciones": [
+            "Oral",
+            "Anal",
+            "Fálica",
+            "Latencia"
+          ],
+          "respuesta_correcta": 2,
+          "dificultad": "intermedio",
+          "explicacion": "La etapa fálica se caracteriza por el complejo de Edipo/ Electra y conflicto con figuras parentales"
+        }
+      ]
+    },
+    {
+      "titulo": "Teoría de Piaget",
+      "subtitulo": "Corrientes psicológicas",
+      "preguntas": [
+        {
+          "id": "piaget_001",
+          "pregunta": "¿En qué etapa del desarrollo cognitivo según Piaget aparece el pensamiento lógico formal?",
+          "opciones": [
+            "Sensoriomotora",
+            "Preoperacional",
+            "Operacional concreta",
+            "Operacional formal"
+          ],
+          "respuesta_correcta": 3,
+          "dificultad": "intermedio",
+          "explicacion": "En la etapa de operaciones formales (adolescencia) aparece el pensamiento abstracto y lógico formal"
+        }
+      ]
+    }
+  ],
+  "fuente": "Basado en temario oficial EXANI-II y recursos de Pasatuexam, Unitips, Unibetas",
+  "total_preguntas": 17,
+  "notas": "Este banco de preguntas es una muestra representativa. El examen real contiene más preguntas y puede variar."
+}

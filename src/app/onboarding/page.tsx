@@ -1,5 +1,8 @@
 // src/app/onboarding/page.tsx
 'use client';
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { BrainCircuit } from 'lucide-react';

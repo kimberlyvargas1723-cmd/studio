@@ -1,0 +1,508 @@
+{
+  "titulo": "Información Completa - Admisión Psicología UANL 2024",
+  "descripcion": "Información completa y actualizada sobre el proceso de admisión a la licenciatura en Psicología UANL, incluyendo fechas, requisitos, exámenes y consejos de preparación.",
+  "fecha_actualizacion": "2024-10-21",
+  "periodo": "2024-2025",
+  "fuentes": [
+    {
+      "titulo": "Sitio Oficial UANL - Facultad de Psicología",
+      "url": "https://psicologia.uanl.mx/",
+      "tipo": "Oficial"
+    },
+    {
+      "titulo": "Concurso de Ingreso UANL",
+      "url": "https://psicologia.uanl.mx/tramites/concurso-de-ingreso-a-licenciatura/",
+      "tipo": "Oficial"
+    },
+    {
+      "titulo": "Guía EXANI-II",
+      "url": "https://psicologia.uanl.mx/tramites/guia-para-el-examen-psicometrico/",
+      "tipo": "Oficial"
+    }
+  ],
+  "fechas_importantes": {
+    "registro_concurso": {
+      "inicio": "2024-11-01",
+      "fin": "2024-11-30",
+      "descripcion": "Periodo para registrarse al concurso de ingreso"
+    },
+    "examen_psicometrico": {
+      "fecha": "2024-12-15",
+      "horario": "9:00 - 12:00",
+      "duracion": 180,
+      "descripcion": "Examen psicométrico en línea"
+    },
+    "examen_conocimientos": {
+      "fecha": "2025-01-15",
+      "horario": "9:00 - 12:30",
+      "duracion": 210,
+      "descripcion": "Examen de conocimientos específicos"
+    },
+    "publicacion_resultados": {
+      "fecha": "2025-02-15",
+      "descripcion": "Publicación de resultados preliminares"
+    },
+    "entrevista": {
+      "inicio": "2025-02-20",
+      "fin": "2025-02-28",
+      "descripcion": "Entrevistas con aspirantes seleccionados"
+    },
+    "inicio_clases": {
+      "fecha": "2025-08-18",
+      "descripcion": "Inicio del ciclo escolar 2025-2026"
+    }
+  },
+  "requisitos_ingreso": {
+    "academicos": [
+      {
+        "titulo": "Bachillerato concluido",
+        "descripcion": "Certificado de bachillerato o constancia de terminación",
+        "tipo": "Obligatorio"
+      },
+      {
+        "titulo": "Promedio mínimo",
+        "descripcion": "Promedio general mínimo de 8.0 en bachillerato",
+        "tipo": "Obligatorio"
+      },
+      {
+        "titulo": "Materias relacionadas",
+        "descripcion": "Preferentemente con materias de ciencias sociales, biología o psicología",
+        "tipo": "Recomendado"
+      }
+    ],
+    "documentos": [
+      {
+        "titulo": "Acta de nacimiento",
+        "descripcion": "Original y copia certificada",
+        "tipo": "Obligatorio"
+      },
+      {
+        "titulo": "Certificado bachillerato",
+        "descripcion": "Original y copia certificada",
+        "tipo": "Obligatorio"
+      },
+      {
+        "titulo": "CURP",
+        "descripcion": "Clave Única de Registro de Población",
+        "tipo": "Obligatorio"
+      },
+      {
+        "titulo": "Fotografía",
+        "descripcion": "Tamaño infantil, fondo blanco, rostro serio",
+        "tipo": "Obligatorio"
+      },
+      {
+        "titulo": "Comprobante pago",
+        "descripcion": "Pago de derechos de admisión ($2,500 MXN aproximadamente)",
+        "tipo": "Obligatorio"
+      }
+    ],
+    "especificos_carrera": [
+      {
+        "titulo": "Interés en psicología",
+        "descripcion": "Motivación por ayudar a las personas y comprender la conducta humana",
+        "tipo": "Recomendado"
+      },
+      {
+        "titulo": "Habilidades blandas",
+        "descripcion": "Empatía, paciencia, capacidad de análisis y comunicación",
+        "tipo": "Recomendado"
+      },
+      {
+        "titulo": "Conocimientos previos",
+        "descripcion": "Conocimientos básicos de biología, sociología o filosofía",
+        "tipo": "Recomendado"
+      }
+    ]
+  },
+  "examenes": {
+    "psicometrico": {
+      "titulo": "Examen Psicométrico",
+      "descripcion": "Evalúa aptitudes básicas en razonamiento matemático, comprensión lectora y razonamiento verbal",
+      "duracion_minutos": 180,
+      "numero_preguntas": 120,
+      "secciones": [
+        {
+          "titulo": "Razonamiento Matemático",
+          "descripcion": "Problemas numéricos, algebraicos y geométricos",
+          "preguntas": 40,
+          "tiempo_estimado": 60
+        },
+        {
+          "titulo": "Comprensión Lectora",
+          "descripcion": "Análisis y comprensión de textos",
+          "preguntas": 40,
+          "tiempo_estimado": 60
+        },
+        {
+          "titulo": "Razonamiento Verbal",
+          "descripcion": "Analogías, sinónimos, antónimos y lógica verbal",
+          "preguntas": 40,
+          "tiempo_estimado": 60
+        }
+      ],
+      "modalidad": "En línea supervisado",
+      "plataforma": "CAMPUS UANL",
+      "requisitos_tecnicos": [
+        "Computadora con webcam",
+        "Conexión a internet estable",
+        "Navegador Chrome o Firefox actualizado",
+        "Ambiente silencioso y bien iluminado",
+        "Sin otras personas en la habitación"
+      ],
+      "consejos": [
+        "Practica con ejercicios similares disponibles en PDFs oficiales",
+        "Toma exámenes simulados con tiempo límite",
+        "Descansa bien la noche anterior",
+        "Llega temprano a tu cita",
+        "Mantén la calma durante el examen"
+      ]
+    },
+    "conocimientos": {
+      "titulo": "Examen de Conocimientos Específicos",
+      "descripcion": "Evalúa conocimientos en Psicología y Ciencias de la Salud",
+      "duracion_minutos": 210,
+      "numero_preguntas": 120,
+      "modulos": [
+        {
+          "titulo": "Psicología",
+          "descripcion": "Bases biopsicosociales de la conducta",
+          "preguntas": 60,
+          "tiempo": 90,
+          "temas": [
+            "Sistema nervioso",
+            "Sistema endócrino",
+            "Procesos psicológicos",
+            "Corrientes psicológicas",
+            "Motivación y emoción",
+            "Áreas de especialización"
+          ]
+        },
+        {
+          "titulo": "Ciencias de la Salud",
+          "descripcion": "Anatomía, fisiología y primeros auxilios",
+          "preguntas": 60,
+          "tiempo": 120,
+          "temas": [
+            "Anatomía y fisiología humana",
+            "Microbiología básica",
+            "Primeros auxilios",
+            "Prevención de enfermedades"
+          ]
+        }
+      ],
+      "modalidad": "Presencial en campus",
+      "ubicacion": "Facultad de Psicología UANL",
+      "formato": "Selección múltiple (4 opciones)",
+      "puntuacion": {
+        "minima_aprobatoria": 70,
+        "maxima_posible": 100,
+        "sin_penalizacion": true
+      }
+    }
+  },
+  "temario_completo": {
+    "psicologia": {
+      "titulo": "Módulo de Psicología",
+      "subtemas": [
+        {
+          "titulo": "Sistema Nervioso",
+          "contenido": [
+            "Neuronas y sinapsis",
+            "Sistema nervioso central vs periférico",
+            "Funciones de las principales estructuras cerebrales",
+            "Sistema nervioso autónomo"
+          ],
+          "dificultad": "Media",
+          "prioridad": "Alta"
+        },
+        {
+          "titulo": "Sistema Endócrino",
+          "contenido": [
+            "Glándulas endocrinas principales",
+            "Hormonas y sus funciones",
+            "Relación entre sistema nervioso y endocrino",
+            "Efectos hormonales en la conducta"
+          ],
+          "dificultad": "Media",
+          "prioridad": "Alta"
+        },
+        {
+          "titulo": "Procesos Psicológicos",
+          "contenido": [
+            "Memoria: tipos y procesos",
+            "Atención y percepción",
+            "Aprendizaje: teorías y mecanismos",
+            "Pensamiento y resolución de problemas",
+            "Estilos de aprendizaje"
+          ],
+          "dificultad": "Media",
+          "prioridad": "Alta"
+        },
+        {
+          "titulo": "Corrientes Psicológicas",
+          "contenido": [
+            "Conductismo: Pavlov y Skinner",
+            "Psicoanálisis: Freud",
+            "Cognitivismo: Piaget",
+            "Humanismo: Maslow y Rogers",
+            "Comparación entre corrientes"
+          ],
+          "dificultad": "Alta",
+          "prioridad": "Alta"
+        },
+        {
+          "titulo": "Motivación y Emoción",
+          "contenido": [
+            "Teorías de la motivación",
+            "Componentes de la emoción",
+            "Regulación emocional",
+            "Motivación intrínseca vs extrínseca"
+          ],
+          "dificultad": "Media",
+          "prioridad": "Media"
+        },
+        {
+          "titulo": "Áreas de Especialización",
+          "contenido": [
+            "Psicología clínica",
+            "Psicología educativa",
+            "Psicología organizacional",
+            "Psicología forense",
+            "Otras especialidades"
+          ],
+          "dificultad": "Baja",
+          "prioridad": "Media"
+        }
+      ]
+    },
+    "ciencias_salud": {
+      "titulo": "Módulo de Ciencias de la Salud",
+      "subtemas": [
+        {
+          "titulo": "Anatomía y Fisiología",
+          "contenido": [
+            "Sistemas del cuerpo humano",
+            "Funciones de órganos principales",
+            "Sistema circulatorio y respiratorio",
+            "Sistema nervioso básico"
+          ],
+          "dificultad": "Media",
+          "prioridad": "Alta"
+        },
+        {
+          "titulo": "Microbiología",
+          "contenido": [
+            "Tipos de microorganismos",
+            "Bacterias y virus principales",
+            "Enfermedades infecciosas comunes",
+            "Prevención de infecciones"
+          ],
+          "dificultad": "Media",
+          "prioridad": "Media"
+        },
+        {
+          "titulo": "Primeros Auxilios",
+          "contenido": [
+            "Valoración inicial del paciente",
+            "Reanimación cardiopulmonar (RCP)",
+            "Control de hemorragias",
+            "Atención de quemaduras",
+            "Posición de recuperación"
+          ],
+          "dificultad": "Baja",
+          "prioridad": "Alta"
+        }
+      ]
+    }
+  },
+  "consejos_preparacion": {
+    "plan_estudio": {
+      "duracion_meses": 4,
+      "horas_semanales": 20,
+      "fases": [
+        {
+          "titulo": "Fase 1: Bases (Meses 1-2)",
+          "objetivos": [
+            "Estudiar temario básico de psicología",
+            "Familiarizarse con conceptos biológicos",
+            "Practicar ejercicios matemáticos básicos"
+          ],
+          "actividades": [
+            "Leer temario oficial EXANI-II",
+            "Ver videos explicativos en YouTube",
+            "Resolver ejercicios de matemáticas"
+          ]
+        },
+        {
+          "titulo": "Fase 2: Profundización (Mes 2-3)",
+          "objetivos": [
+            "Dominar corrientes psicológicas",
+            "Entender procesos neurológicos y endocrinos",
+            "Practicar comprensión lectora"
+          ],
+          "actividades": [
+            "Estudiar cada corriente psicológica detalladamente",
+            "Hacer mapas mentales de temas complejos",
+            "Leer textos diversos para mejorar comprensión"
+          ]
+        },
+        {
+          "titulo": "Fase 3: Práctica (Mes 3-4)",
+          "objetivos": [
+            "Resolver exámenes simulados completos",
+            "Identificar áreas débiles",
+            "Mejorar velocidad y precisión"
+          ],
+          "actividades": [
+            "Tomar exámenes psicométricos simulados",
+            "Resolver preguntas de conocimientos",
+            "Analizar errores y repasar temas débiles"
+          ]
+        }
+      ]
+    },
+    "tecnicas_estudio": [
+      {
+        "titulo": "Método Feynman",
+        "descripcion": "Explica conceptos complejos con palabras simples como si enseñaras a un niño",
+        "beneficio": "Mejora comprensión profunda"
+      },
+      {
+        "titulo": "Repetición Espaciada",
+        "descripcion": "Repasa temas en intervalos crecientes (1 día, 3 días, 1 semana, 1 mes)",
+        "beneficio": "Mejora retención a largo plazo"
+      },
+      {
+        "titulo": "Mapas Mentales",
+        "descripcion": "Organiza información visualmente conectando conceptos",
+        "beneficio": "Facilita comprensión de relaciones complejas"
+      },
+      {
+        "titulo": "Práctica Activa",
+        "descripcion": "Resuelve problemas y explica conceptos sin ver respuestas",
+        "beneficio": "Mejora aplicación práctica"
+      }
+    ],
+    "recursos_gratuitos": [
+      {
+        "titulo": "PDFs Oficiales UANL",
+        "descripcion": "Exámenes psicométricos y temario oficial",
+        "url": "https://psicologia.uanl.mx/",
+        "tipo": "Documentos oficiales"
+      },
+      {
+        "titulo": "Pasatuexam",
+        "descripcion": "Explicaciones detalladas por tema",
+        "url": "https://pasatuexam.mx/exani-ii/modulos-especificos/psicologia/",
+        "tipo": "Plataforma educativa"
+      },
+      {
+        "titulo": "Biblioteca UANL",
+        "descripcion": "Libros de psicología básica",
+        "url": "https://www.uanl.mx/biblioteca/",
+        "tipo": "Acceso físico gratuito"
+      },
+      {
+        "titulo": "Khan Academy",
+        "descripcion": "Cursos gratuitos de psicología básica",
+        "url": "https://www.khanacademy.org/",
+        "tipo": "Cursos en línea"
+      }
+    ],
+    "errores_comunes": [
+      {
+        "error": "Estudiar solo temas favoritos",
+        "solucion": "Repasar todas las áreas del temario, especialmente las débiles"
+      },
+      {
+        "error": "Dejar todo para última hora",
+        "solucion": "Crear un plan de estudio realista con tiempo suficiente"
+      },
+      {
+        "error": "No practicar con tiempo límite",
+        "solucion": "Tomar exámenes simulados completos regularmente"
+      },
+      {
+        "error": "No revisar errores",
+        "solucion": "Analizar cada error y entender por qué fallaste"
+      }
+    ]
+  },
+  "proceso_post_examen": {
+    "publicacion_resultados": {
+      "fecha_estimada": "2025-02-15",
+      "como_consultar": "Sitio web oficial de la facultad",
+      "informacion": "Resultados preliminares con puntajes"
+    },
+    "entrevistas": {
+      "cuando": "Febrero 2025",
+      "para_quien": "Aspirantes con puntuación aprobatoria",
+      "objetivo": "Evaluar motivación e interés por la carrera",
+      "duracion": "15-20 minutos",
+      "consejos": [
+        "Investiga sobre la carrera antes de la entrevista",
+        "Prepara por qué quieres estudiar psicología",
+        "Sé honesto sobre tus intereses y expectativas",
+        "Demuestra empatía y capacidad de análisis"
+      ]
+    },
+    "matricula": {
+      "fecha_limite": "2025-07-31",
+      "requisitos": [
+        "Aprobar ambos exámenes",
+        "Pasar la entrevista",
+        "Presentar documentación completa",
+        "Pagar derechos de inscripción"
+      ],
+      "costo_aproximado": "Entre $15,000 y $20,000 MXN por semestre"
+    }
+  },
+  "estadisticas_carrera": {
+    "duracion": "8 semestres (4 años)",
+    "creditos_totales": 320,
+    "modalidad": "Presencial",
+    "horario": "Matutino y vespertino",
+    "cupo_anual": "Aproximadamente 80 estudiantes",
+    "demanda_laboral": "Alta - múltiples especialidades",
+    "salario_promedio_egresado": "$12,000 - $18,000 MXN mensuales",
+    "areas_laborales": [
+      "Clínicas y hospitales",
+      "Escuelas y universidades",
+      "Empresas privadas",
+      "Consultoría independiente",
+      "Investigación académica",
+      "ONGs y organizaciones sociales"
+    ]
+  },
+  "contacto": {
+    "facultad": {
+      "nombre": "Facultad de Psicología - UANL",
+      "direccion": "Av. Universidad s/n, Ciudad Universitaria, San Nicolás de los Garza, NL",
+      "telefono": "(81) 8329 4000 ext. 5000",
+      "email": "psicologia@uanl.edu.mx",
+      "sitio_web": "https://psicologia.uanl.mx/"
+    },
+    "admisiones": {
+      "email": "admisiones.psicologia@uanl.edu.mx",
+      "telefono": "(81) 8329 4000 ext. 5100",
+      "horario_atencion": "Lunes a viernes, 8:00 - 16:00"
+    },
+    "orientacion": {
+      "email": "orientacion@uanl.edu.mx",
+      "telefono": "(81) 8329 4000 ext. 3000",
+      "servicios": [
+        "Asesoría vocacional",
+        "Información sobre carreras",
+        "Apoyo psicológico para aspirantes"
+      ]
+    }
+  },
+  "notas_importantes": [
+    "Las fechas pueden variar ligeramente, siempre consulta el sitio oficial",
+    "Los requisitos pueden cambiar, verifica antes de iniciar el proceso",
+    "La carrera requiere vocación para ayudar a las personas",
+    "Es importante tener conocimientos básicos de biología y matemáticas",
+    "La UANL ofrece becas y apoyos económicos para estudiantes destacados"
+  ]
+}

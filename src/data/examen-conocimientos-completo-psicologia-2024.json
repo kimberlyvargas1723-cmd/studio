@@ -1,0 +1,491 @@
+{
+  "titulo": "Examen de Conocimientos Específicos - Psicología UANL 2024",
+  "descripcion": "Examen completo de conocimientos específicos para ingreso a licenciatura en Psicología UANL. Basado en el temario oficial EXANI-II disponible en https://www.uanl.mx/wp-content/uploads/2022/09/Modulos-especificos-del-EXANI-II_Psicologia-1-1.pdf",
+  "fecha": "2024",
+  "tipo": "conocimientos_especificos",
+  "modulos": [
+    {
+      "titulo": "Psicología",
+      "descripcion": "Módulo específico de Psicología - Bases biopsicosociales de la conducta",
+      "tiempo_minutos": 90,
+      "numero_preguntas": 30,
+      "subtemas": [
+        "Sistema nervioso",
+        "Sistema endócrino",
+        "Procesos psicológicos",
+        "Motivación, emoción y personalidad",
+        "Etapa precientífica",
+        "Corrientes psicológicas",
+        "Áreas de especialización"
+      ],
+      "preguntas": [
+        {
+          "id": "psi_001",
+          "numero": 1,
+          "subtema": "Sistema Nervioso",
+          "pregunta": "¿Cuál es la función principal del sistema nervioso central?",
+          "opciones": [
+            "Controlar la respiración y el ritmo cardíaco",
+            "Procesar información y coordinar respuestas",
+            "Regular el metabolismo corporal",
+            "Controlar la temperatura corporal"
+          ],
+          "respuesta_correcta": 1,
+          "explicacion": "El SNC está formado por el encéfalo y la médula espinal, procesa información sensorial y coordina respuestas motoras y cognitivas.",
+          "dificultad": "basico",
+          "referencia": "Temario oficial EXANI-II - Bases biopsicosociales"
+        },
+        {
+          "id": "psi_002",
+          "numero": 2,
+          "subtema": "Sistema Nervioso",
+          "pregunta": "¿Qué estructura del sistema nervioso central coordina el movimiento y el equilibrio?",
+          "opciones": [
+            "Tálamo",
+            "Hipotálamo",
+            "Cerebelo",
+            "Amígdala"
+          ],
+          "respuesta_correcta": 2,
+          "explicacion": "El cerebelo coordina los movimientos voluntarios, mantiene el equilibrio y la postura corporal.",
+          "dificultad": "intermedio",
+          "referencia": "Temario oficial EXANI-II - Sistema nervioso"
+        },
+        {
+          "id": "psi_003",
+          "numero": 3,
+          "subtema": "Sistema Nervioso",
+          "pregunta": "¿Cuál es la diferencia entre sistema nervioso central y periférico?",
+          "opciones": [
+            "El central controla funciones voluntarias, el periférico las involuntarias",
+            "El central incluye encéfalo y médula, el periférico nervios craneales y espinales",
+            "El central procesa información, el periférico la transmite",
+            "El central es interno, el periférico externo"
+          ],
+          "respuesta_correcta": 1,
+          "explicacion": "SNC: encéfalo y médula espinal. SNP: nervios craneales (12 pares), espinales (31 pares) y sistema nervioso autónomo.",
+          "dificultad": "basico",
+          "referencia": "Temario oficial EXANI-II - Estructura del sistema nervioso"
+        },
+        {
+          "id": "psi_004",
+          "numero": 4,
+          "subtema": "Sistema Endócrino",
+          "pregunta": "¿Qué glándula se conoce como la 'glándula maestra' del sistema endocrino?",
+          "opciones": [
+            "Tiroides",
+            "Hipófisis",
+            "Páncreas",
+            "Suprarrenal"
+          ],
+          "respuesta_correcta": 1,
+          "explicacion": "La hipófisis regula otras glándulas endocrinas y produce varias hormonas importantes como el ACTH, TSH, FSH, LH, GH y prolactina.",
+          "dificultad": "basico",
+          "referencia": "Temario oficial EXANI-II - Sistema endócrino"
+        },
+        {
+          "id": "psi_005",
+          "numero": 5,
+          "subtema": "Sistema Endócrino",
+          "pregunta": "¿Qué hormona produce la glándula tiroides y regula el metabolismo?",
+          "opciones": [
+            "Insulina",
+            "Adrenalina",
+            "Tiroxina (T4)",
+            "Testosterona"
+          ],
+          "respuesta_correcta": 2,
+          "explicacion": "La glándula tiroides produce tiroxina (T4) y triyodotironina (T3), que regulan el metabolismo basal del cuerpo.",
+          "dificultad": "basico",
+          "referencia": "Temario oficial EXANI-II - Glándulas endocrinas"
+        },
+        {
+          "id": "psi_006",
+          "numero": 6,
+          "subtema": "Procesos Psicológicos",
+          "pregunta": "¿Qué tipo de memoria tiene mayor capacidad pero duración muy corta?",
+          "opciones": [
+            "Memoria sensorial",
+            "Memoria de trabajo",
+            "Memoria episódica",
+            "Memoria semántica"
+          ],
+          "respuesta_correcta": 0,
+          "explicacion": "La memoria sensorial tiene gran capacidad (todos los estímulos) pero duración de milisegundos a segundos.",
+          "dificultad": "intermedio",
+          "referencia": "Temario oficial EXANI-II - Procesos psicológicos"
+        },
+        {
+          "id": "psi_007",
+          "numero": 7,
+          "subtema": "Procesos Psicológicos",
+          "pregunta": "¿Cuál es la capacidad típica de la memoria de trabajo según Miller?",
+          "opciones": [
+            "3 ± 1 elementos",
+            "5 ± 2 elementos",
+            "7 ± 2 elementos",
+            "9 ± 3 elementos"
+          ],
+          "respuesta_correcta": 2,
+          "explicacion": "George Miller propuso que la memoria de trabajo tiene capacidad de 7 ± 2 elementos (chunks) en 1956.",
+          "dificultad": "intermedio",
+          "referencia": "Temario oficial EXANI-II - Memoria y aprendizaje"
+        },
+        {
+          "id": "psi_008",
+          "numero": 8,
+          "subtema": "Procesos Psicológicos",
+          "pregunta": "¿Qué estilo de aprendizaje prefiere el uso de diagramas y visuales?",
+          "opciones": [
+            "Auditivo",
+            "Visual",
+            "Cinestésico",
+            "Lectura/escritura"
+          ],
+          "respuesta_correcta": 1,
+          "explicacion": "Los estudiantes visuales aprenden mejor con diagramas, gráficos, mapas mentales y representaciones visuales.",
+          "dificultad": "basico",
+          "referencia": "Temario oficial EXANI-II - Estilos de aprendizaje"
+        },
+        {
+          "id": "psi_009",
+          "numero": 9,
+          "subtema": "Motivación, Emoción y Personalidad",
+          "pregunta": "¿Qué teoría explica la motivación como una jerarquía de necesidades?",
+          "opciones": [
+            "Teoría de la expectativa",
+            "Teoría de la equidad",
+            "Teoría de la jerarquía de necesidades de Maslow",
+            "Teoría de los dos factores"
+          ],
+          "respuesta_correcta": 2,
+          "explicacion": "Abraham Maslow propuso una jerarquía de necesidades desde las fisiológicas básicas hasta la autorrealización.",
+          "dificultad": "intermedio",
+          "referencia": "Temario oficial EXANI-II - Motivación y emoción"
+        },
+        {
+          "id": "psi_010",
+          "numero": 10,
+          "subtema": "Corrientes Psicológicas",
+          "pregunta": "El conductismo se centra en el estudio de:",
+          "opciones": [
+            "Los procesos inconscientes",
+            "La conducta observable",
+            "La estructura de la personalidad",
+            "El desarrollo cognitivo"
+          ],
+          "respuesta_correcta": 1,
+          "explicacion": "El conductismo, representado por Pavlov, Skinner y Watson, enfatiza el estudio de la conducta observable y medible.",
+          "dificultad": "basico",
+          "referencia": "Temario oficial EXANI-II - Corrientes psicológicas"
+        },
+        {
+          "id": "psi_011",
+          "numero": 11,
+          "subtema": "Corrientes Psicológicas",
+          "pregunta": "¿Qué concepto describe cuando un estímulo condicionado pierde su capacidad de provocar respuesta?",
+          "opciones": [
+            "Condicionamiento",
+            "Generalización",
+            "Discriminación",
+            "Extinción"
+          ],
+          "respuesta_correcta": 3,
+          "explicacion": "La extinción ocurre cuando el estímulo condicionado se presenta repetidamente sin el incondicionado.",
+          "dificultad": "intermedio",
+          "referencia": "Temario oficial EXANI-II - Condicionamiento clásico"
+        },
+        {
+          "id": "psi_012",
+          "numero": 12,
+          "subtema": "Corrientes Psicológicas",
+          "pregunta": "¿Qué tipo de refuerzo ocurre cuando se retira un estímulo aversivo?",
+          "opciones": [
+            "Refuerzo positivo",
+            "Refuerzo negativo",
+            "Castigo positivo",
+            "Castigo negativo"
+          ],
+          "respuesta_correcta": 1,
+          "explicacion": "El refuerzo negativo aumenta la conducta al retirar un estímulo desagradable (principio de alivio).",
+          "dificultad": "intermedio",
+          "referencia": "Temario oficial EXANI-II - Condicionamiento operante"
+        },
+        {
+          "id": "psi_013",
+          "numero": 13,
+          "subtema": "Corrientes Psicológicas",
+          "pregunta": "Según Freud, ¿qué instancia de la personalidad opera según el principio del placer?",
+          "opciones": [
+            "Ello",
+            "Yo",
+            "Superyó",
+            "Ideal del yo"
+          ],
+          "respuesta_correcta": 0,
+          "explicacion": "El ello opera según el principio del placer, buscando gratificación inmediata de impulsos instintivos.",
+          "dificultad": "intermedio",
+          "referencia": "Temario oficial EXANI-II - Teoría psicoanalítica"
+        },
+        {
+          "id": "psi_014",
+          "numero": 14,
+          "subtema": "Corrientes Psicológicas",
+          "pregunta": "¿Qué etapa del desarrollo psicosexual ocurre entre los 3-6 años según Freud?",
+          "opciones": [
+            "Oral",
+            "Anal",
+            "Fálica",
+            "Latencia"
+          ],
+          "respuesta_correcta": 2,
+          "explicacion": "La etapa fálica se caracteriza por el complejo de Edipo/Electra y conflicto con figuras parentales del sexo opuesto.",
+          "dificultad": "avanzado",
+          "referencia": "Temario oficial EXANI-II - Desarrollo psicosexual"
+        },
+        {
+          "id": "psi_015",
+          "numero": 15,
+          "subtema": "Corrientes Psicológicas",
+          "pregunta": "¿En qué etapa del desarrollo cognitivo según Piaget aparece el pensamiento lógico formal?",
+          "opciones": [
+            "Sensoriomotora",
+            "Preoperacional",
+            "Operacional concreta",
+            "Operacional formal"
+          ],
+          "respuesta_correcta": 3,
+          "explicacion": "En la etapa de operaciones formales (adolescencia) aparece el pensamiento abstracto, hipotético-deductivo y lógico formal.",
+          "dificultad": "avanzado",
+          "referencia": "Temario oficial EXANI-II - Desarrollo cognitivo"
+        },
+        {
+          "id": "psi_016",
+          "numero": 16,
+          "subtema": "Áreas de Especialización",
+          "pregunta": "¿Cuál es la función principal de un psicólogo clínico?",
+          "opciones": [
+            "Evaluar y tratar trastornos mentales",
+            "Mejorar el rendimiento laboral",
+            "Desarrollar programas educativos",
+            "Realizar investigaciones científicas"
+          ],
+          "respuesta_correcta": 0,
+          "explicacion": "Los psicólogos clínicos evalúan, diagnostican y tratan trastornos mentales y emocionales en individuos.",
+          "dificultad": "basico",
+          "referencia": "Temario oficial EXANI-II - Áreas de especialización"
+        },
+        {
+          "id": "psi_017",
+          "numero": 17,
+          "subtema": "Áreas de Especialización",
+          "pregunta": "¿Qué área de la psicología se enfoca en el comportamiento humano en el trabajo?",
+          "opciones": [
+            "Psicología clínica",
+            "Psicología educativa",
+            "Psicología organizacional",
+            "Psicología forense"
+          ],
+          "respuesta_correcta": 2,
+          "explicacion": "La psicología organizacional/industrial estudia el comportamiento humano en el entorno laboral.",
+          "dificultad": "basico",
+          "referencia": "Temario oficial EXANI-II - Áreas de especialización"
+        },
+        {
+          "id": "psi_018",
+          "numero": 18,
+          "subtema": "Sistema Nervioso",
+          "pregunta": "¿Qué tipo de neuronas transmiten información desde los receptores sensoriales al SNC?",
+          "opciones": [
+            "Neuronas motoras",
+            "Neuronas interneuronas",
+            "Neuronas sensoriales",
+            "Neuronas eferentes"
+          ],
+          "respuesta_correcta": 2,
+          "explicacion": "Las neuronas sensoriales (aferentes) transmiten información desde los receptores hacia el sistema nervioso central.",
+          "dificultad": "intermedio",
+          "referencia": "Temario oficial EXANI-II - Estructura neuronal"
+        }
+      ]
+    },
+    {
+      "titulo": "Ciencias de la Salud",
+      "descripcion": "Módulo específico de Ciencias de la Salud - Anatomía, fisiología y primeros auxilios",
+      "tiempo_minutos": 90,
+      "numero_preguntas": 30,
+      "subtemas": [
+        "Anatomía y fisiología humana",
+        "Microbiología básica",
+        "Primeros auxilios",
+        "Prevención de enfermedades"
+      ],
+      "preguntas": [
+        {
+          "id": "sal_001",
+          "numero": 31,
+          "subtema": "Anatomía y Fisiología",
+          "pregunta": "¿Qué sistema del cuerpo humano es responsable de transportar oxígeno y nutrientes?",
+          "opciones": [
+            "Sistema nervioso",
+            "Sistema circulatorio",
+            "Sistema respiratorio",
+            "Sistema digestivo"
+          ],
+          "respuesta_correcta": 1,
+          "explicacion": "El sistema circulatorio (cardiovascular) transporta oxígeno, nutrientes, hormonas y productos de desecho a través de la sangre.",
+          "dificultad": "basico",
+          "referencia": "Temario oficial EXANI-II - Sistemas del cuerpo humano"
+        },
+        {
+          "id": "sal_002",
+          "numero": 32,
+          "subtema": "Anatomía y Fisiología",
+          "pregunta": "¿Cuál es la función principal del sistema respiratorio?",
+          "opciones": [
+            "Producir hormonas",
+            "Regular la temperatura corporal",
+            "Intercambiar gases (oxígeno y dióxido de carbono)",
+            "Eliminar desechos del cuerpo"
+          ],
+          "respuesta_correcta": 2,
+          "explicacion": "El sistema respiratorio facilita el intercambio gaseoso: toma oxígeno del aire y elimina dióxido de carbono.",
+          "dificultad": "basico",
+          "referencia": "Temario oficial EXANI-II - Fisiología humana"
+        },
+        {
+          "id": "sal_003",
+          "numero": 33,
+          "subtema": "Microbiología",
+          "pregunta": "¿Qué tipo de microorganismo puede causar enfermedades como la tuberculosis?",
+          "opciones": [
+            "Virus",
+            "Bacteria",
+            "Hongo",
+            "Protozoo"
+          ],
+          "respuesta_correcta": 1,
+          "explicacion": "La tuberculosis es causada por la bacteria Mycobacterium tuberculosis, un bacilo ácido-alcohol resistente.",
+          "dificultad": "intermedio",
+          "referencia": "Temario oficial EXANI-II - Microbiología"
+        },
+        {
+          "id": "sal_004",
+          "numero": 34,
+          "subtema": "Microbiología",
+          "pregunta": "¿Qué tipo de microorganismo es responsable del resfriado común?",
+          "opciones": [
+            "Bacteria",
+            "Virus",
+            "Hongo",
+            "Parasito"
+          ],
+          "respuesta_correcta": 1,
+          "explicacion": "El resfriado común es causado por rinovirus, que son virus de ARN de la familia Picornaviridae.",
+          "dificultad": "basico",
+          "referencia": "Temario oficial EXANI-II - Agentes infecciosos"
+        },
+        {
+          "id": "sal_005",
+          "numero": 35,
+          "subtema": "Primeros Auxilios",
+          "pregunta": "En caso de quemadura, ¿cuál es la primera acción recomendada?",
+          "opciones": [
+            "Aplicar hielo directamente",
+            "Cubrir con aceite",
+            "Enfriar con agua corriente a temperatura ambiente",
+            "Aplicar pomada antibiótica inmediatamente"
+          ],
+          "respuesta_correcta": 2,
+          "explicacion": "Para quemaduras leves, se debe enfriar el área afectada con agua corriente a temperatura ambiente durante 10-15 minutos para reducir el dolor y prevenir daño tisular.",
+          "dificultad": "basico",
+          "referencia": "Temario oficial EXANI-II - Primeros auxilios"
+        },
+        {
+          "id": "sal_006",
+          "numero": 36,
+          "subtema": "Primeros Auxilios",
+          "pregunta": "¿Qué posición se recomienda para una persona inconsciente que respira?",
+          "opciones": [
+            "Posición supina",
+            "Posición de recuperación lateral",
+            "Posición fetal",
+            "Posición sedente"
+          ],
+          "respuesta_correcta": 1,
+          "explicacion": "La posición de recuperación lateral (PLS) mantiene las vías aéreas abiertas y permite que la persona respire adecuadamente.",
+          "dificultad": "intermedio",
+          "referencia": "Temario oficial EXANI-II - Primeros auxilios"
+        },
+        {
+          "id": "sal_007",
+          "numero": 37,
+          "subtema": "Anatomía y Fisiología",
+          "pregunta": "¿Qué órgano del sistema digestivo absorbe la mayoría de los nutrientes?",
+          "opciones": [
+            "Estómago",
+            "Hígado",
+            "Intestino delgado",
+            "Intestino grueso"
+          ],
+          "respuesta_correcta": 2,
+          "explicacion": "El intestino delgado es el principal sitio de absorción de nutrientes gracias a sus vellosidades y microvellosidades.",
+          "dificultad": "intermedio",
+          "referencia": "Temario oficial EXANI-II - Sistema digestivo"
+        },
+        {
+          "id": "sal_008",
+          "numero": 38,
+          "subtema": "Anatomía y Fisiología",
+          "pregunta": "¿Cuál es la función principal de los riñones?",
+          "opciones": [
+            "Producir insulina",
+            "Regular el equilibrio hídrico y electrolítico",
+            "Almacenar bilis",
+            "Producir glóbulos rojos"
+          ],
+          "respuesta_correcta": 1,
+          "explicacion": "Los riñones regulan el equilibrio hídrico y electrolítico, eliminan desechos nitrogenados y mantienen la homeostasis.",
+          "dificultad": "basico",
+          "referencia": "Temario oficial EXANI-II - Sistema urinario"
+        }
+      ]
+    }
+  ],
+  "fuente": "Temario oficial EXANI-II UANL - Módulos específicos de Psicología",
+  "url": "https://www.uanl.mx/wp-content/uploads/2022/09/Modulos-especificos-del-EXANI-II_Psicologia-1-1.pdf",
+  "fecha_actualizacion": "2024-10-21",
+  "total_preguntas": 60,
+  "duracion_total_minutos": 180,
+  "instrucciones_oficiales": [
+    "Este examen consta de dos módulos: Psicología (90 min) y Ciencias de la Salud (90 min)",
+    "Cada módulo evalúa conocimientos específicos del temario oficial",
+    "Las preguntas son de selección múltiple con 4 opciones",
+    "No hay penalización por respuestas incorrectas",
+    "Se requiere puntuación mínima de 70 para aprobar"
+  ],
+  "consejos_preparacion": [
+    "Estudia el temario oficial EXANI-II completo",
+    "Enfócate en conceptos básicos de psicología y ciencias de la salud",
+    "Practica con exámenes anteriores disponibles",
+    "Repasa definiciones y ejemplos de cada tema",
+    "Entiende las diferencias entre las corrientes psicológicas"
+  ],
+  "recursos_recomendados": [
+    {
+      "titulo": "Temario Oficial EXANI-II",
+      "url": "https://www.uanl.mx/wp-content/uploads/2022/09/Modulos-especificos-del-EXANI-II_Psicologia-1-1.pdf",
+      "tipo": "PDF oficial"
+    },
+    {
+      "titulo": "Pasatuexam - Psicología",
+      "url": "https://pasatuexam.mx/exani-ii/modulos-especificos/psicologia/",
+      "tipo": "Plataforma gratuita"
+    },
+    {
+      "titulo": "Biblioteca UANL",
+      "url": "https://www.uanl.mx/biblioteca/",
+      "tipo": "Acceso físico gratuito"
+    }
+  ]
+}

@@ -1,5 +1,8 @@
 // src/app/practice/page.tsx
 'use client';
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+
 import { Header } from '@/components/header';
 import { GenerateQuestionsTab } from '@/components/generate-questions-tab';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';

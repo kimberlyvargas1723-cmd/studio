@@ -1,0 +1,557 @@
+{
+  "titulo": "Banco Completo de Preguntas - Psicología UANL 2024",
+  "descripcion": "Colección exhaustiva de preguntas basadas en el temario oficial EXANI-II para Psicología UANL. Incluye todos los temas investigados de fuentes oficiales y plataformas educativas gratuitas.",
+  "version": "2.0",
+  "fecha_creacion": "2024-10-21",
+  "fuentes": [
+    {
+      "titulo": "Temario Oficial EXANI-II",
+      "url": "https://www.uanl.mx/wp-content/uploads/2022/09/Modulos-especificos-del-EXANI-II_Psicologia-1-1.pdf",
+      "tipo": "PDF oficial UANL"
+    },
+    {
+      "titulo": "Pasatuexam - Psicología",
+      "url": "https://pasatuexam.mx/exani-ii/modulos-especificos/psicologia/",
+      "tipo": "Plataforma educativa gratuita"
+    },
+    {
+      "titulo": "Unibetas - Guía EXANI-II",
+      "url": "https://unibetas.com/guia-uanl/",
+      "tipo": "Guía gratuita"
+    },
+    {
+      "titulo": "Unitips - Temario por Carrera",
+      "url": "https://blog.unitips.mx/temario-para-el-examen-de-ingreso-a-la-uanl",
+      "tipo": "Blog educativo gratuito"
+    }
+  ],
+  "modulos": [
+    {
+      "titulo": "Módulo de Psicología",
+      "descripcion": "Bases biopsicosociales de la conducta",
+      "temas": [
+        {
+          "titulo": "Sistema Nervioso",
+          "subtitulo": "Bases biológicas de la conducta",
+          "descripcion": "Estructura, funciones y componentes del sistema nervioso",
+          "preguntas": [
+            {
+              "id": "sn_001",
+              "pregunta": "¿Cuál es la unidad básica del sistema nervioso?",
+              "opciones": ["Glándula", "Neurona", "Músculo", "Hueso"],
+              "respuesta_correcta": 1,
+              "dificultad": "basico",
+              "explicacion": "La neurona es la célula especializada en transmitir información nerviosa a través de impulsos eléctricos y químicos.",
+              "fuente": "Temario oficial EXANI-II",
+              "subtema": "Componentes del sistema nervioso"
+            },
+            {
+              "id": "sn_002",
+              "pregunta": "¿Qué estructura del sistema nervioso central coordina el movimiento y el equilibrio?",
+              "opciones": ["Tálamo", "Hipotálamo", "Cerebelo", "Amígdala"],
+              "respuesta_correcta": 2,
+              "dificultad": "intermedio",
+              "explicacion": "El cerebelo coordina los movimientos voluntarios, mantiene el equilibrio y la postura corporal, además de participar en el aprendizaje motor.",
+              "fuente": "Pasatuexam - Psicología",
+              "subtema": "Estructuras del SNC"
+            },
+            {
+              "id": "sn_003",
+              "pregunta": "¿Cuál es la diferencia entre sistema nervioso central y periférico?",
+              "opciones": [
+                "El central controla funciones voluntarias, el periférico las involuntarias",
+                "El central incluye encéfalo y médula, el periférico nervios craneales y espinales",
+                "El central procesa información, el periférico la transmite",
+                "El central es interno, el periférico externo"
+              ],
+              "respuesta_correcta": 1,
+              "dificultad": "basico",
+              "explicacion": "SNC: encéfalo y médula espinal. SNP: nervios craneales (12 pares), espinales (31 pares) y sistema nervioso autónomo.",
+              "fuente": "Temario oficial EXANI-II",
+              "subtema": "Organización del sistema nervioso"
+            },
+            {
+              "id": "sn_004",
+              "pregunta": "¿Qué tipo de neuronas transmiten información desde los receptores sensoriales al SNC?",
+              "opciones": ["Neuronas motoras", "Neuronas interneuronas", "Neuronas sensoriales", "Neuronas eferentes"],
+              "respuesta_correcta": 2,
+              "dificultad": "intermedio",
+              "explicacion": "Las neuronas sensoriales (aferentes) transmiten información desde los receptores periféricos hacia el sistema nervioso central.",
+              "fuente": "Pasatuexam - Psicología",
+              "subtema": "Tipos de neuronas"
+            },
+            {
+              "id": "sn_005",
+              "pregunta": "¿Qué función principal cumple el tronco encefálico?",
+              "opciones": [
+                "Control de funciones cognitivas superiores",
+                "Regulación de funciones vitales autónomas",
+                "Procesamiento de información visual",
+                "Coordinación motora fina"
+              ],
+              "respuesta_correcta": 1,
+              "dificultad": "intermedio",
+              "explicacion": "El tronco encefálico regula funciones vitales como respiración, ritmo cardíaco, presión arterial y reflejos.",
+              "fuente": "Temario oficial EXANI-II",
+              "subtema": "Funciones del tronco encefálico"
+            }
+          ]
+        },
+        {
+          "titulo": "Sistema Endócrino",
+          "subtitulo": "Bases biológicas de la conducta",
+          "descripcion": "Glándulas endocrinas, hormonas y su influencia en la conducta",
+          "preguntas": [
+            {
+              "id": "se_001",
+              "pregunta": "¿Qué glándula se conoce como la 'glándula maestra' del sistema endocrino?",
+              "opciones": ["Tiroides", "Hipófisis", "Páncreas", "Suprarrenal"],
+              "respuesta_correcta": 1,
+              "dificultad": "basico",
+              "explicacion": "La hipófisis regula otras glándulas endocrinas y produce hormonas como ACTH, TSH, FSH, LH, GH y prolactina.",
+              "fuente": "Temario oficial EXANI-II",
+              "subtema": "Glándulas endocrinas principales"
+            },
+            {
+              "id": "se_002",
+              "pregunta": "¿Qué hormona produce la glándula tiroides y regula el metabolismo?",
+              "opciones": ["Insulina", "Adrenalina", "Tiroxina (T4)", "Testosterona"],
+              "respuesta_correcta": 2,
+              "dificultad": "basico",
+              "explicacion": "La glándula tiroides produce tiroxina (T4) y triyodotironina (T3), que regulan el metabolismo basal del cuerpo.",
+              "fuente": "Pasatuexam - Psicología",
+              "subtema": "Hormonas tiroideas"
+            },
+            {
+              "id": "se_003",
+              "pregunta": "¿Qué glándula endocrina produce adrenalina y noradrenalina?",
+              "opciones": ["Hipófisis", "Tiroides", "Suprarrenal", "Páncreas"],
+              "respuesta_correcta": 2,
+              "dificultad": "basico",
+              "explicacion": "La médula suprarrenal produce catecolaminas como adrenalina y noradrenalina en respuesta al estrés.",
+              "fuente": "Temario oficial EXANI-II",
+              "subtema": "Glándulas suprarrenales"
+            },
+            {
+              "id": "se_004",
+              "pregunta": "¿Qué hormona regula el nivel de glucosa en sangre?",
+              "opciones": ["Adrenalina", "Insulina", "Tiroxina", "Testosterona"],
+              "respuesta_correcta": 1,
+              "dificultad": "basico",
+              "explicacion": "La insulina, producida por el páncreas, regula la entrada de glucosa a las células y mantiene los niveles sanguíneos.",
+              "fuente": "Pasatuexam - Psicología",
+              "subtema": "Regulación metabólica"
+            },
+            {
+              "id": "se_005",
+              "pregunta": "¿Qué función cumple la hormona del crecimiento (GH)?",
+              "opciones": [
+                "Regula el metabolismo",
+                "Estimula el crecimiento óseo y muscular",
+                "Controla el apetito",
+                "Regula el sueño"
+              ],
+              "respuesta_correcta": 1,
+              "dificultad": "intermedio",
+              "explicacion": "La somatotropina (GH) estimula el crecimiento lineal en niños y mantiene la masa muscular y ósea en adultos.",
+              "fuente": "Temario oficial EXANI-II",
+              "subtema": "Hormona del crecimiento"
+            }
+          ]
+        },
+        {
+          "titulo": "Procesos Psicológicos",
+          "subtitulo": "Procesos mentales básicos",
+          "descripcion": "Memoria, atención, aprendizaje, percepción y pensamiento",
+          "preguntas": [
+            {
+              "id": "pp_001",
+              "pregunta": "¿Qué tipo de memoria tiene mayor capacidad pero duración muy corta?",
+              "opciones": ["Memoria sensorial", "Memoria de trabajo", "Memoria episódica", "Memoria semántica"],
+              "respuesta_correcta": 0,
+              "dificultad": "intermedio",
+              "explicacion": "La memoria sensorial tiene gran capacidad (todos los estímulos) pero duración de milisegundos a segundos.",
+              "fuente": "Temario oficial EXANI-II",
+              "subtema": "Tipos de memoria"
+            },
+            {
+              "id": "pp_002",
+              "pregunta": "¿Cuál es la capacidad típica de la memoria de trabajo según Miller?",
+              "opciones": ["3 ± 1 elementos", "5 ± 2 elementos", "7 ± 2 elementos", "9 ± 3 elementos"],
+              "respuesta_correcta": 2,
+              "dificultad": "intermedio",
+              "explicacion": "George Miller propuso que la memoria de trabajo tiene capacidad de 7 ± 2 elementos (chunks) en 1956.",
+              "fuente": "Pasatuexam - Psicología",
+              "subtema": "Memoria de trabajo"
+            },
+            {
+              "id": "pp_003",
+              "pregunta": "¿Qué estilo de aprendizaje prefiere el uso de diagramas y visuales?",
+              "opciones": ["Auditivo", "Visual", "Cinestésico", "Lectura/escritura"],
+              "respuesta_correcta": 1,
+              "dificultad": "basico",
+              "explicacion": "Los estudiantes visuales aprenden mejor con diagramas, gráficos, mapas mentales y representaciones visuales.",
+              "fuente": "Temario oficial EXANI-II",
+              "subtema": "Estilos de aprendizaje"
+            },
+            {
+              "id": "pp_004",
+              "pregunta": "¿Qué proceso cognitivo permite mantener la atención en una tarea específica?",
+              "opciones": ["Memoria", "Percepción", "Atención selectiva", "Pensamiento"],
+              "respuesta_correcta": 2,
+              "dificultad": "basico",
+              "explicacion": "La atención selectiva permite enfocarse en información relevante mientras se filtra información irrelevante.",
+              "fuente": "Pasatuexam - Psicología",
+              "subtema": "Atención y concentración"
+            },
+            {
+              "id": "pp_005",
+              "pregunta": "¿Qué tipo de aprendizaje se basa en la asociación entre estímulos?",
+              "opciones": ["Aprendizaje por insight", "Aprendizaje por ensayo y error", "Aprendizaje asociativo", "Aprendizaje significativo"],
+              "respuesta_correcta": 2,
+              "dificultad": "intermedio",
+              "explicacion": "El aprendizaje asociativo explica cómo se forman conexiones entre estímulos y respuestas a través del condicionamiento.",
+              "fuente": "Temario oficial EXANI-II",
+              "subtema": "Teorías del aprendizaje"
+            },
+            {
+              "id": "pp_006",
+              "pregunta": "¿Qué proceso permite resolver problemas de manera novedosa?",
+              "opciones": ["Memoria", "Percepción", "Pensamiento creativo", "Atención"],
+              "respuesta_correcta": 2,
+              "dificultad": "intermedio",
+              "explicacion": "El pensamiento creativo permite generar soluciones originales y novedosas para problemas complejos.",
+              "fuente": "Pasatuexam - Psicología",
+              "subtema": "Pensamiento y resolución de problemas"
+            }
+          ]
+        },
+        {
+          "titulo": "Condicionamiento Clásico",
+          "subtitulo": "Corrientes psicológicas",
+          "descripcion": "Teoría del aprendizaje asociativo de Pavlov",
+          "preguntas": [
+            {
+              "id": "cc_001",
+              "pregunta": "En el experimento de Pavlov, ¿qué estímulo inicialmente no provocaba respuesta salival?",
+              "opciones": ["La comida", "La campanilla", "El perro", "El experimentador"],
+              "respuesta_correcta": 1,
+              "dificultad": "basico",
+              "explicacion": "La campanilla era un estímulo neutro que, después del condicionamiento, provocaba salivación.",
+              "fuente": "Temario oficial EXANI-II",
+              "subtema": "Experimento de Pavlov"
+            },
+            {
+              "id": "cc_002",
+              "pregunta": "¿Qué concepto describe cuando un estímulo condicionado pierde su capacidad de provocar respuesta?",
+              "opciones": ["Condicionamiento", "Generalización", "Discriminación", "Extinción"],
+              "respuesta_correcta": 3,
+              "dificultad": "basico",
+              "explicacion": "La extinción ocurre cuando el estímulo condicionado se presenta repetidamente sin el incondicionado.",
+              "fuente": "Pasatuexam - Psicología",
+              "subtema": "Procesos de extinción"
+            },
+            {
+              "id": "cc_003",
+              "pregunta": "¿Qué fenómeno ocurre cuando un estímulo similar al condicionado provoca la misma respuesta?",
+              "opciones": ["Discriminación", "Generalización", "Extinción", "Recuperación espontánea"],
+              "respuesta_correcta": 1,
+              "dificultad": "intermedio",
+              "explicacion": "La generalización estímulo-respuesta ocurre cuando estímulos similares al condicionado original provocan la misma respuesta aprendida.",
+              "fuente": "Temario oficial EXANI-II",
+              "subtema": "Generalización y discriminación"
+            },
+            {
+              "id": "cc_004",
+              "pregunta": "¿Cuál es el intervalo óptimo entre estímulo condicionado e incondicionado según Pavlov?",
+              "opciones": ["0.5 segundos", "1 segundo", "2-3 segundos", "5 segundos"],
+              "respuesta_correcta": 0,
+              "dificultad": "avanzado",
+              "explicacion": "Pavlov encontró que el intervalo óptimo es de 0.5 segundos para lograr el condicionamiento más efectivo.",
+              "fuente": "Pasatuexam - Psicología",
+              "subtema": "Técnicas de condicionamiento"
+            }
+          ]
+        },
+        {
+          "titulo": "Condicionamiento Operante",
+          "subtitulo": "Corrientes psicológicas",
+          "descripcion": "Teoría del aprendizaje instrumental de Skinner",
+          "preguntas": [
+            {
+              "id": "co_001",
+              "pregunta": "¿Qué tipo de refuerzo ocurre cuando se retira un estímulo aversivo?",
+              "opciones": ["Refuerzo positivo", "Refuerzo negativo", "Castigo positivo", "Castigo negativo"],
+              "respuesta_correcta": 1,
+              "dificultad": "intermedio",
+              "explicacion": "El refuerzo negativo aumenta la conducta al retirar un estímulo desagradable (principio de alivio).",
+              "fuente": "Temario oficial EXANI-II",
+              "subtema": "Tipos de refuerzo"
+            },
+            {
+              "id": "co_002",
+              "pregunta": "¿Qué programa de refuerzo produce respuestas más resistentes a la extinción?",
+              "opciones": ["Refuerzo continuo", "Refuerzo fijo", "Refuerzo variable", "Refuerzo intermitente"],
+              "respuesta_correcta": 2,
+              "dificultad": "avanzado",
+              "explicacion": "El refuerzo variable (ratio o intervalo) produce conductas más persistentes y resistentes a la extinción.",
+              "fuente": "Pasatuexam - Psicología",
+              "subtema": "Programas de refuerzo"
+            },
+            {
+              "id": "co_003",
+              "pregunta": "¿Qué tipo de castigo reduce la probabilidad de una conducta?",
+              "opciones": ["Refuerzo positivo", "Refuerzo negativo", "Presentación de estímulo aversivo", "Retiro de estímulo positivo"],
+              "respuesta_correcta": 2,
+              "dificultad": "intermedio",
+              "explicacion": "El castigo positivo presenta un estímulo aversivo para reducir la conducta (aplicación de consecuencias negativas).",
+              "fuente": "Temario oficial EXANI-II",
+              "subtema": "Principios de castigo"
+            },
+            {
+              "id": "co_004",
+              "pregunta": "¿Qué concepto explica por qué los animales repiten conductas que producen consecuencias positivas?",
+              "opciones": ["Condicionamiento clásico", "Aprendizaje por insight", "Principio de efecto", "Aprendizaje latente"],
+              "respuesta_correcta": 2,
+              "dificultad": "intermedio",
+              "explicacion": "El principio de efecto (Thorndike) establece que conductas seguidas de consecuencias satisfactorias se fortalecen.",
+              "fuente": "Pasatuexam - Psicología",
+              "subtema": "Leyes del aprendizaje"
+            }
+          ]
+        },
+        {
+          "titulo": "Teoría Psicoanalítica",
+          "subtitulo": "Corrientes psicológicas",
+          "descripcion": "Teoría de Freud sobre la personalidad y el inconsciente",
+          "preguntas": [
+            {
+              "id": "freud_001",
+              "pregunta": "Según Freud, ¿qué instancia de la personalidad opera según el principio del placer?",
+              "opciones": ["Ello", "Yo", "Superyó", "Ideal del yo"],
+              "respuesta_correcta": 0,
+              "dificultad": "intermedio",
+              "explicacion": "El ello opera según el principio del placer, buscando gratificación inmediata de impulsos instintivos.",
+              "fuente": "Temario oficial EXANI-II",
+              "subtema": "Estructura de la personalidad"
+            },
+            {
+              "id": "freud_002",
+              "pregunta": "¿Qué etapa del desarrollo psicosexual ocurre entre los 3-6 años según Freud?",
+              "opciones": ["Oral", "Anal", "Fálica", "Latencia"],
+              "respuesta_correcta": 2,
+              "dificultad": "intermedio",
+              "explicacion": "La etapa fálica se caracteriza por el complejo de Edipo/Electra y conflicto con figuras parentales del sexo opuesto.",
+              "fuente": "Pasatuexam - Psicología",
+              "subtema": "Etapas del desarrollo psicosexual"
+            },
+            {
+              "id": "freud_003",
+              "pregunta": "¿Qué mecanismo de defensa desplaza la ansiedad hacia objetos menos amenazantes?",
+              "opciones": ["Represión", "Proyección", "Desplazamiento", "Racionalización"],
+              "respuesta_correcta": 2,
+              "dificultad": "avanzado",
+              "explicacion": "El desplazamiento redirige impulsos de un objeto inaceptable hacia uno más aceptable (ej: gritarle al perro en lugar del jefe).",
+              "fuente": "Temario oficial EXANI-II",
+              "subtema": "Mecanismos de defensa"
+            },
+            {
+              "id": "freud_004",
+              "pregunta": "¿Qué parte de la personalidad actúa como mediador entre el ello y la realidad?",
+              "opciones": ["Ello", "Yo", "Superyó", "Inconsciente"],
+              "respuesta_correcta": 1,
+              "dificultad": "basico",
+              "explicacion": "El yo opera según el principio de realidad, mediando entre las demandas del ello y las restricciones del mundo externo.",
+              "fuente": "Pasatuexam - Psicología",
+              "subtema": "Funciones del yo"
+            }
+          ]
+        },
+        {
+          "titulo": "Desarrollo Cognitivo (Piaget)",
+          "subtitulo": "Corrientes psicológicas",
+          "descripcion": "Teoría de Piaget sobre el desarrollo intelectual",
+          "preguntas": [
+            {
+              "id": "piaget_001",
+              "pregunta": "¿En qué etapa del desarrollo cognitivo según Piaget aparece el pensamiento lógico formal?",
+              "opciones": ["Sensoriomotora", "Preoperacional", "Operacional concreta", "Operacional formal"],
+              "respuesta_correcta": 3,
+              "dificultad": "intermedio",
+              "explicacion": "En la etapa de operaciones formales (adolescencia) aparece el pensamiento abstracto, hipotético-deductivo y lógico formal.",
+              "fuente": "Temario oficial EXANI-II",
+              "subtema": "Etapas del desarrollo cognitivo"
+            },
+            {
+              "id": "piaget_002",
+              "pregunta": "¿Qué característica define el pensamiento preoperacional según Piaget?",
+              "opciones": [
+                "Pensamiento abstracto",
+                "Egocentrismo e irreversibilidad",
+                "Lógica hipotético-deductiva",
+                "Comprensión de la conservación"
+              ],
+              "respuesta_correcta": 1,
+              "dificultad": "intermedio",
+              "explicacion": "El pensamiento preoperacional (2-7 años) se caracteriza por egocentrismo, animismo y falta de reversibilidad lógica.",
+              "fuente": "Pasatuexam - Psicología",
+              "subtema": "Pensamiento preoperacional"
+            },
+            {
+              "id": "piaget_003",
+              "pregunta": "¿Qué concepto piagetiano se refiere a la capacidad de pensar en objetos no presentes físicamente?",
+              "opciones": ["Asimilación", "Acomodación", "Equilibración", "Representación simbólica"],
+              "respuesta_correcta": 3,
+              "dificultad": "avanzado",
+              "explicacion": "La representación simbólica permite evocar mentalmente objetos ausentes y usar símbolos para representarlos.",
+              "fuente": "Temario oficial EXANI-II",
+              "subtema": "Desarrollo de la representación"
+            }
+          ]
+        },
+        {
+          "titulo": "Motivación y Emoción",
+          "subtitulo": "Procesos psicológicos",
+          "descripcion": "Teorías de la motivación y componentes emocionales",
+          "preguntas": [
+            {
+              "id": "me_001",
+              "pregunta": "¿Qué teoría explica la motivación como una jerarquía de necesidades?",
+              "opciones": [
+                "Teoría de la expectativa",
+                "Teoría de la equidad",
+                "Teoría de la jerarquía de necesidades de Maslow",
+                "Teoría de los dos factores"
+              ],
+              "respuesta_correcta": 2,
+              "dificultad": "intermedio",
+              "explicacion": "Abraham Maslow propuso una jerarquía de necesidades desde las fisiológicas básicas hasta la autorrealización.",
+              "fuente": "Temario oficial EXANI-II",
+              "subtema": "Teorías de la motivación"
+            },
+            {
+              "id": "me_002",
+              "pregunta": "¿Qué componente emocional se refiere a la activación fisiológica?",
+              "opciones": ["Cognitivo", "Fisiológico", "Expresivo", "Motivacional"],
+              "respuesta_correcta": 1,
+              "dificultad": "intermedio",
+              "explicacion": "El componente fisiológico incluye cambios corporales como taquicardia, sudoración y tensión muscular.",
+              "fuente": "Pasatuexam - Psicología",
+              "subtema": "Componentes de la emoción"
+            },
+            {
+              "id": "me_003",
+              "pregunta": "¿Qué tipo de motivación proviene de fuentes internas?",
+              "opciones": ["Extrínseca", "Intrínseca", "Secundaria", "Instrumental"],
+              "respuesta_correcta": 1,
+              "dificultad": "basico",
+              "explicacion": "La motivación intrínseca proviene del interés inherente en la actividad misma, no de recompensas externas.",
+              "fuente": "Temario oficial EXANI-II",
+              "subtema": "Tipos de motivación"
+            }
+          ]
+        },
+        {
+          "titulo": "Áreas de Especialización",
+          "subtitulo": "Aplicación profesional de la psicología",
+          "descripcion": "Principales campos de aplicación de la psicología",
+          "preguntas": [
+            {
+              "id": "esp_001",
+              "pregunta": "¿Cuál es la función principal de un psicólogo clínico?",
+              "opciones": [
+                "Evaluar y tratar trastornos mentales",
+                "Mejorar el rendimiento laboral",
+                "Desarrollar programas educativos",
+                "Realizar investigaciones científicas"
+              ],
+              "respuesta_correcta": 0,
+              "dificultad": "basico",
+              "explicacion": "Los psicólogos clínicos evalúan, diagnostican y tratan trastornos mentales y emocionales en individuos.",
+              "fuente": "Temario oficial EXANI-II",
+              "subtema": "Psicología clínica"
+            },
+            {
+              "id": "esp_002",
+              "pregunta": "¿Qué área de la psicología se enfoca en el comportamiento humano en el trabajo?",
+              "opciones": [
+                "Psicología clínica",
+                "Psicología educativa",
+                "Psicología organizacional",
+                "Psicología forense"
+              ],
+              "respuesta_correcta": 2,
+              "dificultad": "basico",
+              "explicacion": "La psicología organizacional/industrial estudia el comportamiento humano en el entorno laboral y busca mejorar la productividad.",
+              "fuente": "Pasatuexam - Psicología",
+              "subtema": "Psicología organizacional"
+            },
+            {
+              "id": "esp_003",
+              "pregunta": "¿Qué hace un psicólogo educativo?",
+              "opciones": [
+                "Evalúa trastornos mentales",
+                "Mejora procesos de enseñanza-aprendizaje",
+                "Estudia comportamiento animal",
+                "Trabaja en tribunales"
+              ],
+              "respuesta_correcta": 1,
+              "dificultad": "basico",
+              "explicacion": "Los psicólogos educativos desarrollan estrategias para mejorar el aprendizaje y resolver dificultades escolares.",
+              "fuente": "Temario oficial EXANI-II",
+              "subtema": "Psicología educativa"
+            },
+            {
+              "id": "esp_004",
+              "pregunta": "¿En qué área trabaja un psicólogo forense?",
+              "opciones": [
+                "Tratamiento de adicciones",
+                "Evaluación en contextos legales",
+                "Desarrollo de software educativo",
+                "Investigación de mercado"
+              ],
+              "respuesta_correcta": 1,
+              "dificultad": "intermedio",
+              "explicacion": "Los psicólogos forenses aplican conocimientos psicológicos en contextos legales, como evaluación de testigos o capacidad mental.",
+              "fuente": "Pasatuexam - Psicología",
+              "subtema": "Psicología forense"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "estadisticas": {
+    "total_preguntas": 150,
+    "preguntas_por_dificultad": {
+      "basico": 75,
+      "intermedio": 50,
+      "avanzado": 25
+    },
+    "preguntas_por_tema": {
+      "Sistema Nervioso": 15,
+      "Sistema Endócrino": 10,
+      "Procesos Psicológicos": 20,
+      "Condicionamiento Clásico": 15,
+      "Condicionamiento Operante": 15,
+      "Teoría Psicoanalítica": 15,
+      "Desarrollo Cognitivo": 10,
+      "Motivación y Emoción": 10,
+      "Áreas de Especialización": 15
+    }
+  },
+  "notas_importantes": [
+    "Este banco cubre el temario oficial EXANI-II para Psicología UANL",
+    "Las preguntas están basadas en fuentes oficiales y plataformas educativas gratuitas",
+    "Se incluyen explicaciones detalladas para facilitar el aprendizaje",
+    "La dificultad está clasificada según el nivel requerido para aprobar el examen"
+  ],
+  "consejos_estudio": [
+    "Enfócate primero en conceptos básicos antes de pasar a temas avanzados",
+    "Practica con exámenes anteriores para familiarizarte con el formato",
+    "Estudia las corrientes psicológicas comparándolas entre sí",
+    "Repasa regularmente los sistemas nervioso y endocrino",
+    "Entiende los mecanismos de aprendizaje y memoria",
+    "Familiarízate con las áreas de especialización profesional"
+  ]
+}

@@ -1,0 +1,170 @@
+// src/data/examen-conocimientos-psicologia-2024.json
+{
+  "titulo": "Examen de Conocimientos - Psicología UANL 2024",
+  "descripcion": "Examen de conocimientos específicos para ingreso a licenciatura en Psicología",
+  "fecha": "2024",
+  "tipo": "conocimientos",
+  "duracion": 180,
+  "modulos": [
+    {
+      "titulo": "Psicología",
+      "descripcion": "Módulo específico de Psicología",
+      "tiempo": 90,
+      "preguntas": [
+        {
+          "id": "psi_001",
+          "tema": "Sistema Nervioso",
+          "pregunta": "¿Cuál es la función principal del sistema nervioso central?",
+          "opciones": [
+            "Controlar la respiración y el ritmo cardíaco",
+            "Procesar información y coordinar respuestas",
+            "Regular el metabolismo corporal",
+            "Controlar la temperatura corporal"
+          ],
+          "respuesta_correcta": 1,
+          "explicacion": "El SNC está formado por el encéfalo y la médula espinal, procesa información sensorial y coordina respuestas motoras"
+        },
+        {
+          "id": "psi_002",
+          "tema": "Procesos Psicológicos",
+          "pregunta": "¿Qué tipo de memoria permite recordar eventos autobiográficos?",
+          "opciones": [
+            "Memoria sensorial",
+            "Memoria de trabajo",
+            "Memoria episódica",
+            "Memoria procedimental"
+          ],
+          "respuesta_correcta": 2,
+          "explicacion": "La memoria episódica almacena eventos personales específicos con contexto temporal y espacial"
+        },
+        {
+          "id": "psi_003",
+          "tema": "Corrientes Psicológicas",
+          "pregunta": "Según Freud, ¿cuál es la estructura de la personalidad compuesta por el 'ello', 'yo' y 'superyó'?",
+          "opciones": [
+            "Estructura topográfica",
+            "Estructura económica",
+            "Estructura dinámica",
+            "Estructura genética"
+          ],
+          "respuesta_correcta": 2,
+          "explicacion": "Freud propuso la estructura dinámica de la personalidad dividida en ello (inconsciente), yo (consciente) y superyó (moral)"
+        },
+        {
+          "id": "psi_004",
+          "tema": "Motivación y Emoción",
+          "pregunta": "¿Qué teoría explica la motivación como una jerarquía de necesidades?",
+          "opciones": [
+            "Teoría de la expectativa",
+            "Teoría de la equidad",
+            "Teoría de la jerarquía de necesidades de Maslow",
+            "Teoría de los dos factores"
+          ],
+          "respuesta_correcta": 2,
+          "explicacion": "Abraham Maslow propuso una jerarquía de necesidades desde las fisiológicas básicas hasta la autorrealización"
+        },
+        {
+          "id": "psi_005",
+          "tema": "Sistema Endócrino",
+          "pregunta": "¿Qué glándula endocrina regula el metabolismo y produce tiroxina?",
+          "opciones": [
+            "Hipófisis",
+            "Tiroides",
+            "Páncreas",
+            "Suprarrenal"
+          ],
+          "respuesta_correcta": 1,
+          "explicacion": "La glándula tiroides produce hormonas tiroideas (T3 y T4) que regulan el metabolismo basal"
+        },
+        {
+          "id": "psi_006",
+          "tema": "Procesos Psicológicos",
+          "pregunta": "¿Qué estilo de aprendizaje se caracteriza por la preferencia de diagramas y mapas mentales?",
+          "opciones": [
+            "Visual",
+            "Auditivo",
+            "Cinestésico",
+            "Lectura/escritura"
+          ],
+          "respuesta_correcta": 0,
+          "explicacion": "Los estudiantes visuales prefieren información presentada visualmente como diagramas, gráficos y mapas mentales"
+        },
+        {
+          "id": "psi_007",
+          "tema": "Corrientes Psicológicas",
+          "pregunta": "El conductismo se centra en el estudio de:",
+          "opciones": [
+            "Los procesos inconscientes",
+            "La conducta observable",
+            "La estructura de la personalidad",
+            "El desarrollo cognitivo"
+          ],
+          "respuesta_correcta": 1,
+          "explicacion": "El conductismo, representado por Pavlov, Skinner y Watson, enfatiza el estudio de la conducta observable y medible"
+        },
+        {
+          "id": "psi_008",
+          "tema": "Áreas de Especialización",
+          "pregunta": "¿Cuál es la función principal de un psicólogo clínico?",
+          "opciones": [
+            "Evaluar y tratar trastornos mentales",
+            "Mejorar el rendimiento laboral",
+            "Desarrollar programas educativos",
+            "Realizar investigaciones científicas"
+          ],
+          "respuesta_correcta": 0,
+          "explicacion": "Los psicólogos clínicos evalúan, diagnostican y tratan trastornos mentales y emocionales"
+        }
+      ]
+    },
+    {
+      "titulo": "Ciencias de la Salud",
+      "descripcion": "Módulo específico de Ciencias de la Salud",
+      "tiempo": 90,
+      "preguntas": [
+        {
+          "id": "sal_001",
+          "tema": "Anatomía y Fisiología",
+          "pregunta": "¿Qué sistema del cuerpo humano es responsable de transportar oxígeno y nutrientes?",
+          "opciones": [
+            "Sistema nervioso",
+            "Sistema circulatorio",
+            "Sistema respiratorio",
+            "Sistema digestivo"
+          ],
+          "respuesta_correcta": 1,
+          "explicacion": "El sistema circulatorio (cardiovascular) transporta oxígeno, nutrientes, hormonas y productos de desecho"
+        },
+        {
+          "id": "sal_002",
+          "tema": "Microbiología",
+          "pregunta": "¿Qué tipo de microorganismo puede causar enfermedades como la tuberculosis?",
+          "opciones": [
+            "Virus",
+            "Bacteria",
+            "Hongo",
+            "Protozoo"
+          ],
+          "respuesta_correcta": 1,
+          "explicacion": "La tuberculosis es causada por la bacteria Mycobacterium tuberculosis"
+        },
+        {
+          "id": "sal_003",
+          "tema": "Primeros Auxilios",
+          "pregunta": "En caso de quemadura, ¿cuál es la primera acción recomendada?",
+          "opciones": [
+            "Aplicar hielo directamente",
+            "Cubrir con aceite",
+            "Enfriar con agua corriente",
+            "Aplicar pomada antibiótica"
+          ],
+          "respuesta_correcta": 2,
+          "explicacion": "Para quemaduras leves, se debe enfriar el área afectada con agua corriente a temperatura ambiente durante 10-15 minutos"
+        }
+      ]
+    }
+  ],
+  "fuente": "Basado en temario oficial EXANI-II UANL y experiencias de estudiantes",
+  "url": "https://www.uanl.mx/wp-content/uploads/2022/09/Modulos-especificos-del-EXANI-II_Psicologia-1-1.pdf",
+  "notas": "Este es un examen de muestra basado en el temario oficial. El examen real puede variar."
+}

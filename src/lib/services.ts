@@ -4,7 +4,16 @@ import { initializeFirebase } from '@/firebase';
 import { initialPerformance } from './data';
 import type { PerformanceData, Feedback, SavedSummary, LearningStrategy } from './types';
 
-const { firestore } = initializeFirebase();
+// Lazy initialize firestore to avoid server-side rendering issues
+let firestoreInstance: ReturnType<typeof initializeFirebase>['firestore'] | null = null;
+
+function getFirestore() {
+  if (!firestoreInstance && typeof window !== 'undefined') {
+    const { firestore } = initializeFirebase();
+    firestoreInstance = firestore;
+  }
+  return firestoreInstance;
+}
 
 /**
  * @fileoverview
@@ -20,6 +29,7 @@ const { firestore } = initializeFirebase();
  * @returns {Promise<PerformanceData[]>} The user's performance data.
  */
 export async function getPerformanceData(userId: string): Promise<PerformanceData[]> {
+  const firestore = getFirestore();
   if (!firestore) return initialPerformance;
   const profile = await getUserProfile(userId);
   return profile?.performanceData || initialPerformance;
@@ -32,6 +42,7 @@ export async function getPerformanceData(userId: string): Promise<PerformanceDat
  * @param {boolean} wasCorrect - Whether the answer was correct.
  */
 export async function updatePerformanceData(userId: string, topic: string, wasCorrect: boolean): Promise<void> {
+  const firestore = getFirestore();
   if (!firestore || !userId) return;
   const userDocRef = doc(firestore, 'users', userId);
   
@@ -76,6 +87,7 @@ export async function updatePerformanceData(userId: string, topic: string, wasCo
  * @returns {Promise<Feedback[]>} A promise that resolves to an array of feedback items.
  */
 export async function getFeedbackHistory(userId: string): Promise<Feedback[]> {
+    const firestore = getFirestore();
     if (!firestore || !userId) return [];
     try {
         const feedbackColRef = collection(firestore, 'users', userId, 'feedbackHistory');
@@ -94,6 +106,7 @@ export async function getFeedbackHistory(userId: string): Promise<Feedback[]> {
  * @param {Feedback} feedbackData - The feedback object to save.
  */
 export async function saveFeedback(userId: string, feedbackData: Feedback): Promise<void> {
+    const firestore = getFirestore();
     if (!firestore || !userId) return;
     try {
         const feedbackColRef = collection(firestore, 'users', userId, 'feedbackHistory');
@@ -166,6 +179,7 @@ export function updateChecklistState(taskId: string, isChecked: boolean): void {
  * @returns {Promise<any | null>} The user's data object or null if not found.
  */
 export async function getUserProfile(userId: string): Promise<any | null> {
+    const firestore = getFirestore();
     if (!firestore || !userId) return null;
     const userDocRef = doc(firestore, 'users', userId);
     try {
@@ -194,6 +208,7 @@ export async function getLearningStrategy(userId: string): Promise<LearningStrat
  * @param {LearningStrategy} strategyData - The learning strategy object to save.
  */
 export async function saveLearningStrategy(userId: string, strategyData: LearningStrategy): Promise<void> {
+    const firestore = getFirestore();
     if (!firestore || !userId) return;
     const userDocRef = doc(firestore, 'users', userId);
     try {

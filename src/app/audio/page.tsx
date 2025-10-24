@@ -1,5 +1,9 @@
 // src/app/audio/page.tsx
 'use client';
+
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+
 import { useState, useRef } from 'react';
 import { Header } from '@/components/header';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
